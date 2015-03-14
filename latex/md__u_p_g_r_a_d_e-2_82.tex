@@ -1,0 +1,16 @@
+
+\begin{DoxyItemize}
+\item The \href{https://github.com/symfony/symfony-standard/blob/2.2/web/.htaccess}{\tt `web/.htaccess`} file has been enhanced substantially to prevent duplicate content with and without {\ttfamily /app.php} in the U\+R\+I. It also improves functionality when using Apache aliases or when mod\+\_\+rewrite is not available. So you might want to update your {\ttfamily .htaccess} file as well.
+\item The {\ttfamily \+\_\+internal} route is not used any more. It should then be removed from both your routing and security configurations. A {\ttfamily fragments} key has been added to the framework configuration and must be specified when E\+S\+I or Hinclude are in use. No security configuration is required for this path as by default E\+S\+I access is only permitted for trusted hosts and Hinclude access uses an U\+R\+L signing mechanism.
+
+``` framework\+: \section*{...}
+
+fragments\+: \{ path\+: /\+\_\+proxy \} ```
+\end{DoxyItemize}
+
+\subsection*{Functional Tests }
+
+
+\begin{DoxyItemize}
+\item The profiler has been disabled by default in the test environment. You can enable it again by modifying the {\ttfamily config\+\_\+test.\+yml} configuration file or even better, you can just enable it for the very next request by calling {\ttfamily \$client-\/$>$enable\+Profiler()} when you need the profiler in a test (that speeds up functional tests quite a bit). 
+\end{DoxyItemize}

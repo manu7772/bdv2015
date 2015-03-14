@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* sans 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<!-- EDITO -->
+	<categorie nom="Une vraie bouffée d'oxygène" texte="Les enfants n’attendent pas votre pitié, mais ils ont besoin de votre soutien. Vous avez la possibilité de sensibiliser votre entourage et de le mobiliser à leurs côtés. Le cancer est une réalité qui guette chacun de nous. Au moment même où vous naviguez sur notre site, un enfant de plus est diagnostiqué. Une famille de plus souffre ; en silence. N’attendez plus pour leur apporter un peu de réconfort. Soutenez notre action ! Ensemble, apportons leur de la joie et de l’espoir !" DATE_datedebut="2014-06-17" typeEvenement__nom="Edito" />
+	<!-- ACTUALITÉS -->
+	<categorie nom="Nouveau site de l'association" texte="Découvrez le nouveau site de l'association." DATE_datedebut="2014-08-25" typeEvenement__nom="Actualités" image__nom="Site001" partenaire__nom="Municipalité de Thizy les Bourgs|Municipalité de Cours la Ville" />
+	<categorie nom="Partenariat renforcé avec le CHU de Saint-Etienne" texte="import@txt::CHUstetienne.txt" DATE_datedebut="2014-08-30" typeEvenement__nom="Actualités" image__nom="" />
+	<categorie nom="Journée des partenaires du Centre de rééducation pédiatrique Romans Ferrari" texte="import@txt::journeeAssoCRomFerr.txt" DATE_datedebut="2014-08-30" typeEvenement__nom="Actualités" image__nom="" />
+	<!-- ACTIONS -->
+	<categorie nom="Soutien du Cyclo Club de Thizy-les-Bourgs" texte="6 coureurs ont parcouru les 752 kilomètres qui relient Thizy-les-Bourgs à Fürth im Odenwald, ville allemande avec laquelle elle est jumelée. Cette échappée a récolté des fonds qui seront reversés au Lions Club du Haut-Beaujolais et à notre association. Soutien financier accordé : 1500 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Cyclo Club de Thizy-les-Bourgs" />
+	<categorie nom="Soutien Association Sportive Rugby de Cours-la-Ville" texte="Le club de rugby a organisé un tournoi jeune pour le weekend de l'Ascension en mai 2011. Une collecte de fonds a permis de récolter 250 euros pour aider à financer des séances d'ergothérapie d'Oéna, petite fille du village. Soutien financier accordé : 250 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Association Sportive Rugby de Cours-la-Ville" />
+	<categorie nom="Soutien de la Municipalité de Thizy-les-Bourgs" texte="La municipalité nous a accordé une subvention exceptionnelle qui a permis de financer, en partie, la création de ce site internet. Soutien financier accordé : 500 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Municipalité de Thizy-les-Bourgs" />
+	<categorie nom="Soutien de la Municipalité de Cours-la-Ville" texte="Soutien financier accordé : 250 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Municipalité de Cours-la-Ville" />
+	<categorie nom="Soutien de la Municipalité de Fürth im Odenwald" texte="La municipalité de Fürth, ville allemande jumelée avec Thizy-les-Bourgs, s'est engagée aux côtés de l'association pour aider Zia, petite fille de 6 ans originaire de Thizy, à suivre ses soins à Montréal pendant un an. Soutien financier accordé : 250 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="municipalité de Fürth im Odenwald" />
+	<categorie nom="Soutien du Conseil général du Rhône" texte="Intervention de Monsieur Eric Poncet, Vice-président au logement solidaire, auprès des bailleurs sociaux en juillet 2012 en faveur du relogement de Wardati Zahahe dans un logement adapté à son handicap." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Conseil général du Rhône" />
+	<categorie nom="Soutien de l'Institut Universitaire et Technologique de Roanne" texte="Contribution d'un groupe d'étudiantes en DUT Techniques de commercialisation à la réalisation d'un projet pour le CHU de Saint-Etienne. Soutien financier accordé : 300 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Institut Universitaire et Technologique de Roanne" />
+	<categorie nom="Soutien du Club des amateurs de Porsches 911" texte="Organisation d'un après-midi Baptêmes en Porsche 911 le vendredi 30 mai au Lac des Sapins. Soutien financier accordé : 740 euros." DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="Club des amateurs de Porsches 911" />
+	<!-- <categorie nom="Soutien de " texte="" DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="" /> -->
+	<!-- <categorie nom="Soutien de " texte="" DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="" partenaire__nom="" /> -->
+	<categorie nom="Lou-Anne" texte="import@txt::LouAnne.txt" DATE_datedebut="2014-08-29" typeEvenement__nom="Actions" image__nom="LouAnne" partenaire__nom="Club des amateurs de Porsches 911|Boîte de nuit" />
+	<!-- PUB -->
+	<categorie nom="Un engagement qui prend force" texte="Le nombre de nos engagements et manifestations est toujours croissant et les volontaires toujours plus nombreux pour soutenir les enfants." typeEvenement__nom="pub" version__nom="Rayon de Soleil" />
+
+</categories>

@@ -1,0 +1,29 @@
+When upgrading Symfony from 2.\+2 to 2.\+3, you need to do the following changes to the code that came from the Standard Edition\+:
+
+
+\begin{DoxyItemize}
+\item The debugging tools are not enabled by default anymore and should be added to the \href{https://github.com/symfony/symfony-standard/blob/2.3/web/app_dev.php}{\tt `web/app\+\_\+dev.php`} front controller manually, just after including the bootstrap cache\+: \begin{DoxyVerb} use Symfony\Component\Debug\Debug;
+
+ Debug::enable();
+\end{DoxyVerb}
+
+
+You also need to enable debugging in the \href{https://github.com/symfony/symfony-standard/blob/2.3/app/console}{\tt `app/console`} script, after the {\ttfamily \$debug} variable is defined\+: \begin{DoxyVerb} use Symfony\Component\Debug\Debug;
+
+ if ($debug) {
+     Debug::enable();
+ }
+\end{DoxyVerb}
+
+\item The {\ttfamily parameters.\+yml} file can now be managed by the {\ttfamily incenteev/composer-\/parameter-\/handler} bundle that comes with the 2.\+3 Standard Edition\+:
+\begin{DoxyItemize}
+\item add {\ttfamily \char`\"{}incenteev/composer-\/parameter-\/handler\char`\"{}\+: \char`\"{}$\sim$2.\+0\char`\"{}} to your {\ttfamily composer.\+json} file;
+\item add {\ttfamily /app/config/parameters.yml} to your {\ttfamily .gitignore} file;
+\item create a \href{https://github.com/symfony/symfony-standard/blob/2.3/app/config/parameters.yml.dist}{\tt `app/config/parameters.yml.\+dist`} file with sensible values for all your parameters.
+\end{DoxyItemize}
+\item It is highly recommended that you switch the minimum stability to {\ttfamily stable} in your {\ttfamily composer.\+json} file.
+\item If you are using Apache, have a look at the new \href{https://github.com/symfony/symfony-standard/blob/2.3/web/.htaccess}{\tt `.htaccess`} configuration and change yours accordingly.
+\item In the \href{https://github.com/symfony/symfony-standard/blob/2.3/app/autoload.php}{\tt `app/autoload.php`} file, the section about {\ttfamily intl} should be removed as it is not needed anymore.
+\end{DoxyItemize}
+
+You can also have a look at the \href{https://github.com/symfony/symfony-standard/compare/v2.2.0%E2%80%A62.3}{\tt diff} between the 2.\+2 version of the Standard Edition and the 2.\+3 version. 

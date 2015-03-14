@@ -1,0 +1,30 @@
+parameters:
+#    acme_user.example.class: AcmeGroup\UserBundle\Example
+
+services:
+    acmegroup_user.registration.form.type:
+        class: AcmeGroup\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: acmegroup_user_registration }
+
+
+    ###################################
+    ### ELEMENTS DE FORMULAIRES
+    ###################################
+
+    # Éléments de formulaires personnalisés
+    form.type.datepicker:
+        class: AcmeGroup\LaboBundle\Form\Type\DatepickerType
+        arguments:
+            - "%formatDate%"
+        tags:
+            - { name: form.type, alias: datepicker }
+
+    form.type.richtext:
+        class: AcmeGroup\LaboBundle\Form\Type\richtextType
+        tags:
+            - { name: form.type, alias: richtext }
+
+
+

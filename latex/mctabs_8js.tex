@@ -1,0 +1,159 @@
+\hypertarget{mctabs_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/compat3x/utils/mctabs.js File Reference}
+\label{mctabs_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/compat3x/utils/mctabs.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/compat3x/utils/mctabs.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} ()
+\item 
+tiny\+M\+C\+E\+Popup on\+Init \hyperlink{mctabs_8js_a9d0723d264994db2998b4baa71dc78f1}{add} (function()\{var \hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}=tiny\+M\+C\+E\+Popup.\+get\+Win().\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}, dom=tiny\+M\+C\+E\+Popup.\+dom, \hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}=\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{tinymce.\+each};\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(\hyperlink{validate_8js_a107b4864f70df98ef4a521c0b2bc80c7}{dom.\+select}('div.\+tabs'), function(tab\+Container\+Elm)\{dom.\+set\+Attrib(tab\+Container\+Elm,\char`\"{}role\char`\"{},\char`\"{}tablist\char`\"{});var items=\hyperlink{validate_8js_a107b4864f70df98ef4a521c0b2bc80c7}{tiny\+M\+C\+E\+Popup.\+dom.\+select}('li', tab\+Container\+Elm);var action=function(id)\{\hyperlink{mctabs_8js_a70f7f76dddd672f59b6ab5039cf6ac35}{mc\+Tabs.\+display\+Tab}(id, \hyperlink{mctabs_8js_a0b2150c9037c4fba982e0f0fd2fae8d8}{mc\+Tabs.\+get\+Panel\+For\+Tab}(id));mc\+Tabs.\+on\+Change.\+dispatch(id);\};\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(items, function(item)\{dom.\+set\+Attrib(item, 'role', 'tab');\hyperlink{jquery_8mobile-1_83_81_8js_aa28c4555fcf1f84917a1d70644f7174f}{dom.\+bind}(item, 'click', function(evt)\{action(item.\+id);\});\});\hyperlink{jquery_8mobile-1_83_81_8js_aa28c4555fcf1f84917a1d70644f7174f}{dom.\+bind}(dom.\+get\+Root(), 'keydown', function(evt)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(evt.\+key\+Code===9 \&\&evt.\+ctrl\+Key \&\&!evt.\+alt\+Key)\{tinymce.\+dom.\+Event.\+cancel(evt);\}\});\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(\hyperlink{validate_8js_a107b4864f70df98ef4a521c0b2bc80c7}{dom.\+select}('\hyperlink{media_2js_2jquery_8js_aa4d4888597588a84fd5b1184d00c91f3}{a}', tab\+Container\+Elm), function(\hyperlink{media_2js_2jquery_8js_aa4d4888597588a84fd5b1184d00c91f3}{a})\{dom.\+set\+Attrib(\hyperlink{media_2js_2jquery_8js_aa4d4888597588a84fd5b1184d00c91f3}{a}, 'tabindex', '-\/1');\});\});\})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a936fb06176b01ffb1fc69eb4d1e2f67d}{init}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a176699320fa47311b5bcb108b79b2285}{get\+Param}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a9bdf5f5e82d6700fe3c2def89d5d82ec}{show\+Tab}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_ad50d442c568b2cf1ea8c8f3b8486d5fe}{hide\+Tab}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_adaa08c8814b7553d16f1a111b6962341}{show\+Panel}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_abe39a714bc1e678e6ba40440246ab578}{hide\+Panel}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a0b2150c9037c4fba982e0f0fd2fae8d8}{get\+Panel\+For\+Tab}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a70f7f76dddd672f59b6ab5039cf6ac35}{display\+Tab}
+\item 
+\hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs} \hyperlink{jquery_8mobile-1_83_81_8js_acd6098decfaf355a91ef27debf39295f}{prototype} \hyperlink{mctabs_8js_a5e2c3566de1856ccb8a25f2d4bc80680}{get\+Anchor}
+\item 
+var \hyperlink{mctabs_8js_a6421771862fdc6d64487d5238a96a303}{mc\+Tabs} = new \hyperlink{mctabs_8js_ad2961c438ec260927684a087c9af136b}{M\+C\+Tabs}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mctabs_8js_a9d0723d264994db2998b4baa71dc78f1}{\index{mctabs.\+js@{mctabs.\+js}!add@{add}}
+\index{add@{add}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}tiny\+M\+C\+E\+Popup on\+Init add (
+\begin{DoxyParamCaption}
+\item[{function()\{var {\bf tinymce}=tiny\+M\+C\+E\+Popup.\+get\+Win().{\bf tinymce}, dom=tiny\+M\+C\+E\+Popup.\+dom, {\bf each}={\bf tinymce.\+each};{\bf each}({\bf dom.\+select}('div.\+tabs'), function(tab\+Container\+Elm)\{dom.\+set\+Attrib(tab\+Container\+Elm,\char`\"{}role\char`\"{},\char`\"{}tablist\char`\"{});var items={\bf tiny\+M\+C\+E\+Popup.\+dom.\+select}('li', tab\+Container\+Elm);var action=function(id)\{{\bf mc\+Tabs.\+display\+Tab}(id, {\bf mc\+Tabs.\+get\+Panel\+For\+Tab}(id));mc\+Tabs.\+on\+Change.\+dispatch(id);\};{\bf each}(items, function(item)\{dom.\+set\+Attrib(item, 'role', 'tab');{\bf dom.\+bind}(item, 'click', function(evt)\{action(item.\+id);\});\});{\bf dom.\+bind}(dom.\+get\+Root(), 'keydown', function(evt)\{{\bf if}(evt.\+key\+Code===9 \&\&evt.\+ctrl\+Key \&\&!evt.\+alt\+Key)\{tinymce.\+dom.\+Event.\+cancel(evt);\}\});{\bf each}({\bf dom.\+select}('{\bf a}', tab\+Container\+Elm), function({\bf a})\{dom.\+set\+Attrib({\bf a}, 'tabindex', '-\/1');\});\});\}}]{}
+\end{DoxyParamCaption}
+)}}\label{mctabs_8js_a9d0723d264994db2998b4baa71dc78f1}
+\hypertarget{mctabs_8js_ad2961c438ec260927684a087c9af136b}{\index{mctabs.\+js@{mctabs.\+js}!M\+C\+Tabs@{M\+C\+Tabs}}
+\index{M\+C\+Tabs@{M\+C\+Tabs}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{M\+C\+Tabs}]{\setlength{\rightskip}{0pt plus 5cm}function M\+C\+Tabs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{mctabs_8js_ad2961c438ec260927684a087c9af136b}
+\hyperlink{mctabs_8js}{mctabs.\+js}
+
+Copyright, Moxiecode Systems A\+B Released under L\+G\+P\+L License.
+
+License\+: \href{http://www.tinymce.com/license}{\tt http\+://www.\+tinymce.\+com/license} Contributing\+: \href{http://www.tinymce.com/contributing}{\tt http\+://www.\+tinymce.\+com/contributing} 
+
+\subsection{Variable Documentation}
+\hypertarget{mctabs_8js_a70f7f76dddd672f59b6ab5039cf6ac35}{\index{mctabs.\+js@{mctabs.\+js}!display\+Tab@{display\+Tab}}
+\index{display\+Tab@{display\+Tab}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{display\+Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} display\+Tab}}\label{mctabs_8js_a70f7f76dddd672f59b6ab5039cf6ac35}
+\hypertarget{mctabs_8js_a5e2c3566de1856ccb8a25f2d4bc80680}{\index{mctabs.\+js@{mctabs.\+js}!get\+Anchor@{get\+Anchor}}
+\index{get\+Anchor@{get\+Anchor}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{get\+Anchor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} get\+Anchor}}\label{mctabs_8js_a5e2c3566de1856ccb8a25f2d4bc80680}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+    var pos, url = \hyperlink{_col_reorder_8js_aa14f8e0338cced6720590fd2ea13bd4b}{document}.location.href;
+
+    \textcolor{keywordflow}{if} ((pos = url.lastIndexOf(\textcolor{charliteral}{'#'})) != -1)
+        \textcolor{keywordflow}{return} url.substring(pos + 1);
+
+    \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_a0b2150c9037c4fba982e0f0fd2fae8d8}{\index{mctabs.\+js@{mctabs.\+js}!get\+Panel\+For\+Tab@{get\+Panel\+For\+Tab}}
+\index{get\+Panel\+For\+Tab@{get\+Panel\+For\+Tab}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{get\+Panel\+For\+Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} get\+Panel\+For\+Tab}}\label{mctabs_8js_a0b2150c9037c4fba982e0f0fd2fae8d8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(tabElm) \{
+    \textcolor{keywordflow}{return} tinyMCEPopup.dom.getAttrib(tabElm, \textcolor{stringliteral}{"aria-controls"});
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_a176699320fa47311b5bcb108b79b2285}{\index{mctabs.\+js@{mctabs.\+js}!get\+Param@{get\+Param}}
+\index{get\+Param@{get\+Param}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{get\+Param}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} get\+Param}}\label{mctabs_8js_a176699320fa47311b5bcb108b79b2285}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(name, default\_value) \{
+    var \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value} = \hyperlink{validate_8js_afb8e110345c45e74478894341ab6b28e}{null};
+
+    value = (\hyperlink{docs_2media_2js_2sh_brush_j_script_8js_a93a9266f92d6d68644e7aa63da3caa11}{typeof}(this.\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings}[name]) == \textcolor{stringliteral}{"undefined"}) ? default\_value : this.
+      \hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings}[name];
+
+    
+    \textcolor{keywordflow}{if} (value == \textcolor{stringliteral}{"true"} || value == \textcolor{stringliteral}{"false"})
+        \textcolor{keywordflow}{return} (value == \textcolor{stringliteral}{"true"});
+
+    \textcolor{keywordflow}{return} \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value};
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_abe39a714bc1e678e6ba40440246ab578}{\index{mctabs.\+js@{mctabs.\+js}!hide\+Panel@{hide\+Panel}}
+\index{hide\+Panel@{hide\+Panel}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{hide\+Panel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} hide\+Panel}}\label{mctabs_8js_abe39a714bc1e678e6ba40440246ab578}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(panel) \{
+    panel.className = \textcolor{stringliteral}{'panel'};
+    panel.setAttribute(\textcolor{stringliteral}{"aria-hidden"}, \textcolor{keyword}{true});
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_ad50d442c568b2cf1ea8c8f3b8486d5fe}{\index{mctabs.\+js@{mctabs.\+js}!hide\+Tab@{hide\+Tab}}
+\index{hide\+Tab@{hide\+Tab}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{hide\+Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} hide\+Tab}}\label{mctabs_8js_ad50d442c568b2cf1ea8c8f3b8486d5fe}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=\textcolor{keyword}{function}(tab)\{
+    var \hyperlink{jquery_8knob_8js_aa09e7cf223942a40813c00a3897b7c48}{t}=\textcolor{keyword}{this};
+
+    tab.className = \textcolor{stringliteral}{''};
+    tab.setAttribute(\textcolor{stringliteral}{"aria-selected"}, \textcolor{keyword}{false});
+    tab.setAttribute(\textcolor{stringliteral}{"aria-expanded"}, \textcolor{keyword}{false});
+    tab.tabIndex = -1;
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_a936fb06176b01ffb1fc69eb4d1e2f67d}{\index{mctabs.\+js@{mctabs.\+js}!init@{init}}
+\index{init@{init}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} init}}\label{mctabs_8js_a936fb06176b01ffb1fc69eb4d1e2f67d}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings}) \{
+    this.\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings} = \hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings};
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_a6421771862fdc6d64487d5238a96a303}{\index{mctabs.\+js@{mctabs.\+js}!mc\+Tabs@{mc\+Tabs}}
+\index{mc\+Tabs@{mc\+Tabs}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{mc\+Tabs}]{\setlength{\rightskip}{0pt plus 5cm}var mc\+Tabs = new {\bf M\+C\+Tabs}()}}\label{mctabs_8js_a6421771862fdc6d64487d5238a96a303}
+\hypertarget{mctabs_8js_adaa08c8814b7553d16f1a111b6962341}{\index{mctabs.\+js@{mctabs.\+js}!show\+Panel@{show\+Panel}}
+\index{show\+Panel@{show\+Panel}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{show\+Panel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} show\+Panel}}\label{mctabs_8js_adaa08c8814b7553d16f1a111b6962341}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(panel) \{
+    panel.className = \textcolor{stringliteral}{'current'}; 
+    panel.setAttribute(\textcolor{stringliteral}{"aria-hidden"}, \textcolor{keyword}{false});
+\}
+\end{DoxyCode}
+\hypertarget{mctabs_8js_a9bdf5f5e82d6700fe3c2def89d5d82ec}{\index{mctabs.\+js@{mctabs.\+js}!show\+Tab@{show\+Tab}}
+\index{show\+Tab@{show\+Tab}!mctabs.\+js@{mctabs.\+js}}
+\subsubsection[{show\+Tab}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+C\+Tabs} {\bf prototype} show\+Tab}}\label{mctabs_8js_a9bdf5f5e82d6700fe3c2def89d5d82ec}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=\textcolor{keyword}{function}(tab)\{
+    tab.className = \textcolor{stringliteral}{'current'};
+    tab.setAttribute(\textcolor{stringliteral}{"aria-selected"}, \textcolor{keyword}{true});
+    tab.setAttribute(\textcolor{stringliteral}{"aria-expanded"}, \textcolor{keyword}{true});
+    tab.tabIndex = 0;
+\}
+\end{DoxyCode}

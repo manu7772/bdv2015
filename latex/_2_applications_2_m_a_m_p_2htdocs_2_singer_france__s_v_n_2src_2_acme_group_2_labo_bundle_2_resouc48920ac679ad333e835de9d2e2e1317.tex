@@ -1,0 +1,37 @@
+\hypertarget{_2_applications_2_m_a_m_p_2htdocs_2_singer_france__s_v_n_2src_2_acme_group_2_labo_bundle_2_resouc48920ac679ad333e835de9d2e2e1317}{\section{/\+Applications/\+M\+A\+M\+P/htdocs/\+Singer\+France\+\_\+\+S\+V\+N/src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Factory.\+js}
+}
+Adds a new control instance type to the factory.
+
+add 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & type Type name for example \char`\"{}button\char`\"{}. \\
+\hline
+{\em \{function\}} & type\+Class Class type function.\\
+\hline
+\end{DoxyParams}
+Returns true/false if the specified type exists or not.
+
+has 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & type Type to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Boolean\} true/false if the control by name exists.
+\end{DoxyReturn}
+Creates a new control instance based on the settings provided. The instance created will be based on the specified type property it can also create whole structures of components out of the specified J\+S\+O\+N object.
+
+tinymce.\+ui.\+Factory.\+create(\{ type\+: 'button', text\+: 'Hello world!' \});
+
+create 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object/\+String\}} & settings Name/\+Value object with items used to create the type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\hyperlink{classtinymce_1_1ui_1_1_control}{tinymce.\+ui.\+Control}\} Control instance based on the specified type.
+\end{DoxyReturn}
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

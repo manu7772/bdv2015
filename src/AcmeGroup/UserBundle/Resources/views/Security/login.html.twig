@@ -1,0 +1,45 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% set cols = "col-xs-12 col-sm-10 col-md-10 col-lg-8" %}
+<!-- <h2 class="well well-sm {{ cols|raw }}">Connexion à votre compte</h2> -->
+
+{% if error %}
+<div class="alert alert-danger">{{ error|trans }}</div>
+{% endif %}
+
+
+<div class="panel panel-default">
+	<div class="panel-heading"><h1>Connexion à votre compte</h1></div>
+	<form action="{{ path('fos_user_security_check') }}" method="post">
+		<div class="ecart-demi"></div>
+		<div class="panel-body">
+			<div class="col-xs-12 col-sm-6"><label for="username">{{ 'security.login.username'|trans }}</label></div>
+			<div class="col-xs-12 col-sm-6"><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" /></div>
+		</div>
+		<div class="panel-body">
+			<div class="col-xs-12 col-sm-6"><label for="password">{{ 'security.login.password'|trans }}</label></div>
+			<div class="col-xs-12 col-sm-6"><input type="password" id="password" name="_password" required="required" /></div>
+		</div>
+		<div class="panel-body hidden-xs">
+			<div class="col-xs-8 col-sm-6"><label for="remember_me">{{ 'security.login.remember_me'|trans }} :</label></div>
+			<div class="col-xs-4 col-sm-6"><input type="checkbox" id="remember_me" name="_remember_me" value="on" /></div>
+		</div>
+		<div class="panel-body visible-xs">
+			<label for="remember_me">{{ 'security.login.remember_me'|trans }} </label>
+			<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+		</div>
+		<div class="panel-body">
+			<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-warning" />
+		</div>
+		<div class="panel-body">
+			<a href="{{ path('fos_user_registration_register') }}"><div class="btn btn-danger">ou créez votre compte</div></a>
+		</div>
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	</form>
+	<div class="ecart-demi"></div>
+</div>
+	
+{% endblock fos_user_content %}

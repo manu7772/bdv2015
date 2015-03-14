@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* sans 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<!-- MENU GAUCHE -->
+	<categorie nom="menu_01" descriptif="Menu principal du site" page_pageweb__nom="homepage" couleur="#FFFFFF" nommenu="menuOptions">
+		<item nom="Bœuf" descriptif="Bœuf" page_pageweb__nom="article-cat" couleur="#a10415">
+			<item nom="Pièces du boucher" descriptif="Pièces du boucher" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À rôtir" descriptif="À rôtir" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À griller" descriptif="À griller" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À braiser" descriptif="À braiser" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="Abats" descriptif="Abats" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+		</item>
+		<item nom="Veau" descriptif="Veau" page_pageweb__nom="article-cat" couleur="#a10415">
+			<item nom="Pièces du boucher" descriptif="Pièces du boucher" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À rôtir" descriptif="À rôtir" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À griller" descriptif="À griller" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À braiser" descriptif="À braiser" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="Abats" descriptif="Abats" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+		</item>
+		<item nom="Agneau" descriptif="Agneau" page_pageweb__nom="article-cat" couleur="#a10415">
+			<item nom="Pièces du boucher" descriptif="Pièces du boucher" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À rôtir" descriptif="À rôtir" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À griller" descriptif="À griller" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À braiser" descriptif="À braiser" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="Abats" descriptif="Abats" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+		</item>
+		<item nom="Porc" descriptif="Porc" page_pageweb__nom="article-cat" couleur="#a10415">
+			<item nom="Pièces du boucher" descriptif="Pièces du boucher" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À rôtir" descriptif="À rôtir" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À griller" descriptif="À griller" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="À braiser" descriptif="À braiser" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+			<item nom="Abats" descriptif="Abats" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
+		</item>
+	</categorie>
+	<!-- MENU HORIZONTAL HAUT -->
+	<categorie nom="menu_02" descriptif="Menu Haut du site" page_pageweb__nom="homepage" couleur="#696763" nommenu="menuOption2">
+		<item nom="Accueil" descriptif="Page d'accueil du site" page_pageweb__nom="homepage" couleur="#696763">
+		<item nom="Comment commander" descriptif="Comment passer commande sur le site" page_pageweb__nom="homepage" couleur="#696763">
+		<item nom="Notre métier" descriptif="Présentation de la Boucherie et de notre métier" page_pageweb__nom="homepage" couleur="#696763">
+		<item nom="Contact" descriptif="Comment nous joindre, plan d'accès" page_pageweb__nom="homepage" couleur="#696763">
+	</categorie>
+
+</categories>

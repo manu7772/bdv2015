@@ -1,0 +1,148 @@
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.9.4/examples/server\+\_\+side/scripts/server\+\_\+processing.php File Reference}
+\label{examples_2server__side_2scripts_2server__processing_8php}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}{fatal\+\_\+error} (\$s\+Error\+Message= '')
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{\$a\+Columns} = array( 'engine', 'browser', 'platform', '\hyperlink{jquery-ui_8js_a8fa514f3aed7ddc8bfb00ed5aea5b5e2}{version}', 'grade' )
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}{\$s\+Index\+Column} = \char`\"{}id\char`\"{}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}{\$s\+Table} = \char`\"{}ajax\char`\"{}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{\$ga\+Sql} \mbox{[}'user'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}{\$ga\+Sql} \mbox{[}'password'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}{\$ga\+Sql} \mbox{[}'db'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}{\$ga\+Sql} \mbox{[}'server'\mbox{]} = \char`\"{}localhost\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!\$ga\+Sql\mbox{[}'link'\mbox{]}=mysql\+\_\+pconnect(\$ga\+Sql\mbox{[}'server'\mbox{]}, \\*
+\$ga\+Sql\mbox{[}'user'\mbox{]}, \$ga\+Sql\mbox{[}'password'\mbox{]})) \\*
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!mysql\+\_\+select\+\_\+db(\$ga\+Sql\mbox{[}'db'\mbox{]}, \\*
+\$ga\+Sql\mbox{[}'link'\mbox{]})) \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a867f070c3b4e597275c622aac60de587}{\$s\+Limit} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Start'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Length'\mbox{]}!= '-\/1') \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}{\$s\+Order} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Sort\+Col\+\_\+0'\mbox{]})) \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}{\$s\+Where} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'s\+Search'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'s\+Search'\mbox{]}!=\char`\"{}\char`\"{}) \\*
+\hyperlink{tinymce_8jquery_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{for}(\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}=0;\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}$<$ count(\$a\+Columns);\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}++) \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}{\$s\+Query}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}{\$r\+Result} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}{fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}{\$r\+Result\+Filter\+Total} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}{fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}{\$a\+Result\+Filter\+Total} = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Filter\+Total)
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{\$i\+Filtered\+Total} = \$a\+Result\+Filter\+Total\mbox{[}0\mbox{]}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}{\$r\+Result\+Total} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}{fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}{\$a\+Result\+Total} = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Total)
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{\$i\+Total} = \$a\+Result\+Total\mbox{[}0\mbox{]}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}{\$output}
+\item 
+\hyperlink{examples_2server__side_2scripts_2server__processing_8php_a83084cf6f83823d8593882985353708d}{while} (\$a\+Row=mysql\+\_\+fetch\+\_\+array(\$r\+Result))
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!fatal\+\_\+error@{fatal\+\_\+error}}
+\index{fatal\+\_\+error@{fatal\+\_\+error}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{fatal\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}fatal\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{}]{\$s\+Error\+Message = {\ttfamily ''}}
+\end{DoxyParamCaption}
+)}}\label{examples_2server__side_2scripts_2server__processing_8php_a1bb235f2e57f0389e14b11592d32119a}
+
+
+\subsection{Variable Documentation}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$a\+Columns@{\$a\+Columns}}
+\index{\$a\+Columns@{\$a\+Columns}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Columns = array( 'engine', 'browser', 'platform', '{\bf version}', 'grade' )}}\label{examples_2server__side_2scripts_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$a\+Result\+Filter\+Total@{\$a\+Result\+Filter\+Total}}
+\index{\$a\+Result\+Filter\+Total@{\$a\+Result\+Filter\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Result\+Filter\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Result\+Filter\+Total = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Filter\+Total)}}\label{examples_2server__side_2scripts_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$a\+Result\+Total@{\$a\+Result\+Total}}
+\index{\$a\+Result\+Total@{\$a\+Result\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Result\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Result\+Total = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Total)}}\label{examples_2server__side_2scripts_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'user'\mbox{]} = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'password'\mbox{]} = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'db'\mbox{]} = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'server'\mbox{]} = \char`\"{}localhost\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$i\+Filtered\+Total@{\$i\+Filtered\+Total}}
+\index{\$i\+Filtered\+Total@{\$i\+Filtered\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$i\+Filtered\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$i\+Filtered\+Total = \$a\+Result\+Filter\+Total\mbox{[}0\mbox{]}}}\label{examples_2server__side_2scripts_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$i\+Total@{\$i\+Total}}
+\index{\$i\+Total@{\$i\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$i\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$i\+Total = \$a\+Result\+Total\mbox{[}0\mbox{]}}}\label{examples_2server__side_2scripts_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$output@{\$output}}
+\index{\$output@{\$output}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$output}]{\setlength{\rightskip}{0pt plus 5cm}\$output}}\label{examples_2server__side_2scripts_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{stringliteral}{"sEcho"} => intval($\_GET[\textcolor{stringliteral}{'sEcho'}]),
+        \textcolor{stringliteral}{"iTotalRecords"} => \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{$iTotal},
+        \textcolor{stringliteral}{"iTotalDisplayRecords"} => \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{$iFilteredTotal},
+        \textcolor{stringliteral}{"aaData"} => array()
+    )
+\end{DoxyCode}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$r\+Result@{\$r\+Result}}
+\index{\$r\+Result@{\$r\+Result}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or {\bf fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )}}\label{examples_2server__side_2scripts_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$r\+Result\+Filter\+Total@{\$r\+Result\+Filter\+Total}}
+\index{\$r\+Result\+Filter\+Total@{\$r\+Result\+Filter\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result\+Filter\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result\+Filter\+Total = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or {\bf fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )}}\label{examples_2server__side_2scripts_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$r\+Result\+Total@{\$r\+Result\+Total}}
+\index{\$r\+Result\+Total@{\$r\+Result\+Total}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result\+Total = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or {\bf fatal\+\_\+error}( 'My\+S\+Q\+L Error\+: ' . mysql\+\_\+errno() )}}\label{examples_2server__side_2scripts_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Index\+Column@{\$s\+Index\+Column}}
+\index{\$s\+Index\+Column@{\$s\+Index\+Column}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Index\+Column}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Index\+Column = \char`\"{}id\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a867f070c3b4e597275c622aac60de587}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Limit@{\$s\+Limit}}
+\index{\$s\+Limit@{\$s\+Limit}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Limit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (!\$ga\+Sql\mbox{[}'link'\mbox{]}=mysql\+\_\+pconnect(\$ga\+Sql\mbox{[}'server'\mbox{]}, \$ga\+Sql\mbox{[}'user'\mbox{]}, \$ga\+Sql\mbox{[}'password'\mbox{]})) {\bf if} (!mysql\+\_\+select\+\_\+db(\$ga\+Sql\mbox{[}'db'\mbox{]}, \$ga\+Sql\mbox{[}'link'\mbox{]})) \$s\+Limit = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a867f070c3b4e597275c622aac60de587}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Order@{\$s\+Order}}
+\index{\$s\+Order@{\$s\+Order}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Order}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Start'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Length'\mbox{]}!= '-\/1') \$s\+Order = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Query@{\$s\+Query}}
+\index{\$s\+Query@{\$s\+Query}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Query}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Query}}\label{examples_2server__side_2scripts_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"}
+\textcolor{stringliteral}{        SELECT SQL\_CALC\_FOUND\_ROWS `"}.str\_replace(\textcolor{stringliteral}{" , "}, \textcolor{stringliteral}{" "}, implode(\textcolor{stringliteral}{"`, `"}, 
+      \hyperlink{examples_2server__side_2scripts_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{$aColumns})).\textcolor{stringliteral}{"`}
+\textcolor{stringliteral}{        FROM   $sTable}
+\textcolor{stringliteral}{        $sWhere}
+\textcolor{stringliteral}{        $sOrder}
+\textcolor{stringliteral}{        $sLimit}
+\textcolor{stringliteral}{        "}
+\end{DoxyCode}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Table@{\$s\+Table}}
+\index{\$s\+Table@{\$s\+Table}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Table}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Table = \char`\"{}ajax\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!\$s\+Where@{\$s\+Where}}
+\index{\$s\+Where@{\$s\+Where}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Where}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Sort\+Col\+\_\+0'\mbox{]})) \$s\+Where = \char`\"{}\char`\"{}}}\label{examples_2server__side_2scripts_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}
+\hypertarget{examples_2server__side_2scripts_2server__processing_8php_a83084cf6f83823d8593882985353708d}{\index{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}!while@{while}}
+\index{while@{while}!examples/server\+\_\+side/scripts/server\+\_\+processing.\+php@{examples/server\+\_\+side/scripts/server\+\_\+processing.\+php}}
+\subsubsection[{while}]{\setlength{\rightskip}{0pt plus 5cm}while(\$a\+Row=mysql\+\_\+fetch\+\_\+array(\$r\+Result))}}\label{examples_2server__side_2scripts_2server__processing_8php_a83084cf6f83823d8593882985353708d}

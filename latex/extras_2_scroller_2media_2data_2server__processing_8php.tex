@@ -1,0 +1,140 @@
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.9.4/extras/\+Scroller/media/data/server\+\_\+processing.php File Reference}
+\label{extras_2_scroller_2media_2data_2server__processing_8php}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/extras/\+Scroller/media/data/server\+\_\+processing.\+php@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{\$a\+Columns} = array( 'id', 'firstname', 'surname', 'zip', 'country' )
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}{\$s\+Index\+Column} = \char`\"{}id\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}{\$s\+Table} = \char`\"{}massive\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{\$ga\+Sql} \mbox{[}'user'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}{\$ga\+Sql} \mbox{[}'password'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}{\$ga\+Sql} \mbox{[}'db'\mbox{]} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}{\$ga\+Sql} \mbox{[}'server'\mbox{]} = \char`\"{}localhost\char`\"{}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a57b1f46c51a5dafdbde39b16259c7e77}{\$ga\+Sql} \mbox{[}'link'\mbox{]}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a21edf730f95a442beb3e90314d1f0946}{\$s\+Limit} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Start'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Length'\mbox{]}!= '-\/1') \hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}{\$s\+Order} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Sort\+Col\+\_\+0'\mbox{]})) \hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}{\$s\+Where} = \char`\"{}\char`\"{}
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(isset(\$\+\_\+\+G\+E\+T\mbox{[}'s\+Search'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'s\+Search'\mbox{]}!=\char`\"{}\char`\"{}) \\*
+\hyperlink{tinymce_8jquery_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{for}(\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}=0;\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}$<$ count(\$a\+Columns);\$\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}++) \hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}{\$s\+Query}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}{\$r\+Result} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}{\$r\+Result\+Filter\+Total} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}{\$a\+Result\+Filter\+Total} = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Filter\+Total)
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{\$i\+Filtered\+Total} = \$a\+Result\+Filter\+Total\mbox{[}0\mbox{]}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}{\$r\+Result\+Total} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}{\$a\+Result\+Total} = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Total)
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{\$i\+Total} = \$a\+Result\+Total\mbox{[}0\mbox{]}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}{\$output}
+\item 
+\hyperlink{extras_2_scroller_2media_2data_2server__processing_8php_a83084cf6f83823d8593882985353708d}{while} (\$a\+Row=mysql\+\_\+fetch\+\_\+array(\$r\+Result))
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$a\+Columns@{\$a\+Columns}}
+\index{\$a\+Columns@{\$a\+Columns}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Columns}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Columns = array( 'id', 'firstname', 'surname', 'zip', 'country' )}}\label{extras_2_scroller_2media_2data_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$a\+Result\+Filter\+Total@{\$a\+Result\+Filter\+Total}}
+\index{\$a\+Result\+Filter\+Total@{\$a\+Result\+Filter\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Result\+Filter\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Result\+Filter\+Total = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Filter\+Total)}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a56c6da767ba5c9ca3c5f0c103dfaa77d}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$a\+Result\+Total@{\$a\+Result\+Total}}
+\index{\$a\+Result\+Total@{\$a\+Result\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$a\+Result\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$a\+Result\+Total = mysql\+\_\+fetch\+\_\+array(\$r\+Result\+Total)}}\label{extras_2_scroller_2media_2data_2server__processing_8php_ab01fea9c7d5ce59f138eabb6206fe6b8}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'user'\mbox{]} = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'password'\mbox{]} = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a5a7f7a53d25bfc58a76a0132750c80eb}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'db'\mbox{]} = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_aaa5ffcba6d18eacf65c42024605b6486}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'server'\mbox{]} = \char`\"{}localhost\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a23a651ce4e9cd3741cb88709c0bfdf8e}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a57b1f46c51a5dafdbde39b16259c7e77}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'link'\mbox{]}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a57b1f46c51a5dafdbde39b16259c7e77}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=  mysql\_pconnect( \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{$gaSql}[\textcolor{stringliteral}{'server'}], \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{$gaSql}[\textcolor{stringliteral}{'user'}], \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a08fc9fba5bf358871d1f80066f8930d1}{$gaSql}[\textcolor{stringliteral}{'password'}]  ) or
+        die( 'Could not open connection \hyperlink{jquery-ui_8js_af6086621f45baa2cf538f19e45d3c263}{to} server' )
+\end{DoxyCode}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$i\+Filtered\+Total@{\$i\+Filtered\+Total}}
+\index{\$i\+Filtered\+Total@{\$i\+Filtered\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$i\+Filtered\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$i\+Filtered\+Total = \$a\+Result\+Filter\+Total\mbox{[}0\mbox{]}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$i\+Total@{\$i\+Total}}
+\index{\$i\+Total@{\$i\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$i\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$i\+Total = \$a\+Result\+Total\mbox{[}0\mbox{]}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$output@{\$output}}
+\index{\$output@{\$output}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$output}]{\setlength{\rightskip}{0pt plus 5cm}\$output}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a73004ce9cd673c1bfafd1dc351134797}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= array(
+        \textcolor{stringliteral}{"sEcho"} => intval($\_GET[\textcolor{stringliteral}{'sEcho'}]),
+        \textcolor{stringliteral}{"iTotalRecords"} => \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a7ba288b7060e9fe77272bafe66c2403d}{$iTotal},
+        \textcolor{stringliteral}{"iTotalDisplayRecords"} => \hyperlink{examples_2server__side_2scripts_2server__processing_8php_a48dbbdca4a5a8b8d03ef6c76dd65a5c1}{$iFilteredTotal},
+        \textcolor{stringliteral}{"aaData"} => array()
+    )
+\end{DoxyCode}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$r\+Result@{\$r\+Result}}
+\index{\$r\+Result@{\$r\+Result}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a8f423fcb1764890d70da997a4140f703}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$r\+Result\+Filter\+Total@{\$r\+Result\+Filter\+Total}}
+\index{\$r\+Result\+Filter\+Total@{\$r\+Result\+Filter\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result\+Filter\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result\+Filter\+Total = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a29b3b8a9782e4c5b8157be2ba70a33e1}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$r\+Result\+Total@{\$r\+Result\+Total}}
+\index{\$r\+Result\+Total@{\$r\+Result\+Total}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$r\+Result\+Total}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result\+Total = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a48722b6bbefe9d4cb748bf0c3f936272}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Index\+Column@{\$s\+Index\+Column}}
+\index{\$s\+Index\+Column@{\$s\+Index\+Column}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Index\+Column}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Index\+Column = \char`\"{}id\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a8bddf0b8ded9777b9068de5fa9e217a2}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a21edf730f95a442beb3e90314d1f0946}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Limit@{\$s\+Limit}}
+\index{\$s\+Limit@{\$s\+Limit}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Limit}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Limit = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a21edf730f95a442beb3e90314d1f0946}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Order@{\$s\+Order}}
+\index{\$s\+Order@{\$s\+Order}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Order}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Start'\mbox{]})\&\&\$\+\_\+\+G\+E\+T\mbox{[}'i\+Display\+Length'\mbox{]}!= '-\/1') \$s\+Order = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a4943002271f61f76fd87176bc8b923bf}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Query@{\$s\+Query}}
+\index{\$s\+Query@{\$s\+Query}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Query}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Query}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a5175d5486118502db3f7aa1ccf7029cc}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"}
+\textcolor{stringliteral}{        SELECT SQL\_CALC\_FOUND\_ROWS "}.str\_replace(\textcolor{stringliteral}{" , "}, \textcolor{stringliteral}{" "}, implode(\textcolor{stringliteral}{", "}, 
+      \hyperlink{examples_2server__side_2scripts_2server__processing_8php_aba12f5ba193beb8beb9fdd0a758711e8}{$aColumns})).\textcolor{stringliteral}{"}
+\textcolor{stringliteral}{        FROM   $sTable}
+\textcolor{stringliteral}{        $sWhere}
+\textcolor{stringliteral}{        $sOrder}
+\textcolor{stringliteral}{        $sLimit}
+\textcolor{stringliteral}{    "}
+\end{DoxyCode}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Table@{\$s\+Table}}
+\index{\$s\+Table@{\$s\+Table}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Table}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Table = \char`\"{}massive\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a6b7d3b9c752a0c977de5ddae78b522a9}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!\$s\+Where@{\$s\+Where}}
+\index{\$s\+Where@{\$s\+Where}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{\$s\+Where}]{\setlength{\rightskip}{0pt plus 5cm}{\bf if} (isset(\$\+\_\+\+G\+E\+T\mbox{[}'i\+Sort\+Col\+\_\+0'\mbox{]})) \$s\+Where = \char`\"{}\char`\"{}}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a377c76acb9c99eb7153f952d3e677c2b}
+\hypertarget{extras_2_scroller_2media_2data_2server__processing_8php_a83084cf6f83823d8593882985353708d}{\index{extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}!while@{while}}
+\index{while@{while}!extras/\+Scroller/media/data/server\+\_\+processing.\+php@{extras/\+Scroller/media/data/server\+\_\+processing.\+php}}
+\subsubsection[{while}]{\setlength{\rightskip}{0pt plus 5cm}while(\$a\+Row=mysql\+\_\+fetch\+\_\+array(\$r\+Result))}}\label{extras_2_scroller_2media_2data_2server__processing_8php_a83084cf6f83823d8593882985353708d}

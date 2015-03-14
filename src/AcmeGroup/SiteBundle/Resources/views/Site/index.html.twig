@@ -1,0 +1,12 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ app.session.get('version').descriptif|raw }}{% endblock %}
+
+{% block header %}{{ parent() }}{% endblock header %}
+
+{% block mainwindow %}
+	{% block carroussel %}
+		{{ render(controller('AcmeGroupSiteBundle:Site:carroussel', {'collection': 'intro'})) }}
+	{% endblock carroussel %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:newshome')) }}
+{% endblock mainwindow %}

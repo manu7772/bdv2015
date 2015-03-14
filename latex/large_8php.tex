@@ -1,0 +1,37 @@
+\hypertarget{large_8php}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.9.4/media/unit\+\_\+testing/performance/large.php File Reference}
+\label{large_8php}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/media/unit\+\_\+testing/performance/large.\+php@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/media/unit\+\_\+testing/performance/large.\+php}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}{\$ga\+Sql} \mbox{[}'link'\mbox{]}
+\item 
+\hyperlink{large_8php_a5175d5486118502db3f7aa1ccf7029cc}{\$s\+Query}
+\item 
+\hyperlink{large_8php_a8f423fcb1764890d70da997a4140f703}{\$r\+Result} = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}{\index{large.\+php@{large.\+php}!\$ga\+Sql@{\$ga\+Sql}}
+\index{\$ga\+Sql@{\$ga\+Sql}!large.\+php@{large.\+php}}
+\subsubsection[{\$ga\+Sql}]{\setlength{\rightskip}{0pt plus 5cm}\$ga\+Sql\mbox{[}'link'\mbox{]}}}\label{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=  mysql\_pconnect( \hyperlink{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}{$gaSql}[\textcolor{stringliteral}{'server'}], \hyperlink{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}{$gaSql}[\textcolor{stringliteral}{'user'}], \hyperlink{large_8php_a57b1f46c51a5dafdbde39b16259c7e77}{$gaSql}[\textcolor{stringliteral}{'password'}]  ) or
+        die( 'Could not open connection \hyperlink{jquery-ui_8js_af6086621f45baa2cf538f19e45d3c263}{to} server' )
+\end{DoxyCode}
+\hypertarget{large_8php_a8f423fcb1764890d70da997a4140f703}{\index{large.\+php@{large.\+php}!\$r\+Result@{\$r\+Result}}
+\index{\$r\+Result@{\$r\+Result}!large.\+php@{large.\+php}}
+\subsubsection[{\$r\+Result}]{\setlength{\rightskip}{0pt plus 5cm}\$r\+Result = mysql\+\_\+query( \$s\+Query, \$ga\+Sql\mbox{[}'link'\mbox{]} ) or die(mysql\+\_\+error())}}\label{large_8php_a8f423fcb1764890d70da997a4140f703}
+\hypertarget{large_8php_a5175d5486118502db3f7aa1ccf7029cc}{\index{large.\+php@{large.\+php}!\$s\+Query@{\$s\+Query}}
+\index{\$s\+Query@{\$s\+Query}!large.\+php@{large.\+php}}
+\subsubsection[{\$s\+Query}]{\setlength{\rightskip}{0pt plus 5cm}\$s\+Query}}\label{large_8php_a5175d5486118502db3f7aa1ccf7029cc}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"}
+\textcolor{stringliteral}{        SELECT *}
+\textcolor{stringliteral}{        FROM   testData}
+\textcolor{stringliteral}{        LIMIT  2000}
+\textcolor{stringliteral}{    "}
+\end{DoxyCode}

@@ -1,0 +1,109 @@
+\hypertarget{_writer_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/html/\+Writer.js File Reference}
+\label{_writer_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/html/\+Writer.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/html/\+Writer.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_writer_8js_a8d50665636528dfc8eadee2df642420a}{define} (\char`\"{}tinymce/\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}/Writer\char`\"{}, \mbox{[}\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}/Entities\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/util/Tools\char`\"{}\mbox{]}, function(Entities, Tools)\{var make\+Map=Tools.\+make\+Map;return function(\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings})\{var \hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}=\mbox{[}$\,$\mbox{]}, indent, indent\+Before, indent\+After, encode, html\+Output;\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings}=\hyperlink{jquery_8tooltip_8js_a52fb9116a07f71570fbf0bd12ff4c9f8}{settings}$\vert$$\vert$\{\};indent=settings.\+indent;indent\+Before=make\+Map(settings.\+indent\+\_\+before$\vert$$\vert$ '');indent\+After=make\+Map(settings.\+indent\+\_\+after$\vert$$\vert$ '');encode=Entities.\+get\+Encode\+Func(settings.\+entity\+\_\+encoding$\vert$$\vert$ 'raw', settings.\+entities);html\+Output=settings.\+element\+\_\+format==\char`\"{}html\char`\"{};return\{start\+:function(name, attrs, empty)\{var \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}, \hyperlink{jquery_8data_tables_8min_8js_aae3c400cfa9afd0584b6226ac3804a40}{l}, attr, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value};\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(indent \&\&indent\+Before\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length-\/1\mbox{]};\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}')\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}');\}\}\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$', name);\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(attrs)\{\hyperlink{tinymce_8jquery_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{for}(\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}=0, \hyperlink{jquery_8data_tables_8min_8js_aae3c400cfa9afd0584b6226ac3804a40}{l}=attrs.\+length;\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}$<$ \hyperlink{jquery_8data_tables_8min_8js_aae3c400cfa9afd0584b6226ac3804a40}{l};\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}++)\{attr=attrs\mbox{[}\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}\mbox{]};\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}(' ', attr.\+name, '=\char`\"{}', encode(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{attr.\+value}, true), '\char`\"{}');\}\}if(!empty$\vert$$\vert$html\+Output)\{\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length\mbox{]}= '$>$';\}\hyperlink{jquery_8iframe-transport_8js_a0544c3fe466e421738dae463968b70ba}{else}\{\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length\mbox{]}= '/$>$';\}\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(empty \&\&indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length-\/1\mbox{]};\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}')\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}');\}\}\}, end\+:function(name)\{var \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value};\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$/', name, '$>$');\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length-\/1\mbox{]};\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}')\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}');\}\}\}, text\+:function(text, raw)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(text.\+length $>$ 0)\{\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html}\mbox{[}html.\+length\mbox{]}=raw?text\+:encode(text);\}\}, cdata\+:function(text)\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$!\mbox{[}C\+D\+A\+T\+A\mbox{[}', text, '\mbox{]}\mbox{]}$>$');\}, comment\+:function(text)\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$!-\/-\/', text, '-\/-\/$>$');\}, pi\+:function(name, text)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(text)\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$?', name, ' ', text, '?$>$');\}\hyperlink{jquery_8iframe-transport_8js_a0544c3fe466e421738dae463968b70ba}{else}\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$?', name, '?$>$');\}\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(indent)\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}');\}\}, doctype\+:function(text)\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{html.\+push}('$<$!D\+O\+C\+T\+Y\+P\+E', text, '$>$', indent? '\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}'\+: '');\}, reset\+:function()\{html.\+length=0;\}, get\+Content\+:function()\{return html.\+join('').replace(/\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n} \$/, '');\}\};\};\})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_writer_8js_a8d50665636528dfc8eadee2df642420a}{\index{Writer.\+js@{Writer.\+js}!define@{define}}
+\index{define@{define}!Writer.\+js@{Writer.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}define (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}tinymce/{\bf html}/Writer\char`\"{}}]{, }
+\item[{function(Entities, Tools)\{var make\+Map=Tools.\+make\+Map;return function({\bf settings})\{var {\bf html}=\mbox{[}$\,$\mbox{]}, indent, indent\+Before, indent\+After, encode, html\+Output;{\bf settings}={\bf settings}$\vert$$\vert$\{\};indent=settings.\+indent;indent\+Before=make\+Map(settings.\+indent\+\_\+before$\vert$$\vert$ '');indent\+After=make\+Map(settings.\+indent\+\_\+after$\vert$$\vert$ '');encode=Entities.\+get\+Encode\+Func(settings.\+entity\+\_\+encoding$\vert$$\vert$ 'raw', settings.\+entities);html\+Output=settings.\+element\+\_\+format==\char`\"{}html\char`\"{};return\{start\+:function(name, attrs, empty)\{var {\bf i}, {\bf l}, attr, {\bf value};{\bf if}(indent \&\&indent\+Before\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{{\bf value}={\bf html}\mbox{[}html.\+length-\/1\mbox{]};{\bf if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}{\bf n}')\{{\bf html.\+push}('\textbackslash{}{\bf n}');\}\}{\bf html.\+push}('$<$', name);{\bf if}(attrs)\{{\bf for}({\bf i}=0, {\bf l}=attrs.\+length;{\bf i}$<$ {\bf l};{\bf i}++)\{attr=attrs\mbox{[}{\bf i}\mbox{]};{\bf html.\+push}(' ', attr.\+name, '=\char`\"{}', encode({\bf attr.\+value}, true), '\char`\"{}');\}\}if(!empty$\vert$$\vert$html\+Output)\{{\bf html}\mbox{[}html.\+length\mbox{]}= '$>$';\}{\bf else}\{{\bf html}\mbox{[}html.\+length\mbox{]}= '/$>$';\}{\bf if}(empty \&\&indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{{\bf value}={\bf html}\mbox{[}html.\+length-\/1\mbox{]};{\bf if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}{\bf n}')\{{\bf html.\+push}('\textbackslash{}{\bf n}');\}\}\}, end\+:function(name)\{var {\bf value};{\bf html.\+push}('$<$/', name, '$>$');{\bf if}(indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{{\bf value}={\bf html}\mbox{[}html.\+length-\/1\mbox{]};{\bf if}(value.\+length $>$ 0 \&\&value!== '\textbackslash{}{\bf n}')\{{\bf html.\+push}('\textbackslash{}{\bf n}');\}\}\}, text\+:function(text, raw)\{{\bf if}(text.\+length $>$ 0)\{{\bf html}\mbox{[}html.\+length\mbox{]}=raw?text\+:encode(text);\}\}, cdata\+:function(text)\{{\bf html.\+push}('$<$!\mbox{[}C\+D\+A\+T\+A\mbox{[}', text, '\mbox{]}\mbox{]}$>$');\}, comment\+:function(text)\{{\bf html.\+push}('$<$!-\/-\/', text, '-\/-\/$>$');\}, pi\+:function(name, text)\{{\bf if}(text)\{{\bf html.\+push}('$<$?', name, ' ', text, '?$>$');\}{\bf else}\{{\bf html.\+push}('$<$?', name, '?$>$');\}{\bf if}(indent)\{{\bf html.\+push}('\textbackslash{}{\bf n}');\}\}, doctype\+:function(text)\{{\bf html.\+push}('$<$!D\+O\+C\+T\+Y\+P\+E', text, '$>$', indent? '\textbackslash{}{\bf n}'\+: '');\}, reset\+:function()\{html.\+length=0;\}, get\+Content\+:function()\{return html.\+join('').replace(/\textbackslash{}{\bf n} \$/, '');\}\};\};\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_writer_8js_a8d50665636528dfc8eadee2df642420a}
+
+\begin{DoxyParams}{Parameters}
+{\em function(\+Entities,Tools)\{var} & make\+Map=Tools.\+make\+Map;return function(settings)\{var html=\mbox{[}\mbox{]}, indent, indent\+Before, indent\+After, encode, html\+Output;settings=settings$\vert$$\vert$\{\};indent=settings.\+indent;indent\+Before=make\+Map(settings.\+indent\+\_\+before$\vert$$\vert$ '');indent\+After=make\+Map(settings.\+indent\+\_\+after$\vert$$\vert$ '');encode=Entities.\+get\+Encode\+Func(settings.\+entity\+\_\+encoding$\vert$$\vert$ 'raw', settings.\+entities);html\+Output=settings.\+element\+\_\+format==\char`\"{}html\char`\"{};return\{start\+:function(name, attrs, empty)\{var i, l, attr, value;if(indent \&\&indent\+Before\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{value=html\mbox{[}html.\+length-\/1\mbox{]};if(value.\+length $>$ 0 \&\&value!== '~\newline
+')\{html.\+push('~\newline
+');\}\}html.\+push('$<$', name);if(attrs)\{for(i=0, l=attrs.\+length;i$<$ l;i++)\{attr=attrs\mbox{[}i\mbox{]};html.\+push(' ', attr.\+name, '=\char`\"{}', encode(attr.\+value, true), '\char`\"{}');\}\}if(!empty$\vert$$\vert$html\+Output)\{html\mbox{[}html.\+length\mbox{]}= '$>$';\}else\{html\mbox{[}html.\+length\mbox{]}= '/$>$';\}if(empty \&\&indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{value=html\mbox{[}html.\+length-\/1\mbox{]};if(value.\+length $>$ 0 \&\&value!== '~\newline
+')\{html.\+push('~\newline
+');\}\}\}, end\+:function(name)\{var value;html.\+push('$<$/', name, '$>$');if(indent \&\&indent\+After\mbox{[}name\mbox{]}\&\&html.\+length $>$ 0)\{value=html\mbox{[}html.\+length-\/1\mbox{]};if(value.\+length $>$ 0 \&\&value!== '~\newline
+')\{html.\+push('~\newline
+');\}\}\}, text\+:function(text, raw)\{if(text.\+length $>$ 0)\{html\mbox{[}html.\+length\mbox{]}=raw?text\+:encode(text);\}\}, cdata\+:function(text)\{html.\+push('$<$!\mbox{[}C\+D\+A\+T\+A\mbox{[}', text, '\mbox{]}\mbox{]}$>$');\}, comment\+:function(text)\{html.\+push('');\}, pi\+:function(name, text)\{if(text)\{html.\+push('$<$?', name, ' ', text, '?$>$');\}else\{html.\+push('$<$?', name, '?$>$');\}if(indent)\{html.\+push('~\newline
+');\}\}, doctype\+:function(text)\{html.\+push('$<$!\+D\+O\+C\+T\+Y\+P\+E', text, '$>$', indent? '~\newline
+'\+: '');\}, reset\+:function()\{html.\+length=0;\}, get\+Content\+:function()\{return html.\+join('').replace(/~\newline
+ \$/, '');\}\};\};\} Constructs a new Writer instance.\\
+\hline
+\end{DoxyParams}
+Writer 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & settings Name/value settings object.\\
+\hline
+\end{DoxyParams}
+Writes the a start element such as 
+
+.
+
+start 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & name Name of the element. \\
+\hline
+{\em \{\+Array\}} & attrs Optional attribute array or undefined if it hasn't any. \\
+\hline
+{\em \{\+Boolean\}} & empty Optional empty state if the tag should end like ~\newline
+.\\
+\hline
+\end{DoxyParams}
+Writes the a end element such as 
+
+.
+
+end 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & name Name of the element.\\
+\hline
+\end{DoxyParams}
+Writes a text node.
+
+text 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & text String to write out. \\
+\hline
+{\em \{\+Boolean\}} & raw Optional raw state if true the contents wont get encoded.\\
+\hline
+\end{DoxyParams}
+Writes a cdata node such as $<$!\mbox{[}C\+D\+A\+T\+A\mbox{[}data\mbox{]}\mbox{]}$>$.
+
+cdata 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & text String to write out inside the cdata.\\
+\hline
+\end{DoxyParams}
+Writes a comment node such as .
+
+cdata 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & text String to write out inside the comment.\\
+\hline
+\end{DoxyParams}
+Writes a P\+I node such as $<$?xml attr=\char`\"{}value\char`\"{} ?$>$.
+
+pi 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & name Name of the pi. \\
+\hline
+{\em \{\+String\}} & text String to write out inside the pi.\\
+\hline
+\end{DoxyParams}
+Writes a doctype node such as $<$!\+D\+O\+C\+T\+Y\+P\+E data$>$.
+
+doctype 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & text String to write out inside the doctype.\\
+\hline
+\end{DoxyParams}
+Resets the internal buffer if one wants to reuse the writer.
+
+reset
+
+Returns the contents that got serialized.
+
+get\+Content \begin{DoxyReturn}{Returns}
+\{String\} H\+T\+M\+L contents that got written down. 
+\end{DoxyReturn}

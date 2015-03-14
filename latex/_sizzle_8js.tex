@@ -1,0 +1,461 @@
+\hypertarget{_sizzle_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/dom/\+Sizzle.js File Reference}
+\label{_sizzle_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/dom/\+Sizzle.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/dom/\+Sizzle.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sizzle_8js_a86a0e277e82d8a0d8be415badd12eebc}{define} (\char`\"{}tinymce/dom/Sizzle\char`\"{}, \mbox{[}$\,$\mbox{]}, function()\{var \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}, cachedruns, Expr, get\+Text, is\+X\+M\+L, compile, outermost\+Context, recompare, sort\+Input, set\+Document, \hyperlink{outside_events_8js_aa14f8e0338cced6720590fd2ea13bd4b}{document}, doc\+Elem, document\+Is\+H\+T\+M\+L, rbuggy\+Q\+S\+A, rbuggy\+Matches, matches, contains, expando=\char`\"{}sizzle\char`\"{}+-\/(new Date()), preferred\+Doc=\hyperlink{outside_events_8js_aa14f8e0338cced6720590fd2ea13bd4b}{window.\+document}, \hyperlink{jquery_8mobile-1_83_81_8js_a9609bc27ca5c7f02203b330bb5dd0133}{support}=\{\}, dirruns=0, done=0, class\+Cache=create\+Cache(), token\+Cache=create\+Cache(), compiler\+Cache=create\+Cache(), has\+Duplicate=\hyperlink{validate_8js_a5df37b7f02e5cdc7d9412b7f872b8e01}{false}, sort\+Order=function()\{return 0;\}, strundefined=\hyperlink{extras_2_scroller_2media_2docs_2media_2js_2sh_brush_j_script_8js_a93a9266f92d6d68644e7aa63da3caa11}{typeof} \hyperlink{tinymce_8js_a08113a236cc18d2a9d5ce27e638012be}{undefined}, M\+A\+X\+\_\+\+N\+E\+G\+A\+T\+I\+V\+E=1$<$$<$ 31, arr=\mbox{[}$\,$\mbox{]}, pop=arr.\+pop, push\+\_\+native=\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{arr.\+push}, \hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{push}=\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{arr.\+push}, slice=arr.\+slice, index\+Of=arr.\+index\+Of$\vert$$\vert$function(elem)\{var \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}=0, len=this.\+length;\hyperlink{tinymce_8jquery_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{for}(;\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}$<$ len;\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}++)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(\hyperlink{tinymce_8jquery_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}{this}\mbox{[}\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}\mbox{]}===elem)\{return \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i};\}\}return-\/1;\}, whitespace=\char`\"{}\mbox{[}\textbackslash{}\textbackslash{}x20\textbackslash{}\textbackslash{}t\textbackslash{}\textbackslash{}r\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}f\mbox{]}\char`\"{}, character\+Encoding=\char`\"{}(?\+:\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}.$\vert$\mbox{[}\textbackslash{}\textbackslash{}w-\/\mbox{]}$\vert$\mbox{[}$^\wedge$\textbackslash{}\textbackslash{}x00-\/\textbackslash{}\textbackslash{}xa0\mbox{]})+\char`\"{}, identifier=character\+Encoding.\+replace(\char`\"{}w\char`\"{},\char`\"{}w\#\char`\"{}), operators=\char`\"{}(\mbox{[}$\ast$$^\wedge$\$$\vert$!$\sim$\mbox{]}?=)\char`\"{}, attributes=\char`\"{}\textbackslash{}\textbackslash{}\mbox{[}\char`\"{}+whitespace+\char`\"{}$\ast$(\char`\"{}+character\+Encoding+\char`\"{})\char`\"{}+whitespace+\char`\"{}$\ast$(?\+:\char`\"{}+operators+whitespace+\char`\"{}$\ast$(?\+:(\mbox{[}'\textbackslash{}\char`\"{}\mbox{]})((?\+:\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}.$\vert$\mbox{[}$^\wedge$\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}\mbox{]})$\ast$?)\textbackslash{}\textbackslash{}3$\vert$(\char`\"{}+identifier+\char`\"{})$\vert$)$\vert$)\char`\"{}+whitespace+\char`\"{}$\ast$\textbackslash{}\textbackslash{}\mbox{]}\char`\"{}, pseudos=\char`\"{}\+:(\char`\"{}+character\+Encoding+\char`\"{})(?\+:\textbackslash{}\textbackslash{}(((\mbox{[}'\textbackslash{}\char`\"{}\mbox{]})((?\+:\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}.$\vert$\mbox{[}$^\wedge$\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}\mbox{]})$\ast$?)\textbackslash{}\textbackslash{}3$\vert$((?\+:\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}.$\vert$\mbox{[}$^\wedge$\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}()\mbox{[}\textbackslash{}\textbackslash{}\mbox{]}\mbox{]}$\vert$\char`\"{}+attributes.\+replace(3, 8)+\char`\"{})$\ast$)$\vert$.$\ast$)\textbackslash{}\textbackslash{})$\vert$)\char`\"{}, rtrim=new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+whitespace+\char`\"{}+$\vert$((?\+:$^\wedge$$\vert$\mbox{[}$^\wedge$\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}\mbox{]})(?\+:\textbackslash{}\textbackslash{}\textbackslash{}\textbackslash{}.)$\ast$)\char`\"{}+whitespace+\char`\"{}+\$\char`\"{},\char`\"{}g\char`\"{}), rcomma=new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+whitespace+\char`\"{}$\ast$,\char`\"{}+whitespace+\char`\"{}$\ast$\char`\"{}), rcombinators=new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+whitespace+\char`\"{}$\ast$(\mbox{[}\textbackslash{}\textbackslash{}x20\textbackslash{}\textbackslash{}t\textbackslash{}\textbackslash{}r\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}f$>$+$\sim$\mbox{]})\char`\"{}+whitespace+\char`\"{}$\ast$\char`\"{}), rpseudo=new Reg\+Exp(pseudos), ridentifier=new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+identifier+\char`\"{}\$\char`\"{}), match\+Expr=\{\char`\"{}I\+D\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\#(\char`\"{}+character\+Encoding+\char`\"{})\char`\"{}),\char`\"{}C\+L\+A\+S\+S\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\textbackslash{}\textbackslash{}.(\char`\"{}+character\+Encoding+\char`\"{})\char`\"{}),\char`\"{}N\+A\+M\+E\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\textbackslash{}\textbackslash{}\mbox{[}name=\mbox{[}'\textbackslash{}\char`\"{}\mbox{]}?(\char`\"{}+character\+Encoding+\char`\"{})\mbox{[}'\textbackslash{}\char`\"{}\mbox{]}?\textbackslash{}\textbackslash{}\mbox{]}\char`\"{}),\char`\"{}T\+A\+G\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$(\char`\"{}+character\+Encoding.\+replace(\char`\"{}w\char`\"{},\char`\"{}w$\ast$\char`\"{})+\char`\"{})\char`\"{}),\char`\"{}A\+T\+T\+R\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+attributes),\char`\"{}P\+S\+E\+U\+D\+O\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+pseudos),\char`\"{}C\+H\+I\+L\+D\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\+:(only$\vert$first$\vert$last$\vert$nth$\vert$nth-\/last)-\/(child$\vert$of-\/type)(?\+:\textbackslash{}\textbackslash{}(\char`\"{}+whitespace+\char`\"{}$\ast$(even$\vert$odd$\vert$((\mbox{[}+-\/\mbox{]}$\vert$)(\textbackslash{}\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_a86138ad7596633fd5f960ad9c40f8862}{d}$\ast$)\hyperlink{fullpage_2plugin_8min_8js_ab767a859d1217315f42c9bb52fc648dc}{n}$\vert$)\char`\"{}+whitespace+\char`\"{}$\ast$(?\+:(\mbox{[}+-\/\mbox{]}$\vert$)\char`\"{}+whitespace+\char`\"{}$\ast$(\textbackslash{}\textbackslash{}d+)$\vert$))\char`\"{}+whitespace+\char`\"{}$\ast$\textbackslash{}\textbackslash{})$\vert$)\char`\"{},\char`\"{}i\char`\"{}),\char`\"{}needs\+Context\char`\"{}\+:new Reg\+Exp(\char`\"{}$^\wedge$\char`\"{}+whitespace+\char`\"{}$\ast$\mbox{[}$>$+$\sim$\mbox{]}$\vert$\+:(even$\vert$odd$\vert$eq$\vert$gt$\vert$lt$\vert$nth$\vert$first$\vert$last)(?\+:\textbackslash{}\textbackslash{}(\char`\"{}+whitespace+\char`\"{}$\ast$((?\+:-\/\textbackslash{}\textbackslash{}d)?\textbackslash{}\textbackslash{}\hyperlink{fullpage_2plugin_8min_8js_a86138ad7596633fd5f960ad9c40f8862}{d}$\ast$)\char`\"{}+whitespace+\char`\"{}$\ast$\textbackslash{}\textbackslash{})$\vert$)(?=\mbox{[}$^\wedge$-\/\mbox{]}$\vert$\$)\char`\"{},\char`\"{}i\char`\"{})\}, rsibling=/\mbox{[}\textbackslash{}\hyperlink{jquery_8fancybox_8pack_8js_ad5a69a22a09c1158b06b6f2c53bf04f1}{x20\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f}\mbox{]}$\ast$\mbox{[}+$\sim$\mbox{]}/, rnative=/$^\wedge$\mbox{[}$^\wedge$\{\mbox{]}+\textbackslash{}\{\textbackslash{}\hyperlink{validate_8js_ae059f217efaf1d50696a1214c3ce5748}{s} $\ast$\textbackslash{}\mbox{[}native code/, rquick\+Expr=/$^\wedge$(?\+:\#(\mbox{[}\textbackslash{}w\textbackslash{}-\/\mbox{]}+)$\vert$(\textbackslash{}w+)$\vert$\textbackslash{}.(\mbox{[}\textbackslash{}w\textbackslash{}-\/\mbox{]}+))\$/, rinputs=/$^\wedge$(?\+:\hyperlink{validate_8js_a07a2aabd64594dc36dd810cad2669deb}{input}$\vert$\hyperlink{validate_8js_a107b4864f70df98ef4a521c0b2bc80c7}{select}$\vert$\hyperlink{validate_8js_a7238bc4fc70c702e90c5c654ff465b8d}{textarea}$\vert$button)\$/\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}, rheader=/$^\wedge$\hyperlink{fullpage_2plugin_8min_8js_a86138ad7596633fd5f960ad9c40f8862}{h\textbackslash{}d} \$/\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}, rescape=/'$\vert$\textbackslash{}\textbackslash{}/\hyperlink{fullpage_2plugin_8min_8js_a103df269476e78897c9c4c6cb8f4eb06}{g}, rattribute\+Quotes=/\textbackslash{}=\mbox{[}\textbackslash{}\hyperlink{jquery_8fancybox_8pack_8js_ad5a69a22a09c1158b06b6f2c53bf04f1}{x20\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f}\mbox{]}$\ast$(\mbox{[}$^\wedge$'\char`\"{}\textbackslash{}\mbox{]}\mbox{]}$\ast$)\mbox{[}\textbackslash{}x20\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f\mbox{]}$\ast$\textbackslash{}\mbox{]}/\hyperlink{fullpage_2plugin_8min_8js_a103df269476e78897c9c4c6cb8f4eb06}{g},
+
+	// C\+S\+S escapes http\+://www.\+w3.\+org/T\+R/C\+S\+S21/\hyperlink{tinymce_8jquery_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{syndata.\+html}\#escaped-\/characters
+	runescape = /\textbackslash{}\textbackslash{}(\mbox{[}\textbackslash{}da-\/f\+A-\/\hyperlink{jquery_8fancybox_8js_a04d9082506e3640041cd22bef9ab6566}{F}\mbox{]}\{1,6\}\mbox{[}\textbackslash{}\hyperlink{jquery_8fancybox_8pack_8js_ad5a69a22a09c1158b06b6f2c53bf04f1}{x20\textbackslash{}t\textbackslash{}r\textbackslash{}n\textbackslash{}f}\mbox{]}?$\vert$.)/\hyperlink{fullpage_2plugin_8min_8js_a103df269476e78897c9c4c6cb8f4eb06}{g},
+	funescape = function( \hyperlink{api_8methods_8js_a9fa21cf6b20968a71a2ed8acf4954e9e}{\+\_\+}, escaped ) \{
+		var high = \char`\"{}0x\char`\"{} + escaped -\/ 0x10000;
+		// Na\+N means non-\/codepoint
+		return high !== high ?
+			escaped \+:
+			// B\+M\+P codepoint
+			high $<$ 0 ?
+				\+String.\+from\+Char\+Code( high + 0x10000 ) \+:
+				// Supplemental Plane codepoint (surrogate pair)
+				\+String.\+from\+Char\+Code( high $>$$>$ 10 $\vert$ 0x\+D800, high \& 0x3\+F\+F $\vert$ 0x\+D\+C00 );
+	\};
+
+// Optimize for push.\+apply( \+\_\+, Node\+List )
+try \{
+	push.\+apply(
+		(arr = slice.\+call( preferred\+Doc.\+child\+Nodes )),
+		preferred\+Doc.\+child\+Nodes
+	);
+	// Support\+: Android$<$4.\+0
+	// Detect silently failing push.\+apply
+	arr\mbox{[} preferred\+Doc.\+child\+Nodes.\+length \mbox{]}.\+node\+Type;
+\} catch ( e ) \{
+	push = \{ apply\+: arr.\+length ?
+
+		// Leverage slice if possible
+		function( target, els ) \{
+			push\+\_\+native.\+apply( target, slice.\+call(els) );
+		\} \+:
+
+		// Support\+: I\+E$<$9
+		// Otherwise append directly
+		function( target, els ) \{
+			var j = target.\+length,
+				i = 0;
+			// Can't trust Node\+List.\+length
+			while ( (target\mbox{[}j++\mbox{]} = els\mbox{[}i++\mbox{]}) ) \{\}
+			target.\+length = j -\/ 1;
+		\}
+	\};
+\}
+
+/$\ast$$\ast$
+ $\ast$ For feature detection
+ $\ast$ @param \{\+Function\} fn The function to test for native support
+ $\ast$/
+function is\+Native( fn ) \{
+	return rnative.\+test( fn + \char`\"{}\char`\"{} );
+\}
+
+/$\ast$$\ast$
+ $\ast$ Create key-\/value caches of limited size
+ $\ast$ @returns \{\+Function(string, Object)\} Returns the Object data after storing it on itself with
+ $\ast$	property name the (space-\/suffixed) string and (if the cache is larger than Expr.\+cache\+Length)
+ $\ast$	deleting the oldest entry
+ $\ast$/
+function create\+Cache() \{
+	var cache,
+		keys = \mbox{[}$\,$\mbox{]};
+
+	cache = function( key, value ) \{
+		// Use (key + \char`\"{}\char`\"{}) to avoid collision with native prototype properties (see Issue \#157)
+		if ( keys.\+push( key += \char`\"{}\char`\"{} ) $>$ Expr.\+cache\+Length ) \{
+			// Only keep the most recent entries
+			delete cache\mbox{[} keys.\+shift() \mbox{]};
+		\}
+		cache\mbox{[} key \mbox{]} = value;
+		return value;
+	\};
+
+	return cache;
+\}
+
+/$\ast$$\ast$
+ $\ast$ Mark a function for special use by Sizzle
+ $\ast$ @param \{\+Function\} fn The function to mark
+ $\ast$/
+function mark\+Function( fn ) \{
+	fn\mbox{[} expando \mbox{]} = true;
+	return fn;
+\}
+
+/$\ast$$\ast$
+ $\ast$ Support testing using an element
+ $\ast$ @param \{\+Function\} fn Passed the created div and expects a boolean result
+ $\ast$/
+function assert( fn ) \{
+	var div = document.\+create\+Element(\char`\"{}div\char`\"{});
+
+	try \{
+		return !!fn( div );
+	\} catch (e) \{
+		return false;
+	\} finally \{
+		// release memory in I\+E
+		div = null;
+	\}
+\}
+
+function Sizzle( selector, context, results, seed ) \{
+	var match, elem, m, node\+Type,
+		// Q\+S\+A vars
+		i, groups, old, nid, new\+Context, new\+Selector;
+
+	if ( ( context ? context.\+owner\+Document $\vert$$\vert$ context \+: preferred\+Doc ) !== document ) \{
+		set\+Document( context );
+	\}
+
+	context = context $\vert$$\vert$ document;
+	results = results $\vert$$\vert$ \mbox{[}$\,$\mbox{]};
+
+	if ( !selector $\vert$$\vert$ typeof selector !== \char`\"{}string\char`\"{} ) \{
+		return results;
+	\}
+
+	if ( (node\+Type = context.\+node\+Type) !== 1 \&\& node\+Type !== 9 ) \{
+		return \mbox{[}$\,$\mbox{]};
+	\}
+
+	if ( document\+Is\+H\+T\+M\+L \&\& !seed ) \{
+
+		// Shortcuts
+		if ( (match = rquick\+Expr.\+exec( selector )) ) \{
+			// Speed-\/up\+: Sizzle(\char`\"{}\#\+I\+D\char`\"{})
+			if ( (m = match\mbox{[}1\mbox{]}) ) \{
+				if ( node\+Type === 9 ) \{
+					elem = context.\+get\+Element\+By\+Id( m );
+					// Check parent\+Node to catch when Blackberry 4.\+6 returns
+					// nodes that are no longer in the document \#6963
+					if ( elem \&\& elem.\+parent\+Node ) \{
+						// Handle the case where I\+E, Opera, and Webkit return items
+						// by name instead of I\+D
+						if ( elem.\+id === m ) \{
+							results.\+push( elem );
+							return results;
+						\}
+					\} else \{
+						return results;
+					\}
+				\} else \{
+					// Context is not a document
+					if ( context.\+owner\+Document \&\& (elem = context.\+owner\+Document.\+get\+Element\+By\+Id( m )) \&\&
+						contains( context, elem ) \&\& elem.\+id === m ) \{
+						results.\+push( elem );
+						return results;
+					\}
+				\}
+
+			// Speed-\/up\+: Sizzle(\char`\"{}\+T\+A\+G\char`\"{})
+			\} else if ( match\mbox{[}2\mbox{]} ) \{
+				push.\+apply( results, context.\+get\+Elements\+By\+Tag\+Name( selector ) );
+				return results;
+
+			// Speed-\/up\+: Sizzle(\char`\"{}.\+C\+L\+A\+S\+S\char`\"{})
+			\} else if ( (m = match\mbox{[}3\mbox{]}) \&\& support.\+get\+Elements\+By\+Class\+Name \&\& context.\+get\+Elements\+By\+Class\+Name ) \{
+				push.\+apply( results, context.\+get\+Elements\+By\+Class\+Name( m ) );
+				return results;
+			\}
+		\}
+
+		// Q\+S\+A path
+		if ( support.\+qsa \&\& !rbuggy\+Q\+S\+A.\+test(selector) ) \{
+			old = true;
+			nid = expando;
+			new\+Context = context;
+			new\+Selector = node\+Type === 9 \&\& selector;
+
+			// q\+S\+A works strangely on Element-\/rooted queries
+			// We can work around this by specifying an extra I\+D on the root
+			// and working up from there (\+Thanks to Andrew Dupont for the technique)
+			// I\+E 8 doesn't work on object elements
+			if ( node\+Type === 1 \&\& context.\+node\+Name.\+to\+Lower\+Case() !== \char`\"{}object\char`\"{} ) \{
+				groups = tokenize( selector );
+
+				if ( (old = context.\+get\+Attribute(\char`\"{}id\char`\"{})) ) \{
+					nid = old.\+replace( rescape, \char`\"{}\textbackslash{}\textbackslash{}\$\&\char`\"{} );
+				\} else \{
+					context.\+set\+Attribute( \char`\"{}id\char`\"{}, nid );
+				\}
+				nid = \char`\"{}\mbox{[}id='\char`\"{} + nid + \char`\"{}'\mbox{]}\char`\"{};
+
+				i = groups.\+length;
+				while ( i-\/-\/ ) \{
+					groups\mbox{[}i\mbox{]} = nid + to\+Selector( groups\mbox{[}i\mbox{]} );
+				\}
+				new\+Context = rsibling.\+test( selector ) \&\& context.\+parent\+Node $\vert$$\vert$ context;
+				new\+Selector = groups.\+join(\char`\"{},\char`\"{});
+			\}
+
+			if ( new\+Selector ) \{
+				try \{
+					push.\+apply( results,
+						new\+Context.\+query\+Selector\+All( new\+Selector )
+					);
+					return results;
+				\} catch(qsa\+Error) \{
+				\} finally \{
+					if ( !old ) \{
+						context.\+remove\+Attribute(\char`\"{}id\char`\"{});
+					\}
+				\}
+			\}
+		\}
+	\}
+
+	// All others
+	return select( selector.\+replace( rtrim, \char`\"{}\$1\char`\"{} ), context, results, seed );
+\}
+
+/$\ast$$\ast$
+ $\ast$ Detect xml
+ $\ast$ @param \{\+Element$\vert$\+Object\} elem An element or a document
+ $\ast$/
+is\+X\+M\+L = Sizzle.\+is\+X\+M\+L = function( elem ) \{
+	// document\+Element is verified for cases where it doesn't yet exist
+	// (such as loading iframes in I\+E -\/ \#4833)
+	var document\+Element = elem \&\& (elem.\+owner\+Document $\vert$$\vert$ elem).\+document\+Element;
+	return document\+Element ? document\+Element.\+node\+Name !== \char`\"{}\+H\+T\+M\+L\char`\"{} \+: false;
+\};
+
+/$\ast$$\ast$
+ $\ast$ Sets document-\/related variables once based on the current document
+ $\ast$ @param \{\+Element$\vert$\+Object\} \mbox{[}doc\mbox{]} An element or document object to use to set the document
+ $\ast$ @returns \{\+Object\} Returns the current document
+ $\ast$/
+set\+Document = Sizzle.\+set\+Document = function( node ) \{
+	var doc = node ? node.\+owner\+Document $\vert$$\vert$ node \+: preferred\+Doc;
+
+	// If no document and document\+Element is available, return
+	if ( doc === document $\vert$$\vert$ doc.\+node\+Type !== 9 $\vert$$\vert$ !doc.\+document\+Element ) \{
+		return document;
+	\}
+
+	// Set our document
+	document = doc;
+	doc\+Elem = doc.\+document\+Element;
+
+	// Support tests
+	document\+Is\+H\+T\+M\+L = !is\+X\+M\+L( doc );
+
+	// Check if get\+Elements\+By\+Tag\+Name(\char`\"{}$\ast$\char`\"{}) returns only elements
+	support.\+get\+Elements\+By\+Tag\+Name = assert(function( div ) \{
+		div.\+append\+Child( doc.\+create\+Comment(\char`\"{}\char`\"{}) );
+		return !div.\+get\+Elements\+By\+Tag\+Name(\char`\"{}$\ast$\char`\"{}).\+length;
+	\});
+
+	// Check if attributes should be retrieved by attribute nodes
+	support.\+attributes = assert(function( div ) \{
+		div.\+inner\+H\+T\+M\+L = \char`\"{}$<$ select $>$$<$/select $>$\char`\"{};
+		var type = typeof div.\+last\+Child.\+get\+Attribute(\char`\"{}multiple\char`\"{});
+		// I\+E8 returns a string for some attributes even when not present
+		return type !== \char`\"{}boolean\char`\"{} \&\& type !== \char`\"{}string\char`\"{};
+	\});
+
+	// Check if get\+Elements\+By\+Class\+Name can be trusted
+	support.\+get\+Elements\+By\+Class\+Name = assert(function( div ) \{
+		// Opera can't find a second classname (in 9.\+6)
+		div.\+inner\+H\+T\+M\+L = \char`\"{}$<$ div class='hidden e'$>$$<$/div $>$$<$ div class='hidden'$>$$<$/div $>$\char`\"{};
+		if ( !div.\+get\+Elements\+By\+Class\+Name $\vert$$\vert$ !div.\+get\+Elements\+By\+Class\+Name(\char`\"{}e\char`\"{}).\+length ) \{
+			return false;
+		\}
+
+		// Safari 3.\+2 caches class attributes and doesn't catch changes
+		div.\+last\+Child.\+class\+Name = \char`\"{}e\char`\"{};
+		return div.\+get\+Elements\+By\+Class\+Name(\char`\"{}e\char`\"{}).\+length === 2;
+	\});
+
+	// Check if get\+Elements\+By\+Name privileges form controls or returns elements by I\+D
+	// If so, assume (for broader support) that get\+Element\+By\+Id returns elements by name
+	support.\+get\+By\+Name = assert(function( div ) \{
+		// Inject content
+		div.\+id = expando + 0;
+		// Support\+: Windows 8 Native Apps
+		// Assigning inner\+H\+T\+M\+L with \char`\"{}name\char`\"{} attributes throws uncatchable exceptions
+		// http\+://msdn.\+microsoft.\+com/en-\/us/library/ie/hh465388.\+aspx
+		div.\+append\+Child( document.\+create\+Element(\char`\"{}a\char`\"{}) ).\+set\+Attribute( \char`\"{}name\char`\"{}, expando );
+		div.\+append\+Child( document.\+create\+Element(\char`\"{}i\char`\"{}) ).\+set\+Attribute( \char`\"{}name\char`\"{}, expando );
+		doc\+Elem.\+append\+Child( div );
+
+		// Test
+		var pass = doc.\+get\+Elements\+By\+Name \&\&
+			// buggy browsers will return fewer than the correct 2
+			doc.\+get\+Elements\+By\+Name( expando ).\+length === 2 +
+			// buggy browsers will return more than the correct 0
+			doc.\+get\+Elements\+By\+Name( expando + 0 ).\+length;
+
+		// Cleanup
+		doc\+Elem.\+remove\+Child( div );
+
+		return pass;
+	\});
+
+	// Support\+: Webkit$<$537.\+32
+	// Detached nodes confoundingly follow $\ast$each other$\ast$
+	support.\+sort\+Detached = assert(function( div1 ) \{
+		return div1.\+compare\+Document\+Position \&\&
+			// Should return 1, but Webkit returns 4 (following)
+			(div1.\+compare\+Document\+Position( document.\+create\+Element(\char`\"{}div\char`\"{}) ) \& 1);
+	\});
+
+	// I\+E6/7 return modified attributes
+	\+Expr.\+attr\+Handle = assert(function( div ) \{
+		div.\+inner\+H\+T\+M\+L = \char`\"{}$<$ a href='\#'$>$$<$/a $>$\char`\"{};
+		return div.\+first\+Child \&\& typeof div.\+first\+Child.\+get\+Attribute !== strundefined \&\&
+			div.\+first\+Child.\+get\+Attribute(\char`\"{}href\char`\"{}) === \char`\"{}\#\char`\"{};
+	\}) ?
+		\{\} \+:
+		\{
+			\char`\"{}href\char`\"{}\+: function( elem ) \{
+				return elem.\+get\+Attribute( \char`\"{}href\char`\"{}, 2 );
+			\},
+			\char`\"{}type\char`\"{}\+: function( elem ) \{
+				return elem.\+get\+Attribute(\char`\"{}type\char`\"{});
+			\}
+		\};
+
+	// I\+D find and filter
+	if ( support.\+get\+By\+Name ) \{
+		\+Expr.\+find\mbox{[}\char`\"{}\+I\+D\char`\"{}\mbox{]} = function( id, context ) \{
+			if ( typeof context.\+get\+Element\+By\+Id !== strundefined \&\& document\+Is\+H\+T\+M\+L ) \{
+				var m = context.\+get\+Element\+By\+Id( id );
+				// Check parent\+Node to catch when Blackberry 4.\+6 returns
+				// nodes that are no longer in the document \#6963
+				return m \&\& m.\+parent\+Node ? \mbox{[}m\mbox{]} \+: \mbox{[}$\,$\mbox{]};
+			\}
+		\};
+		\+Expr.\+filter\mbox{[}\char`\"{}\+I\+D\char`\"{}\mbox{]} = function( id ) \{
+			var attr\+Id = id.\+replace( runescape, funescape );
+			return function( elem ) \{
+				return elem.\+get\+Attribute(\char`\"{}id\char`\"{}) === attr\+Id;
+			\};
+		\};
+	\} else \{
+		\+Expr.\+find\mbox{[}\char`\"{}\+I\+D\char`\"{}\mbox{]} = function( id, context ) \{
+			if ( typeof context.\+get\+Element\+By\+Id !== strundefined \&\& document\+Is\+H\+T\+M\+L ) \{
+				var m = context.\+get\+Element\+By\+Id( id );
+
+				return m ?
+					m.\+id === id $\vert$$\vert$ typeof m.\+get\+Attribute\+Node !== strundefined \&\& m.\+get\+Attribute\+Node(\char`\"{}id\char`\"{}).\+value === id ?
+						\mbox{[}m\mbox{]} \+:
+						undefined \+:
+					\mbox{[}$\,$\mbox{]};
+			\}
+		\};
+		\+Expr.\+filter\mbox{[}\char`\"{}\+I\+D\char`\"{}\mbox{]} =  function( id ) \{
+			var attr\+Id = id.\+replace( runescape, funescape );
+			return function( elem ) \{
+				var node = typeof elem.\+get\+Attribute\+Node !== strundefined \&\& elem.\+get\+Attribute\+Node(\char`\"{}id\char`\"{});
+				return node \&\& node.\+value === attr\+Id;
+			\};
+		\};
+	\}
+
+	// Tag
+	\+Expr.\+find\mbox{[}\char`\"{}\+T\+A\+G\char`\"{}\mbox{]} = support.\+get\+Elements\+By\+Tag\+Name ?
+		function( tag, context ) \{
+			if ( typeof context.\+get\+Elements\+By\+Tag\+Name !== strundefined ) \{
+				return context.\+get\+Elements\+By\+Tag\+Name( tag );
+			\}
+		\} \+:
+		function( tag, context ) \{
+			var elem,
+				tmp = \mbox{[}$\,$\mbox{]},
+				i = 0,
+				results = context.\+get\+Elements\+By\+Tag\+Name( tag );
+
+			// Filter out possible comments
+			if ( tag === \char`\"{}$\ast$\char`\"{} ) \{
+				while ( (elem = results\mbox{[}i++\mbox{]}) ) \{
+					if ( elem.\+node\+Type === 1 ) \{
+						tmp.\+push( elem );
+					\}
+				\}
+
+				return tmp;
+			\}
+			return results;
+		\};
+
+	// Name
+	\+Expr.\+find\mbox{[}\char`\"{}\+N\+A\+M\+E\char`\"{}\mbox{]} = support.\+get\+By\+Name \&\& function( tag, context ) \{
+		if ( typeof context.\+get\+Elements\+By\+Name !== strundefined ) \{
+			return context.\+get\+Elements\+By\+Name( name );
+		\}
+	\};
+
+	// Class
+	\+Expr.\+find\mbox{[}\char`\"{}\+C\+L\+A\+S\+S\char`\"{}\mbox{]} = support.\+get\+Elements\+By\+Class\+Name \&\& function( class\+Name, context ) \{
+		if ( typeof context.\+get\+Elements\+By\+Class\+Name !== strundefined \&\& document\+Is\+H\+T\+M\+L ) \{
+			return context.\+get\+Elements\+By\+Class\+Name( class\+Name );
+		\}
+	\};
+
+	// Q\+S\+A and matches\+Selector support
+
+	// matches\+Selector(\+:active) reports false when true (\+I\+E9/\+Opera 11.\+5)
+	rbuggy\+Matches = \mbox{[}$\,$\mbox{]};
+
+	// q\+Sa(\+:focus) reports false when true (\+Chrome 21),
+	// no need to also add to buggy\+Matches since matches checks buggy\+Q\+S\+A
+	// A support test would require too much code (would include document ready)
+	rbuggy\+Q\+S\+A = \mbox{[} \char`\"{}\+:focus\char`\"{} \mbox{]};
+
+	if ( (support.\+qsa = is\+Native(doc.\+query\+Selector\+All)) ) \{
+		// Build Q\+S\+A regex
+		// Regex strategy adopted from Diego Perini
+		assert(function( div ) \{
+			// Select is set to empty string on purpose
+			// This is to test I\+E's treatment of not explicitly
+			// setting a boolean content attribute,
+			// since its presence should be enough
+			// http\+://bugs.\+jquery.\+com/ticket/12359
+			div.\+inner\+H\+T\+M\+L = \char`\"{}$<$ select $>$$<$ option selected=''$>$$<$/option $>$$<$/select $>$\char`\"{};
+
+			// I\+E8 -\/ Some boolean attributes are not treated correctly
+			if ( !div.\+query\+Selector\+All(\char`\"{}\mbox{[}selected\mbox{]}\char`\"{}).\+length ) \{
+				rbuggy\+Q\+S\+A.\+push( \char`\"{}\textbackslash{}\textbackslash{}\mbox{[}\char`\"{} + whitespace + \char`\"{}$\ast$(?\+:checked$\vert$disabled$\vert$ismap$\vert$multiple$\vert$readonly$\vert$selected$\vert$value)\char`\"{} );
+			\}
+
+			// Webkit/\+Opera -\/ \+:checked should return selected option elements
+			// http\+://www.\+w3.\+org/\+T\+R/2011/\+R\+E\+C-\/css3-\/selectors-\/20110929/\#checked
+			// I\+E8 throws error here and will not see later tests
+			if ( !div.\+query\+Selector\+All(\char`\"{}\+:checked\char`\"{}).\+length ) \{
+				rbuggy\+Q\+S\+A.\+push(\char`\"{}\+:checked\char`\"{});
+			\}
+		\});
+
+		assert(function( div ) \{
+
+			// Opera 10-\/12/\+I\+E8 -\/ $^\wedge$= \$= $\ast$= and empty values
+			// Should not select anything
+			div.\+inner\+H\+T\+M\+L = \char`\"{}$<$ input type='hidden'i=''/$>$\char`\"{};
+			if ( div.\+query\+Selector\+All(\char`\"{}\mbox{[}i$^\wedge$=''\mbox{]}\char`\"{}).\+length ) \{
+				rbuggy\+Q\+S\+A.\+push( \char`\"{}\mbox{[}$\ast$$^\wedge$\$\mbox{]}=\char`\"{} + whitespace + \char`\"{}$\ast$(?\+:\textbackslash{}\char`\"{}\textbackslash{}\char`\"{}$\vert$'')\char`\"{});\}if(!div.\+query\+Selector\+All(\char`\"{}\+:enabled\char`\"{}).\+length)\{rbuggy\+Q\+S\+A.\+push(\char`\"{}\+:enabled\char`\"{},\char`\"{}\+:disabled\char`\"{});\}div.\+query\+Selector\+All(\char`\"{}$\ast$,\+:x\char`\"{});rbuggy\+Q\+S\+A.\+push(\char`\"{},.$\ast$\+:\char`\"{});\});\}if((support.\+matches\+Selector=is\+Native((matches=doc\+Elem.\+matches\+Selector$\vert$$\vert$doc\+Elem.\+moz\+Matches\+Selector$\vert$$\vert$doc\+Elem.\+webkit\+Matches\+Selector$\vert$$\vert$doc\+Elem.\+o\+Matches\+Selector$\vert$$\vert$doc\+Elem.\+ms\+Matches\+Selector))))\{assert(function(div)\{support.\+disconnected\+Match=matches.\+call(div,\char`\"{}div\char`\"{});matches.\+call(div,\char`\"{}\mbox{[}s!=''\mbox{]}\+:x\char`\"{});rbuggy\+Matches.\+push(\char`\"{}!=\char`\"{}, pseudos);\});\}rbuggy\+Q\+S\+A=new Reg\+Exp(rbuggy\+Q\+S\+A.\+join(\char`\"{}$\vert$\char`\"{}));rbuggy\+Matches=rbuggy\+Matches.\+length \&\&new Reg\+Exp(rbuggy\+Matches.\+join(\char`\"{}$\vert$\char`\"{}));contains=is\+Native(doc\+Elem.\+contains)$\vert$$\vert$doc\+Elem.\+compare\+Document\+Position?function(a, b)\{var adown=a.\+node\+Type===9?a.\+document\+Element\+:a, bup=b \&\&b.\+parent\+Node;return a===bup$\vert$$\vert$!!(bup \&\&bup.\+node\+Type===1 \&\&(adown.\+contains?adown.\+contains(bup)\+:a.\+compare\+Document\+Position \&\&a.\+compare\+Document\+Position(bup)\&16));\}\+:function(a, b)\{if(b)\{while((b=b.\+parent\+Node))\{if(b===a)\{return true;\}\}\}return false;\};sort\+Order=doc\+Elem.\+compare\+Document\+Position?function(a, b)\{if(a===b)\{has\+Duplicate=true;return 0;\}var compare=b.\+compare\+Document\+Position \&\&a.\+compare\+Document\+Position \&\&a.\+compare\+Document\+Position(b);if(compare)\{if(compare \&1$\vert$$\vert$(recompare \&\&b.\+compare\+Document\+Position(a)===compare))\{if(a===doc$\vert$$\vert$contains(preferred\+Doc, a))\{return-\/1;\}if(b===doc$\vert$$\vert$contains(preferred\+Doc, b))\{return 1;\}return sort\+Input?(index\+Of.\+call(sort\+Input, a)-\/index\+Of.\+call(sort\+Input, b))\+:0;\}return compare \&4?-\/1\+:1;\}return a.\+compare\+Document\+Position?-\/1\+:1;\}\+:function(a, b)\{var cur, i=0, aup=a.\+parent\+Node, bup=b.\+parent\+Node, ap=\mbox{[}a\mbox{]}, bp=\mbox{[}b\mbox{]};if(a===b)\{has\+Duplicate=true;return 0;\}else if(!aup$\vert$$\vert$!bup)\{return a===doc?-\/1\+:b===doc?1\+:aup?-\/1\+:bup?1\+:0;\}else if(aup===bup)\{return sibling\+Check(a, b);\}cur=a;while((cur=cur.\+parent\+Node))\{ap.\+unshift(cur);\}cur=b;while((cur=cur.\+parent\+Node))\{bp.\+unshift(cur);\}while(ap\mbox{[}i\mbox{]}===bp\mbox{[}i\mbox{]})\{i++;\}return i?sibling\+Check(ap\mbox{[}i\mbox{]}, bp\mbox{[}i\mbox{]})\+:ap\mbox{[}i\mbox{]}===preferred\+Doc?-\/1\+:bp\mbox{[}i\mbox{]}===preferred\+Doc?1\+:0;\};return document;\};\+Sizzle.\+matches=function(expr, elements)\{return Sizzle(expr, null, null, elements);\};\+Sizzle.\+matches\+Selector=function(elem, expr)\{if((elem.\+owner\+Document$\vert$$\vert$elem)!==document)\{set\+Document(elem);\}expr=expr.\+replace(rattribute\+Quotes,\char`\"{}='\$1'\mbox{]}\char`\"{});if(support.\+matches\+Selector \&\&document\+Is\+H\+T\+M\+L \&\&(!rbuggy\+Matches$\vert$$\vert$!rbuggy\+Matches.\+test(expr))\&\&!rbuggy\+Q\+S\+A.\+test(expr))\{try\{var ret=matches.\+call(elem, expr);if(ret$\vert$$\vert$support.\+disconnected\+Match$\vert$$\vert$elem.\+document \&\&elem.\+document.\+node\+Type!==11)\{return ret;\}\}catch(e)\{\}\}return Sizzle(expr, document, null, \mbox{[}elem\mbox{]}).\+length $>$ 0;\};\+Sizzle.\+contains=function(context, elem)\{if((context.\+owner\+Document$\vert$$\vert$context)!==document)\{set\+Document(context);\}return contains(context, elem);\};\+Sizzle.\+attr=function(elem, name)\{var val;if((elem.\+owner\+Document$\vert$$\vert$elem)!==document)\{set\+Document(elem);\}if(document\+Is\+H\+T\+M\+L)\{name=name.\+to\+Lower\+Case();\}if((val=\+Expr.\+attr\+Handle\mbox{[}name\mbox{]}))\{return val(elem);\}if(!document\+Is\+H\+T\+M\+L$\vert$$\vert$support.\+attributes)\{return elem.\+get\+Attribute(name);\}return((val=elem.\+get\+Attribute\+Node(name))$\vert$$\vert$elem.\+get\+Attribute(name))\&\&elem\mbox{[}name\mbox{]}===true?name\+:val \&\&val.\+specified?val.\+value\+:null;\};\+Sizzle.\+error=function(msg)\{throw new Error(\char`\"{}\+Syntax error, unrecognized expression\+: \char`\"{}+msg);\};\+Sizzle.\+unique\+Sort=function(results)\{var elem, duplicates=\mbox{[}$\,$\mbox{]}, j=0, i=0;has\+Duplicate=!support.\+detect\+Duplicates;recompare=!support.\+sort\+Detached;sort\+Input=!support.\+sort\+Stable \&\&results.\+slice(0);results.\+sort(sort\+Order);if(has\+Duplicate)\{while((elem=results\mbox{[}i++\mbox{]}))\{if(elem===results\mbox{[}i\mbox{]})\{j=duplicates.\+push(i);\}\}while(j-\/-\/)\{results.\+splice(duplicates\mbox{[}j\mbox{]}, 1);\}\}return results;\};function sibling\+Check(a, b)\{var cur=b \&\&a, diff=cur \&\&($\sim$b.\+source\+Index$\vert$$\vert$\+M\+A\+X\+\_\+\+N\+E\+G\+A\+T\+I\+V\+E)-\/($\sim$a.\+source\+Index$\vert$$\vert$\+M\+A\+X\+\_\+\+N\+E\+G\+A\+T\+I\+V\+E);if(diff)\{return diff;\}if(cur)\{while((cur=cur.\+next\+Sibling))\{if(cur===b)\{return-\/1;\}\}\}return a?1\+:-\/1;\}function create\+Input\+Pseudo(type)\{return function(elem)\{var name=elem.\+node\+Name.\+to\+Lower\+Case();return name===\char`\"{}input\char`\"{}\&\&elem.\+type===type;\};\}function create\+Button\+Pseudo(type)\{return function(elem)\{var name=elem.\+node\+Name.\+to\+Lower\+Case();return(name===\char`\"{}input\char`\"{}$\vert$$\vert$name===\char`\"{}button\char`\"{})\&\&elem.\+type===type;\};\}function create\+Positional\+Pseudo(fn)\{return mark\+Function(function(argument)\{argument=+argument;return mark\+Function(function(seed, matches)\{var j, match\+Indexes=fn(\mbox{[}$\,$\mbox{]}, seed.\+length, argument), i=match\+Indexes.\+length;while(i-\/-\/)\{if(seed\mbox{[}(j=match\+Indexes\mbox{[}i\mbox{]})\mbox{]})\{seed\mbox{[}j\mbox{]}=!(matches\mbox{[}j\mbox{]}=seed\mbox{[}j\mbox{]});\}\}\});\});\}get\+Text=\+Sizzle.\+get\+Text=function(elem)\{var node, ret=\char`\"{}\char`\"{}, i=0, node\+Type=elem.\+node\+Type;if(!node\+Type)\{for(;(node=elem\mbox{[}i\mbox{]});i++)\{ret+=get\+Text(node);\}\}else if(node\+Type===1$\vert$$\vert$node\+Type===9$\vert$$\vert$node\+Type===11)\{if(typeof elem.\+text\+Content===\char`\"{}string\char`\"{})\{return elem.\+text\+Content;\}else\{for(elem=elem.\+first\+Child;elem;elem=elem.\+next\+Sibling)\{ret+=get\+Text(elem);\}\}\}else if(node\+Type===3$\vert$$\vert$node\+Type===4)\{return elem.\+node\+Value;\}return ret;\};\+Expr=\+Sizzle.\+selectors=\{cache\+Length\+:50, create\+Pseudo\+:mark\+Function, match\+:match\+Expr, find\+:\{\}, relative\+:\{\char`\"{}$>$\char`\"{}\+:\{dir\+:\char`\"{}parent\+Node\char`\"{}, first\+:true\},\char`\"{} \char`\"{}\+:\{dir\+:\char`\"{}parent\+Node\char`\"{}\},\char`\"{}+\char`\"{}\+:\{dir\+:\char`\"{}previous\+Sibling\char`\"{}, first\+:true\},\char`\"{}$\sim$\char`\"{}\+:\{dir\+:\char`\"{}previous\+Sibling\char`\"{}\}\}, pre\+Filter\+:\{\char`\"{}\+A\+T\+T\+R\char`\"{}\+:function(match)\{match\mbox{[}1\mbox{]}=match\mbox{[}1\mbox{]}.\+replace(runescape, funescape);match\mbox{[}3\mbox{]}=(match\mbox{[}4\mbox{]}$\vert$$\vert$match\mbox{[}5\mbox{]}$\vert$$\vert$\char`\"{}\char`\"{}).\+replace(runescape, funescape);if(match\mbox{[}2\mbox{]}===\char`\"{}$\sim$=\char`\"{})\{match\mbox{[}3\mbox{]}=\char`\"{} \char`\"{}+match\mbox{[}3\mbox{]}+\char`\"{} \char`\"{};\}return match.\+slice(0, 4);\},\char`\"{}\+C\+H\+I\+L\+D\char`\"{}\+:function(match)\{match\mbox{[}1\mbox{]}=match\mbox{[}1\mbox{]}.\+to\+Lower\+Case();if(match\mbox{[}1\mbox{]}.\+slice(0, 3)===\char`\"{}nth\char`\"{})\{if(!match\mbox{[}3\mbox{]})\{\+Sizzle.\+error(match\mbox{[}0\mbox{]});\}match\mbox{[}4\mbox{]}=+(match\mbox{[}4\mbox{]}?match\mbox{[}5\mbox{]}+(match\mbox{[}6\mbox{]}$\vert$$\vert$1)\+:2 $\ast$(match\mbox{[}3\mbox{]}===\char`\"{}even\char`\"{}$\vert$$\vert$match\mbox{[}3\mbox{]}===\char`\"{}odd\char`\"{}));match\mbox{[}5\mbox{]}=+((match\mbox{[}7\mbox{]}+match\mbox{[}8\mbox{]})$\vert$$\vert$match\mbox{[}3\mbox{]}===\char`\"{}odd\char`\"{});\}else if(match\mbox{[}3\mbox{]})\{\+Sizzle.\+error(match\mbox{[}0\mbox{]});\}return match;\},\char`\"{}\+P\+S\+E\+U\+D\+O\char`\"{}\+:function(match)\{var excess, unquoted=!match\mbox{[}5\mbox{]}\&\&match\mbox{[}2\mbox{]};if(match\+Expr\mbox{[}\char`\"{}\+C\+H\+I\+L\+D\char`\"{}\mbox{]}.\+test(match\mbox{[}0\mbox{]}))\{return null;\}if(match\mbox{[}4\mbox{]})\{match\mbox{[}2\mbox{]}=match\mbox{[}4\mbox{]};\}else if(unquoted \&\&rpseudo.\+test(unquoted)\&\&(excess=tokenize(unquoted, true))\&\&(excess=unquoted.\+index\+Of(\char`\"{})\char`\"{}, unquoted.\+length-\/excess)-\/unquoted.\+length))\{match\mbox{[}0\mbox{]}=match\mbox{[}0\mbox{]}.\+slice(0, excess);match\mbox{[}2\mbox{]}=unquoted.\+slice(0, excess);\}return match.\+slice(0, 3);\}\}, filter\+:\{\char`\"{}\+T\+A\+G\char`\"{}\+:function(node\+Name)\{if(node\+Name===\char`\"{}$\ast$\char`\"{})\{return function()\{return true;\};\}node\+Name=node\+Name.\+replace(runescape, funescape).\+to\+Lower\+Case();return function(elem)\{return elem.\+node\+Name \&\&elem.\+node\+Name.\+to\+Lower\+Case()===node\+Name;\};\},\char`\"{}\+C\+L\+A\+S\+S\char`\"{}\+:function(class\+Name)\{var pattern=class\+Cache\mbox{[}class\+Name+\char`\"{} \char`\"{}\mbox{]};return pattern$\vert$$\vert$(pattern=new Reg\+Exp(\char`\"{}($^\wedge$$\vert$\char`\"{}+whitespace+\char`\"{})\char`\"{}+class\+Name+\char`\"{}(\char`\"{}+whitespace+\char`\"{}$\vert$\$)\char`\"{}))\&\&class\+Cache(class\+Name, function(elem)\{return pattern.\+test(elem.\+class\+Name$\vert$$\vert$(typeof elem.\+get\+Attribute!==strundefined \&\&elem.\+get\+Attribute(\char`\"{}class\char`\"{}))$\vert$$\vert$\char`\"{}\char`\"{});\});\},\char`\"{}\+A\+T\+T\+R\char`\"{}\+:function(name, operator, check)\{return function(elem)\{var result=\+Sizzle.\+attr(elem, name);if(result==null)\{return operator===\char`\"{}!=\char`\"{};\}if(!operator)\{return true;\}result+=\char`\"{}\char`\"{};return operator===\char`\"{}=\char`\"{}?result===check\+:operator===\char`\"{}!=\char`\"{}?result!==check\+:operator===\char`\"{}$^\wedge$=\char`\"{}?check \&\&result.\+index\+Of(check)===0\+:operator===\char`\"{}$\ast$=\char`\"{}?check \&\&result.\+index\+Of(check) $>$-\/1\+:operator===\char`\"{}\$=\char`\"{}?check \&\&result.\+slice(-\/check.\+length)===check\+:operator===\char`\"{}$\sim$=\char`\"{}?(\char`\"{} \char`\"{}+result+\char`\"{} \char`\"{}).\+index\+Of(check) $>$-\/1\+:operator===\char`\"{}$\vert$=\char`\"{}?result===check$\vert$$\vert$result.\+slice(0, check.\+length+1)===check+\char`\"{}-\/\char`\"{}\+:false;\};\},\char`\"{}\+C\+H\+I\+L\+D\char`\"{}\+:function(type, what, argument, first, last)\{var simple=type.\+slice(0, 3)!==\char`\"{}nth\char`\"{}, forward=type.\+slice(-\/4)!==\char`\"{}last\char`\"{}, of\+Type=what===\char`\"{}of-\/type\char`\"{};return first===1 \&\&last===0?function(elem)\{return!!elem.\+parent\+Node;\}\+:function(elem, context, xml)\{var cache, outer\+Cache, node, diff, node\+Index, start, dir=simple!==forward?\char`\"{}next\+Sibling\char`\"{}\+:\char`\"{}previous\+Sibling\char`\"{}, parent=elem.\+parent\+Node, name=of\+Type \&\&elem.\+node\+Name.\+to\+Lower\+Case(), use\+Cache=!xml \&\&!of\+Type;if(parent)\{if(simple)\{while(dir)\{node=elem;while((node=node\mbox{[}dir\mbox{]}))\{if(of\+Type?node.\+node\+Name.\+to\+Lower\+Case()===name\+:node.\+node\+Type===1)\{return false;\}\}start=dir=type===\char`\"{}only\char`\"{}\&\&!start \&\&\char`\"{}next\+Sibling\char`\"{};\}return true;\}start=\mbox{[}forward?parent.\+first\+Child\+:parent.\+last\+Child\mbox{]};if(forward \&\&use\+Cache)\{outer\+Cache=parent\mbox{[}expando\mbox{]}$\vert$$\vert$(parent\mbox{[}expando\mbox{]}=\{\});cache=outer\+Cache\mbox{[}type\mbox{]}$\vert$$\vert$\mbox{[}$\,$\mbox{]};node\+Index=cache\mbox{[}0\mbox{]}===dirruns \&\&cache\mbox{[}1\mbox{]};diff=cache\mbox{[}0\mbox{]}===dirruns \&\&cache\mbox{[}2\mbox{]};node=node\+Index \&\&parent.\+child\+Nodes\mbox{[}node\+Index\mbox{]};while((node=++node\+Index \&\&node \&\&node\mbox{[}dir\mbox{]}$\vert$$\vert$(diff=node\+Index=0)$\vert$$\vert$start.\+pop()))\{if(node.\+node\+Type===1 \&\&++diff \&\&node===elem)\{outer\+Cache\mbox{[}type\mbox{]}=\mbox{[}dirruns, node\+Index, diff\mbox{]};break;\}\}\}else if(use\+Cache \&\&(cache=(elem\mbox{[}expando\mbox{]}$\vert$$\vert$(elem\mbox{[}expando\mbox{]}=\{\}))\mbox{[}type\mbox{]})\&\&cache\mbox{[}0\mbox{]}===dirruns)\{diff=cache\mbox{[}1\mbox{]};\}else\{while((node=++node\+Index \&\&node \&\&node\mbox{[}dir\mbox{]}$\vert$$\vert$(diff=node\+Index=0)$\vert$$\vert$start.\+pop()))\{if((of\+Type?node.\+node\+Name.\+to\+Lower\+Case()===name\+:node.\+node\+Type===1)\&\&++diff)\{if(use\+Cache)\{(node\mbox{[}expando\mbox{]}$\vert$$\vert$(node\mbox{[}expando\mbox{]}=\{\}))\mbox{[}type\mbox{]}=\mbox{[}dirruns, diff\mbox{]};\}if(node===elem)\{break;\}\}\}\}diff-\/=last;return diff===first$\vert$$\vert$(diff\%first===0 \&\&diff/first $>$=0);\}\};\},\char`\"{}\+P\+S\+E\+U\+D\+O\char`\"{}\+:function(pseudo, argument)\{var args, fn=\+Expr.\+pseudos\mbox{[}pseudo\mbox{]}$\vert$$\vert$\+Expr.\+set\+Filters\mbox{[}pseudo.\+to\+Lower\+Case()\mbox{]}$\vert$$\vert$\+Sizzle.\+error(\char`\"{}unsupported pseudo\+: \char`\"{}+pseudo);if(fn\mbox{[}expando\mbox{]})\{return fn(argument);\}if(fn.\+length $>$ 1)\{args=\mbox{[}pseudo, pseudo,\char`\"{}\char`\"{}, argument\mbox{]};return Expr.\+set\+Filters.\+has\+Own\+Property(pseudo.\+to\+Lower\+Case())?mark\+Function(function(seed, matches)\{var idx, matched=fn(seed, argument), i=matched.\+length;while(i-\/-\/)\{idx=index\+Of.\+call(seed, matched\mbox{[}i\mbox{]});seed\mbox{[}idx\mbox{]}=!(matches\mbox{[}idx\mbox{]}=matched\mbox{[}i\mbox{]});\}\})\+:function(elem)\{return fn(elem, 0, args);\};\}return fn;\}\}, pseudos\+:\{\char`\"{}not\char`\"{}\+:mark\+Function(function(selector)\{var input=\mbox{[}$\,$\mbox{]}, results=\mbox{[}$\,$\mbox{]}, matcher=compile(selector.\+replace(rtrim,\char`\"{}\$1\char`\"{}));return matcher\mbox{[}expando\mbox{]}?mark\+Function(function(seed, matches, context, xml)\{var elem, unmatched=matcher(seed, null, xml, \mbox{[}$\,$\mbox{]}), i=seed.\+length;while(i-\/-\/)\{if((elem=unmatched\mbox{[}i\mbox{]}))\{seed\mbox{[}i\mbox{]}=!(matches\mbox{[}i\mbox{]}=elem);\}\}\})\+:function(elem, context, xml)\{input\mbox{[}0\mbox{]}=elem;matcher(input, null, xml, results);return!results.\+pop();\};\}),\char`\"{}has\char`\"{}\+:mark\+Function(function(selector)\{return function(elem)\{return Sizzle(selector, elem).\+length $>$ 0;\};\}),\char`\"{}contains\char`\"{}\+:mark\+Function(function(text)\{return function(elem)\{return(elem.\+text\+Content$\vert$$\vert$elem.\+inner\+Text$\vert$$\vert$get\+Text(elem)).\+index\+Of(text) $>$-\/1;\};\}),\char`\"{}lang\char`\"{}\+:mark\+Function(function(lang)\{if(!ridentifier.\+test(lang$\vert$$\vert$\char`\"{}\char`\"{}))\{\+Sizzle.\+error(\char`\"{}unsupported lang\+: \char`\"{}+lang);\}lang=lang.\+replace(runescape, funescape).\+to\+Lower\+Case();return function(elem)\{var elem\+Lang;do\{if((elem\+Lang=document\+Is\+H\+T\+M\+L?elem.\+lang\+:elem.\+get\+Attribute(\char`\"{}xml\+:lang\char`\"{})$\vert$$\vert$elem.\+get\+Attribute(\char`\"{}lang\char`\"{})))\{elem\+Lang=elem\+Lang.\+to\+Lower\+Case();return elem\+Lang===lang$\vert$$\vert$elem\+Lang.\+index\+Of(lang+\char`\"{}-\/\char`\"{})===0;\}\}while((elem=elem.\+parent\+Node)\&\&elem.\+node\+Type===1);return false;\};\}),\char`\"{}target\char`\"{}\+:function(elem)\{var hash=window.\+location \&\&window.\+location.\+hash;return hash \&\&hash.\+slice(1)===elem.\+id;\},\char`\"{}root\char`\"{}\+:function(elem)\{return elem===doc\+Elem;\},\char`\"{}focus\char`\"{}\+:function(elem)\{return elem===document.\+active\+Element \&\&(!document.\+has\+Focus$\vert$$\vert$document.\+has\+Focus())\&\&!!(elem.\+type$\vert$$\vert$elem.\+href$\vert$$\vert$$\sim$elem.\+tab\+Index);\},\char`\"{}enabled\char`\"{}\+:function(elem)\{return elem.\+disabled===false;\},\char`\"{}disabled\char`\"{}\+:function(elem)\{return elem.\+disabled===true;\},\char`\"{}checked\char`\"{}\+:function(elem)\{var node\+Name=elem.\+node\+Name.\+to\+Lower\+Case();return(node\+Name===\char`\"{}input\char`\"{}\&\&!!elem.\+checked)$\vert$$\vert$(node\+Name===\char`\"{}option\char`\"{}\&\&!!elem.\+selected);\},\char`\"{}selected\char`\"{}\+:function(elem)\{if(elem.\+parent\+Node)\{elem.\+parent\+Node.\+selected\+Index;\}return elem.\+selected===true;\},\char`\"{}empty\char`\"{}\+:function(elem)\{for(elem=elem.\+first\+Child;elem;elem=elem.\+next\+Sibling)\{if(elem.\+node\+Name $>$\char`\"{}@\char`\"{}$\vert$$\vert$elem.\+node\+Type===3$\vert$$\vert$elem.\+node\+Type===4)\{return false;\}\}return true;\},\char`\"{}parent\char`\"{}\+:function(elem)\{return!\+Expr.\+pseudos\mbox{[}\char`\"{}empty\char`\"{}\mbox{]}(elem);\},\char`\"{}header\char`\"{}\+:function(elem)\{return rheader.\+test(elem.\+node\+Name);\},\char`\"{}input\char`\"{}\+:function(elem)\{return rinputs.\+test(elem.\+node\+Name);\},\char`\"{}button\char`\"{}\+:function(elem)\{var name=elem.\+node\+Name.\+to\+Lower\+Case();return name===\char`\"{}input\char`\"{}\&\&elem.\+type===\char`\"{}button\char`\"{}$\vert$$\vert$name===\char`\"{}button\char`\"{};\},\char`\"{}text\char`\"{}\+:function(elem)\{var attr;return elem.\+node\+Name.\+to\+Lower\+Case()===\char`\"{}input\char`\"{}\&\&elem.\+type===\char`\"{}text\char`\"{}\&\&((attr=elem.\+get\+Attribute(\char`\"{}type\char`\"{}))==null$\vert$$\vert$attr.\+to\+Lower\+Case()===elem.\+type);\},\char`\"{}first\char`\"{}\+:create\+Positional\+Pseudo(function()\{return\mbox{[}0\mbox{]};\}),\char`\"{}last\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length)\{return\mbox{[}length-\/1\mbox{]};\}),\char`\"{}eq\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length, argument)\{return\mbox{[}argument$<$ 0?argument+length\+:argument\mbox{]};\}),\char`\"{}even\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length)\{var i=0;for(;i$<$ length;i+=2)\{match\+Indexes.\+push(i);\}return match\+Indexes;\}),\char`\"{}odd\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length)\{var i=1;for(;i$<$ length;i+=2)\{match\+Indexes.\+push(i);\}return match\+Indexes;\}),\char`\"{}lt\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length, argument)\{var i=argument$<$ 0?argument+length\+:argument;for(;-\/-\/i $>$=0;)\{match\+Indexes.\+push(i);\}return match\+Indexes;\}),\char`\"{}gt\char`\"{}\+:create\+Positional\+Pseudo(function(match\+Indexes, length, argument)\{var i=argument$<$ 0?argument+length\+:argument;for(;++i$<$ length;)\{match\+Indexes.\+push(i);\}return match\+Indexes;\})\}\};for(i in\{radio\+:true, checkbox\+:true, file\+:true, password\+:true, image\+:true\})\{\+Expr.\+pseudos\mbox{[}i\mbox{]}=create\+Input\+Pseudo(i);\}for(i in\{submit\+:true, reset\+:true\})\{\+Expr.\+pseudos\mbox{[}i\mbox{]}=create\+Button\+Pseudo(i);\}function tokenize(selector, parse\+Only)\{var matched, match, tokens, type, so\+Far, groups, pre\+Filters, cached=token\+Cache\mbox{[}selector+\char`\"{} \char`\"{}\mbox{]};if(cached)\{return parse\+Only?0\+:cached.\+slice(0);\}so\+Far=selector;groups=\mbox{[}$\,$\mbox{]};pre\+Filters=\+Expr.\+pre\+Filter;while(so\+Far)\{if(!matched$\vert$$\vert$(match=rcomma.\+exec(so\+Far)))\{if(match)\{so\+Far=so\+Far.\+slice(match\mbox{[}0\mbox{]}.\+length)$\vert$$\vert$so\+Far;\}groups.\+push(tokens=\mbox{[}$\,$\mbox{]});\}matched=false;if((match=rcombinators.\+exec(so\+Far)))\{matched=match.\+shift();tokens.\+push(\{value\+:matched, type\+:match\mbox{[}0\mbox{]}.\+replace(rtrim,\char`\"{} \char`\"{})\});so\+Far=so\+Far.\+slice(matched.\+length);\}for(type in Expr.\+filter)\{if((match=match\+Expr\mbox{[}type\mbox{]}.\+exec(so\+Far))\&\&(!pre\+Filters\mbox{[}type\mbox{]}$\vert$$\vert$(match=pre\+Filters\mbox{[}type\mbox{]}(match))))\{matched=match.\+shift();tokens.\+push(\{value\+:matched, type\+:type, matches\+:match\});so\+Far=so\+Far.\+slice(matched.\+length);\}\}if(!matched)\{break;\}\}return parse\+Only?so\+Far.\+length\+:so\+Far?\+Sizzle.\+error(selector)\+:token\+Cache(selector, groups).\+slice(0);\}function to\+Selector(tokens)\{var i=0, len=tokens.\+length, selector=\char`\"{}\char`\"{};for(;i$<$ len;i++)\{selector+=tokens\mbox{[}i\mbox{]}.\+value;\}return selector;\}function add\+Combinator(matcher, combinator, base)\{var dir=combinator.\+dir, check\+Non\+Elements=base \&\&dir===\char`\"{}parent\+Node\char`\"{}, done\+Name=done++;return combinator.\+first?function(elem, context, xml)\{while((elem=elem\mbox{[}dir\mbox{]}))\{if(elem.\+node\+Type===1$\vert$$\vert$check\+Non\+Elements)\{return matcher(elem, context, xml);\}\}\}\+:function(elem, context, xml)\{var data, cache, outer\+Cache, dirkey=dirruns+\char`\"{} \char`\"{}+done\+Name;if(xml)\{while((elem=elem\mbox{[}dir\mbox{]}))\{if(elem.\+node\+Type===1$\vert$$\vert$check\+Non\+Elements)\{if(matcher(elem, context, xml))\{return true;\}\}\}\}else\{while((elem=elem\mbox{[}dir\mbox{]}))\{if(elem.\+node\+Type===1$\vert$$\vert$check\+Non\+Elements)\{outer\+Cache=elem\mbox{[}expando\mbox{]}$\vert$$\vert$(elem\mbox{[}expando\mbox{]}=\{\});if((cache=outer\+Cache\mbox{[}dir\mbox{]})\&\&cache\mbox{[}0\mbox{]}===dirkey)\{if((data=cache\mbox{[}1\mbox{]})===true$\vert$$\vert$data===cachedruns)\{return data===true;\}\}else\{cache=outer\+Cache\mbox{[}dir\mbox{]}=\mbox{[}dirkey\mbox{]};cache\mbox{[}1\mbox{]}=matcher(elem, context, xml)$\vert$$\vert$cachedruns;if(cache\mbox{[}1\mbox{]}===true)\{return true;\}\}\}\}\}\};\}function element\+Matcher(matchers)\{return matchers.\+length $>$ 1?function(elem, context, xml)\{var i=matchers.\+length;while(i-\/-\/)\{if(!matchers\mbox{[}i\mbox{]}(elem, context, xml))\{return false;\}\}return true;\}\+:matchers\mbox{[}0\mbox{]};\}function condense(unmatched, map, filter, context, xml)\{var elem, new\+Unmatched=\mbox{[}$\,$\mbox{]}, i=0, len=unmatched.\+length, mapped=map!=null;for(;i$<$ len;i++)\{if((elem=unmatched\mbox{[}i\mbox{]}))\{if(!filter$\vert$$\vert$filter(elem, context, xml))\{new\+Unmatched.\+push(elem);if(mapped)\{map.\+push(i);\}\}\}\}return new\+Unmatched;\}function set\+Matcher(pre\+Filter, selector, matcher, post\+Filter, post\+Finder, post\+Selector)\{if(post\+Filter \&\&!post\+Filter\mbox{[}expando\mbox{]})\{post\+Filter=set\+Matcher(post\+Filter);\}if(post\+Finder \&\&!post\+Finder\mbox{[}expando\mbox{]})\{post\+Finder=set\+Matcher(post\+Finder, post\+Selector);\}return mark\+Function(function(seed, results, context, xml)\{var temp, i, elem, pre\+Map=\mbox{[}$\,$\mbox{]}, post\+Map=\mbox{[}$\,$\mbox{]}, preexisting=results.\+length, elems=seed$\vert$$\vert$multiple\+Contexts(selector$\vert$$\vert$\char`\"{}$\ast$\char`\"{}, context.\+node\+Type?\mbox{[}context\mbox{]}\+:context, \mbox{[}$\,$\mbox{]}), matcher\+In=pre\+Filter \&\&(seed$\vert$$\vert$!selector)?condense(elems, pre\+Map, pre\+Filter, context, xml)\+:elems, matcher\+Out=matcher?post\+Finder$\vert$$\vert$(seed?pre\+Filter\+:preexisting$\vert$$\vert$post\+Filter)?\mbox{[}$\,$\mbox{]}\+:results\+:matcher\+In;if(matcher)\{matcher(matcher\+In, matcher\+Out, context, xml);\}if(post\+Filter)\{temp=condense(matcher\+Out, post\+Map);post\+Filter(temp, \mbox{[}$\,$\mbox{]}, context, xml);i=temp.\+length;while(i-\/-\/)\{if((elem=temp\mbox{[}i\mbox{]}))\{matcher\+Out\mbox{[}post\+Map\mbox{[}i\mbox{]}\mbox{]}=!(matcher\+In\mbox{[}post\+Map\mbox{[}i\mbox{]}\mbox{]}=elem);\}\}\}if(seed)\{if(post\+Finder$\vert$$\vert$pre\+Filter)\{if(post\+Finder)\{temp=\mbox{[}$\,$\mbox{]};i=matcher\+Out.\+length;while(i-\/-\/)\{if((elem=matcher\+Out\mbox{[}i\mbox{]}))\{temp.\+push((matcher\+In\mbox{[}i\mbox{]}=elem));\}\}post\+Finder(null,(matcher\+Out=\mbox{[}$\,$\mbox{]}), temp, xml);\}i=matcher\+Out.\+length;while(i-\/-\/)\{if((elem=matcher\+Out\mbox{[}i\mbox{]})\&\&(temp=post\+Finder?index\+Of.\+call(seed, elem)\+:pre\+Map\mbox{[}i\mbox{]}) $>$-\/1)\{seed\mbox{[}temp\mbox{]}=!(results\mbox{[}temp\mbox{]}=elem);\}\}\}\}else\{matcher\+Out=condense(matcher\+Out===results?matcher\+Out.\+splice(preexisting, matcher\+Out.\+length)\+:matcher\+Out);if(post\+Finder)\{post\+Finder(null, results, matcher\+Out, xml);\}else\{push.\+apply(results, matcher\+Out);\}\}\});\}function matcher\+From\+Tokens(tokens)\{var check\+Context, matcher, j, len=tokens.\+length, leading\+Relative=\+Expr.\+relative\mbox{[}tokens\mbox{[}0\mbox{]}.\+type\mbox{]}, implicit\+Relative=leading\+Relative$\vert$$\vert$\+Expr.\+relative\mbox{[}\char`\"{} \char`\"{}\mbox{]}, i=leading\+Relative?1\+:0, match\+Context=add\+Combinator(function(elem)\{return elem===check\+Context;\}, implicit\+Relative, true), match\+Any\+Context=add\+Combinator(function(elem)\{return index\+Of.\+call(check\+Context, elem) $>$-\/1;\}, implicit\+Relative, true), matchers=\mbox{[}function(elem, context, xml)\{return(!leading\+Relative \&\&(xml$\vert$$\vert$context!==outermost\+Context))$\vert$$\vert$((check\+Context=context).\+node\+Type?match\+Context(elem, context, xml)\+:match\+Any\+Context(elem, context, xml));\}\mbox{]};for(;i$<$ len;i++)\{if((matcher=\+Expr.\+relative\mbox{[}tokens\mbox{[}i\mbox{]}.\+type\mbox{]}))\{matchers=\mbox{[}add\+Combinator(element\+Matcher(matchers), matcher)\mbox{]};\}else\{matcher=\+Expr.\+filter\mbox{[}tokens\mbox{[}i\mbox{]}.\+type\mbox{]}.\+apply(null, tokens\mbox{[}i\mbox{]}.\+matches);if(matcher\mbox{[}expando\mbox{]})\{j=++i;for(;j$<$ len;j++)\{if(\+Expr.\+relative\mbox{[}tokens\mbox{[}j\mbox{]}.\+type\mbox{]})\{break;\}\}return set\+Matcher(i $>$ 1 \&\&element\+Matcher(matchers), i $>$ 1 \&\&to\+Selector(tokens.\+slice(0, i-\/1)).\+replace(rtrim,\char`\"{}\$1\char`\"{}), matcher, i$<$ j \&\&matcher\+From\+Tokens(tokens.\+slice(i, j)), j$<$ len \&\&matcher\+From\+Tokens((tokens=tokens.\+slice(j))), j$<$ len \&\&to\+Selector(tokens));\}matchers.\+push(matcher);\}\}return element\+Matcher(matchers);\}function matcher\+From\+Group\+Matchers(element\+Matchers, set\+Matchers)\{var matcher\+Cached\+Runs=0, by\+Set=set\+Matchers.\+length $>$ 0, by\+Element=element\+Matchers.\+length $>$ 0, super\+Matcher=function(seed, context, xml, results, expand\+Context)\{var elem, j, matcher, set\+Matched=\mbox{[}$\,$\mbox{]}, matched\+Count=0, i=\char`\"{}0\char`\"{}, unmatched=seed \&\&\mbox{[}$\,$\mbox{]}, outermost=expand\+Context!=null, context\+Backup=outermost\+Context, elems=seed$\vert$$\vert$by\+Element \&\&\+Expr.\+find\mbox{[}\char`\"{}\+T\+A\+G\char`\"{}\mbox{]}(\char`\"{}$\ast$\char`\"{}, expand\+Context \&\&context.\+parent\+Node$\vert$$\vert$context), dirruns\+Unique=(dirruns+=context\+Backup==null?1\+:\+Math.\+random()$\vert$$\vert$0.\+1);if(outermost)\{outermost\+Context=context!==document \&\&context;cachedruns=matcher\+Cached\+Runs;\}for(;(elem=elems\mbox{[}i\mbox{]})!=null;i++)\{if(by\+Element \&\&elem)\{j=0;while((matcher=element\+Matchers\mbox{[}j++\mbox{]}))\{if(matcher(elem, context, xml))\{results.\+push(elem);break;\}\}if(outermost)\{dirruns=dirruns\+Unique;cachedruns=++matcher\+Cached\+Runs;\}\}if(by\+Set)\{if((elem=!matcher \&\&elem))\{matched\+Count-\/-\/;\}if(seed)\{unmatched.\+push(elem);\}\}\}matched\+Count+=i;if(by\+Set \&\&i!==matched\+Count)\{j=0;while((matcher=set\+Matchers\mbox{[}j++\mbox{]}))\{matcher(unmatched, set\+Matched, context, xml);\}if(seed)\{if(matched\+Count $>$ 0)\{while(i-\/-\/)\{if(!(unmatched\mbox{[}i\mbox{]}$\vert$$\vert$set\+Matched\mbox{[}i\mbox{]}))\{set\+Matched\mbox{[}i\mbox{]}=pop.\+call(results);\}\}\}set\+Matched=condense(set\+Matched);\}push.\+apply(results, set\+Matched);if(outermost \&\&!seed \&\&set\+Matched.\+length $>$ 0 \&\&(matched\+Count+set\+Matchers.\+length) $>$ 1)\{\+Sizzle.\+unique\+Sort(results);\}\}if(outermost)\{dirruns=dirruns\+Unique;outermost\+Context=context\+Backup;\}return unmatched;\};return by\+Set?mark\+Function(super\+Matcher)\+:super\+Matcher;\}compile=\+Sizzle.\+compile=function(selector, group)\{var i, set\+Matchers=\mbox{[}$\,$\mbox{]}, element\+Matchers=\mbox{[}$\,$\mbox{]}, cached=compiler\+Cache\mbox{[}selector+\char`\"{} \char`\"{}\mbox{]};if(!cached)\{if(!group)\{group=tokenize(selector);\}i=group.\+length;while(i-\/-\/)\{cached=matcher\+From\+Tokens(group\mbox{[}i\mbox{]});if(cached\mbox{[}expando\mbox{]})\{set\+Matchers.\+push(cached);\}else\{element\+Matchers.\+push(cached);\}\}cached=compiler\+Cache(selector, matcher\+From\+Group\+Matchers(element\+Matchers, set\+Matchers));\}return cached;\};function multiple\+Contexts(selector, contexts, results)\{var i=0, len=contexts.\+length;for(;i$<$ len;i++)\{\+Sizzle(selector, contexts\mbox{[}i\mbox{]}, results);\}return results;\}function select(selector, context, results, seed)\{var i, tokens, token, type, find, match=tokenize(selector);if(!seed)\{if(match.\+length===1)\{tokens=match\mbox{[}0\mbox{]}=match\mbox{[}0\mbox{]}.\+slice(0);if(tokens.\+length $>$ 2 \&\&(token=tokens\mbox{[}0\mbox{]}).\+type===\char`\"{}\+I\+D\char`\"{}\&\&context.\+node\+Type===9 \&\&document\+Is\+H\+T\+M\+L \&\&\+Expr.\+relative\mbox{[}tokens\mbox{[}1\mbox{]}.\+type\mbox{]})\{context=(\+Expr.\+find\mbox{[}\char`\"{}\+I\+D\char`\"{}\mbox{]}(token.\+matches\mbox{[}0\mbox{]}.\+replace(runescape, funescape), context)$\vert$$\vert$\mbox{[}$\,$\mbox{]})\mbox{[}0\mbox{]};if(!context)\{return results;\}selector=selector.\+slice(tokens.\+shift().\+value.\+length);\}i=match\+Expr\mbox{[}\char`\"{}needs\+Context\char`\"{}\mbox{]}.\+test(selector)?0\+:tokens.\+length;while(i-\/-\/)\{token=tokens\mbox{[}i\mbox{]};if(\+Expr.\+relative\mbox{[}(type=token.\+type)\mbox{]})\{break;\}if((find=\+Expr.\+find\mbox{[}type\mbox{]}))\{if((seed=find(token.\+matches\mbox{[}0\mbox{]}.\+replace(runescape, funescape), rsibling.\+test(tokens\mbox{[}0\mbox{]}.\+type)\&\&context.\+parent\+Node$\vert$$\vert$context)))\{tokens.\+splice(i, 1);selector=seed.\+length \&\&to\+Selector(tokens);if(!selector)\{push.\+apply(results, seed);return results;\}break;\}\}\}\}\}compile(selector, match)(seed, context,!document\+Is\+H\+T\+M\+L, results, rsibling.\+test(selector));return results;\}\+Expr.\+pseudos\mbox{[}\char`\"{}nth\char`\"{}\mbox{]}=\+Expr.\+pseudos\mbox{[}\char`\"{}eq\char`\"{}\mbox{]};function set\+Filters()\{\}set\+Filters.\+prototype=\+Expr.\+filters=\+Expr.\+pseudos;\+Expr.\+set\+Filters=new set\+Filters();support.\+sort\+Stable=expando.\+split(\char`\"{}\char`\"{}).\+sort(sort\+Order).\+join(\char`\"{}\char`\"{})===expando;set\+Document();\mbox{[}0, 0\mbox{]}.\+sort(sort\+Order);support.\+detect\+Duplicates=has\+Duplicate;return Sizzle;\})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_sizzle_8js_a86a0e277e82d8a0d8be415badd12eebc}{\index{Sizzle.\+js@{Sizzle.\+js}!define@{define}}
+\index{define@{define}!Sizzle.\+js@{Sizzle.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}define (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}tinymce/dom/Sizzle\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{_sizzle_8js_a86a0e277e82d8a0d8be415badd12eebc}
+\hyperlink{_sizzle_8js}{Sizzle.\+js}
+
+Copyright, Moxiecode Systems A\+B Released under L\+G\+P\+L License.
+
+License\+: \href{http://www.tinymce.com/license}{\tt http\+://www.\+tinymce.\+com/license} Contributing\+: \href{http://www.tinymce.com/contributing}{\tt http\+://www.\+tinymce.\+com/contributing}
+
+-\/file 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* sans 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+route : mettre le nom de la route, et on peut ajouter les paramètres en les séparant par un "|" (pipe), et sous le format suivant : nom + ":" + valeur
+	ex. : acme_site_events|typeEvent:actualites|foo:bar
+
+ -->
+<categories>
+	<categorie nom="pageweb" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb002" />
+	<!-- home -->
+	<categorie nom="homepage" route="acme_site_accueil" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:index" diaporama_collection__nom="intro" />
+	<!-- principales -->
+	<categorie nom="Actualités" route="acme_site_pageweb" code="" title="Actualités" titreh1="Actualités" metatitle="actualités" metadescription="actualités" fichierhtml="pageweb:events" diaporama_collection__nom="" />
+	<categorie nom="L'association" route="acme_site_pageweb" code="import@txt::lassociation.txt" title="L'association" titreh1="L'association" metatitle="L'association" metadescription="L'association" fichierhtml="pageweb:valeurs" diaporama_collection__nom="" />
+		<categorie nom="Devenir bénévole" route="acme_site_pageweb" code="import@txt::devenirbenevole.txt" title="Comment devenir bénévole" titreh1="Comment devenir bénévole" metatitle="devenir bénévole" metadescription="devenir bénévole" fichierhtml="pageweb:pageweb004" diaporama_collection__nom="" firstmedia_image__nom="DSC_0090" media_image__nom="DSC_0116|IMG_1022|IMG_2316" />
+		<categorie nom="Ce que nous faisons" route="acme_site_pageweb" code="import@txt::transparenceFinanciere.txt" title="Ce que nous faisons" titreh1="Ce que nous faisons" metatitle="Ce que nous faisons" metadescription="Ce que nous faisons" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+	<categorie nom="Hôpitaux partenaires" route="acme_site_pageweb" code="" richtext__nom="Hôpitaux partenaires" title="Hôpitaux partenaires" titreh1="Hôpitaux partenaires" metatitle="Hôpitaux partenaires" metadescription="Hôpitaux partenaires" fichierhtml="pageweb:hopitaux-partenaires" diaporama_collection__nom="" />
+		<categorie nom="CHU Saint-Etienne" route="acme_site_pageweb" code="" richtext__nom="CHU Saint-Etienne" title="CHU Saint-Etienne" titreh1="CHU Saint-Etienne" metatitle="CHU Saint-Etienne" metadescription="CHU Saint-Etienne" fichierhtml="pageweb:pageweb004" diaporama_collection__nom="" />
+		<categorie nom="Centre Romans Ferrari" route="acme_site_pageweb" code="" richtext__nom="Centre Romans Ferrari" title="Centre Romans Ferrari" titreh1="Centre Romans Ferrari" metatitle="Centre Romans Ferrari" metadescription="Centre Romans Ferrari" fichierhtml="pageweb:pageweb004" diaporama_collection__nom="" />
+		<categorie nom="Aide aux particuliers" route="acme_site_pageweb" code="" richtext__nom="Aide aux particuliers" title="Aide aux particuliers" titreh1="Aide aux particuliers" metatitle="Aide aux particuliers" metadescription="Aide aux particuliers" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+	<categorie nom="Actions" route="acme_site_pageweb" code="" richtext__nom="Actions" title="Actions" titreh1="Actions" metatitle="actions" metadescription="actions" fichierhtml="pageweb:actions" diaporama_collection__nom="" />
+		<categorie nom="Actions 2014" route="acme_site_pageweb" code="" richtext__nom="Actions 2014" title="Actions 2014" titreh1="Actions 2014" metatitle="Actions 2014" metadescription="Actions 2014" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+		<categorie nom="Actions 2013" route="acme_site_pageweb" code="" richtext__nom="Actions 2013" title="Actions 2013" titreh1="Actions 2013" metatitle="Actions 2013" metadescription="Actions 2013" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+		<categorie nom="Actions précédentes" route="acme_site_pageweb" code="" richtext__nom="Actions précédentes" title="Actions précédentes" titreh1="Actions précédentes" metatitle="Actions précédentes" metadescription="Actions précédentes" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+		<categorie nom="Livre d'or" route="acme_site_pageweb" code="" richtext__nom="Livre d'or" title="Livre d'or" titreh1="Livre d'or" metatitle="Livre d'or" metadescription="Livre d'or" fichierhtml="pageweb:livre-d-or" diaporama_collection__nom="" />
+	<categorie nom="Notre équipe" route="acme_site_pageweb" code="" richtext__nom="Notre équipe" title="Notre équipe" titreh1="équipe" metatitle="équipe" metadescription="Equipe" fichierhtml="pageweb:notre-equipe" diaporama_collection__nom="" />
+		<categorie nom="L'ensemble de l'équipe" route="acme_site_pageweb" code="" richtext__nom="Ensemble de l'équipe" title="l'ensemble de l'équipe" titreh1="L'ensemble de l'équipe" metatitle="ensemble équipe" metadescription="ensemble équipe" fichierhtml="pageweb:ensemble-equipe" diaporama_collection__nom="" />
+		<categorie nom="Trombinoscope" route="acme_site_pageweb" code="" richtext__nom="Trombinoscope" title="Trombinoscope" titreh1="Trombinoscope" metatitle="trombinoscope" metadescription="trombinoscope" fichierhtml="pageweb:trombinoscope" diaporama_collection__nom="" />
+			<categorie nom="Membres du Bureau" route="acme_site_pageweb" code="" richtext__nom="Membres du Bureau" title="Membres du Bureau" titreh1="Les membres de l'administration" metatitle="membres administration" metadescription="membres administration" fichierhtml="pageweb:membres-admin" diaporama_collection__nom="" />
+			<categorie nom="Les bénévoles" route="acme_site_pageweb" code="" richtext__nom="Les bénévoles" title="Les bénévoles" titreh1="Les bénévoles de l'association" metatitle="bénévoles" metadescription="bénévoles" fichierhtml="pageweb:benevoles" diaporama_collection__nom="" />
+	<categorie nom="Nos partenaires" route="acme_site_pageweb" code="Liste de nos partenaires" title="Nos partenaires" titreh1="Nos partenaires" metatitle="partenaires" metadescription="partenaires" fichierhtml="pageweb:partenaires" diaporama_collection__nom="" />
+	<categorie nom="Média Presse" route="acme_site_pageweb" code="Texte au sujet des médias et de la presse…" title="Média et Presse" titreh1="Média et Presse" metatitle="média, presse" metadescription="média, presse" fichierhtml="pageweb:media-presse" diaporama_collection__nom="" />
+		<categorie nom="Presse écrite" route="acme_site_pageweb" code="Texte au sujet de la presse écrite" title="Presse écrite" titreh1="Presse écrite" metatitle="média, presse, presse écrite" metadescription="média, presse, presse écrite" fichierhtml="pageweb:media-presse" diaporama_collection__nom="" />
+		<categorie nom="Radio" route="acme_site_pageweb" code="Texte au sujet de la radio" title="Radio" titreh1="Radio" metatitle="média, Radio" metadescription="média, Radio" fichierhtml="pageweb:media-presse" diaporama_collection__nom="" />
+		<categorie nom="Télévision" route="acme_site_pageweb" code="Texte au sujet de la télévision" title="Télévision" titreh1="Télévision" metatitle="média, Télévision" metadescription="média, Télévision" fichierhtml="pageweb:media-presse" diaporama_collection__nom="" />
+	<categorie nom="Agenda" route="acme_site_pageweb" code="" title="Agenda" titreh1="Agenda" metatitle="agenda" metadescription="agenda" fichierhtml="pageweb:agenda" diaporama_collection__nom="" />
+
+	<categorie nom="Faire un don" route="acme_site_pageweb" code="" title="Faire un don" titreh1="Faire un don" metatitle="don, donner, déductible, impôts" metadescription="don, donner, déductible, impôts" fichierhtml="pageweb:donWait" diaporama_collection__nom="" />
+	<categorie nom="Contact" route="acme_site_pageweb" code="" title="Contact" titreh1="Contact" metatitle="contact" metadescription="contact" fichierhtml="pageweb:contact" diaporama_collection__nom="" />
+		<categorie nom="Devenir partenaire" route="acme_site_pageweb" code="Devenir partenaire" title="Valeurs" titreh1="Partenaires" metatitle="valeurs" metadescription="valeurs" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+		<categorie nom="Ils nous soutiennent" route="acme_site_pageweb" code="Ils nous soutiennent" title="Valeurs" titreh1="Partenaires / soutiens" metatitle="valeurs" metadescription="valeurs" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+
+	<categorie nom="Légalité" route="acme_site_pageweb" code="" richtext__nom="Légalité" title="Légalité" titreh1="Statuts" metatitle="statuts, mentions légales" metadescription="statuts, mentions légales" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+	<categorie nom="detail-event" route="acme_site_pageweb" code="" title="Evènement" titreh1="Evènement" metatitle="Evènement" metadescription="statuts, mentions légales" fichierhtml="pageweb:pageweb002" diaporama_collection__nom="" />
+	<categorie nom="un-partenaire" route="acme_site_pageweb" code="" title="Partenaire" titreh1="Partenaire" metatitle="Partenaire" metadescription="Partenaire" fichierhtml="pageweb:un-partenaire" diaporama_collection__nom="" />
+	<categorie nom="un-evenement" route="acme_site_pageweb" code="" title="Evènement" titreh1="" metatitle="Evènement" metadescription="Evènement" fichierhtml="pageweb:un-evenement" diaporama_collection__nom="" />
+
+	<categorie nom="no-page" route="acme_site_pageweb" code="" title="Page non trouvée" titreh1="Page non trouvée" metatitle="Page non trouvée" metadescription="Page non trouvée" fichierhtml="pageweb:no-page" diaporama_collection__nom="" />
+</categories>

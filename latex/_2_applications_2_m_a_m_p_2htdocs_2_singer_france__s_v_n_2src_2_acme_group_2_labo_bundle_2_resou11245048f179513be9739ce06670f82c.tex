@@ -1,0 +1,26 @@
+\hypertarget{_2_applications_2_m_a_m_p_2htdocs_2_singer_france__s_v_n_2src_2_acme_group_2_labo_bundle_2_resou11245048f179513be9739ce06670f82c}{\section{/\+Applications/\+M\+A\+M\+P/htdocs/\+Singer\+France\+\_\+\+S\+V\+N/src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/media/src/api/api.\+methods.\+js}
+}
+Perform a j\+Query selector action on the table's T\+R elements (from the tbody) and return the resulting j\+Query object. 
+\begin{DoxyParams}{Parameters}
+{\em \{string$\vert$node$\vert$j\+Query\}} & s\+Selector j\+Query selector or node collection to act on \\
+\hline
+{\em \{object\}} & \mbox{[}o\+Opts\mbox{]} Optional parameters for modifying the rows to be included \\
+\hline
+{\em \{string\}} & \mbox{[}o\+Opts.\+filter=none\mbox{]} Select T\+R elements that meet the current filter criterion (\char`\"{}applied\char`\"{}) or all T\+R elements (i.\+e. no filter). \\
+\hline
+{\em \{string\}} & \mbox{[}o\+Opts.\+order=current\mbox{]} Order of the T\+R elements in the processed array. Can be either 'current', whereby the current sorting of the table is used, or 'original' whereby the original order the data was read into the table is used. \\
+\hline
+{\em \{string\}} & \mbox{[}o\+Opts.\+page=all\mbox{]} Limit the selection to the currently displayed page (\char`\"{}current\char`\"{}) or not (\char`\"{}all\char`\"{}). If 'current' is given, then order is assumed to be 'current' and filter is 'applied', regardless of what they might be given as. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{object\} j\+Query object, filtered by the given selector.  A\+P\+I
+\end{DoxyReturn}
+.ready(function() \{ var o\+Table = \$('\#example').data\+Table();
+
+// Highlight every second row o\+Table.\$('tr\+:odd').css('background\+Color', 'blue'); \} );
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

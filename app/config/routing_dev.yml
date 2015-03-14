@@ -10,9 +10,17 @@ _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator
 
-_errors:
-    resource: "@TwigBundle/Resources/config/routing/errors.xml"
-    prefix:   /_error
-
 _main:
     resource: routing.yml
+
+## Test du service interfaceCSV
+
+# importCSV:
+#     path: /importCSV
+#     defaults: { _controller: AcmeGroupAdminBundle:Admin:importCSV}
+
+## Tests
+
+# labo:
+#     resource: "@LaboTestmanuBundle/Resources/config/routing.yml"
+#     prefix:   /labo

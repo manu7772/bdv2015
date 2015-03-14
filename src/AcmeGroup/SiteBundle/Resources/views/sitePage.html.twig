@@ -1,0 +1,38 @@
+{% extends ":SiteBundle:siteRoot.html.twig" %}
+{% block metatitles %}
+{% include('AcmeGroupSiteBundle:blocs:metatitles-default.html.twig') %}
+{% endblock metatitles %}
+{% block body %}
+	{% block header %}
+	<a href="{{ url('acme_site_home') }}" title="{{ app.session.get('version').nom }} - {{ app.session.get('version').accroche }}">
+		<div id="topline" class="hidden-xs" style="background: #fff url({{ asset('images/original/' ~ app.session.get('version').imageEnteteWide) }}) center top no-repeat;"></div>
+		<div id="topline-mini" class="visible-xs" style="background: #fff url({{ asset('images/original/' ~ app.session.get('version').imageEnteteMini) }}) center top no-repeat;"></div>
+	</a>
+	{% endblock header %}
+
+	{% block mainprincipal %}
+		<div id="principal" class="container">
+			{% block main_menu %}
+				{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+			{% endblock main_menu %}
+			<div id="secondaire">
+				{% block mainwindow %}
+		
+				{% endblock mainwindow %}
+				{% block boutondon %}
+					{{ render(controller('AcmeGroupSiteBundle:Site:boutondon')) }}
+				{% endblock boutondon %}
+			</div>
+		</div>
+	{% endblock mainprincipal %}
+
+	{% block footers %}	
+		{% block footerOne %}
+			{{ include("AcmeGroupSiteBundle:blocs:footerOne.html.twig") }}
+		{% endblock footerOne %}		
+		{% block footer %}
+			{{ include("AcmeGroupSiteBundle:blocs:footer.html.twig") }}
+		{% endblock footer %}	
+	{% endblock footers %}
+
+{% endblock body %}

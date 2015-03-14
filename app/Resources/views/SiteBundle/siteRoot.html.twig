@@ -1,0 +1,41 @@
+<!DOCTYPE html> <!-- HTML 5 -->
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		{% block metatitles %}
+			<!-- ENTETE DESCRIPTION TITLES, ETC. -->
+		{% endblock metatitles %}
+		{% stylesheets filter='cssrewrite, lessphp, ?yui_css'
+		'bundles/labotestmanu/css/jquery.fancybox.css'
+		'bundles/acmegroupsite/css/bootstrap.min.css'
+		'bundles/labotestmanu/js/chosen_v1.0.0/chosen.css'
+		'bundles/acmegroupsite/css/font-awesome.min.css'
+		'bundles/acmegroupsite/css/animate.css'
+		'bundles/acmegroupsite/css/main.css.less'
+		'bundles/acmegroupsite/css/responsive.css'
+		 %}
+		<!--[if lt IE 9]>
+		<script src="bundles/acmegroupsite/js/html5shiv.js"></script>
+		<script src="bundles/acmegroupsite/js/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		{% endstylesheets %}
+	</head>
+	<body>
+		{% block navbar %}
+			{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+		{% endblock navbar %}
+		{% block body %}
+		<!-- CONTENU DE LA PAGE -->
+		{% endblock body %}
+
+		{% javascripts filter='?yui_js'
+		'bundles/acmegroupsite/js/jquery.js'
+		'bundles/acmegroupsite/js/bootstrap.min.js'
+		'bundles/acmegroupsite/js/jquery.scrollUp.min.js'
+		'bundles/acmegroupsite/js/main.js'
+		 %}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+	</body>
+</html>

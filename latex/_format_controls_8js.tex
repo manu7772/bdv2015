@@ -1,0 +1,180 @@
+\hypertarget{_format_controls_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Format\+Controls.js File Reference}
+\label{_format_controls_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Format\+Controls.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Format\+Controls.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_format_controls_8js_a247cae449041707b2e57676ee2e26281}{define} (\char`\"{}tinymce/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/Format\+Controls\char`\"{}, \mbox{[}\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/Control\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/\hyperlink{jquery_8mobile-1_83_81_8js_afc4c2169b499b3ea4e8c3e0924a3df4f}{Widget}\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/Float\+Panel\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/util/Tools\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/Editor\+Manager\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/Env\char`\"{}\mbox{]}, function(Control, \hyperlink{jquery_8mobile-1_83_81_8js_afc4c2169b499b3ea4e8c3e0924a3df4f}{Widget}, Float\+Panel, Tools, Editor\+Manager, Env)\{var \hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}=\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{Tools.\+each};\hyperlink{fullpage_2plugin_8min_8js_a1cfa98b7fed2aaf9fee3b68dbb7f9497}{Editor\+Manager.\+on}('Add\+Editor', function(\hyperlink{validate_8js_acafd152b1d81d2bd0f5775007db75586}{e})\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(e.\+editor.\+rtl)\{Control.\+rtl=true;\}register\+Controls(e.\+editor);\});Control.\+translate=function(text)\{return Editor\+Manager.\+translate(text);\};Widget.\+tooltips=!Env.\+i\+O\+S;function register\+Controls(editor)\{var \hyperlink{_format_controls_8js_a8ff4ccb7a9f8173b733e2964fbd7b99e}{format\+Menu};function get\+Preview\+Css(format)\{var name, preview\+Elm, dom=editor.\+dom;var \hyperlink{_format_controls_8js_a7e2bf46b903a79d259db5064f77964ef}{preview\+Css}= '', parent\+Font\+Size, preview\+Styles;preview\+Styles=editor.\+settings.\+preview\+\_\+styles;\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(preview\+Styles===\hyperlink{validate_8js_a5df37b7f02e5cdc7d9412b7f872b8e01}{false})\{return '';\}\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!preview\+Styles)\{preview\+Styles= 'font-\/family font-\/\hyperlink{jquery-ui_8js_a8aed6b484654e16a41c505f6907b5ec6}{size} font-\/weight font-\/style text-\/decoration '+ 'text-\/transform color background-\/color border border-\/radius';\}function remove\+Vars(val)\{return val.\+replace(/\%(\textbackslash{}w+)/\hyperlink{fullpage_2plugin_8min_8js_a103df269476e78897c9c4c6cb8f4eb06}{g}, '');\}format=editor.\+formatter.\+get(format);\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!format)\{return;\}format=format\mbox{[}0\mbox{]};name=format.\+block$\vert$$\vert$format.\+inline$\vert$$\vert$ 'span';preview\+Elm=dom.\+create(name);\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(format.\+styles, function(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}, name)\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=remove\+Vars(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value})\{dom.\+set\+Style(preview\+Elm, name, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\}\});\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(format.\+attributes, function(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}, name)\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=remove\+Vars(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value})\{dom.\+set\+Attrib(preview\+Elm, name, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\}\});\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}(format.\+classes, function(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value})\{\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=remove\+Vars(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!dom.\+has\+Class(preview\+Elm, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}))\{\hyperlink{validate_8js_aa1bdc289a4a564fbb2274cf7ab39c021}{dom.\+add\+Class}(preview\+Elm, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value});\}\});\hyperlink{_format_controls_8js_acd7a0915b5228909cee16d24a676911c}{editor.\+fire}('Preview\+Formats');dom.\+set\+Styles(preview\+Elm,\{position\+: 'absolute', left\+:-\/0x\+F\+F\+F\+F\});editor.\+get\+Body().\+append\+Child(preview\+Elm);parent\+Font\+Size=dom.\+get\+Style(editor.\+get\+Body(), 'font\+Size', true);parent\+Font\+Size=/px \$/.\+test(parent\+Font\+Size)?parse\+Int(parent\+Font\+Size, 10)\+:0;each(preview\+Styles.\+split(' '), function(name)\{var value=dom.\+get\+Style(preview\+Elm, name, true);if(name== 'background-\/color'\&\&/transparent$\vert$rgba\textbackslash{}s $\ast$\textbackslash{}(\mbox{[}$^\wedge$)\mbox{]}+,\textbackslash{}s $\ast$0\textbackslash{})/.\+test(value))\{value=dom.\+get\+Style(editor.\+get\+Body(), name, true);if(dom.\+to\+Hex(value).\+to\+Lower\+Case()== '\#ffffff')\{return;\}\}if(name== 'color')\{if(dom.\+to\+Hex(value).\+to\+Lower\+Case()== '\#000000')\{return;\}\}if(name== 'font-\/size')\{if(/em$\vert$\%\$/.\+test(value))\{if(parent\+Font\+Size===0)\{return;\}value=parse\+Float(value, 10)/(/\%\$/.\+test(value)?100\+:1);value=(value $\ast$parent\+Font\+Size)+ 'px';\}\}if(name==\char`\"{}border\char`\"{}\&\&value)\{preview\+Css+= 'padding\+:0 2px;';\}preview\+Css+=name+ '\+:'+value+ ';';\})
+\item 
+editor \hyperlink{_format_controls_8js_acd7a0915b5228909cee16d24a676911c}{fire} ('After\+Preview\+Formats')
+\item 
+dom \hyperlink{_format_controls_8js_a509fb1029c44e071ab11cfe638e56845}{remove} (preview\+Elm)
+\item 
+function \hyperlink{_format_controls_8js_a94e699de1931cb5134caf07cfa643eab}{create\+List\+Box\+Change\+Handler} (items, format\+Name)
+\item 
+function \hyperlink{_format_controls_8js_a4c2bf7566daeb85b18d58483c175d94d}{create\+Formats} (formats)
+\item 
+function \hyperlink{_format_controls_8js_a1fc5483e2ef7d9a3851afc877b4eb147}{create\+Format\+Menu} ()
+\item 
+\hyperlink{_format_controls_8js_a268f0001c3b6afc64e4a833c8e9bcba3}{each} (\{bold\+: 'Bold', italic\+: 'Italic', underline\+: 'Underline', strikethrough\+: 'Strikethrough', subscript\+: 'Subscript', superscript\+: 'Superscript'\}, function(text, name)\{\hyperlink{fullpage_2plugin_8min_8js_aaae28359b3a3a6d0ae04231039eb7f9e}{editor.\+add\+Button}(name,\{tooltip\+:text, on\+Post\+Render\+:function()\{var self=\hyperlink{tinymce_8jquery_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}{this};\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(editor.\+formatter)\{editor.\+formatter.\+format\+Changed(name, function(state)\{self.\+active(state);\});\}\hyperlink{jquery_8iframe-transport_8js_a0544c3fe466e421738dae463968b70ba}{else}\{\hyperlink{fullpage_2plugin_8min_8js_a1cfa98b7fed2aaf9fee3b68dbb7f9497}{editor.\+on}('\hyperlink{mctabs_8js_a936fb06176b01ffb1fc69eb4d1e2f67d}{init}', function()\{editor.\+formatter.\+format\+Changed(name, function(state)\{self.\+active(state);\});\});\}\}, onclick\+:function()\{\hyperlink{_format_controls_8js_a8abbc82b6b5b61253b7194b91a2951b6}{toggle\+Format}(name);\}\});\})
+\item 
+function \hyperlink{_format_controls_8js_a245c7b669469e3882584af971c271356}{has\+Undo} ()
+\item 
+function \hyperlink{_format_controls_8js_a3b38fbce51d31af538e0d126666579f0}{has\+Redo} ()
+\item 
+function \hyperlink{_format_controls_8js_a63825562f634cc21d37bb18780354a17}{toggle\+Undo\+State} ()
+\item 
+function \hyperlink{_format_controls_8js_a9f8e4789c79ac3c70e2f421afcb1abad}{toggle\+Redo\+State} ()
+\item 
+function \hyperlink{_format_controls_8js_a7e04b2ae96f78e3fbe3308dceff08559}{toggle\+Visual\+Aid\+State} ()
+\item 
+editor \hyperlink{_format_controls_8js_ae2a13e845b77d7ffae6c2ca02e323493}{add\+Button} ('undo',\{tooltip\+: 'Undo', on\+Post\+Render\+:toggle\+Undo\+State, cmd\+: 'undo'\})
+\item 
+editor \hyperlink{_format_controls_8js_add15833abbccefc2e6adc5e7ac670d8f}{add\+Menu\+Item} ('newdocument',\{text\+: 'New \hyperlink{outside_events_8js_aa14f8e0338cced6720590fd2ea13bd4b}{document}', shortcut\+: 'Ctrl+N', icon\+: 'newdocument', cmd\+: 'mce\+New\+Document'\})
+\item 
+editor \hyperlink{_format_controls_8js_ab9832e4cbe7d3d7dda2d0438d7c9c3d2}{on} ('mousedown', function()\{Float\+Panel.\+hide\+All();\})
+\item 
+function \hyperlink{_format_controls_8js_a8abbc82b6b5b61253b7194b91a2951b6}{toggle\+Format} (fmt)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+return \hyperlink{_format_controls_8js_a7e2bf46b903a79d259db5064f77964ef}{preview\+Css}
+\item 
+\hyperlink{_format_controls_8js_a8ff4ccb7a9f8173b733e2964fbd7b99e}{format\+Menu} = \hyperlink{_format_controls_8js_a1fc5483e2ef7d9a3851afc877b4eb147}{create\+Format\+Menu}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_format_controls_8js_ae2a13e845b77d7ffae6c2ca02e323493}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!add\+Button@{add\+Button}}
+\index{add\+Button@{add\+Button}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{add\+Button}]{\setlength{\rightskip}{0pt plus 5cm}editor add\+Button (
+\begin{DoxyParamCaption}
+\item[{'undo'}]{, }
+\item[{\{tooltip\+: 'Undo', on\+Post\+Render\+:toggle\+Undo\+State, cmd\+: 'undo'\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_ae2a13e845b77d7ffae6c2ca02e323493}
+\hypertarget{_format_controls_8js_add15833abbccefc2e6adc5e7ac670d8f}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!add\+Menu\+Item@{add\+Menu\+Item}}
+\index{add\+Menu\+Item@{add\+Menu\+Item}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{add\+Menu\+Item}]{\setlength{\rightskip}{0pt plus 5cm}editor add\+Menu\+Item (
+\begin{DoxyParamCaption}
+\item[{'newdocument'}]{, }
+\item[{\{text\+: 'New {\bf document}', shortcut\+: 'Ctrl+N', icon\+: 'newdocument', cmd\+: 'mce\+New\+Document'\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_add15833abbccefc2e6adc5e7ac670d8f}
+\hypertarget{_format_controls_8js_a1fc5483e2ef7d9a3851afc877b4eb147}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!create\+Format\+Menu@{create\+Format\+Menu}}
+\index{create\+Format\+Menu@{create\+Format\+Menu}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{create\+Format\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}function create\+Format\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a1fc5483e2ef7d9a3851afc877b4eb147}
+\hypertarget{_format_controls_8js_a4c2bf7566daeb85b18d58483c175d94d}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!create\+Formats@{create\+Formats}}
+\index{create\+Formats@{create\+Formats}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{create\+Formats}]{\setlength{\rightskip}{0pt plus 5cm}function create\+Formats (
+\begin{DoxyParamCaption}
+\item[{}]{formats}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a4c2bf7566daeb85b18d58483c175d94d}
+\hypertarget{_format_controls_8js_a94e699de1931cb5134caf07cfa643eab}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!create\+List\+Box\+Change\+Handler@{create\+List\+Box\+Change\+Handler}}
+\index{create\+List\+Box\+Change\+Handler@{create\+List\+Box\+Change\+Handler}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{create\+List\+Box\+Change\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}function create\+List\+Box\+Change\+Handler (
+\begin{DoxyParamCaption}
+\item[{}]{items, }
+\item[{}]{format\+Name}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a94e699de1931cb5134caf07cfa643eab}
+\hypertarget{_format_controls_8js_a247cae449041707b2e57676ee2e26281}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!define@{define}}
+\index{define@{define}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}define (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}tinymce/{\bf ui}/Format\+Controls\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a247cae449041707b2e57676ee2e26281}
+\hyperlink{_sizzle_8js}{Sizzle.\+js}
+
+Copyright, Moxiecode Systems A\+B Released under L\+G\+P\+L License.
+
+License\+: \href{http://www.tinymce.com/license}{\tt http\+://www.\+tinymce.\+com/license} Contributing\+: \href{http://www.tinymce.com/contributing}{\tt http\+://www.\+tinymce.\+com/contributing}
+
+-\/file \hypertarget{_format_controls_8js_a268f0001c3b6afc64e4a833c8e9bcba3}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!each@{each}}
+\index{each@{each}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{each}]{\setlength{\rightskip}{0pt plus 5cm}each (
+\begin{DoxyParamCaption}
+\item[{\{bold\+: 'Bold', italic\+: 'Italic', underline\+: 'Underline', strikethrough\+: 'Strikethrough', subscript\+: 'Subscript', superscript\+: 'Superscript'\}}]{, }
+\item[{function(text, name)\{{\bf editor.\+add\+Button}(name,\{tooltip\+:text, on\+Post\+Render\+:function()\{var self={\bf this};{\bf if}(editor.\+formatter)\{editor.\+formatter.\+format\+Changed(name, function(state)\{self.\+active(state);\});\}{\bf else}\{{\bf editor.\+on}('{\bf init}', function()\{editor.\+formatter.\+format\+Changed(name, function(state)\{self.\+active(state);\});\});\}\}, onclick\+:function()\{{\bf toggle\+Format}(name);\}\});\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a268f0001c3b6afc64e4a833c8e9bcba3}
+\hypertarget{_format_controls_8js_acd7a0915b5228909cee16d24a676911c}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!fire@{fire}}
+\index{fire@{fire}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{fire}]{\setlength{\rightskip}{0pt plus 5cm}editor fire (
+\begin{DoxyParamCaption}
+\item[{'After\+Preview\+Formats'}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_acd7a0915b5228909cee16d24a676911c}
+\hypertarget{_format_controls_8js_a3b38fbce51d31af538e0d126666579f0}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!has\+Redo@{has\+Redo}}
+\index{has\+Redo@{has\+Redo}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{has\+Redo}]{\setlength{\rightskip}{0pt plus 5cm}function has\+Redo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a3b38fbce51d31af538e0d126666579f0}
+\hypertarget{_format_controls_8js_a245c7b669469e3882584af971c271356}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!has\+Undo@{has\+Undo}}
+\index{has\+Undo@{has\+Undo}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{has\+Undo}]{\setlength{\rightskip}{0pt plus 5cm}function has\+Undo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a245c7b669469e3882584af971c271356}
+\hypertarget{_format_controls_8js_ab9832e4cbe7d3d7dda2d0438d7c9c3d2}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!on@{on}}
+\index{on@{on}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{on}]{\setlength{\rightskip}{0pt plus 5cm}{\bf e} {\bf e} {\bf e} {\bf e} {\bf e} on (
+\begin{DoxyParamCaption}
+\item[{'mousedown'}]{, }
+\item[{function()\{Float\+Panel.\+hide\+All();\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_ab9832e4cbe7d3d7dda2d0438d7c9c3d2}
+\hypertarget{_format_controls_8js_a509fb1029c44e071ab11cfe638e56845}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!remove@{remove}}
+\index{remove@{remove}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}dom remove (
+\begin{DoxyParamCaption}
+\item[{preview\+Elm}]{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a509fb1029c44e071ab11cfe638e56845}
+\hypertarget{_format_controls_8js_a8abbc82b6b5b61253b7194b91a2951b6}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!toggle\+Format@{toggle\+Format}}
+\index{toggle\+Format@{toggle\+Format}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{toggle\+Format}]{\setlength{\rightskip}{0pt plus 5cm}function toggle\+Format (
+\begin{DoxyParamCaption}
+\item[{}]{fmt}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a8abbc82b6b5b61253b7194b91a2951b6}
+\hypertarget{_format_controls_8js_a9f8e4789c79ac3c70e2f421afcb1abad}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!toggle\+Redo\+State@{toggle\+Redo\+State}}
+\index{toggle\+Redo\+State@{toggle\+Redo\+State}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{toggle\+Redo\+State}]{\setlength{\rightskip}{0pt plus 5cm}function toggle\+Redo\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a9f8e4789c79ac3c70e2f421afcb1abad}
+\hypertarget{_format_controls_8js_a63825562f634cc21d37bb18780354a17}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!toggle\+Undo\+State@{toggle\+Undo\+State}}
+\index{toggle\+Undo\+State@{toggle\+Undo\+State}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{toggle\+Undo\+State}]{\setlength{\rightskip}{0pt plus 5cm}function toggle\+Undo\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a63825562f634cc21d37bb18780354a17}
+\hypertarget{_format_controls_8js_a7e04b2ae96f78e3fbe3308dceff08559}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!toggle\+Visual\+Aid\+State@{toggle\+Visual\+Aid\+State}}
+\index{toggle\+Visual\+Aid\+State@{toggle\+Visual\+Aid\+State}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{toggle\+Visual\+Aid\+State}]{\setlength{\rightskip}{0pt plus 5cm}function toggle\+Visual\+Aid\+State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{_format_controls_8js_a7e04b2ae96f78e3fbe3308dceff08559}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_format_controls_8js_a8ff4ccb7a9f8173b733e2964fbd7b99e}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!format\+Menu@{format\+Menu}}
+\index{format\+Menu@{format\+Menu}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{format\+Menu}]{\setlength{\rightskip}{0pt plus 5cm}format\+Menu = {\bf create\+Format\+Menu}()}}\label{_format_controls_8js_a8ff4ccb7a9f8173b733e2964fbd7b99e}
+\hypertarget{_format_controls_8js_a7e2bf46b903a79d259db5064f77964ef}{\index{Format\+Controls.\+js@{Format\+Controls.\+js}!preview\+Css@{preview\+Css}}
+\index{preview\+Css@{preview\+Css}!Format\+Controls.\+js@{Format\+Controls.\+js}}
+\subsubsection[{preview\+Css}]{\setlength{\rightskip}{0pt plus 5cm}return preview\+Css}}\label{_format_controls_8js_a7e2bf46b903a79d259db5064f77964ef}

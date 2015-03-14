@@ -1,0 +1,166 @@
+\hypertarget{fullpage_2plugin_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/fullpage/plugin.js File Reference}
+\label{fullpage_2plugin_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/fullpage/plugin.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/fullpage/plugin.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce} Plugin\+Manager \hyperlink{fullpage_2plugin_8js_a18a72be32ca64752da00f7c779f5723f}{add} ('fullpage', function(editor)\{var \hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{each}=\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{tinymce.\+each}, Node=\hyperlink{classtinymce_1_1html_1_1_node}{tinymce.\+html.\+Node};var head, foot;function show\+Dialog()\{var \hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data}=html\+To\+Data();editor.\+window\+Manager.\+open(\{title\+: 'Document properties', data\+:data, defaults\+:\{type\+: 'textbox', size\+:40\}, body\+:\mbox{[}\{name\+: '\hyperlink{jquery_8fancybox_8pack_8js_a293d418e53eecdc63689e8e677088684}{title}', label\+: 'Title'\},\{name\+: 'keywords', label\+: 'Keywords'\},\{name\+: 'description', label\+: 'Description'\},\{name\+: 'robots', label\+: 'Robots'\},\{name\+: 'author', label\+: 'Author'\},\{name\+: 'docencoding', label\+: 'Encoding'\}\mbox{]}, on\+Submit\+:function(\hyperlink{validate_8js_acafd152b1d81d2bd0f5775007db75586}{e})\{\hyperlink{fullpage_2plugin_8js_acafb571989ffb8cae21c34f6af46d247}{data\+To\+Html}(\hyperlink{jquery_8tinymce_8js_af1640d73145f6c1bdcc69705b1accabd}{tinymce.\+extend}(\hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data}, \hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{e.\+data}));\}\});\}function html\+To\+Data()\{var header\+Fragment=\hyperlink{fullpage_2plugin_8js_a9b16a92e2d2ae500a239e6dd817e9cbf}{parse\+Header}(), \hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data}=\{\}, \hyperlink{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{elm}, matches;function get\+Attr(\hyperlink{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{elm}, name)\{var \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}=elm.\+attr(name);return \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}$\vert$$\vert$ '';\}data.\+fontface=\hyperlink{mctabs_8js_a176699320fa47311b5bcb108b79b2285}{editor.\+get\+Param}(\char`\"{}fullpage\+\_\+default\+\_\+fontface\char`\"{},\char`\"{}\char`\"{});data.\+fontsize=\hyperlink{mctabs_8js_a176699320fa47311b5bcb108b79b2285}{editor.\+get\+Param}(\char`\"{}fullpage\+\_\+default\+\_\+fontsize\char`\"{},\char`\"{}\char`\"{});elm=header\+Fragment.\+first\+Child;\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(elm.\+type==7)\{data.\+xml\+\_\+pi=true;matches=/encoding=\char`\"{}(\mbox{[}$^\wedge$\char`\"{}\mbox{]}+)\char`\"{}/.exec(\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{elm.\+value})
+\item 
+\hyperlink{fullpage_2plugin_8js_a1569bb0e6624673b34679834208f6880}{if} (matches)
+\item 
+\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if} (\hyperlink{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{elm} \&\&elm.\+first\+Child)
+\item 
+\hyperlink{fullpage_2plugin_8js_a65b725385d674de2832cd4f6abe0e226}{each} (header\+Fragment.\+get\+All('meta'), function(meta)\{var name=meta.\+attr('name'), http\+Equiv=meta.\+attr('http-\/equiv'), matches;\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(name)\{\hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data}\mbox{[}name.\+to\+Lower\+Case()\mbox{]}=meta.\+attr('content');\}\hyperlink{jquery_8iframe-transport_8js_a0544c3fe466e421738dae463968b70ba}{else} \hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(http\+Equiv==\char`\"{}Content-\/Type\char`\"{})\{matches=/\hyperlink{validate_8js_ae059f217efaf1d50696a1214c3ce5748}{charset\textbackslash{}s} $\ast$=\textbackslash{}\hyperlink{validate_8js_ae059f217efaf1d50696a1214c3ce5748}{s} $\ast$(.$\ast$)\textbackslash{}\hyperlink{validate_8js_ae059f217efaf1d50696a1214c3ce5748}{s} $\ast$/gi.\+exec(meta.\+attr('content'));\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(matches)\{data.\+docencoding=matches\mbox{[}1\mbox{]};\}\}\})
+\item 
+\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce} \hyperlink{fullpage_2plugin_8js_ade46c20189dddb283236cafe17b35bb8}{each} (header\+Fragment.\+get\+All('link'), function(link)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(link.\+attr('rel')== 'stylesheet')\{\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{data.\+stylesheets.\+push}(link.\+attr('href'));\}\})
+\item 
+function \hyperlink{fullpage_2plugin_8js_acafb571989ffb8cae21c34f6af46d247}{data\+To\+Html} (\hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data})
+\item 
+function \hyperlink{fullpage_2plugin_8js_a9b16a92e2d2ae500a239e6dd817e9cbf}{parse\+Header} ()
+\item 
+function \hyperlink{fullpage_2plugin_8js_a465938ea1cd397f0d555ca5c6a621f56}{set\+Content} (evt)
+\item 
+function \hyperlink{fullpage_2plugin_8js_ad7130f3ad59194ca880274d19f4b2e43}{get\+Default\+Header} ()
+\item 
+function \hyperlink{fullpage_2plugin_8js_a6851543822a32009eced4941b49728c0}{get\+Content} (evt)
+\item 
+editor \hyperlink{fullpage_2plugin_8js_a73b523c746ae811c0323e2b5b4fa5a13}{add\+Command} ('mce\+Full\+Page\+Properties', show\+Dialog)
+\item 
+editor \hyperlink{fullpage_2plugin_8js_a7ae3431ee0de800c060e4e90de180a8d}{add\+Button} ('fullpage',\{title\+: 'Document properties', cmd\+: 'mce\+Full\+Page\+Properties'\})
+\item 
+editor \hyperlink{fullpage_2plugin_8js_a6ab45b4f7d1d376140736f31bb22a4a2}{add\+Menu\+Item} ('fullpage',\{text\+: 'Document properties', cmd\+: 'mce\+Full\+Page\+Properties', context\+: 'file'\})
+\item 
+editor \hyperlink{fullpage_2plugin_8js_a4ec67ef1562fb8315f17e9e76277ebb4}{on} ('Before\+Set\+Content', \hyperlink{fullpage_2plugin_8js_a465938ea1cd397f0d555ca5c6a621f56}{set\+Content})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{elm} = header\+Fragment.\+get\+All('\#doctype')\mbox{[}0\mbox{]}
+\item 
+\hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data} \hyperlink{fullpage_2plugin_8js_acb278154c5c8bfaaaac3b3a8217c56b7}{stylesheets} = \mbox{[}$\,$\mbox{]}
+\item 
+return \hyperlink{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{fullpage_2plugin_8js_a18a72be32ca64752da00f7c779f5723f}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!add@{add}}
+\index{add@{add}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tinymce} Plugin\+Manager add (
+\begin{DoxyParamCaption}
+\item[{'fullpage'}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a18a72be32ca64752da00f7c779f5723f}
+plugin.\+js
+
+Copyright, Moxiecode Systems A\+B Released under L\+G\+P\+L License.
+
+License\+: \href{http://www.tinymce.com/license}{\tt http\+://www.\+tinymce.\+com/license} Contributing\+: \href{http://www.tinymce.com/contributing}{\tt http\+://www.\+tinymce.\+com/contributing} \hypertarget{fullpage_2plugin_8js_a7ae3431ee0de800c060e4e90de180a8d}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!add\+Button@{add\+Button}}
+\index{add\+Button@{add\+Button}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{add\+Button}]{\setlength{\rightskip}{0pt plus 5cm}editor add\+Button (
+\begin{DoxyParamCaption}
+\item[{'fullpage'}]{, }
+\item[{\{title\+: 'Document properties', cmd\+: 'mce\+Full\+Page\+Properties'\}}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a7ae3431ee0de800c060e4e90de180a8d}
+\hypertarget{fullpage_2plugin_8js_a73b523c746ae811c0323e2b5b4fa5a13}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!add\+Command@{add\+Command}}
+\index{add\+Command@{add\+Command}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{add\+Command}]{\setlength{\rightskip}{0pt plus 5cm}editor add\+Command (
+\begin{DoxyParamCaption}
+\item[{'mce\+Full\+Page\+Properties'}]{, }
+\item[{show\+Dialog}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a73b523c746ae811c0323e2b5b4fa5a13}
+\hypertarget{fullpage_2plugin_8js_a6ab45b4f7d1d376140736f31bb22a4a2}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!add\+Menu\+Item@{add\+Menu\+Item}}
+\index{add\+Menu\+Item@{add\+Menu\+Item}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{add\+Menu\+Item}]{\setlength{\rightskip}{0pt plus 5cm}editor add\+Menu\+Item (
+\begin{DoxyParamCaption}
+\item[{'fullpage'}]{, }
+\item[{\{text\+: 'Document properties', cmd\+: 'mce\+Full\+Page\+Properties', context\+: 'file'\}}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a6ab45b4f7d1d376140736f31bb22a4a2}
+\hypertarget{fullpage_2plugin_8js_acafb571989ffb8cae21c34f6af46d247}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!data\+To\+Html@{data\+To\+Html}}
+\index{data\+To\+Html@{data\+To\+Html}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{data\+To\+Html}]{\setlength{\rightskip}{0pt plus 5cm}function data\+To\+Html (
+\begin{DoxyParamCaption}
+\item[{}]{data}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_acafb571989ffb8cae21c34f6af46d247}
+\hypertarget{fullpage_2plugin_8js_a65b725385d674de2832cd4f6abe0e226}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!each@{each}}
+\index{each@{each}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{each}]{\setlength{\rightskip}{0pt plus 5cm}each (
+\begin{DoxyParamCaption}
+\item[{header\+Fragment.}]{get\+All'meta', }
+\item[{function(meta)\{var name=meta.\+attr('name'), http\+Equiv=meta.\+attr('http-\/equiv'), matches;{\bf if}(name)\{{\bf data}\mbox{[}name.\+to\+Lower\+Case()\mbox{]}=meta.\+attr('content');\}{\bf else} {\bf if}(http\+Equiv==\char`\"{}Content-\/Type\char`\"{})\{matches=/{\bf charset\textbackslash{}s} $\ast$=\textbackslash{}{\bf s} $\ast$(.$\ast$)\textbackslash{}{\bf s} $\ast$/gi.\+exec(meta.\+attr('content'));{\bf if}(matches)\{data.\+docencoding=matches\mbox{[}1\mbox{]};\}\}\}}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a65b725385d674de2832cd4f6abe0e226}
+\hypertarget{fullpage_2plugin_8js_ade46c20189dddb283236cafe17b35bb8}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!each@{each}}
+\index{each@{each}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{each}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tinymce} each (
+\begin{DoxyParamCaption}
+\item[{header\+Fragment.}]{get\+All'link', }
+\item[{function(link)\{{\bf if}(link.\+attr('rel')== 'stylesheet')\{{\bf data.\+stylesheets.\+push}(link.\+attr('href'));\}\}}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_ade46c20189dddb283236cafe17b35bb8}
+\hypertarget{fullpage_2plugin_8js_a6851543822a32009eced4941b49728c0}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!get\+Content@{get\+Content}}
+\index{get\+Content@{get\+Content}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{get\+Content}]{\setlength{\rightskip}{0pt plus 5cm}function get\+Content (
+\begin{DoxyParamCaption}
+\item[{}]{evt}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a6851543822a32009eced4941b49728c0}
+\hypertarget{fullpage_2plugin_8js_ad7130f3ad59194ca880274d19f4b2e43}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!get\+Default\+Header@{get\+Default\+Header}}
+\index{get\+Default\+Header@{get\+Default\+Header}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{get\+Default\+Header}]{\setlength{\rightskip}{0pt plus 5cm}function get\+Default\+Header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_ad7130f3ad59194ca880274d19f4b2e43}
+\hypertarget{fullpage_2plugin_8js_a1569bb0e6624673b34679834208f6880}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!if@{if}}
+\index{if@{if}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{}]{matches}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a1569bb0e6624673b34679834208f6880}
+\hypertarget{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!if@{if}}
+\index{if@{if}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{{\bf elm} \&\&elm.}]{first\+Child}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}
+\hypertarget{fullpage_2plugin_8js_a4ec67ef1562fb8315f17e9e76277ebb4}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!on@{on}}
+\index{on@{on}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{on}]{\setlength{\rightskip}{0pt plus 5cm}editor on (
+\begin{DoxyParamCaption}
+\item[{'Before\+Set\+Content'}]{, }
+\item[{{\bf set\+Content}}]{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a4ec67ef1562fb8315f17e9e76277ebb4}
+\hypertarget{fullpage_2plugin_8js_a9b16a92e2d2ae500a239e6dd817e9cbf}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!parse\+Header@{parse\+Header}}
+\index{parse\+Header@{parse\+Header}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{parse\+Header}]{\setlength{\rightskip}{0pt plus 5cm}function parse\+Header (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a9b16a92e2d2ae500a239e6dd817e9cbf}
+\hypertarget{fullpage_2plugin_8js_a465938ea1cd397f0d555ca5c6a621f56}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!set\+Content@{set\+Content}}
+\index{set\+Content@{set\+Content}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{set\+Content}]{\setlength{\rightskip}{0pt plus 5cm}function set\+Content (
+\begin{DoxyParamCaption}
+\item[{}]{evt}
+\end{DoxyParamCaption}
+)}}\label{fullpage_2plugin_8js_a465938ea1cd397f0d555ca5c6a621f56}
+
+
+\subsection{Variable Documentation}
+\hypertarget{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!data@{data}}
+\index{data@{data}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}return data}}\label{fullpage_2plugin_8js_a718c1bf5a3bf21ebb980203b142e5b75}
+\hypertarget{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!elm@{elm}}
+\index{elm@{elm}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{elm}]{\setlength{\rightskip}{0pt plus 5cm}elm = header\+Fragment.\+get\+All('\#doctype')\mbox{[}0\mbox{]}}}\label{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}
+\hypertarget{fullpage_2plugin_8js_acb278154c5c8bfaaaac3b3a8217c56b7}{\index{fullpage/plugin.\+js@{fullpage/plugin.\+js}!stylesheets@{stylesheets}}
+\index{stylesheets@{stylesheets}!fullpage/plugin.\+js@{fullpage/plugin.\+js}}
+\subsubsection[{stylesheets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf data} stylesheets = \mbox{[}$\,$\mbox{]}}}\label{fullpage_2plugin_8js_acb278154c5c8bfaaaac3b3a8217c56b7}

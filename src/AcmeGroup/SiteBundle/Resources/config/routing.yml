@@ -1,0 +1,24 @@
+# PAGE D'ACCUEIL
+acme_site_home:
+    path: /
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:index" }
+
+acme_site_accueil:
+    path: /rayon-de-soleil
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:index" }
+
+
+## PAGES CATEGORISÉES
+acme_site_pageweb:
+    path: /page-{categorieSlug}/{pagewebSlug}/{pagedata}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageweb", categorieSlug: "web", pagewebSlug: null, pagedata: null }
+
+acme_site_pagemodale:
+    path: /modale/{pagewebSlug}/{pagedata}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pagemodale", pagewebSlug: null, pagedata: null }
+
+
+## FLUX
+acme_rss_getrss:
+    path: /flux.rss
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:getRss" }

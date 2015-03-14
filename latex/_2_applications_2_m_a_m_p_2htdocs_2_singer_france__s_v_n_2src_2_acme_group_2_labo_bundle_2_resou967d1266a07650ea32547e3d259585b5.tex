@@ -1,0 +1,65 @@
+\hypertarget{_2_applications_2_m_a_m_p_2htdocs_2_singer_france__s_v_n_2src_2_acme_group_2_labo_bundle_2_resou967d1266a07650ea32547e3d259585b5}{\section{/\+Applications/\+M\+A\+M\+P/htdocs/\+Singer\+France\+\_\+\+S\+V\+N/src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/\+Add\+On\+Manager.\+js}
+}
+Returns the specified add on by the short name.
+
+get 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & name Add-\/on to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\hyperlink{classtinymce_1_1_theme}{tinymce.\+Theme}/tinymce.Plugin\} Theme or plugin add-\/on instance or undefined.
+\end{DoxyReturn}
+Loads a language pack for the specified add-\/on.
+
+require\+Lang\+Pack 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & name Short name of the add-\/on. \\
+\hline
+{\em \{\+String\}} & languages Optional comma or space separated list of languages to check if it matches the name.\\
+\hline
+\end{DoxyParams}
+Adds a instance of the add-\/on by it's short name.
+
+add 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & id Short name/id for the add-\/on. \\
+\hline
+{\em \{tinymce.\+Theme/tinymce.\+Plugin\}} & add\+On Theme or plugin to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\hyperlink{classtinymce_1_1_theme}{tinymce.\+Theme}/tinymce.Plugin\} The same theme or plugin instance that got passed in.
+\end{DoxyReturn}
+// Create a simple plugin tinymce.\+create('tinymce.\+plugins.\+Test\+Plugin', \{ Test\+Plugin\+: function(ed, url) \{ ed.\+on('click', function(e) \{ ed.\+window\+Manager.\+alert('Hello World!'); \}); \} \});
+
+// Register plugin using the add method tinymce.\+Plugin\+Manager.\+add('test', tinymce.\+plugins.\+Test\+Plugin);
+
+// Initialize Tiny\+M\+C\+E tinymce.\+init(\{ ... plugins\+: '-\/test' // Init the plugin but don't try to load it \});
+
+Add a set of components that will make up the add-\/on. Using the url of the add-\/on name as the base url. This should be used in development mode. A new compressor/javascript munger process will ensure that the components are put together into the plugin.\+js file and compressed correctly.
+
+add\+Components 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & plugin\+Name name of the plugin to load scripts from (will be used to get the base url for the plugins). \\
+\hline
+{\em \{\+Array\}} & scripts Array containing the names of the scripts to load.\\
+\hline
+\end{DoxyParams}
+Loads an add-\/on from a specific url.
+
+load 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & n Short name of the add-\/on that gets loaded. \\
+\hline
+{\em \{\+String\}} & u U\+R\+L to the add-\/on that will get loaded. \\
+\hline
+{\em \{function\}} & cb Optional callback to execute ones the add-\/on is loaded. \\
+\hline
+{\em \{\+Object\}} & s Optional scope to execute the callback in.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

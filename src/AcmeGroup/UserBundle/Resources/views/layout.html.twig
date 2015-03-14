@@ -1,0 +1,18 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+
+{% block main_menu %}{% endblock main_menu %}
+
+{% block mainwindow %}
+<div class="ecart"></div>
+<div class="FOSutilities">
+	{% block fos_user_content %}
+	{% endblock fos_user_content %}
+	{% if app.session.get("aetools").actuelpath == "/login" %}
+<!-- 	<h3>
+		<a href="{{ path('fos_user_registration_register') }}"><span class="label label-warning">ou créez votre compte</span></a>
+	</h3> -->
+	{% endif %}
+</div>
+{% endblock mainwindow %}
+
+{% block boutondon %}{% endblock boutondon %}

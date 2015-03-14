@@ -1,0 +1,154 @@
+\hypertarget{paste_2plugin_8dev_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/paste/plugin.dev.\+js File Reference}
+\label{paste_2plugin_8dev_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/paste/plugin.\+dev.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/paste/plugin.\+dev.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{paste_2plugin_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{for} (var \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}=0;\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}$<$ scripts.\+length;\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}++)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_a85121e772df02f0fdd3431c1994272db}{require} (ids, callback)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_a83fe5f2491f5ded71e8d21062d1722d2}{resolve} (id)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_a38db71d98735f02e87ed63b0267d2b15}{register} (id)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_ac08da01b5cd4fdb3c17339ac112fb8fa}{define} (id, dependencies, definition)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_aa32857bbb6638af10df233f9d45a918d}{expose} (ids)
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_aaac4ceea7f13f5a3928d095ae00efa64}{write\+Scripts} ()
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_adf5333d4297fab97e9c97a9013678e60}{load} (\hyperlink{jquery_8mobile-1_83_81_8js_a85880b4fcfb12e8240a306187313f0b4}{path})
+\item 
+\hyperlink{paste_2plugin_8dev_8js_a2a1f0610cdfe6679869d270d179aec39}{expose} (\mbox{[}\char`\"{}tinymce/pasteplugin/Utils\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/pasteplugin/Clipboard\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/pasteplugin/Word\+Filter\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/pasteplugin/Quirks\char`\"{},\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/pasteplugin/Plugin\char`\"{}\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{paste_2plugin_8dev_8js_af5eafccb5437ef09b552101a016d8c32}{exports}
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{html} = \char`\"{}\char`\"{}
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_a965c193c0408ec6b14ef78599d17df09}{base\+Dir}
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_a4d77cb9bee576c07f3bbf9aec2c1278c}{modules} = \{\}
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_ab0fca3718107654d8f081640902633a1}{exposed\+Modules} = \mbox{[}$\,$\mbox{]}
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_a6cefeab8204f1adf622b259a7886c452}{module\+Count} = 0
+\item 
+var \hyperlink{paste_2plugin_8dev_8js_a09066d4d580eeec222f858d588b4cdef}{scripts} = document.\+get\+Elements\+By\+Tag\+Name('script')
+\item 
+\hyperlink{tinymce_8js_af5eafccb5437ef09b552101a016d8c32}{exports} \hyperlink{paste_2plugin_8dev_8js_a8a3a5595e65e7e2a2cf64c08ba74833f}{define} = define
+\item 
+\hyperlink{tinymce_8js_af5eafccb5437ef09b552101a016d8c32}{exports} \hyperlink{paste_2plugin_8dev_8js_af8219d7fbfcdb84e7cd614ff000e3649}{require} = require
+\item 
+\hyperlink{paste_2plugin_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}{this}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{paste_2plugin_8dev_8js_ac08da01b5cd4fdb3c17339ac112fb8fa}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!define@{define}}
+\index{define@{define}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}function define (
+\begin{DoxyParamCaption}
+\item[{}]{id, }
+\item[{}]{dependencies, }
+\item[{}]{definition}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_ac08da01b5cd4fdb3c17339ac112fb8fa}
+\hypertarget{paste_2plugin_8dev_8js_aa32857bbb6638af10df233f9d45a918d}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!expose@{expose}}
+\index{expose@{expose}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{expose}]{\setlength{\rightskip}{0pt plus 5cm}function expose (
+\begin{DoxyParamCaption}
+\item[{}]{ids}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_aa32857bbb6638af10df233f9d45a918d}
+\hypertarget{paste_2plugin_8dev_8js_a2a1f0610cdfe6679869d270d179aec39}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!expose@{expose}}
+\index{expose@{expose}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{expose}]{\setlength{\rightskip}{0pt plus 5cm}expose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_a2a1f0610cdfe6679869d270d179aec39}
+\hypertarget{paste_2plugin_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!for@{for}}
+\index{for@{for}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{for}]{\setlength{\rightskip}{0pt plus 5cm}for (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_a4675a875b20881bc5f7011f49fbd4da7}
+\hypertarget{paste_2plugin_8dev_8js_adf5333d4297fab97e9c97a9013678e60}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!load@{load}}
+\index{load@{load}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}function load (
+\begin{DoxyParamCaption}
+\item[{{\bf path}}]{}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_adf5333d4297fab97e9c97a9013678e60}
+\hypertarget{paste_2plugin_8dev_8js_a38db71d98735f02e87ed63b0267d2b15}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!register@{register}}
+\index{register@{register}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{register}]{\setlength{\rightskip}{0pt plus 5cm}function register (
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_a38db71d98735f02e87ed63b0267d2b15}
+\hypertarget{paste_2plugin_8dev_8js_a85121e772df02f0fdd3431c1994272db}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!require@{require}}
+\index{require@{require}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{require}]{\setlength{\rightskip}{0pt plus 5cm}function require (
+\begin{DoxyParamCaption}
+\item[{}]{ids, }
+\item[{}]{callback}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_a85121e772df02f0fdd3431c1994272db}
+\hypertarget{paste_2plugin_8dev_8js_a83fe5f2491f5ded71e8d21062d1722d2}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!resolve@{resolve}}
+\index{resolve@{resolve}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{resolve}]{\setlength{\rightskip}{0pt plus 5cm}function resolve (
+\begin{DoxyParamCaption}
+\item[{}]{id}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_a83fe5f2491f5ded71e8d21062d1722d2}
+\hypertarget{paste_2plugin_8dev_8js_aaac4ceea7f13f5a3928d095ae00efa64}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!write\+Scripts@{write\+Scripts}}
+\index{write\+Scripts@{write\+Scripts}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{write\+Scripts}]{\setlength{\rightskip}{0pt plus 5cm}write\+Scripts (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{paste_2plugin_8dev_8js_aaac4ceea7f13f5a3928d095ae00efa64}
+
+
+\subsection{Variable Documentation}
+\hypertarget{paste_2plugin_8dev_8js_a965c193c0408ec6b14ef78599d17df09}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!base\+Dir@{base\+Dir}}
+\index{base\+Dir@{base\+Dir}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{base\+Dir}]{\setlength{\rightskip}{0pt plus 5cm}var base\+Dir}}\label{paste_2plugin_8dev_8js_a965c193c0408ec6b14ef78599d17df09}
+\hypertarget{paste_2plugin_8dev_8js_a8a3a5595e65e7e2a2cf64c08ba74833f}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!define@{define}}
+\index{define@{define}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}define = define}}\label{paste_2plugin_8dev_8js_a8a3a5595e65e7e2a2cf64c08ba74833f}
+\hypertarget{paste_2plugin_8dev_8js_af5eafccb5437ef09b552101a016d8c32}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!exports@{exports}}
+\index{exports@{exports}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{exports}]{\setlength{\rightskip}{0pt plus 5cm}function exports}}\label{paste_2plugin_8dev_8js_af5eafccb5437ef09b552101a016d8c32}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    \textcolor{stringliteral}{"use strict"}
+\end{DoxyCode}
+Inline development version. Only to be used while developing since it uses document.\+write to load scripts. \hypertarget{paste_2plugin_8dev_8js_ab0fca3718107654d8f081640902633a1}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!exposed\+Modules@{exposed\+Modules}}
+\index{exposed\+Modules@{exposed\+Modules}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{exposed\+Modules}]{\setlength{\rightskip}{0pt plus 5cm}var exposed\+Modules = \mbox{[}$\,$\mbox{]}}}\label{paste_2plugin_8dev_8js_ab0fca3718107654d8f081640902633a1}
+\hypertarget{paste_2plugin_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!html@{html}}
+\index{html@{html}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{html}]{\setlength{\rightskip}{0pt plus 5cm}var html = \char`\"{}\char`\"{}}}\label{paste_2plugin_8dev_8js_ac2090bcf2ff968c0083d5de53a6544f3}
+\hypertarget{paste_2plugin_8dev_8js_a6cefeab8204f1adf622b259a7886c452}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!module\+Count@{module\+Count}}
+\index{module\+Count@{module\+Count}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{module\+Count}]{\setlength{\rightskip}{0pt plus 5cm}var module\+Count = 0}}\label{paste_2plugin_8dev_8js_a6cefeab8204f1adf622b259a7886c452}
+\hypertarget{paste_2plugin_8dev_8js_a4d77cb9bee576c07f3bbf9aec2c1278c}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!modules@{modules}}
+\index{modules@{modules}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{modules}]{\setlength{\rightskip}{0pt plus 5cm}var modules = \{\}}}\label{paste_2plugin_8dev_8js_a4d77cb9bee576c07f3bbf9aec2c1278c}
+\hypertarget{paste_2plugin_8dev_8js_af8219d7fbfcdb84e7cd614ff000e3649}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!require@{require}}
+\index{require@{require}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{require}]{\setlength{\rightskip}{0pt plus 5cm}{\bf exports} require = require}}\label{paste_2plugin_8dev_8js_af8219d7fbfcdb84e7cd614ff000e3649}
+\hypertarget{paste_2plugin_8dev_8js_a09066d4d580eeec222f858d588b4cdef}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!scripts@{scripts}}
+\index{scripts@{scripts}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{scripts}]{\setlength{\rightskip}{0pt plus 5cm}var scripts = document.\+get\+Elements\+By\+Tag\+Name('script')}}\label{paste_2plugin_8dev_8js_a09066d4d580eeec222f858d588b4cdef}
+\hypertarget{paste_2plugin_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}{\index{paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}!this@{this}}
+\index{this@{this}!paste/plugin.\+dev.\+js@{paste/plugin.\+dev.\+js}}
+\subsubsection[{this}]{\setlength{\rightskip}{0pt plus 5cm}this}}\label{paste_2plugin_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}

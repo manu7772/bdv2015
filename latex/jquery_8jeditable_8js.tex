@@ -1,0 +1,113 @@
+\hypertarget{jquery_8jeditable_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.9.4/examples/examples\+\_\+support/jquery.jeditable.\+js File Reference}
+\label{jquery_8jeditable_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/examples/examples\+\_\+support/jquery.\+jeditable.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+Data\+Tables-\/1.\+9.\+4/examples/examples\+\_\+support/jquery.\+jeditable.\+js}}
+}
+\subsection*{Variables}
+\begin{Indent}{\bf Jeditable}\par
+{\em Version 1.\+7.\+1
+
+$\ast$$\ast$ means there is basic unit tests for this parameter.
+
+j\+Query 
+\begin{DoxyParams}{Parameters}
+{\em String} & target (P\+O\+S\+T) U\+R\+L or function to send edited content to $\ast$$\ast$ \\
+\hline
+{\em Hash} & options additional options \\
+\hline
+{\em String} & options\mbox{[}method\mbox{]} method to use to send edited content (P\+O\+S\+T or P\+U\+T) $\ast$$\ast$ \\
+\hline
+{\em Function} & options\mbox{[}callback\mbox{]} Function to run after submitting edited content $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}name\mbox{]} P\+O\+S\+T parameter name of edited content \\
+\hline
+{\em String} & options\mbox{[}id\mbox{]} P\+O\+S\+T parameter name of edited div id \\
+\hline
+{\em Hash} & options\mbox{[}submitdata\mbox{]} Extra parameters to send when submitting edited content. \\
+\hline
+{\em String} & options\mbox{[}type\mbox{]} text, textarea or select (or any 3rd party input type) $\ast$$\ast$ \\
+\hline
+{\em Integer} & options\mbox{[}rows\mbox{]} number of rows if using textarea $\ast$$\ast$ \\
+\hline
+{\em Integer} & options\mbox{[}cols\mbox{]} number of columns if using textarea $\ast$$\ast$ \\
+\hline
+{\em Mixed} & options\mbox{[}height\mbox{]} 'auto', 'none' or height in pixels $\ast$$\ast$ \\
+\hline
+{\em Mixed} & options\mbox{[}width\mbox{]} 'auto', 'none' or width in pixels $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}loadurl\mbox{]} U\+R\+L to fetch input content before editing $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}loadtype\mbox{]} Request type for load url. Should be G\+E\+T or P\+O\+S\+T. \\
+\hline
+{\em String} & options\mbox{[}loadtext\mbox{]} Text to display while loading external content. \\
+\hline
+{\em Mixed} & options\mbox{[}loaddata\mbox{]} Extra parameters to pass when fetching content before editing. \\
+\hline
+{\em Mixed} & options\mbox{[}data\mbox{]} Or content given as paramameter. String or function.$\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}indicator\mbox{]} indicator html to show when saving \\
+\hline
+{\em String} & options\mbox{[}tooltip\mbox{]} optional tooltip text via title attribute $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}event\mbox{]} j\+Query event such as 'click' of 'dblclick' $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}submit\mbox{]} submit button value, empty means no button $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}cancel\mbox{]} cancel button value, empty means no button $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}cssclass\mbox{]} C\+S\+S class to apply to input form. 'inherit' to copy from parent. $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}style\mbox{]} Style to apply to input form 'inherit' to copy from parent. $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}select\mbox{]} true or false, when true text is highlighted ?? \\
+\hline
+{\em String} & options\mbox{[}placeholder\mbox{]} Placeholder text or html to insert when element is empty. $\ast$$\ast$ \\
+\hline
+{\em String} & options\mbox{[}onblur\mbox{]} 'cancel', 'submit', 'ignore' or function ??\\
+\hline
+{\em Function} & options\mbox{[}onsubmit\mbox{]} function(settings, original) \{ ... \} called before submit \\
+\hline
+{\em Function} & options\mbox{[}onreset\mbox{]} function(settings, original) \{ ... \} called before reset \\
+\hline
+{\em Function} & options\mbox{[}onerror\mbox{]} function(settings, original, xhr) \{ ... \} called on error\\
+\hline
+{\em Hash} & options\mbox{[}ajaxoptions\mbox{]} j\+Query Ajax options. See docs.\+jquery.\+com. \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{jquery_8jeditable_8js_a855cab08850661d0cbdf684f654b50f2}{editable}
+\item 
+\hyperlink{jquery_8mobile-1_83_81_8js_a070a098c013c19f1fbe3cec06e21420f}{fn} \hyperlink{jquery_8jeditable_8js_a855cab08850661d0cbdf684f654b50f2}{editable} \hyperlink{jquery_8jeditable_8js_ac94f67df3c853156cce512f50b52db6b}{defaults}
+\item 
+\hyperlink{jquery_8jeditable_8js_a2b1d6f9c448e3ce72f4e1865d6e38d2c}{j\+Query}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsection{Variable Documentation}
+\hypertarget{jquery_8jeditable_8js_ac94f67df3c853156cce512f50b52db6b}{\index{jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}!defaults@{defaults}}
+\index{defaults@{defaults}!jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}}
+\subsubsection[{defaults}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fn} {\bf editable} defaults}}\label{jquery_8jeditable_8js_ac94f67df3c853156cce512f50b52db6b}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+        name       : \textcolor{stringliteral}{'value'},
+        \textcolor{keywordtype}{id}         : \textcolor{stringliteral}{'id'},
+        type       : \textcolor{stringliteral}{'text'},
+        width      : \textcolor{stringliteral}{'auto'},
+        \hyperlink{jquery-ui_8js_a53b668b89fc43ad1964bca7d45307d62}{height}     : \textcolor{stringliteral}{'auto'},
+        \textcolor{keyword}{event}      : \textcolor{stringliteral}{'click.editable'},
+        onblur     : \textcolor{stringliteral}{'cancel'},
+        loadtype   : \textcolor{stringliteral}{'GET'},
+        loadtext   : \textcolor{stringliteral}{'Loading...'},
+        placeholder: \textcolor{stringliteral}{'Click to edit'},
+        loaddata   : \{\},
+        submitdata : \{\},
+        ajaxoptions: \{\}
+    \}
+\end{DoxyCode}
+\hypertarget{jquery_8jeditable_8js_a855cab08850661d0cbdf684f654b50f2}{\index{jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}!editable@{editable}}
+\index{editable@{editable}!jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}}
+\subsubsection[{editable}]{\setlength{\rightskip}{0pt plus 5cm}function editable}}\label{jquery_8jeditable_8js_a855cab08850661d0cbdf684f654b50f2}
+\hypertarget{jquery_8jeditable_8js_a2b1d6f9c448e3ce72f4e1865d6e38d2c}{\index{jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}!j\+Query@{j\+Query}}
+\index{j\+Query@{j\+Query}!jquery.\+jeditable.\+js@{jquery.\+jeditable.\+js}}
+\subsubsection[{j\+Query}]{\setlength{\rightskip}{0pt plus 5cm}j\+Query}}\label{jquery_8jeditable_8js_a2b1d6f9c448e3ce72f4e1865d6e38d2c}

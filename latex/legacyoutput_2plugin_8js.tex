@@ -1,0 +1,47 @@
+\hypertarget{legacyoutput_2plugin_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/legacyoutput/plugin.js File Reference}
+\label{legacyoutput_2plugin_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/legacyoutput/plugin.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/plugins/legacyoutput/plugin.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce} Plugin\+Manager \hyperlink{legacyoutput_2plugin_8js_a790aa2681649f619bce7c30e3489434a}{add} ('legacyoutput', function(editor)\{\hyperlink{fullpage_2plugin_8min_8js_a1cfa98b7fed2aaf9fee3b68dbb7f9497}{editor.\+on}('\hyperlink{mctabs_8js_a936fb06176b01ffb1fc69eb4d1e2f67d}{init}', function()\{var align\+Elements= '\hyperlink{media_2js_2jquery_8js_a32d2366ed9853870f0c2ef3553996e29}{p}, h1, h2, h3, h4, h5, h6, td, th, div, ul, ol, li, table, img', font\+Sizes=tinymce.\+explode(editor.\+settings.\+font\+\_\+size\+\_\+style\+\_\+values), schema=editor.\+schema;\hyperlink{tinymce_8jquery_8dev_8js_a38db71d98735f02e87ed63b0267d2b15}{editor.\+formatter.\+register}(\{alignleft\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'left'\}\}, aligncenter\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'center'\}\}, alignright\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'right'\}\}, alignjustify\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'justify'\}\}, bold\+:\mbox{[}\{inline\+: '\hyperlink{media_2js_2jquery_8js_ac0431efac4d7c393d1e70b86115cb93f}{b}', remove\+: 'all'\},\{inline\+: 'strong', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{font\+Weight\+: 'bold'\}\}\mbox{]}, italic\+:\mbox{[}\{inline\+: '\hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}', remove\+: 'all'\},\{inline\+: 'em', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{font\+Style\+: 'italic'\}\}\mbox{]}, underline\+:\mbox{[}\{inline\+: 'u', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{text\+Decoration\+: 'underline'\}, exact\+:true\}\mbox{]}, strikethrough\+:\mbox{[}\{inline\+: 'strike', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{text\+Decoration\+: 'line-\/through'\}, exact\+:true\}\mbox{]}, fontname\+:\{inline\+: 'font', attributes\+:\{face\+: '\%\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}'\}\}, fontsize\+:\{inline\+: 'font', attributes\+:\{size\+:function(vars)\{return tinymce.\+in\+Array(font\+Sizes, \hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{vars.\+value})+1;\}\}\}, forecolor\+:\{inline\+: 'font', attributes\+:\{color\+: '\%\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}'\}\}, hilitecolor\+:\{inline\+: 'font', styles\+:\{background\+Color\+: '\%\hyperlink{fullpage_2plugin_8min_8js_ac56c57897e10f699d124e0103921aa20}{value}'\}\}\});\hyperlink{fullpage_2plugin_8min_8js_a536422939f8cd6b5867a8fb424c3c02e}{tinymce.\+each}('\hyperlink{media_2js_2jquery_8js_ac0431efac4d7c393d1e70b86115cb93f}{b}, \hyperlink{validate_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}, u, strike'.split(','), function(name)\{schema.\+add\+Valid\+Elements(name+ '\mbox{[}$\ast$\mbox{]}');\});\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!schema.\+get\+Element\+Rule(\char`\"{}font\char`\"{}))\{schema.\+add\+Valid\+Elements(\char`\"{}font\mbox{[}face$\vert$\hyperlink{jquery-ui_8js_a8aed6b484654e16a41c505f6907b5ec6}{size}$\vert$color$\vert$style\mbox{]}\char`\"{});\}tinymce.\+each(align\+Elements.\+split(','), function(name)\{var rule=schema.\+get\+Element\+Rule(name);\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(rule)\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(!rule.\+attributes.\+align)\{rule.\+attributes.\+align=\{\};\hyperlink{core_8constructor_8js_afa3ccdb0f651abf66d93864fc8419c98}{rule.\+attributes\+Order.\+push}('align');\}\}\});\});\})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{legacyoutput_2plugin_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{legacyoutput_2plugin_8js_a790aa2681649f619bce7c30e3489434a}{\index{legacyoutput/plugin.\+js@{legacyoutput/plugin.\+js}!add@{add}}
+\index{add@{add}!legacyoutput/plugin.\+js@{legacyoutput/plugin.\+js}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tinymce} Plugin\+Manager add (
+\begin{DoxyParamCaption}
+\item[{'legacyoutput'}]{, }
+\item[{function(editor)\{{\bf editor.\+on}('{\bf init}', function()\{var align\+Elements= '{\bf p}, h1, h2, h3, h4, h5, h6, td, th, div, ul, ol, li, table, img', font\+Sizes=tinymce.\+explode(editor.\+settings.\+font\+\_\+size\+\_\+style\+\_\+values), schema=editor.\+schema;{\bf editor.\+formatter.\+register}(\{alignleft\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'left'\}\}, aligncenter\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'center'\}\}, alignright\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'right'\}\}, alignjustify\+:\{selector\+:align\+Elements, attributes\+:\{align\+: 'justify'\}\}, bold\+:\mbox{[}\{inline\+: '{\bf b}', remove\+: 'all'\},\{inline\+: 'strong', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{font\+Weight\+: 'bold'\}\}\mbox{]}, italic\+:\mbox{[}\{inline\+: '{\bf i}', remove\+: 'all'\},\{inline\+: 'em', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{font\+Style\+: 'italic'\}\}\mbox{]}, underline\+:\mbox{[}\{inline\+: 'u', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{text\+Decoration\+: 'underline'\}, exact\+:true\}\mbox{]}, strikethrough\+:\mbox{[}\{inline\+: 'strike', remove\+: 'all'\},\{inline\+: 'span', styles\+:\{text\+Decoration\+: 'line-\/through'\}, exact\+:true\}\mbox{]}, fontname\+:\{inline\+: 'font', attributes\+:\{face\+: '\%{\bf value}'\}\}, fontsize\+:\{inline\+: 'font', attributes\+:\{size\+:function(vars)\{return tinymce.\+in\+Array(font\+Sizes, {\bf vars.\+value})+1;\}\}\}, forecolor\+:\{inline\+: 'font', attributes\+:\{color\+: '\%{\bf value}'\}\}, hilitecolor\+:\{inline\+: 'font', styles\+:\{background\+Color\+: '\%{\bf value}'\}\}\});{\bf tinymce.\+each}('{\bf b}, {\bf i}, u, strike'.split(','), function(name)\{schema.\+add\+Valid\+Elements(name+ '\mbox{[}$\ast$\mbox{]}');\});{\bf if}(!schema.\+get\+Element\+Rule(\char`\"{}font\char`\"{}))\{schema.\+add\+Valid\+Elements(\char`\"{}font\mbox{[}face$\vert${\bf size}$\vert$color$\vert$style\mbox{]}\char`\"{});\}tinymce.\+each(align\+Elements.\+split(','), function(name)\{var rule=schema.\+get\+Element\+Rule(name);{\bf if}(rule)\{{\bf if}(!rule.\+attributes.\+align)\{rule.\+attributes.\+align=\{\};{\bf rule.\+attributes\+Order.\+push}('align');\}\}\});\});\}}]{}
+\end{DoxyParamCaption}
+)}}\label{legacyoutput_2plugin_8js_a790aa2681649f619bce7c30e3489434a}
+
+
+\subsection{Variable Documentation}
+\hypertarget{legacyoutput_2plugin_8js_a9e0c63e13122add16db57b355b91bbc8}{\index{legacyoutput/plugin.\+js@{legacyoutput/plugin.\+js}!tinymce@{tinymce}}
+\index{tinymce@{tinymce}!legacyoutput/plugin.\+js@{legacyoutput/plugin.\+js}}
+\subsubsection[{tinymce}]{\setlength{\rightskip}{0pt plus 5cm}tinymce}}\label{legacyoutput_2plugin_8js_a9e0c63e13122add16db57b355b91bbc8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+    
+    \hyperlink{compat3x_2plugin_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}.on(\textcolor{stringliteral}{'AddEditor'}, \textcolor{keyword}{function}(\hyperlink{_auto_fill_8min_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}) \{
+        \hyperlink{_auto_fill_8min_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}.editor.settings.inline\_styles = \textcolor{keyword}{false};
+    \})
+\end{DoxyCode}
+plugin.\+js
+
+Copyright, Moxiecode Systems A\+B Released under L\+G\+P\+L License.
+
+License\+: \href{http://www.tinymce.com/license}{\tt http\+://www.\+tinymce.\+com/license} Contributing\+: \href{http://www.tinymce.com/contributing}{\tt http\+://www.\+tinymce.\+com/contributing}
+
+This plugin will force Tiny\+M\+C\+E to produce deprecated legacy output such as font elements, u elements, align attributes and so forth. There are a few cases where these old items might be needed for example in email applications or with Flash
+
+However you should N\+O\+T use this plugin if you are building some system that produces web contents such as a C\+M\+S. All these elements are not apart of the newer specifications for H\+T\+M\+L and X\+H\+T\+M\+L. 

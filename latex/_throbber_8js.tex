@@ -1,0 +1,41 @@
+\hypertarget{_throbber_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Throbber.js File Reference}
+\label{_throbber_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Throbber.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/ui/\+Throbber.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_throbber_8js_ae723452eac164eb8a3817e6ed160aa41}{define} (\char`\"{}tinymce/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/Throbber\char`\"{}, \mbox{[}\char`\"{}\hyperlink{legacyoutput_2plugin_8min_8js_a9e0c63e13122add16db57b355b91bbc8}{tinymce}/\hyperlink{jquery-ui_8js_ac492f8de2d00b6c4282e766bfadaf2e7}{ui}/Dom\+Utils\char`\"{}\mbox{]}, function(Dom\+Utils)\{\char`\"{}use strict\char`\"{};return function(\hyperlink{fullpage_2plugin_8js_a97a64dfa22b20bcc682327a272b84e73}{elm})\{var self=\hyperlink{tinymce_8jquery_8dev_8js_a05c09a5e9d53fa7adf0a7936038c2fa3}{this}, state;\hyperlink{jquery_8tooltip_8js_aa8d9f2083cafa2af98efafed94901079}{self.\+show}=function(time)\{\hyperlink{jquery_8tooltip_8js_af74dd80504a76d14389d6c8c02f3aa0e}{self.\+hide}();state=true;window.\+set\+Timeout(function()\{\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(state)\{\hyperlink{jquery-ui_8js_a282eb35406abfe6001815a393642b8cb}{elm.\+append\+Child}(Dom\+Utils.\+create\+Fragment('$<$ div class=\char`\"{}mce-\/throbber\char`\"{}$>$$<$/div $>$'));\}\}, time$\vert$$\vert$0);return self;\};\hyperlink{jquery_8tooltip_8js_af74dd80504a76d14389d6c8c02f3aa0e}{self.\+hide}=function()\{var child=elm.\+last\+Child;\hyperlink{fullpage_2plugin_8js_a8b98017e64ef036adb9ae327ff94abe1}{if}(child \&\&child.\+class\+Name.\+index\+Of('throbber')!=-\/1)\{\hyperlink{jquery-ui_8js_ab13208bd0b29533656fdd9fdfc2de509}{child.\+parent\+Node.\+remove\+Child}(child);\}state=\hyperlink{validate_8js_a5df37b7f02e5cdc7d9412b7f872b8e01}{false};return self;\};\};\})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_throbber_8js_ae723452eac164eb8a3817e6ed160aa41}{\index{Throbber.\+js@{Throbber.\+js}!define@{define}}
+\index{define@{define}!Throbber.\+js@{Throbber.\+js}}
+\subsubsection[{define}]{\setlength{\rightskip}{0pt plus 5cm}define (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}tinymce/{\bf ui}/Throbber\char`\"{}}]{, }
+\item[{function(Dom\+Utils)\{\char`\"{}use strict\char`\"{};return function({\bf elm})\{var self={\bf this}, state;{\bf self.\+show}=function(time)\{{\bf self.\+hide}();state=true;window.\+set\+Timeout(function()\{{\bf if}(state)\{{\bf elm.\+append\+Child}(Dom\+Utils.\+create\+Fragment('$<$ div class=\char`\"{}mce-\/throbber\char`\"{}$>$$<$/div $>$'));\}\}, time$\vert$$\vert$0);return self;\};{\bf self.\+hide}=function()\{var child=elm.\+last\+Child;{\bf if}(child \&\&child.\+class\+Name.\+index\+Of('throbber')!=-\/1)\{{\bf child.\+parent\+Node.\+remove\+Child}(child);\}state={\bf false};return self;\};\};\}}]{}
+\end{DoxyParamCaption}
+)}}\label{_throbber_8js_ae723452eac164eb8a3817e6ed160aa41}
+
+\begin{DoxyParams}{Parameters}
+{\em function(\+Dom\+Utils)\{\char`\"{}use} & strict\char`\"{};return function(elm)\{var self=this, state;self.\+show=function(time)\{self.\+hide();state=true;window.\+set\+Timeout(function()\{if(state)\{elm.\+append\+Child(\+Dom\+Utils.\+create\+Fragment('$<$ div class=\char`\"{}mce-\/throbber"$>$'));\}\}, time$\vert$$\vert$0);return self;\};self.\+hide=function()\{var child=elm.\+last\+Child;if(child \&\&child.\+class\+Name.\+index\+Of('throbber')!=-\/1)\{child.\+parent\+Node.\+remove\+Child(child);\}state=false;return self;\};\};\} Constructs a new throbber.\\
+\hline
+{\em \{\+Element\}} & elm D\+O\+M Html element to display throbber in.\\
+\hline
+\end{DoxyParams}
+Shows the throbber.
+
+show 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Number\}} & \mbox{[}time\mbox{]} Time to wait before showing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{\hyperlink{classtinymce_1_1ui_1_1_throbber}{tinymce.\+ui.\+Throbber}\} Current throbber instance.
+\end{DoxyReturn}
+Hides the throbber.
+
+hide \begin{DoxyReturn}{Returns}
+\{\hyperlink{classtinymce_1_1ui_1_1_throbber}{tinymce.\+ui.\+Throbber}\} Current throbber instance. 
+\end{DoxyReturn}

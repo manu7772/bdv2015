@@ -1,0 +1,95 @@
+\hypertarget{_j_query_functions_8js}{\section{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+J\+Query\+Functions.js File Reference}
+\label{_j_query_functions_8js}\index{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+J\+Query\+Functions.\+js@{src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/\+J\+Query\+Functions.\+js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_j_query_functions_8js_aa75cf623b2e68552ccb3ce11e2d9c501}{if} ((\$(\char`\"{}\#modedev\char`\"{}).val()==\char`\"{}dev\char`\"{})$\vert$$\vert$(\$(\char`\"{}\#modedev\char`\"{}).val()==\char`\"{}test\char`\"{})) modedev
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \hyperlink{_j_query_functions_8js_ae1a171a9f427a4426eb9a8262a58c889}{Json\+Result}
+\item 
+var \hyperlink{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{Console\+Result}
+\item 
+\hyperlink{jquery_8mobile-1_83_81_8js_a070a098c013c19f1fbe3cec06e21420f}{fn} \hyperlink{_j_query_functions_8js_ad2e37063c8c2b3db869c735b88473786}{tag\+Name}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_j_query_functions_8js_aa75cf623b2e68552ccb3ce11e2d9c501}{\index{J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}!if@{if}}
+\index{if@{if}!J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{(\$(\char`\"{}\#modedev\char`\"{}).val()==\char`\"{}dev\char`\"{})$\vert$$\vert$(\$(\char`\"{}\#modedev\char`\"{}).val()==\char`\"{}test\char`\"{})}]{}
+\end{DoxyParamCaption}
+)}}\label{_j_query_functions_8js_aa75cf623b2e68552ccb3ce11e2d9c501}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{\index{J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}!Console\+Result@{Console\+Result}}
+\index{Console\+Result@{Console\+Result}!J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}}
+\subsubsection[{Console\+Result}]{\setlength{\rightskip}{0pt plus 5cm}var Console\+Result}}\label{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(libelle, texte, afficheToutDeSuite, force) \{
+    var objCRparent = \textcolor{keyword}{this};
+    this.lib = Array();
+    this.tx = Array();
+    this.cpt = 0;
+    this.frc = force;
+    this.\hyperlink{jquery_8tooltip_8js_aa8d9f2083cafa2af98efafed94901079}{show} = \textcolor{keyword}{function}(force) \{
+        \textcolor{keywordflow}{if}((modedev == \textcolor{keyword}{true} || objCRparent.frc == \textcolor{keyword}{true} || force == \textcolor{keyword}{true}) && objCRparent.lib.length > 0)
+        \textcolor{keywordflow}{for}(\hyperlink{core_8constructor_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i} in objCRparent.lib) \{
+            console.log(objCRparent.lib[\hyperlink{core_8constructor_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}],objCRparent.tx[\hyperlink{core_8constructor_8js_a5e25b1d1bed9ab5f3174b76d6a722180}{i}]);
+        \}
+    \}
+    this.\hyperlink{jquery-ui_8js_a58e72319cea2f2d259c0852843e25a70}{add} = \textcolor{keyword}{function}(libelle, texte) \{
+        \textcolor{keywordflow}{if}(libelle && (texte != \hyperlink{validate_8js_afb8e110345c45e74478894341ab6b28e}{null})) \{
+            \textcolor{keywordflow}{if}(texte == \textcolor{keyword}{false}) texte = \textcolor{stringliteral}{"(boolean) false"};
+            \textcolor{keywordflow}{if}(texte == \textcolor{keyword}{true}) texte = \textcolor{stringliteral}{"(boolean) true"};
+            objCRparent.lib[objCRparent.cpt] = libelle+\textcolor{stringliteral}{""};
+            objCRparent.tx[objCRparent.cpt] = texte+\textcolor{stringliteral}{""};
+            objCRparent.cpt++;
+        \}
+        \textcolor{keywordflow}{return} this.objCRparent;
+    \}
+    \textcolor{keywordflow}{if}(libelle && texte) this.\hyperlink{jquery-ui_8js_a58e72319cea2f2d259c0852843e25a70}{add}(libelle, texte);
+    \textcolor{keywordflow}{if}(afficheToutDeSuite == \textcolor{keyword}{true}) this.\hyperlink{jquery_8tooltip_8js_aa8d9f2083cafa2af98efafed94901079}{show}();
+\}
+
+\hyperlink{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{ConsoleResult}(\textcolor{stringliteral}{"mode DEV : "}, modedev, \textcolor{keyword}{true})
+\end{DoxyCode}
+\hypertarget{_j_query_functions_8js_ae1a171a9f427a4426eb9a8262a58c889}{\index{J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}!Json\+Result@{Json\+Result}}
+\index{Json\+Result@{Json\+Result}!J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}}
+\subsubsection[{Json\+Result}]{\setlength{\rightskip}{0pt plus 5cm}var Json\+Result}}\label{_j_query_functions_8js_ae1a171a9f427a4426eb9a8262a58c889}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(json) \{
+    ResponseArray = \textcolor{keyword}{new} Array();
+    \textcolor{keywordflow}{if}(parseInt(json.status) != 200) \{
+        \hyperlink{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{ConsoleResult}(\textcolor{stringliteral}{'Erreur '}, parseInt(json.status), \textcolor{keyword}{true});
+        ResponseArray[\textcolor{stringliteral}{"html"}] = \textcolor{stringliteral}{"<p>BAD RETURN "}+parseInt(json.status)+\textcolor{stringliteral}{"!!!</p>"};
+        \textcolor{keywordflow}{return} ResponseArray;
+    \} \textcolor{keywordflow}{else} \hyperlink{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{ConsoleResult}(\textcolor{stringliteral}{'Statut Retour '}, parseInt(json.status), \textcolor{keyword}{true});
+    \textcolor{keywordflow}{if}(\hyperlink{docs_2media_2js_2sh_brush_j_script_8js_a93a9266f92d6d68644e7aa63da3caa11}{typeof} json.responseText != \textcolor{stringliteral}{"undefined"}) \{
+        ResponseArray = $.parseJSON(json.responseText);
+        CR = \textcolor{keyword}{new} \hyperlink{_j_query_functions_8js_a03d83878211b98f017dc70a39a3a0bf6}{ConsoleResult}();
+        CR.add(\textcolor{stringliteral}{"Résultat : "}, ResponseArray[\textcolor{stringliteral}{"result"}]);
+        CR.add(\textcolor{stringliteral}{"Message : "}, ResponseArray[\textcolor{stringliteral}{"message"}]);
+        CR.add(\textcolor{stringliteral}{"Retour html : "}, ResponseArray[\textcolor{stringliteral}{"html"}].length);
+        CR.show();
+        \textcolor{keywordflow}{return} ResponseArray;
+    \} \textcolor{keywordflow}{else} \{
+        ResponseArray[\textcolor{stringliteral}{"html"}] = \textcolor{stringliteral}{"<p>BAD RETURN !!! json.responseText = undefined</p>"};
+        \textcolor{keywordflow}{return} ResponseArray;
+    \}
+\}
+
+
+var modedev = \textcolor{keyword}{false}
+\end{DoxyCode}
+\hypertarget{_j_query_functions_8js_ad2e37063c8c2b3db869c735b88473786}{\index{J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}!tag\+Name@{tag\+Name}}
+\index{tag\+Name@{tag\+Name}!J\+Query\+Functions.\+js@{J\+Query\+Functions.\+js}}
+\subsubsection[{tag\+Name}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fn} tag\+Name}}\label{_j_query_functions_8js_ad2e37063c8c2b3db869c735b88473786}

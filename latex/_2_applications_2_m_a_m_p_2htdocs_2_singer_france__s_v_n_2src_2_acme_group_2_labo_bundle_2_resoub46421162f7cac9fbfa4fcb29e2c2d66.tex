@@ -1,0 +1,28 @@
+\hypertarget{_2_applications_2_m_a_m_p_2htdocs_2_singer_france__s_v_n_2src_2_acme_group_2_labo_bundle_2_resoub46421162f7cac9fbfa4fcb29e2c2d66}{\section{/\+Applications/\+M\+A\+M\+P/htdocs/\+Singer\+France\+\_\+\+S\+V\+N/src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/dom/\+Serializer.\+js}
+}
+Constructs a new D\+O\+M serializer class.
+
+Serializer 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & settings Serializer settings object. \\
+\hline
+{\em \{tinymce.\+Editor\}} & editor Optional editor to bind events to and get schema/dom from.\\
+\hline
+\end{DoxyParams}
+Schema instance that was used to when the Serializer was constructed.
+
+\{\hyperlink{classtinymce_1_1html_1_1_schema}{tinymce.\+html.\+Schema}\} schema
+
+Adds a node filter function to the parser used by the serializer, the parser will collect the specified nodes by name and then execute the callback ones it has finished parsing the document.
+
+parser.\+add\+Node\+Filter('p,h1', function(nodes, name) \{ for (var i = 0; i $<$ nodes.\+length; i++) \{ console.\+log(nodes\mbox{[}i\mbox{]}.name); \} \});  add\+Node\+Filter  \{String\} name Comma separated list of nodes to collect. 
+\begin{DoxyParams}{Parameters}
+{\em \{function\}} & callback Callback function to execute once it has collected nodes.\\
+\hline
+\end{DoxyParams}
+Adds a attribute filter function to the parser used by the serializer, the parser will collect nodes that has the specified attributes and then execute the callback ones it has finished parsing the document.
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

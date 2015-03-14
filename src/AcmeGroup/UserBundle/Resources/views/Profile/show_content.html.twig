@@ -1,0 +1,53 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<h4 class="well well-md">Informations de votre compte Singer
+	<a href="{{ path('fos_user_profile_edit') }}">
+		<button type="button" class="btn btn-warning btn-xs pull-right" title="Modifier mon compte">Modifier mon compte</button>
+	</a>
+</h4>
+
+<div class="fos_user_user_show">
+	{% if is_granted("ROLE_SUPER_ADMIN") %}
+	<div class="alert alert-danger alert-dismissable hideauto" data-hide="8000 1000 fade">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Vous êtes <strong>SUPER ADMINISTRATEUR</strong>
+	</div>
+	{% elseif is_granted("ROLE_ADMIN") %}
+	<div class="alert alert-warning alert-dismissable hideauto" data-hide="8000 1000 fade">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Vous êtes <strong>ADMINISTRATEUR</strong>
+	</div>
+	{% elseif is_granted("ROLE_EDITOR") %}
+	<div class="alert alert-info alert-dismissable hideauto" data-hide="8000 1000 fade">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		Vous êtes <strong>EDITEUR</strong>
+	</div>
+	{% endif %}
+	<div class="panel panel-default">
+		<div class="panel-heading">Informations de compte</div>
+		<div class="panel-body">
+    		<p class="formRight col-xs-3">{{ 'profile.show.username'|trans }} :</p><p class="formLeft col-xs-7">{{ user.username }}</p>
+  			<p class="formRight col-xs-3">{{ 'profile.show.email'|trans }} :</p><p class="formLeft col-xs-7">{{ user.email }}</p>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">Adresse postale</div>
+		<div class="panel-body">
+			{% if user.isAdresseNulle != true %}
+			<p class="formRight col-xs-3">Nom :</p><p class="formLeft col-xs-7">{{ user.nom }}</p>
+			<p class="formRight col-xs-3">Prénom :</p><p class="formLeft col-xs-7">{{ user.prenom }}</p>
+			<p class="formRight col-xs-3">Adresse :</p><p class="formLeft col-xs-7">{{ user.adresse }}</p>
+			<p class="formRight col-xs-3"></p><p class="formLeft col-xs-7">{{ user.cp }} {{user.ville}}</p>
+			<p class="formRight col-xs-3">Complément :</p><p class="formLeft col-xs-7">{{ user.commentaire }}</p>
+			<p class="formRight col-xs-3">Téléphone :</p><p class="formLeft col-xs-7">{{ user.tel }}</p>
+			{% else %}
+			<p class="formCenter red">Aucune information</p>
+			{% endif %}
+		</div>
+	</div>
+	{% if user.isAdresseNotComplete == true %}
+	<div class="alert alert-danger alert-dismissable">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<p>Votre adresse postale est incomplète.</p>
+	</div>
+	{% endif %}
+</div>

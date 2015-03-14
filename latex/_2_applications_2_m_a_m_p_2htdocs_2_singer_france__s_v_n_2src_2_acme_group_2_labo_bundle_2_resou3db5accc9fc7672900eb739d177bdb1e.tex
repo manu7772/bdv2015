@@ -1,0 +1,101 @@
+\hypertarget{_2_applications_2_m_a_m_p_2htdocs_2_singer_france__s_v_n_2src_2_acme_group_2_labo_bundle_2_resou3db5accc9fc7672900eb739d177bdb1e}{\section{/\+Applications/\+M\+A\+M\+P/htdocs/\+Singer\+France\+\_\+\+S\+V\+N/src/\+Acme\+Group/\+Labo\+Bundle/\+Resources/public/js/tinymce/classes/util/\+Tools.\+js}
+}
+Removes whitespace from the beginning and end of a string.
+
+trim 
+\begin{DoxyParams}{Parameters}
+{\em \{\+String\}} & s String to remove whitespace from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{String\} New string with removed whitespace.
+\end{DoxyReturn}
+Returns true/false if the object is an array or not.
+
+is\+Array 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & obj Object to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{boolean\} true/false state if the object is an array or not.
+\end{DoxyReturn}
+Checks if a object is of a specific type for example an array.
+
+is 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & o Object to check type of. \\
+\hline
+{\em \{string\}} & t Optional type to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Boolean\} true/false if the object is of the specified type.
+\end{DoxyReturn}
+Converts the specified object into a real Java\+Script array.
+
+to\+Array 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & obj Object to convert into array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Array\} Array object based in input.
+\end{DoxyReturn}
+Makes a name/object map out of an array with names.
+
+make\+Map 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Array/\+String\}} & items Items to make map out of. \\
+\hline
+{\em \{\+String\}} & delim Optional delimiter to split string by. \\
+\hline
+{\em \{\+Object\}} & map Optional map to add items to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Object\} Name/value map of items.
+\end{DoxyReturn}
+Performs an iteration of all items in a collection such as an object or array. This method will execure the callback function for each item in the collection, if the callback returns false the iteration will terminate. The callback has the following format\+: cb(value, key\+\_\+or\+\_\+index).
+
+each 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & o Collection to iterate. \\
+\hline
+{\em \{function\}} & cb Callback function to execute for each item. \\
+\hline
+{\em \{\+Object\}} & s Optional scope to execute the callback in.\\
+\hline
+\end{DoxyParams}
+// Iterate an array tinymce.\+each(\mbox{[}1,2,3\mbox{]}, function(v, i) \{ console.\+debug(\char`\"{}\+Value\+: \char`\"{} + v + \char`\"{}, Index\+: \char`\"{} + i); \});
+
+// Iterate an object tinymce.\+each(\{a\+: 1, b\+: 2, c\+: 3\mbox{]}, function(v, k) \{ console.\+debug(\char`\"{}\+Value\+: \char`\"{} + v + \char`\"{}, Key\+: \char`\"{} + k); \});
+
+Creates a new array by the return value of each iteration function call. This enables you to convert one array list into another.
+
+map 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Array\}} & a Array of items to iterate. \\
+\hline
+{\em \{function\}} & f Function to call for each item. It's return value will be the new value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Array\} Array with new values based on function return values.
+\end{DoxyReturn}
+Filters out items from the input array by calling the specified function for each item. If the function returns false the item will be excluded if it returns true it will be included.
+
+grep 
+\begin{DoxyParams}{Parameters}
+{\em \{\+Array\}} & a Array of items to loop though. \\
+\hline
+{\em \{function\}} & f Function to call for each item. Include/exclude depends on it's return value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Array\} New array with values imported and filtered based in input.
+\end{DoxyReturn}
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

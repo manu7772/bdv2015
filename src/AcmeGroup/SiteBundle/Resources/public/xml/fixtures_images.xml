@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* sans 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<!-- versions -->
+	<categorie nom="enteteLogoBDV" descriptif="Image d'entête du site" typeImage__nom="version" fichierOrigine="logo.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="iconeBDV" descriptif="Favicon du site" typeImage__nom="favicon" fichierOrigine="favicon.png" version__nom="La Boucherie du Veyron" />
+
+	<categorie nom="1osso_boco" descriptif="" typeImage__nom="+diaporama" fichierOrigine="1osso_boco.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="1presentation" descriptif="" typeImage__nom="+diaporama" fichierOrigine="1presentation.jpg" version__nom="La Boucherie du Veyron" />
+
+	<!-- articles -->
+	<categorie nom="recommend1" descriptif="" typeImage__nom="+article" fichierOrigine="recommend1.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="recommend2" descriptif="" typeImage__nom="+article" fichierOrigine="recommend2.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="recommend3" descriptif="" typeImage__nom="+article" fichierOrigine="recommend3.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="recommend4" descriptif="" typeImage__nom="+article" fichierOrigine="recommend4.jpg" version__nom="La Boucherie du Veyron" />
+	<!-- système -->
+	<categorie nom="braiser" descriptif="icone triangle à braiser" typeImage__nom="site" fichierOrigine="braiser.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="rôtir" descriptif="icone triangle à rôtir" typeImage__nom="site" fichierOrigine="rotir.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="griller" descriptif="icone triangle à griller" typeImage__nom="site" fichierOrigine="griller.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="bouillir" descriptif="icone triangle à bouillir" typeImage__nom="site" fichierOrigine="bouillir.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="poêler" descriptif="icone triangle à poêler" typeImage__nom="site" fichierOrigine="poeler.png" version__nom="La Boucherie du Veyron" />
+
+</categories>
+
+

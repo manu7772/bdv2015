@@ -22,7 +22,6 @@ class AppKernel extends Kernel
             new labo\Bundle\TestmanuBundle\LaboTestmanuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new AcmeGroup\SurveyBundle\AcmeGroupSurveyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

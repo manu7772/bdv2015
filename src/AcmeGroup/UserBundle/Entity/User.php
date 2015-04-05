@@ -65,26 +65,29 @@ class User extends BaseUser {
 	 */
 	private $prenom;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="adresse", type="text", nullable=true, unique=false)
-	 */
-	private $adresse;
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\adresse", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true, unique=false)
+     */
+	private $adresses;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="cp", type="string", length=10, nullable=true, unique=false)
-	 */
-	private $cp;
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\telephone", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true, unique=false)
+     */
+	private $tels;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="ville", type="string", length=255, nullable=true, unique=false)
-	 */
-	private $ville;
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\email", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true, unique=false)
+     */
+	private $otheremails;
 
 	/**
 	 * @var string
@@ -98,14 +101,7 @@ class User extends BaseUser {
 	*
 	* @ORM\Column(name="adressIp", type="array", nullable=true)
 	*/
-	private $adressIp;
-
-	/**
-	* @var string
-	*
-	* @ORM\Column(name="tel", type="string", length=15, nullable=true)
-	*/
-	private $tel;
+	private $adressIps;
 
 	/**
 	 * @var array
@@ -192,6 +188,7 @@ class User extends BaseUser {
 		$this->fichierPdfs = new ArrayCollection();
 		$this->richtexts = new ArrayCollection();
 		$this->factures = new ArrayCollection();
+		$this->adressIps = new ArrayCollection();
 	}
 
 	/**
@@ -213,22 +210,37 @@ class User extends BaseUser {
 	/**
 	 * Add preference
 	 *
-	 * @param $preferences
-	 * @return User
+	 * @param mixed $preference
+	 * @return string
 	 */
-	public function addPreference($preferences, $nom = null) {
-		if($nom !== null) $this->preferences[$nom] = $preferences;
-			else $this->preferences[] = $preferences;
-		return $this;
+	public function addPreference($preference, $nom = null) {
+		if($nom !== null) {
+			$this->preferences[$nom] = $preference;
+		} else {
+			$this->preferences[] = $preference;
+			$nom = key($this->preferences);
+		}
+		return $nom;
 	}
 
 	/**
 	 * Remove preference
 	 *
-	 * @param $key
+	 * @param mixed $preference
+	 * @return boolean
 	 */
-	public function removePreference($preferences) {
-		$this->preferences->removeElement($preferences);
+	public function removePreference($preference) {
+		return $this->preferences->removeElement($preference);
+	}
+
+	/**
+	 * Remove preference by nom
+	 *
+	 * @param string $nom
+	 * @return mixed
+	 */
+	public function removePreferenceByNom($nom) {
+		return $this->preferences->remove($nom);
 	}
 
 	/**
@@ -367,45 +379,36 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Get annotation
+	 * Set adressIp
 	 *
-	 * @return string
-	 */
-	public function getAnnotation() {
-		return $this->annotation;
-	}
-
-	/**
-	 * Set annotation
-	 *
-	 * @param string $annotation
+	 * @param string $adressIp
 	 * @return User
 	 */
-	public function setAnnotation($annotation) {
-		$this->annotation = $annotation;
+	public function addAdressIp($adressIp) {
+		$this->adressIps[] = $adressIp;
 	
 		return $this;
 	}
 
 	/**
-	 * Set adressIp
+	 * Remove adressIp
 	 *
 	 * @param array $adressIp
 	 * @return User
 	 */
-	public function setAdressIp($adressIp) {
-		$this->adressIp = $adressIp;
+	public function removeAdressIp($adressIp) {
+		$this->adressIps->removeElement($adressIps);
 	
 		return $this;
 	}
 
 	/**
-	 * Get adressIp
+	 * Get adressIps
 	 *
 	 * @return array 
 	 */
-	public function getAdressIp() {
-		return $this->adressIp;
+	public function getAdressIps() {
+		return $this->adressIps;
 	}
 
 	/**

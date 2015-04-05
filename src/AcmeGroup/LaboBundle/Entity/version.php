@@ -27,23 +27,9 @@ use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
 class version extends entityBase {
 
 	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="nom", type="string", length=30, nullable=false, unique=true)
-	 * @Assert\NotBlank(message = "Vous devez remplir ce champ.")
-	 * @Assert\Length(
-	 *      min = "3",
-	 *      max = "30",
-	 *      minMessage = "Le nom doit comporter au minimum {{ limit }} lettres.",
-	 *      maxMessage = "Le nom doit comporter au maximum {{ limit }} lettres."
-	 * )
-	 */
-	protected $nom;
-
-	/**
 	 * @var boolean
 	 *
-	 * @ORM\Column(name="defaut", type="boolean")
+	 * @ORM\Column(name="defaut", type="boolean", nullable=false, unique=false)
 	 */
 	protected $defaut;
 

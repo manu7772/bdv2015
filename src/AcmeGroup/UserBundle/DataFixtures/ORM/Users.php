@@ -35,35 +35,35 @@ class Users extends AbstractFixture implements OrderedFixtureInterface, Containe
 		$person = array(
 			array(
 				'setUsername'	=> "manu7772",
+				'setEmail'		=> "manu7772@gmail.com",
 				'setEnabled'	=> true,
 				'setRoles'		=> array("ROLE_USER"),
 				'getSalt'		=> md5(uniqid()),
 				'setPassword'	=> "azetyu123",
-				'setMembre'		=> "email:manu7772@gmail.com"
 				),
 			array(
 				'setUsername'	=> "admin7772",
+				'setEmail'		=> "manu7772@free.com",
 				'setEnabled'	=> true,
 				'setRoles'		=> array("ROLE_EDITOR"),
 				'getSalt'		=> md5(uniqid()),
 				'setPassword'	=> "admin",
-				'setMembre'		=> "email:manu7772@free.com"
 				),
 			array(
 				'setUsername'	=> "sadmin",
+				'setEmail'		=> "emmanuel@aequation-webdesign.fr",
 				'setEnabled'	=> true,
 				'setRoles'		=> array("ROLE_SUPER_ADMIN"),
 				'getSalt'		=> md5(uniqid()),
 				'setPassword'	=> "sadmin",
-				'setMembre'		=> "email:emmanuel@aequation-webdesign.fr"
 				),
 			array(
 				'setUsername'	=> "aymeric",
+				'setEmail'		=> "laboucherieduveyron@orange.fr",
 				'setEnabled'	=> true,
 				'setRoles'		=> array("ROLE_ADMIN"),
 				'getSalt'		=> md5(uniqid()),
 				'setPassword'	=> "marion2015",
-				'setMembre'		=> "email:laboucherieduveyron@orange.fr"
 				),
 		);
 
@@ -74,22 +74,6 @@ class Users extends AbstractFixture implements OrderedFixtureInterface, Containe
 					case 'setPassword':
 						$encoder = $this->container->get('security.encoder_factory')->getEncoder($user);
 						$user->setPassword($encoder->encodePassword($val, $user->getSalt()));
-						break;
-					case 'setMembre':
-						$membre = explode(":", $val, 2);
-						$find = "findBy".ucfirst($membre[0]);
-						$userMembre = $this->container->get('acmeGroup.membre')->getRepo()->$find($membre[1]);
-						// $userMembre = $this->container->getDoctrine()->getManager()->getRepository('AcmeGroupBundle:membre')->$find($membre[1]);
-						if(count($userMembre) > 0) echo("Membre trouvé (".$membre[1].") : ".count($userMembre)."\n");
-							else echo("Membre non trouvé (".$membre[1].")\n");
-						if(count($userMembre) > 0) {
-							$user->$att($userMembre[0]);
-							if($membre[0] === "email") {
-								$user->setEmail($membre[1]);
-							}
-							// $userMembre[0]->setUser($user);
-							// $manager->persist($userMembre[0]);
-						}
 						break;
 					default:
 						$user->$att($val);

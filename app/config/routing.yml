@@ -1,6 +1,6 @@
-acme_group_survey:
-    resource: "@AcmeGroupSurveyBundle/Resources/config/routing.yml"
-    prefix:   /
+# acme_group_survey:
+#     resource: "@AcmeGroupSurveyBundle/Resources/config/routing.yml"
+#     prefix:   /
 
 # PAGES SITE (public)
 acme_site:

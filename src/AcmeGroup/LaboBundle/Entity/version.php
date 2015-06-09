@@ -8,13 +8,13 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\entityBase;
+use laboBundle\Entity\version as baseVersion;
 // Entities
-use AcmeGroup\LaboBundle\Entity\statut;
-use AcmeGroup\LaboBundle\Entity\adresse;
+use AcmeGroup\LaboBundle\Entity\reseausocial;
+use AcmeGroup\LaboBundle\Entity\telephone;
 use AcmeGroup\LaboBundle\Entity\image;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+use AcmeGroup\LaboBundle\Entity\adresse;
+use AcmeGroup\UserBundle\Entity\User;
 
 /**
  * version
@@ -24,569 +24,209 @@ use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\versionRepository")
  * @UniqueEntity(fields={"siren"}, message="Cette version existe déjà")
  */
-class version extends entityBase {
+class version extends baseVersion {
 
 	/**
-	 * @var boolean
-	 *
-	 * @ORM\Column(name="defaut", type="boolean", nullable=false, unique=false)
+	 * @var array
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\reseausocial", mappedBy="propVersion", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
-	protected $defaut;
+	protected $reseausocials;
 
 	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="accroche", type="string", length=200, nullable=true, unique=false)
-	 * @Assert\Length(
-	 *      min = "1",
-	 *      max = "200",
-	 *      minMessage = "L'accroche doit comporter au moins {{ limit }} lettres.",
-	 *      maxMessage = "L'accroche doit comporter au maximum {{ limit }} lettres."
-	 * )
+	 * @var array
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\telephone", mappedBy="propVersion", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
-	protected $accroche;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="resofacebook", type="string", length=200, nullable=true, unique=false)
-	 */
-	protected $resofacebook;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="resotwitter", type="string", length=200, nullable=true, unique=false)
-	 */
-	protected $resotwitter;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="resogoogleplus", type="string", length=200, nullable=true, unique=false)
-	 */
-	protected $resogoogleplus;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="tvaIntra", type="string", length=100, nullable=true, unique=false)
-	 */
-	protected $tvaIntra;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="siren", type="string", length=100, nullable=true, unique=false)
-	 */
-	protected $siren;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="telpublic", type="string", length=25, nullable=true, unique=false)
-	 * @Assert\Length(
-	 *      min = "10",
-	 *      max = "14",
-	 *      minMessage = "Le téléphone doit comporter au moins {{ limit }} chiffres.",
-	 *      maxMessage = "Le téléphone doit comporter au plus {{ limit }} chiffres."
-	 * )
-	 *
-	 */
-	protected $telpublic;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="telportable", type="string", length=25, nullable=true, unique=false)
-	 * @Assert\Length(
-	 *      min = "10",
-	 *      max = "14",
-	 *      minMessage = "Le téléphone portable doit comporter au moins {{ limit }} chiffres.",
-	 *      maxMessage = "Le téléphone portable doit comporter au plus {{ limit }} chiffres."
-	 * )
-	 *
-	 */
-	protected $telportable;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="descriptif", type="text", nullable=true, unique=false)
-	 */
-	protected $descriptif;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="nomDomaine", type="string", length=200, nullable=false, unique=true)
-	 * @Assert\Url(message = "Vous devez indiquer une URL valide et complète.")
-	 * 
-	 */
-	protected $nomDomaine;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="hote", type="string", length=200, nullable=true, unique=false)
-	 * @Assert\Url(message = "Vous devez indiquer une URL valide et complète.")
-	 * 
-	 */
-	protected $hote;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="email", type="string", length=200, nullable=true, unique=false)
-	 * @Assert\Email(message = "Vous devez indiquer un email valide et complet.")
-	 * 
-	 */
-	protected $email;
+	protected $telephones;
 
 	/**
 	 * @var integer
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
+	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"all"})
 	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
 	protected $logo;
 
 	/**
 	 * @var integer
-	 *
-	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"persist", "remove"})
+	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"all"})
 	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
 	protected $favicon;
 
 	/**
 	 * @var integer
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
+	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"all"})
 	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
 	protected $imageEntete;
 
 	/**
 	 * @var string
-	 *
-	 * @ORM\Column(name="couleurFond", type="string", length=30, nullable=false, unique=false)
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\adresse", mappedBy="propVersion", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
 	 */
-	protected $couleurFond;
+	protected $adresses;
 
 	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="templateIndex", type="string", length=30, nullable=false, unique=false)
+	 * @var array
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\UserBundle\Entity\User", mappedBy="version")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
-	protected $templateIndex;
-
-	/**
-	 * @Gedmo\Slug(fields={"nom"})
-	 * @ORM\Column(length=128, unique=true)
-	 */
-	protected $slug;
-
-    /**
-     * @var integer
-     *
-     * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\adresse", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, unique=false)
-     */
-    protected $adresse;
-
+	protected $users;
 
 	public function __construct() {
 		parent::__construct();
-		$this->couleurFond = "#FFFFFF";
-		$this->defaut = false;
-		$this->templateIndex = "Site";
-		$this->resofacebook = null;
-		$this->resotwitter = null;
-		$this->resogoogleplus = null;
+		$this->reseausocials	= new ArrayCollection;
+		$this->telephones		= new ArrayCollection;
+		$this->adresses			= new ArrayCollection;
+		$this->users 			= new ArrayCollection;
+	}
+
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
+	/**
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Cette version n'est pas valide.")
+	 * @return boolean
+	 */
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
 
 	/**
-	 * @Assert\True(message = "Vous devez renseigner soit le numéro TVAintra, soit le SIREN.")
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
 	 */
-	public function isVersionValid() {
-		if($this->tvaIntra || $this->siren) return true;
-		else return false;
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $verif;
 	}
 
+// FIN --------------------- à inclure dans toutes les entités ------------------------
+
+
 
 	/**
-	 * Set slug
-	 *
-	 * @param integer $slug
-	 * @return baseEntity
-	 */
-	public function setSlug($slug) {
-		$this->slug = $slug;
-		return $this;
-	}    
-
-	/**
-	 * Get slug
-	 *
-	 * @return string
-	 */
-	public function getSlug() {
-		return $this->slug;
-	}
-
-	/**
-	 * Set nom
-	 *
-	 * @param string $nom
+	 * Ajoute un réseau social
+	 * @param reseausocial $reseausocial
 	 * @return version
 	 */
-	public function setNom($nom) {
-		$this->nom = trim($nom);
-	
+	public function addReseausocial(reseausocial $reseausocial = null) {
+		if($reseausocial !== null) {
+			$this->reseausocials->add($reseausocial);
+		}
 		return $this;
 	}
 
 	/**
-	 * Get nom
-	 *
-	 * @return string 
-	 */
-	public function getNom() {
-		return $this->nom;
-	}
-
-	/**
-	 * Set resofacebook
-	 *
-	 * @param string $resofacebook
+	 * Ajoute un réseau social
+	 * @param reseausocial $reseausocial
 	 * @return version
 	 */
-	public function setResofacebook($resofacebook) {
-		$this->resofacebook = $resofacebook;
-	
+	public function removeReseausocial(reseausocial $reseausocial) {
+		$this->reseausocials->removeElement($reseausocial);
 		return $this;
 	}
 
 	/**
-	 * Get resofacebook
-	 *
-	 * @return string 
+	 * Renvoie les réseaux sociaux
+	 * @return array 
 	 */
-	public function getResofacebook() {
-		return $this->resofacebook;
+	public function getReseausocials() {
+		return $this->reseausocials;
 	}
 
 	/**
-	 * Set resotwitter
-	 *
-	 * @param string $resotwitter
+	 * Add telephone
+	 * @param telephone $telephone
 	 * @return version
 	 */
-	public function setResotwitter($resotwitter) {
-		$this->resotwitter = $resotwitter;
-	
+	public function addTelephone(telephone $telephone = null) {
+		if($telephone !== null) {
+			$this->telephones->add($telephone);
+		}
 		return $this;
 	}
 
 	/**
-	 * Get resotwitter
-	 *
-	 * @return string 
+	 * Remove telephone
+	 * @param telephone $telephone
+	 * @return version 
 	 */
-	public function getResotwitter() {
-		return $this->resotwitter;
+	public function removeTelephone(telephone $telephone) {
+		$this->telephones->removeElement($telephone);
+		return $this;
 	}
 
 	/**
-	 * Set resogoogleplus
-	 *
-	 * @param string $resogoogleplus
+	 * Get telephones
+	 * @return array 
+	 */
+	public function getTelephones() {
+		return $this->telephones;
+	}
+
+	/**
+	 * Add email
+	 * @param email $email
 	 * @return version
 	 */
-	public function setResogoogleplus($resogoogleplus) {
-		$this->resogoogleplus = $resogoogleplus;
-	
+	public function addEmail(email $email = null) {
+		if($email !== null) {
+			$this->emails->add($email);
+		}
 		return $this;
 	}
 
 	/**
-	 * Get resogoogleplus
-	 *
-	 * @return string 
+	 * Remove email
+	 * @return version 
 	 */
-	public function getResogoogleplus() {
-		return $this->resogoogleplus;
-	}
-
-	/**
-	 * Set defaut
-	 *
-	 * @param boolean $defaut
-	 * @return version
-	 */
-	public function setDefaut($defaut) {
-		$this->defaut = $defaut;
-	
+	public function removeEmail($email) {
+		$this->emails->removeElement($email);
 		return $this;
 	}
 
 	/**
-	 * Get defaut
-	 *
-	 * @return boolean 
+	 * Get emails
+	 * @return array 
 	 */
-	public function getDefaut() {
-		return $this->defaut;
-	}
-
-	/**
-	 * Set accroche
-	 *
-	 * @param string $accroche
-	 * @return version
-	 */
-	public function setAccroche($accroche) {
-		$this->accroche = $accroche;
-	
-		return $this;
-	}
-
-	/**
-	 * Get accroche
-	 *
-	 * @return string 
-	 */
-	public function getAccroche() {
-		return $this->accroche;
-	}
-
-	/**
-	 * Set tvaIntra
-	 *
-	 * @param string $tvaIntra
-	 * @return version
-	 */
-	public function setTvaIntra($tvaIntra) {
-		$this->tvaIntra = $tvaIntra;
-	
-		return $this;
-	}
-
-	/**
-	 * Get tvaIntra
-	 *
-	 * @return string 
-	 */
-	public function getTvaIntra() {
-		return $this->tvaIntra;
-	}
-
-	/**
-	 * Set siren
-	 *
-	 * @param string $siren
-	 * @return version
-	 */
-	public function setSiren($siren) {
-		$this->siren = $siren;
-	
-		return $this;
-	}
-
-	/**
-	 * Get siren
-	 *
-	 * @return string 
-	 */
-	public function getSiren() {
-		return $this->siren;
-	}
-
-	/**
-	 * Set telpublic
-	 *
-	 * @param string $telpublic
-	 * @return version
-	 */
-	public function setTelpublic($telpublic) {
-		$this->telpublic = $telpublic;
-	
-		return $this;
-	}
-
-	/**
-	 * Get telpublic
-	 *
-	 * @return string 
-	 */
-	public function getTelpublic() {
-		return $this->telpublic;
-	}
-
-	/**
-	 * Set telportable
-	 *
-	 * @param string $telportable
-	 * @return version
-	 */
-	public function setTelportable($telportable) {
-		$this->telportable = $telportable;
-	
-		return $this;
-	}
-
-	/**
-	 * Get telportable
-	 *
-	 * @return string 
-	 */
-	public function getTelportable() {
-		return $this->telportable;
-	}
-
-	/**
-	 * Set descriptif
-	 *
-	 * @param string $descriptif
-	 * @return version
-	 */
-	public function setDescriptif($descriptif) {
-		$this->descriptif = $descriptif;
-	
-		return $this;
-	}
-
-	/**
-	 * Get descriptif
-	 *
-	 * @return string 
-	 */
-	public function getDescriptif() {
-		return $this->descriptif;
-	}
-
-	/**
-	 * Set nomDomaine
-	 *
-	 * @param string $nomDomaine
-	 * @return version
-	 */
-	public function setNomDomaine($nomDomaine) {
-		$this->nomDomaine = $nomDomaine;
-		$this->setHote();
-
-		return $this;
-	}
-
-	/**
-	 * Get nomDomaine
-	 *
-	 * @return string 
-	 */
-	public function getNomDomaine() {
-		return $this->nomDomaine;
-	}
-
-	/**
-	 * Set hote
-	 *
-	 * @return version
-	 */
-	public function setHote() {
-		preg_match('#^[\w.]*\.(\w+\.[a-z]{2,6})[\w/._-]*$#',str_replace(array("http://", "https://"), "", $this->getNomDomaine()), $match);
-		if(count($match) > 1) $this->hote = $match[1];
-	
-		return $this;
-	}
-
-	/**
-	 * Get hote
-	 *
-	 * @return string 
-	 */
-	public function getHote() {
-		return $this->hote;
-	}
-
-	/**
-	 * Set email
-	 *
-	 * @param string $email
-	 * @return version
-	 */
-	public function setEmail($email = null) {
-		$this->email = $email;
-	
-		return $this;
-	}
-
-	/**
-	 * Get email
-	 *
-	 * @return string 
-	 */
-	public function getEmail() {
-		return $this->email;
-	}
-
-	/**
-	 * Set couleurFond
-	 *
-	 * @param string $couleurFond
-	 * @return version
-	 */
-	public function setCouleurFond($couleurFond) {
-		$this->couleurFond = $couleurFond;
-	
-		return $this;
-	}
-
-	/**
-	 * Get couleurFond
-	 *
-	 * @return string 
-	 */
-	public function getCouleurFond() {
-		return $this->couleurFond;
-	}
-
-	/**
-	 * Set templateIndex
-	 *
-	 * @param string $templateIndex
-	 * @return version
-	 */
-	public function setTemplateIndex($templateIndex) {
-		$this->templateIndex = $templateIndex;
-	
-		return $this;
-	}
-
-	/**
-	 * Get templateIndex
-	 *
-	 * @return string 
-	 */
-	public function getTemplateIndex() {
-		return $this->templateIndex;
+	public function getEmails() {
+		return $this->emails;
 	}
 
 	/**
 	 * Set logo
-	 *
 	 * @param image $logo
 	 * @return version
 	 */
-	public function setLogo(\AcmeGroup\LaboBundle\Entity\image $logo = null) {
+	public function setLogo(image $logo = null) {
 		$this->logo = $logo;
-	
 		return $this;
 	}
 
 	/**
 	 * Get logo
-	 *
 	 * @return image 
 	 */
 	public function getLogo() {
@@ -595,19 +235,16 @@ class version extends entityBase {
 
 	/**
 	 * Set favicon
-	 *
 	 * @param image $favicon
 	 * @return version
 	 */
-	public function setFavicon(\AcmeGroup\LaboBundle\Entity\image $favicon = null) {
-		if($favicon !== null) $this->favicon = $favicon;
-	
+	public function setFavicon(image $favicon = null) {
+		$this->favicon = $favicon;
 		return $this;
 	}
 
 	/**
 	 * Get favicon
-	 *
 	 * @return image 
 	 */
 	public function getFavicon() {
@@ -616,46 +253,84 @@ class version extends entityBase {
 
 	/**
 	 * Set imageEntete
-	 *
 	 * @param image $imageEntete
 	 * @return version
 	 */
-	public function setImageEntete(\AcmeGroup\LaboBundle\Entity\image $imageEntete = null) {
+	public function setImageEntete(image $imageEntete = null) {
 		$this->imageEntete = $imageEntete;
-	
 		return $this;
 	}
 
 	/**
 	 * Get imageEntete
-	 *
 	 * @return image 
 	 */
 	public function getImageEntete() {
 		return $this->imageEntete;
 	}
 
-    /**
-     * Set adresse
-     *
-     * @param adresse $adresse
-     * @return partenaire
-     */
-    public function setAdresse(adresse $adresse = null)
-    {
-        $this->adresse = $adresse;
-    
-        return $this;
-    }
+	/**
+	 * Add adresse
+	 * @param adresse $adresse
+	 * @return version
+	 */
+	public function addAdresse(adresse $adresse = null) {
+		if($adresse !== null) {
+			$this->adresses->add($adresse);
+			$adresse->setVersion($this);
+		}
+		return $this;
+	}
 
-    /**
-     * Get adresse
-     *
-     * @return \AcmeGroup\LaboBundle\Entity\adresse 
-     */
-    public function getAdresse()
-    {
-        return $this->adresse;
-    }
+	/**
+	 * Remove adresse
+	 * @param adresse $adresse
+	 * @return version
+	 */
+	public function removeAdresse(adresse $adresse) {
+		$this->adresses->removeElement($adresse);
+		$adresse->setVersion(null);
+		return $this;
+	}
+
+	/**
+	 * Get adresses
+	 * @return array 
+	 */
+	public function getAdresses() {
+		return $this->adresses;
+	}
+
+	/**
+	 * Add user
+	 * @param user $user
+	 * @return version
+	 */
+	public function addUser(user $user = null) {
+		if($user !== null) {
+			$this->users->add($user);
+			$user->setVersion($this);
+		}
+		return $this;
+	}
+
+	/**
+	 * Remove user
+	 * @param user $user
+	 * @return version
+	 */
+	public function removeUser(user $user) {
+		$this->users->removeElement($user);
+		// $user->setVersion(null);
+		return $this;
+	}
+
+	/**
+	 * Get users
+	 * @return array 
+	 */
+	public function getUsers() {
+		return $this->users;
+	}
 
 }

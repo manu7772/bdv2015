@@ -16,8 +16,5 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Dujardin" prenom="Emmanuel" email="manu7772@gmail.com" typeMembre__nom="webmaster" />
-	<categorie nom="Dujardin" prenom="Emmanuel" email="manu7772@free.com" typeMembre__nom="client" />
-	<categorie nom="Dujardin" prenom="Emmanuel" email="emmanuel@aequation-webdesign.fr" typeMembre__nom="client" />
-	<categorie nom="Marion" prenom="Aymeric" email="laboucherieduveyron@orange.fr" typeMembre__nom="administration" />
+	<!-- <categorie nom="Dujardin" prenom="Emmanuel" email="manu7772@gmail.com" typeMembre__nom="webmaster" /> -->
 </categories>

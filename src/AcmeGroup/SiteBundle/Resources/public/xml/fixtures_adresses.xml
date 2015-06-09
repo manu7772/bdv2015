@@ -16,5 +16,5 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="La Boucherie du Veyron" adresse="1 rue Neuve" cp="01450" ville="Poncin" />
+	<categorie nom="La Boucherie du Veyron" adresse="1 rue Neuve" cp="01450" ville="Poncin" version__nom="La Boucherie du Veyron" />
 </categories>

@@ -2,11 +2,11 @@
 
 namespace AcmeGroup\LaboBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use laboBundle\laboBundle;
 
-class AcmeGroupLaboBundle extends Bundle {
+class AcmeGroupLaboBundle extends laboBundle {
 	
 	public function getParent() {
-		return "LaboTestmanuBundle";
+		return "laboBundle";
 	}
 }

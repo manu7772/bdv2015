@@ -7,44 +7,44 @@ services:
     ### OUTILS GÉNÉRIQUES
     ###################################
 
-    # Fonctions textes utiles et pratiques pour utilisation dans TWIG
-    acmeGroup.textutilities:
-        class: labo\Bundle\TestmanuBundle\services\aetools\twigAetools
-        arguments: [@service_container]
-        tags:
-            - { name: twig.extension }
+    # # Fonctions textes utiles et pratiques pour utilisation dans TWIG
+    # acmeGroup.textutilities:
+    #     class: laboBundle\services\aetools\twigAetools
+    #     arguments: [@service_container]
+    #     tags:
+    #         - { name: twig.extension }
 
-    # Fonctionnalités sur les textes (notamment l'entité richtext)
-    acmeGroup.texttools:
-        class: labo\Bundle\TestmanuBundle\services\aetools\richtextsAetools
-        arguments: [@service_container]
-
-    # Fonctionnalités de requêtes et dossiers/fichiers
-    acmeGroup.aetools:
-        class: labo\Bundle\TestmanuBundle\services\aetools\aetools
-        arguments: [@service_container]
-
-    # Fonctionnalités de parametres du site
-    # acmeGroup.parametre:
-    #     class: labo\Bundle\TestmanuBundle\services\aetools\parametre
+    # # Fonctionnalités sur les textes (notamment l'entité richtext)
+    # acmeGroup.texttools:
+    #     class: laboBundle\services\aetools\richtextsAetools
     #     arguments: [@service_container]
 
-    # Fonctionnalités de manipulations d'images
-    acmeGroup.imagetools:
-        class: labo\Bundle\TestmanuBundle\services\aetools\imageAetools
-        arguments: [@service_container]
+    # # Fonctionnalités de requêtes et dossiers/fichiers
+    # acmeGroup.aetools:
+    #     class: laboBundle\services\aetools\aetools
+    #     arguments: [@service_container]
 
-    # Fonctionnalités de parsage XML
-    acmeGroup.XMLparser:
-        class: labo\Bundle\TestmanuBundle\services\aetools\XMLparser
-        arguments: []
+    # # Fonctionnalités de parametres du site
+    # # acmeGroup.parametre:
+    # #     class: laboBundle\services\aetools\parametre
+    # #     arguments: [@service_container]
+
+    # # Fonctionnalités de manipulations d'images
+    # acmeGroup.imagetools:
+    #     class: laboBundle\services\aetools\imageAetools
+    #     arguments: [@service_container]
+
+    # # Fonctionnalités de parsage XML
+    # acmeGroup.XMLparser:
+    #     class: laboBundle\services\aetools\XMLparser
+    #     arguments: []
 
     ###################################
     ### HTML2PDF
     ###################################
 
     # acmeGroup.html2pdf:
-    #     class: labo\Bundle\TestmanuBundle\services\aetools\html2pdf
+    #     class: laboBundle\services\aetools\html2pdf
     #     arguments: [@service_container, %locale%, @templating]
 
 
@@ -54,18 +54,18 @@ services:
 
     # Fonctionnalités de base pour les entités
     # acmeGroup.entities:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\entitiesGeneric
+    #     class: laboBundle\services\entitiesServices\entitiesGeneric
     #     arguments: [@service_container]
 
     # Fonctionnalités de base pour les entités
-    acmeGroup.entities:
-        class: labo\Bundle\TestmanuBundle\services\entitiesServices\entitiesService
-        arguments: [@service_container]
+    # acmeGroup.entities:
+    #     class: laboBundle\services\entitiesServices\entitiesService
+    #     arguments: [@service_container]
 
-    # Fonctionnalités de gestion des versions (sociétés)
-    acmeGroup.version:
-        class: labo\Bundle\TestmanuBundle\services\entitiesServices\version
-        arguments: [@service_container]
+    # # Fonctionnalités de gestion des versions (sociétés)
+    # acmeGroup.version:
+    #     class: laboBundle\services\entitiesServices\version
+    #     arguments: [@service_container]
 
     # Fonctionnalités de gestion des membres
     # acmeGroup.membre:
@@ -73,74 +73,74 @@ services:
     #     arguments: [@service_container]
 
     # Fonctionnalités de gestion des pages web
-    acmeGroup.pageweb:
-        class: labo\Bundle\TestmanuBundle\services\entitiesServices\pageweb
-        arguments: [@service_container]
+    # acmeGroup.pageweb:
+    #     class: laboBundle\services\entitiesServices\pageweb
+    #     arguments: [@service_container]
 
     # Fonctionnalités de gestion des collections
     # acmeGroup.collection:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\collection
+    #     class: laboBundle\services\entitiesServices\collection
     #     arguments: [@service_container]
 
     # Fonctionnalités de gestion des votes
     # acmeGroup.votes:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\votes
+    #     class: laboBundle\services\entitiesServices\votes
     #     arguments: [@service_container]
 
     # Fonctionnalités de gestion des visites sur le site
     # acmeGroup.visite:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\visite
+    #     class: laboBundle\services\entitiesServices\visite
     #     arguments: [@service_container]
 
     # Fonctionnalités de categorie
-    acmeGroup.categorie:
-        class: labo\Bundle\TestmanuBundle\services\entitiesServices\categorie
-        arguments: [@service_container]
+    # acmeGroup.categorie:
+    #     class: laboBundle\services\entitiesServices\categorie
+    #     arguments: [@service_container]
 
     # Fonctionnalités pour articles
     # acmeGroup.article:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\article
+    #     class: laboBundle\services\entitiesServices\article
     #     arguments: [@service_container]
 
     # Atelier créatif et fiches
     # acmeGroup.atelierCreatif:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\atelierCreatif
+    #     class: laboBundle\services\entitiesServices\atelierCreatif
     #     arguments: [@service_container]
 
     # magasins
     # acmeGroup.magasin:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\magasin
+    #     class: laboBundle\services\entitiesServices\magasin
     #     arguments: [@service_container]
 
     # videos
     # acmeGroup.video:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\video
+    #     class: laboBundle\services\entitiesServices\video
     #     arguments: [@service_container]
 
     # évènements
     # acmeGroup.events:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\evenement
+    #     class: laboBundle\services\entitiesServices\evenement
     #     arguments: [@service_container]
 
     # factures
     # acmeGroup.facture:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\facture
+    #     class: laboBundle\services\entitiesServices\facture
     #     arguments: [@service_container]
 
     # aelogs
     # acmeGroup.aelog:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\aelog
+    #     class: laboBundle\services\entitiesServices\aelog
     #     arguments: [@service_container]
 
     # Fonctionnalités de gestion du panier d'achat
     # -> synthèses, ajouts, suppressions, etc. de produits dans le panier
     # acmeGroup.panier:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\panier
+    #     class: laboBundle\services\entitiesServices\panier
     #     arguments: [@service_container]
         # scope: request
 
     # acmeGroup.directeditor:
-    #     class: labo\Bundle\TestmanuBundle\services\entitiesServices\directeditor
+    #     class: laboBundle\services\entitiesServices\directeditor
     #     arguments: [@service_container]
     #     tags:
     #         - { name: twig.extension }
@@ -150,11 +150,11 @@ services:
     ###################################
 
     # EventListerner sur paramètres généraux du site
-    acmeGroup.site_listener:
-        class: AcmeGroup\eventListeners\siteListener\siteListener
-        arguments: [@service_container]
-        tags:
-            - { name: kernel.event_listener, event: kernel.controller, method: load_session_items }
+    # acmeGroup.site_listener:
+    #     class: AcmeGroup\eventListeners\siteListener\siteListener
+    #     arguments: [@service_container]
+    #     tags:
+    #         - { name: kernel.event_listener, event: kernel.controller, method: load_session_items }
 
 
     ###################################
@@ -162,17 +162,17 @@ services:
     ###################################
 
     # Utilitaire de gestion sur les entités
-    acmeGroup.entityUtils:
-        class: labo\Bundle\TestmanuBundle\services\entitiesServices\entityListener
-        arguments: [@service_container]
-        tags:
-            - { name: doctrine.event_listener, event: postLoad }
-            - { name: doctrine.event_listener, event: prePersist }
-            - { name: doctrine.event_listener, event: postPersist }
-            - { name: doctrine.event_listener, event: preUpdate }
-            - { name: doctrine.event_listener, event: postUpdate }
-            - { name: doctrine.event_listener, event: preRemove }
-            - { name: doctrine.event_listener, event: postRemove }
+    # acmeGroup.entityUtils:
+    #     class: laboBundle\services\entitiesServices\entityListener
+    #     arguments: [@service_container]
+    #     tags:
+    #         - { name: doctrine.event_listener, event: postLoad }
+    #         - { name: doctrine.event_listener, event: prePersist }
+    #         - { name: doctrine.event_listener, event: postPersist }
+    #         - { name: doctrine.event_listener, event: preUpdate }
+    #         - { name: doctrine.event_listener, event: postUpdate }
+    #         - { name: doctrine.event_listener, event: preRemove }
+    #         - { name: doctrine.event_listener, event: postRemove }
 
 
     ###################################
@@ -181,7 +181,7 @@ services:
 
     # # Fixtures : fixturesLoader
     # acmeGroup.fixturesLoader:
-    #     class: labo\Bundle\TestmanuBundle\services\fixturesLoader\fixturesLoader
+    #     class: laboBundle\services\fixturesLoader\fixturesLoader
     #     arguments: [@service_container, @templating]
 
 
@@ -191,44 +191,44 @@ services:
 
     # # Éléments de formulaires personnalisés
     # form.type.datepicker:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\DatepickerType
+    #     class: laboBundle\Form\Type\DatepickerType
     #     arguments:
     #         - "%formatDate%"
     #     tags:
     #         - { name: form.type, alias: datepicker }
 
     # form.type.datepicker2:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\Datepicker2Type
+    #     class: laboBundle\Form\Type\Datepicker2Type
     #     arguments:
     #         - "%formatDate%"
     #     tags:
     #         - { name: form.type, alias: datepicker2 }
 
     # form.type.datepicker2alldates:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\Datepicker2alldatesType
+    #     class: laboBundle\Form\Type\Datepicker2alldatesType
     #     arguments:
     #         - "%formatDate%"
     #     tags:
     #         - { name: form.type, alias: datepicker2alldates }
 
     # form.type.richtext:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\richtextType
+    #     class: laboBundle\Form\Type\richtextType
     #     tags:
     #         - { name: form.type, alias: richtext }
 
     # form.type.gender:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\GenderType
+    #     class: laboBundle\Form\Type\GenderType
     #     tags:
     #         - { name: form.type, alias: gender }
 
     # form.type.routes:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\RoutesType
+    #     class: laboBundle\Form\Type\RoutesType
     #     arguments: [@service_container]
     #     tags:
     #         - { name: form.type, alias: routes }
 
     # form.type.magasins:
-    #     class: labo\Bundle\TestmanuBundle\Form\Type\MagasinsType
+    #     class: laboBundle\Form\Type\MagasinsType
     #     arguments: [@service_container]
     #     tags:
     #         - { name: form.type, alias: magasins }
@@ -238,41 +238,41 @@ services:
     ###################################
 
     # Éléments de formulaires personnalisés
-    form.type.datepicker:
-        class: labo\Bundle\TestmanuBundle\Form\Type\DatepickerType
-        arguments:
-            - "%formatDate%"
-        tags:
-            - { name: form.type, alias: datepicker }
+    # form.type.datepicker:
+    #     class: laboBundle\Form\Type\DatepickerType
+    #     arguments:
+    #         - "%formatDate%"
+    #     tags:
+    #         - { name: form.type, alias: datepicker }
 
-    form.type.datepicker2:
-        class: labo\Bundle\TestmanuBundle\Form\Type\Datepicker2Type
-        arguments:
-            - "%formatDate%"
-        tags:
-            - { name: form.type, alias: datepicker2 }
+    # form.type.datepicker2:
+    #     class: laboBundle\Form\Type\Datepicker2Type
+    #     arguments:
+    #         - "%formatDate%"
+    #     tags:
+    #         - { name: form.type, alias: datepicker2 }
 
-    form.type.datepicker2alldates:
-        class: labo\Bundle\TestmanuBundle\Form\Type\Datepicker2alldatesType
-        arguments:
-            - "%formatDate%"
-        tags:
-            - { name: form.type, alias: datepicker2alldates }
+    # form.type.datepicker2alldates:
+    #     class: laboBundle\Form\Type\Datepicker2alldatesType
+    #     arguments:
+    #         - "%formatDate%"
+    #     tags:
+    #         - { name: form.type, alias: datepicker2alldates }
 
-    form.type.richtext:
-        class: labo\Bundle\TestmanuBundle\Form\Type\richtextType
-        tags:
-            - { name: form.type, alias: richtext }
+    # form.type.richtext:
+    #     class: laboBundle\Form\Type\richtextType
+    #     tags:
+    #         - { name: form.type, alias: richtext }
 
-    form.type.gender:
-        class: labo\Bundle\TestmanuBundle\Form\Type\GenderType
-        tags:
-            - { name: form.type, alias: gender }
+    # form.type.gender:
+    #     class: laboBundle\Form\Type\GenderType
+    #     tags:
+    #         - { name: form.type, alias: gender }
 
-    form.type.routes:
-        class: labo\Bundle\TestmanuBundle\Form\Type\RoutesType
-        arguments: [@service_container]
-        tags:
-            - { name: form.type, alias: routes }
+    # form.type.routes:
+    #     class: laboBundle\Form\Type\RoutesType
+    #     arguments: [@service_container]
+    #     tags:
+    #         - { name: form.type, alias: routes }
 
 

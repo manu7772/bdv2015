@@ -8,29 +8,60 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\paramBase;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+use AcmeGroup\LaboBundle\Entity\baseType;
+
+use \Exception;
+use \DateTime;
 
 /**
- * typeimage
+ * typeImage
  *
  * @ORM\Entity
- * @ORM\Table(name="typeimage")
- * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\typeimageRepository")
- * @UniqueEntity(fields={"nom"}, message="Ce nom existe déjà.")
+ * @ORM\Table(name="typeImage")
+ * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\typeImageRepository")
+ * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type d'image existe déjà")
  */
-class typeimage extends paramBase {
+class typeImage extends baseType {
+
 
 	public function __construct() {
 		parent::__construct();
 	}
 
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
 	/**
-	 * @Assert/True(message = "Ce type de fiche n'est pas valide.")
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Ce type d'image n'est pas valide.")
+	 * @return boolean
 	 */
-	public function isTypeimageValid() {
-		return true;
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
+
+	/**
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
+	 */
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $verif;
+	}
+
+// FIN --------------------- à inclure dans toutes les entités ------------------------
+
 
 }

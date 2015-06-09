@@ -16,9 +16,9 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="A braiser" descriptif="A braiser" image__nom="braiser" />
-	<categorie nom="A rôtir" descriptif="A rôtir" image__nom="rôtir" />
-	<categorie nom="A griller" descriptif="A griller" image__nom="griller" />
-	<categorie nom="A bouillir" descriptif="A bouillir" image__nom="bouillir" />
-	<categorie nom="A poêler" descriptif="A poêler" image__nom="poêler" />
+	<categorie nom="A braiser" descriptif="A braiser" image__nom="braiser" version__nom="La Boucherie du Veyron" />
+	<categorie nom="A rôtir" descriptif="A rôtir" image__nom="rôtir" version__nom="La Boucherie du Veyron" />
+	<categorie nom="A griller" descriptif="A griller" image__nom="griller" version__nom="La Boucherie du Veyron" />
+	<categorie nom="A bouillir" descriptif="A bouillir" image__nom="bouillir" version__nom="La Boucherie du Veyron" />
+	<categorie nom="A poêler" descriptif="A poêler" image__nom="poêler" version__nom="La Boucherie du Veyron" />
 </categories>

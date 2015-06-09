@@ -8,7 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\entityBase;
+use AcmeGroup\LaboBundle\Entity\baseL3EntityAttributs;
 // Entities
 use AcmeGroup\LaboBundle\Entity\article;
 use AcmeGroup\LaboBundle\Entity\statut;
@@ -16,22 +16,20 @@ use AcmeGroup\LaboBundle\Entity\version;
 use AcmeGroup\LaboBundle\Entity\pageweb;
 // User
 use AcmeGroup\UserBundle\Entity\User;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
 
-/**
- * @ORM\MappedSuperclass
- * @ORM\HasLifecycleCallbacks()
- */
+use \Exception;
+use \DateTime;
+
 /**
  * categorie
  *
  * @ORM\Entity
  * @ORM\Table(name="categorie")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\categorieRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @Gedmo\Tree(type="nested")
  */
-class categorie extends entityBase {
+class categorie extends baseL3EntityAttributs {
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\pageweb")
@@ -41,17 +39,15 @@ class categorie extends entityBase {
 
 	/**
 	 * @var string
-	 *
-	 * @ORM\Column(name="nomroutepage", type="string", length=255, nullable=true)
-	 */
-	protected $nomroutepage;
-
-	/**
-	 * @var string
-	 *
 	 * @ORM\Column(name="nommenu", type="string", length=100, nullable=true)
 	 */
 	protected $nommenu;
+
+	/**
+	 * @var string
+	 * @ORM\Column(name="couleur", type="string", length=64, nullable=true)
+	 */
+	protected $couleur;
 
 	/**
 	 * @Gedmo\TreeLeft
@@ -90,76 +86,46 @@ class categorie extends entityBase {
 	 */
 	protected $children;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="descriptif", type="text", nullable=true, unique=false)
-	 */
-	protected $descriptif;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\statut")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $statut;
-
-	/**
-	 * @Gedmo\Slug(fields={"nom"})
-	 * @ORM\Column(length=128, unique=true)
-	 */
-	protected $slug;
-
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $version;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\UserBundle\Entity\User", inversedBy="categories")
-	 * @ORM\JoinColumn(nullable=true, unique=false)
-	 */
-	protected $user;
-
-	/**
-	 * @var boolean
-	 *
-	 * @ORM\Column(name="plusVisible", type="boolean")
-	 * @ORM\JoinColumn(nullable=true, unique=false)
-	 */
-	protected $plusVisible;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="couleur", type="string", length=30, nullable=false, unique=false)
-	 */
-	protected $couleur;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="parametreUrl", type="string", nullable=true, unique=false)
-	 */
-	protected $parametreUrl;
-
 
 	public function __construct() {
 		parent::__construct();
+		$this->couleur = '#ffffff';
+	}
 
-		$this->plusVisible = false;
-		$this->couleur = "FFFFFF";
-		$this->parametreUrl = "";
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
+	/**
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Cette catégorie n'est pas valide.")
+	 * @return boolean
+	 */
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
 
 	/**
-	 * @Assert/True(message = "Cette catégorie n'est pas valide.")
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
 	 */
-	public function isCategorieValid() {
-		return true;
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $verif;
 	}
+
+// FIN --------------------- à inclure dans toutes les entités ------------------------
 
 
 	public function isMenu() {
@@ -175,21 +141,17 @@ class categorie extends entityBase {
 		return $this->nommenu;
 	}
 
-	public function setNomroutepage($nomroutepage = null) {
-		$this->nomroutepage = $nomroutepage;
+	public function setCouleur($couleur = null) {
+		$this->couleur = $couleur;
 	}
 
-	public function getNomroutepage() {
-		return $this->nomroutepage;
+	public function getCouleur() {
+		return $this->couleur;
 	}
 
 	public function setPage(pageweb $page = null) {
 		$this->page = $page;
-		if(is_object($page)) {
-			$this->setNomroutepage($page->getRoute()."___".$page->getSlug());
-		} else {
-			$this->setNomroutepage(null);
-		}
+		return $this;
 	}
 
 	public function getPage() {
@@ -208,149 +170,6 @@ class categorie extends entityBase {
 		return $this->children;
 	}
 
-	/**
-	 * Set descriptif
-	 *
-	 * @param string $descriptif
-	 * @return baseEntity
-	 */
-	public function setDescriptif($descriptif = null) {
-		$this->descriptif = $descriptif;
-		return $this;
-	}
 
-	/**
-	 * Get descriptif
-	 *
-	 * @return string 
-	 */
-	public function getDescriptif() {
-		return $this->descriptif;
-	}
-
-	 * Set statut
-	 *
-	 * @param integer $statut
-	 * @return baseEntity
-	 */
-	public function setStatut(statut $statut) {
-		$this->statut = $statut;
-		return $this;
-	}
-
-	/**
-	 * Get statut
-	 *
-	 * @return AcmeGroup\LaboBundle\Entity\statut 
-	 */
-	public function getStatut() {
-		return $this->statut;
-	}
-
-	/**
-	 * Set version
-	 *
-	 * @param string $version
-	 * @return categorie
-	 */
-	public function setVersion($version) {
-		$this->version = $version;
-	
-		return $this;
-	}
-
-	/**
-	 * Get version
-	 *
-	 * @return string 
-	 */
-	public function getVersion() {
-		return $this->version;
-	}
-
-	/**
-	 * Set plusVisible
-	 *
-	 * @param boolean $plusVisible
-	 * @return categorie
-	 */
-	public function setPlusVisible($plusVisible) {
-		$this->plusVisible = $plusVisible;
-	
-		return $this;
-	}
-
-	/**
-	 * Get plusVisible
-	 *
-	 * @return boolean 
-	 */
-	public function getPlusVisible() {
-		return $this->plusVisible;
-	}
-
-	/**
-	 * Set couleur
-	 *
-	 * @param string $couleur
-	 * @return version
-	 */
-	public function setCouleur($couleur) {
-		$this->couleur = $couleur;
-	
-		return $this;
-	}
-
-	/**
-	 * Get couleur
-	 *
-	 * @return string 
-	 */
-	public function getCouleur() {
-		return $this->couleur;
-	}
-
-	/**
-	 * Set parametreUrl
-	 *
-	 * @param string $parametreUrl
-	 * @return version
-	 */
-	public function setParametreUrl($parametreUrl) {
-		$this->parametreUrl = $parametreUrl;
-	
-		return $this;
-	}
-
-	/**
-	 * Get parametreUrl
-	 *
-	 * @return string 
-	 */
-	public function getParametreUrl() {
-		return $this->parametreUrl;
-	}
-
-	/**
-	 * Set user
-	 *
-	 * @param User $user
-	 * @return categorie
-	 */
-	public function setUser(User $user = null) {
-		$this->user = $user;
-		$user->removeElement($this);
-	
-		return $this;
-	}
-
-	/**
-	 * Get user
-	 *
-	 * @return User 
-	 */
-	public function getUser() {
-		return $this->user;
-	}
 
 }

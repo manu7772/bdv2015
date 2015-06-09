@@ -8,16 +8,17 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\entityBase;
+use AcmeGroup\LaboBundle\Entity\baseL2Entity;
 // Entities
-use AcmeGroup\LaboBundle\Entity\statut;
 use AcmeGroup\LaboBundle\Entity\article;
-use AcmeGroup\LaboBundle\Entity\version;
 use AcmeGroup\LaboBundle\Entity\fiche;
+use AcmeGroup\LaboBundle\Entity\image;
+use AcmeGroup\LaboBundle\Entity\typeVideo;
 // User
 use AcmeGroup\UserBundle\Entity\User;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+
+use \Exception;
+use \DateTime;
 
 /**
  * video
@@ -25,15 +26,9 @@ use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
  * @ORM\Entity
  * @ORM\Table(name="video")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\videoRepository")
+ * @UniqueEntity(fields={"videoUrl", "version", "statut"}, message="Cette vidéo existe déjà")
  */
-class video extends entityBase {
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="descriptif", type="text", nullable=true, unique=false)
-	 */
-	protected $descriptif;
+class video extends baseL2Entity {
 
 	/**
 	 * @var string
@@ -43,31 +38,10 @@ class video extends entityBase {
 	protected $videoUrl;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\statut")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $statut;
-
-	/**
-	 * @var \DateTime
-	 *
-	 * @ORM\Column(name="datePublication", type="datetime", nullable=false)
-	 */
-	protected $datePublication;
-
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="videos")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $version;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\UserBundle\Entity\User", inversedBy="videos")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", inversedBy="videos")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
-	protected $user;
+	protected $image;
 
 	/**
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\article", mappedBy="videos")
@@ -81,58 +55,79 @@ class video extends entityBase {
 	 */
 	protected $fiches;
 
+	/**
+	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\typeVideo")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $typeVideos;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\UserBundle\Entity\User", inversedBy="videos")
+	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 */
+	protected $user;
+
 
 	public function __construct() {
 		parent::__construct();
-		$this->datePublication = new \Datetime();
 		$this->articles = new ArrayCollection();
 		$this->fiches = new ArrayCollection();
+		$this->typeVideos = new ArrayCollection();
 	}
 
+
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
 	/**
-	 * @Assert/True(message = "Cette vidéo n'est pas valide.")
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Cet article n'est pas valide.")
+	 * @return boolean
 	 */
-	public function isVideoValid() {
-		return true;
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
 
-
 	/**
-	 * Set descriptif
-	 *
-	 * @param string $descriptif
-	 * @return video
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
 	 */
-	public function setDescriptif($descriptif) {
-		$this->descriptif = $descriptif;
-	
-		return $this;
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// …
+			// $this->setUniquefield(
+			// 	$this->getVideoUrl()
+			// 	."@".$this->getVersion()->getSlug()
+			// );
+		}
+		return $verif;
 	}
 
-	/**
-	 * Get descriptif
-	 *
-	 * @return string 
-	 */
-	public function getDescriptif() {
-		return $this->descriptif;
-	}
+// FIN --------------------- à inclure dans toutes les entités ------------------------
+
 
 	/**
-	 * Set videoUrl
-	 *
+	 * Définit videoUrl
 	 * @param string $videoUrl
 	 * @return video
 	 */
 	public function setVideoUrl($videoUrl) {
-		// $this->videoUrl = $videoUrl;
 		$this->videoUrl = preg_replace('#^(((http|https)(://)(.+))/)?(.+)$#', '$6', $videoUrl);
 		return $this;
 	}
 
 	/**
-	 * Get videoUrl
-	 *
+	 * Renvoie videoUrl
 	 * @return string 
 	 */
 	public function getVideoUrl() {
@@ -140,91 +135,45 @@ class video extends entityBase {
 	}
 
 	/**
-	 * Set statut
-	 *
-	 * @param statut $statut
+	 * Définit image
+	 * @param image $image
 	 * @return video
 	 */
-	public function setStatut(statut $statut) {
-		$this->statut = $statut;
-	
+	public function setImage(image $image) {
+		$this->image = $image;
 		return $this;
 	}
 
 	/**
-	 * Get statut
-	 *
-	 * @return statut 
+	 * Renvoie image
+	 * @return image 
 	 */
-	public function getStatut() {
-		return $this->statut;
+	public function getImage() {
+		return $this->image;
 	}
 
 	/**
-	 * Set datePublication
-	 *
-	 * @param \DateTime $datePublication
+	 * Ajoute article
+	 * @param article $article
 	 * @return video
 	 */
-	public function setDatePublication($datePublication) {
-		$this->datePublication = $datePublication;
-	
+	public function addArticle(article $article = null) {
+		$this->articles->add($article);
 		return $this;
 	}
 
 	/**
-	 * Get datePublication
-	 *
-	 * @return \DateTime 
-	 */
-	public function getDatePublication() {
-		return $this->datePublication;
-	}
-
-	/**
-	 * Set slug
-	 *
-	 * @param integer $slug
+	 * Supprime article
+	 * @param article $article
 	 * @return video
 	 */
-	public function setSlug($slug) {
-		$this->slug = $slug;
-		return $this;
-	}    
-
-	/**
-	 * Get slug
-	 *
-	 * @return string
-	 */
-	public function getSlug() {
-		return $this->slug;
-	}
-
-	/**
-	 * Set propUser
-	 *
-	 * @param User $propUser
-	 * @return video
-	 */
-	public function setPropUser(User $propUser = null) {
-		$this->propUser = $propUser;
-	
+	public function removeArticle(article $article = null) {
+		$this->articles->removeElement($article);
 		return $this;
 	}
 
 	/**
-	 * Get propUser
-	 *
-	 * @return User 
-	 */
-	public function getPropUser() {
-		return $this->propUser;
-	}
-
-	/**
-	 * Get articles
-	 *
+	 * Renvoie articles
 	 * @return ArrayCollection 
 	 */
 	public function getArticles() {
@@ -232,24 +181,77 @@ class video extends entityBase {
 	}
 
 	/**
-	 * Add article
-	 *
-	 * @param article $article
+	 * Ajoute fiche
+	 * @param fiche $fiche
 	 * @return video
 	 */
-	public function addArticle(article $article = null) {
-		$this->articles[] = $article;
-	
+	public function addFiche(fiche $fiche = null) {
+		$this->fiches->add($fiche);
 		return $this;
 	}
 
 	/**
-	 * Remove article
-	 *
-	 * @param article $article
+	 * Supprime fiche
+	 * @param fiche $fiche
+	 * @return video
 	 */
-	public function removeArticle(article $article = null) {
-		$this->articles->removeElement($article);
+	public function removeFiche(fiche $fiche = null) {
+		$this->fiches->removeElement($fiche);
+		return $this;
+	}
+
+	/**
+	 * Renvoie fiches
+	 * @return ArrayCollection 
+	 */
+	public function getFiches() {
+		return $this->fiches;
+	}
+
+	/**
+	 * Ajoute typeVideo
+	 * @param typeVideo $typeVideo
+	 * @return video
+	 */
+	public function addTypeVideo(typeVideo $typeVideo = null) {
+		$this->typeVideos->add($typeVideo);
+		return $this;
+	}
+
+	/**
+	 * Supprime typeVideo
+	 * @param typeVideo $typeVideo
+	 * @return video
+	 */
+	public function removeTypeVideo(typeVideo $typeVideo = null) {
+		$this->typeVideos->removeElement($typeVideo);
+		return $this;
+	}
+
+	/**
+	 * Renvoie typeVideos
+	 * @return ArrayCollection 
+	 */
+	public function getTypeVideos() {
+		return $this->typeVideos;
+	}
+
+	/**
+	 * Set user
+	 * @param User $user
+	 * @return video
+	 */
+	public function setUser(User $user = null) {
+		$this->user = $user;
+		return $this;
+	}
+
+	/**
+	 * Get user
+	 * @return User 
+	 */
+	public function getUser() {
+		return $this->user;
 	}
 
 }

@@ -5,14 +5,6 @@
 		<title>{% block title %}Labo{% endblock %}</title>
 		<link rel="icon" type="image/x-icon" href="{{ asset(app.session.get('version').favicon) }}" />
 		{% stylesheets filter='cssrewrite, lessphp, ?yui_css'
-		'bundles/labotestmanu/css/jquery-ui.css'
-		'bundles/labotestmanu/css/jquery-ui-1.10.3.custom.css'
-		'bundles/labotestmanu/css/jquery.fancybox.css'
-		'bundles/labotestmanu/css/bootstrap.css'
-		'bundles/labotestmanu/js/chosen_v1.0.0/chosen.css'
-		'bundles/labotestmanu/css/orbit-style.css'
-		'bundles/labotestmanu/css/styles.css'
-		'bundles/labotestmanu/css/styles_richtexts.css'
 		 %}
 		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
 		{% endstylesheets %}
@@ -29,18 +21,6 @@
 		{% include ":common:devStuffs.html.twig" %}
 		{% include ":common:hiddenStuffs.html.twig" %}
 		{% javascripts filter='?yui_js'
-		'bundles/labotestmanu/js/jquery-2.0.3.js'
-		'bundles/labotestmanu/js/jquery-ui.js'
-		'bundles/labotestmanu/js/jquery.fancybox.js'
-		'bundles/labotestmanu/js/jquery.fancybox.pack.js'
-		'bundles/labotestmanu/js/jquery.mousewheel-3.0.6.pack.js'
-		'bundles/labotestmanu/js/aetools.js'
-		'bundles/labotestmanu/js/outsideEvents.js'
-		'bundles/labotestmanu/js/JQueryFunctions.js'
-		'bundles/labotestmanu/js/tinymce/tinymce.js'
-		'bundles/labotestmanu/js/chosen_v1.0.0/chosen.jquery.js'
-		'bundles/labotestmanu/js/bootstrap.js'
-		'bundles/labotestmanu/js/SpecificFunctions.js'
 		 %}
 		<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}

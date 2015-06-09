@@ -16,7 +16,7 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="client" descriptif="Client" />
-	<categorie nom="administration" descriptif="Membre d'administration" />
-	<categorie nom="webmaster" descriptif="Webmaster" />
+	<!-- <categorie nom="client" descriptif="Client" /> -->
+	<!-- <categorie nom="administration" descriptif="Membre d'administration" /> -->
+	<!-- <categorie nom="webmaster" descriptif="Webmaster" /> -->
 </categories>

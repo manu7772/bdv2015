@@ -26,7 +26,7 @@
         "sensio/distribution-bundle" : "2.3.*",
         "doctrine/doctrine-bundle" : "1.2.*",
         "leafo/lessphp": "*",
-        "labo/testmanu-bundle": "dev-master",
+        "labo/labo-bundle": "dev-master",
         "jms/serializer-bundle": "dev-master"
     },
     "autoload" : {

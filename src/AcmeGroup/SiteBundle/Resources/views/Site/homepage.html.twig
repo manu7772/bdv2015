@@ -1,0 +1,9 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+
+{% block metatitles %}{{ parent() }}{% endblock metatitles %}
+{% block title %}{{ parent() }}{% endblock title %}
+
+{% block mainContainer %}
+	{{ include('AcmeGroupSiteBundle:blocs:top-intro.html.twig') }}
+	{{ include('AcmeGroupSiteBundle:blocs:mini-liste-info.html.twig') }}
+{% endblock mainContainer %}

@@ -1,3 +1,0 @@
-acme_group_survey_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: AcmeGroupSurveyBundle:Default:index }

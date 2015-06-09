@@ -8,29 +8,59 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\paramBase;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+use AcmeGroup\LaboBundle\Entity\baseType;
+
+use \Exception;
+use \DateTime;
 
 /**
- * typefiche
+ * typeFiche
  *
  * @ORM\Entity
- * @ORM\Table(name="typefiche")
- * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\typeficheRepository")
- * @UniqueEntity(fields={"nom"}, message="Ce nom existe déjà.")
+ * @ORM\Table(name="typeFiche")
+ * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\typeFicheRepository")
+ * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type de fiche existe déjà.")
  */
-class typefiche extends paramBase {
+class typeFiche extends baseType {
+
 
 	public function __construct() {
 		parent::__construct();
 	}
 
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
 	/**
-	 * @Assert/True(message = "Ce typefiche n'est pas valide.")
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Ce type de fiche n'est pas valide.")
+	 * @return boolean
 	 */
-	public function iTypeficheValid() {
-		return true;
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
+
+	/**
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
+	 */
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $verif;
+	}
+
+// FIN --------------------- à inclure dans toutes les entités ------------------------
 
 }

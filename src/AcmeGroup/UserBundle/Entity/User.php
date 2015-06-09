@@ -9,14 +9,23 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use AcmeGroup\LaboBundle\Entity\adresse;
+use AcmeGroup\LaboBundle\Entity\telephone;
+use AcmeGroup\LaboBundle\Entity\panier;
+use AcmeGroup\LaboBundle\Entity\image;
+use AcmeGroup\LaboBundle\Entity\video;
+use AcmeGroup\LaboBundle\Entity\article;
+use AcmeGroup\LaboBundle\Entity\evenement;
+use AcmeGroup\LaboBundle\Entity\fiche;
+use AcmeGroup\LaboBundle\Entity\fichierPdf;
+use AcmeGroup\LaboBundle\Entity\richtext;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="User")
  * @ORM\Entity(repositoryClass="AcmeGroup\UserBundle\Entity\UserRepository")
  */
 class User extends BaseUser {
-
-	private $modeslivraison;
 
 	/**
 	 * @ORM\Id
@@ -25,18 +34,20 @@ class User extends BaseUser {
 	 */
 	protected $id;
 
-    /**
-     * @var integer
-     *
-     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, unique=false)
-     */
-    private $avatar;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", cascade={"persist", "remove"})
+	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 * @Assert\Valid()
+	 */
+	protected $avatar;
 
 	/**
-	* @ORM\Column(name="preferences", type="array", nullable=true)
-	*/
-	private $preferences;
+	 * @var array
+	 * @ORM\Column(name="preferences", type="array", nullable=true)
+	 */
+	protected $preferences;
 
 	/**
 	 * @var string
@@ -50,7 +61,7 @@ class User extends BaseUser {
 	 *      maxMessage = "Votre nom peut comporter au maximum {{ limit }} lettres."
 	 * )
 	 */
-	private $nom;
+	protected $nom;
 
 	/**
 	 * @var string
@@ -63,53 +74,56 @@ class User extends BaseUser {
 	 *      maxMessage = "Votre prénom peut comporter au maximum {{ limit }} lettres."
 	 * )
 	 */
-	private $prenom;
+	protected $prenom;
 
-    /**
-     * @var integer
-     *
-     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\adresse", mappedBy="user", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, unique=false)
-     */
-	private $adresses;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\adresse", mappedBy="user", cascade={"persist", "remove"})
+	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 */
+	protected $adresses;
 
-    /**
-     * @var integer
-     *
-     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\telephone", mappedBy="user", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, unique=false)
-     */
-	private $tels;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\telephone", mappedBy="user", cascade={"persist", "remove"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
+	 */
+	protected $telephones;
 
-    /**
-     * @var integer
-     *
-     * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\email", mappedBy="user", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, unique=false)
-     */
-	private $otheremails;
+	/**
+	 * @var integer
+	 *
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\email", mappedBy="user", cascade={"persist", "remove"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
+	 */
+	protected $autremails;
 
 	/**
 	 * @var string
 	 *
 	 * @ORM\Column(name="commentaire", type="text", nullable=true, unique=false)
 	 */
-	private $commentaire;
+	protected $commentaire;
 
 	/**
-	* @var string
-	*
-	* @ORM\Column(name="adressIp", type="array", nullable=true)
-	*/
-	private $adressIps;
+	 * @var array
+	 *
+	 * @ORM\Column(name="adressIp", type="array", nullable=true)
+	 */
+	protected $adressIps;
 
 	/**
 	 * @var array
 	 *
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\panier", mappedBy="user", cascade={"persist", "remove"})
 	 * @ORM\JoinColumn(nullable=true)
+	 * @Assert\Valid()
 	 */
-	private $paniers;
+	protected $paniers;
 
 	/**
 	 * @var array
@@ -117,7 +131,7 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\image", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $images;
+	protected $images;
 
 	/**
 	 * @var array
@@ -125,7 +139,7 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\video", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $videos;
+	protected $videos;
 
 	/**
 	 * @var array
@@ -133,7 +147,7 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\fiche", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $fiches;
+	protected $fiches;
 
 	/**
 	 * @var array
@@ -141,7 +155,7 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\article", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $articles;
+	protected $articles;
 
 	/**
 	 * @var array
@@ -149,7 +163,7 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\evenement", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $evenements;
+	protected $evenements;
 
 	/**
 	 * @var array
@@ -157,21 +171,13 @@ class User extends BaseUser {
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\fichierPdf", mappedBy="user")
 	 * @ORM\JoinColumn(nullable=true)
 	 */
-	private $fichierPdfs;
+	protected $fichierPdfs;
 
 	/**
 	 * @var array
 	 *
-	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\richtext", mappedBy="user")
-	 * @ORM\JoinColumn(nullable=true)
-	 */
-	private $richtexts;
-
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", mappedBy="user")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="users")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $version;
 
@@ -179,24 +185,20 @@ class User extends BaseUser {
 	public function __construct() {
 		parent::__construct();
 
-		$this->images = new ArrayCollection();
+		$this->adresses = new ArrayCollection();
+		$this->telephones = new ArrayCollection();
+		$this->autremails = new ArrayCollection();
+		$this->adressIps = new ArrayCollection();
 		$this->paniers = new ArrayCollection();
+		$this->images = new ArrayCollection();
 		$this->videos = new ArrayCollection();
 		$this->fiches = new ArrayCollection();
 		$this->articles = new ArrayCollection();
 		$this->evenements = new ArrayCollection();
 		$this->fichierPdfs = new ArrayCollection();
-		$this->richtexts = new ArrayCollection();
-		$this->factures = new ArrayCollection();
-		$this->adressIps = new ArrayCollection();
 	}
 
-	/**
-	 * @Assert/True()
-	 */
-	public function isUserValid() {
-		return true;
-	}
+
 
 	/**
 	 * Get id
@@ -208,25 +210,27 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Add preference
-	 *
+	 * Ajoute preference $nom. 
+	 * Renvoie le nom (pour confirmation)
 	 * @param mixed $preference
+	 * @param string $nom = null
 	 * @return string
 	 */
 	public function addPreference($preference, $nom = null) {
-		if($nom !== null) {
-			$this->preferences[$nom] = $preference;
+		if(is_string($nom)) {
+			$this->preferences->set($nom, $preference);
 		} else {
-			$this->preferences[] = $preference;
+			$this->preferences->add($preference);
 			$nom = key($this->preferences);
 		}
 		return $nom;
 	}
 
 	/**
-	 * Remove preference
+	 * Supprime preference
 	 *
 	 * @param mixed $preference
+	 * @param string $nom = null
 	 * @return boolean
 	 */
 	public function removePreference($preference) {
@@ -234,7 +238,7 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Remove preference by nom
+	 * Supprime preference selon le $nom
 	 *
 	 * @param string $nom
 	 * @return mixed
@@ -244,7 +248,17 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Get preferences
+	 * Supprime toutes les preferences
+	 *
+	 * @param mixed $preference
+	 * @return boolean
+	 */
+	public function removeAllPreferences() {
+		return $this->preferences->clear();
+	}
+
+	/**
+	 * Renvoie toutes les preferences
 	 *
 	 * @return ArrayCollection 
 	 */
@@ -253,24 +267,93 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Set adresse
-	 *
-	 * @param string $adresse
+	 * Ajoute une adresse
+	 * @param adresse $adresse
 	 * @return User
 	 */
-	public function setAdresse($adresse) {
-		$this->adresse = $adresse;
-	
+	public function addAdresse(adresse $adresse) {
+		$this->adresses->add($adresse);
+		$adresse->setUser($this);
 		return $this;
 	}
 
 	/**
-	 * Get adresse
-	 *
-	 * @return string 
+	 * Supprime une adresse
+	 * @param adresse $adresse
+	 * @return boolean
 	 */
-	public function getAdresse() {
-		return $this->adresse;
+	public function removeAdresse(adresse $adresse) {
+		$adresse->setUser(null);
+		return $this->adresses->removeElement($adresse);
+	}
+
+	/**
+	 * Renvoie les adresses
+	 *
+	 * @return arrayCollection
+	 */
+	public function getAdresses() {
+		return $this->adresses;
+	}
+
+	/**
+	 * Ajoute un telephone
+	 * @param telephone $telephone
+	 * @return User
+	 */
+	public function addTelephone(telephone $telephone) {
+		$this->telephones->add($telephone);
+		$telephone->setUser($this);
+		return $this;
+	}
+
+	/**
+	 * Supprime une telephone
+	 * @param telephone $telephone
+	 * @return boolean
+	 */
+	public function removeTelephone(telephone $telephone) {
+		$telephone->setUser(null);
+		return $this->telephones->removeElement($telephone);
+	}
+
+	/**
+	 * Renvoie les telephones
+	 *
+	 * @return arrayCollection
+	 */
+	public function getTelephones() {
+		return $this->telephones;
+	}
+
+	/**
+	 * Ajoute un autremail
+	 * @param autremail $autremail
+	 * @return User
+	 */
+	public function addAutremail(autremail $autremail) {
+		$this->autremails->add($autremail);
+		$autremail->setUser($this);
+		return $this;
+	}
+
+	/**
+	 * Supprime une autremail
+	 * @param autremail $autremail
+	 * @return boolean
+	 */
+	public function removeAutremail(autremail $autremail) {
+		$autremail->setUser(null);
+		return $this->autremails->removeElement($autremail);
+	}
+
+	/**
+	 * Renvoie les autremails
+	 *
+	 * @return arrayCollection
+	 */
+	public function getAutremails() {
+		return $this->autremails;
 	}
 
 	/**
@@ -316,48 +399,6 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Set cp
-	 *
-	 * @param string $cp
-	 * @return User
-	 */
-	public function setCp($cp) {
-		$this->cp = $cp;
-	
-		return $this;
-	}
-
-	/**
-	 * Get cp
-	 *
-	 * @return string 
-	 */
-	public function getCp() {
-		return $this->cp;
-	}
-
-	/**
-	 * Set ville
-	 *
-	 * @param string $ville
-	 * @return User
-	 */
-	public function setVille($ville) {
-		$this->ville = $ville;
-	
-		return $this;
-	}
-
-	/**
-	 * Get ville
-	 *
-	 * @return string 
-	 */
-	public function getVille() {
-		return $this->ville;
-	}
-
-	/**
 	 * Set commentaire
 	 *
 	 * @param string $commentaire
@@ -385,7 +426,7 @@ class User extends BaseUser {
 	 * @return User
 	 */
 	public function addAdressIp($adressIp) {
-		$this->adressIps[] = $adressIp;
+		$this->adressIps->add($adressIp);
 	
 		return $this;
 	}
@@ -412,39 +453,18 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Set tel
-	 *
-	 * @param string $tel
-	 * @return User
-	 */
-	public function setTel($tel) {
-		$this->tel = $tel;
-	
-		return $this;
-	}
-
-	/**
-	 * Get tel
-	 *
-	 * @return string 
-	 */
-	public function getTel() {
-		return $this->tel;
-	}
-
-	/**
-	 * Add panier
+	 * Ajoute au panier
 	 *
 	 * @param panier $panier
 	 * @return User
 	 */
 	public function addPanier(panier $panier) {
-		$this->paniers[] = $panier;
+		$this->paniers->add($panier);
 		return $this;
 	}
 
 	/**
-	 * Remove panier
+	 * Supprime du panier
 	 *
 	 * @param panier $panier
 	 */
@@ -453,7 +473,16 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Get paniers
+	 * Supprime tout le contenu du panier
+	 *
+	 * @param panier $panier
+	 */
+	public function removeAllPaniers() {
+		$this->paniers->clear();
+	}
+
+	/**
+	 * Renvoie le contenu du panier
 	 *
 	 * @return ArrayCollection 
 	 */
@@ -462,24 +491,25 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Add images
+	 * Add image
 	 *
-	 * @param image $images
+	 * @param image $image
 	 * @return User
 	 */
-	public function addImage(image $images) {
-		$this->images[] = $images;
+	public function addImage(image $image) {
+		$this->images->add($image);
+		$image->setUser($this);
 		return $this;
 	}
 
 	/**
-	 * Remove images
+	 * Remove image
 	 *
-	 * @param image $images
+	 * @param image $image
 	 */
-	public function removeImage(image $images) {
-		$this->images->removeElement($images);
-		$images->setUser(null); // relation facultative !!! (nullable = true)
+	public function removeImage(image $image) {
+		$this->images->removeElement($image);
+		$image->setUser(null); // relation facultative !!! (nullable = true)
 	}
 
 	/**
@@ -647,58 +677,22 @@ class User extends BaseUser {
 	}
 
 	/**
-	 * Add richtexts
-	 *
-	 * @param richtext $richtexts
+	 * Set avatar
+	 * @param image $avatar
 	 * @return User
 	 */
-	public function addRichtext(richtext $richtexts) {
-		$this->richtexts[] = $richtexts;
-		$richtexts->setUser($this); // ajout pour relation bidirectionnelle
+	public function setAvatar(image $avatar = null) {
+		$this->avatar = $avatar;
 		return $this;
 	}
 
 	/**
-	 * Remove richtexts
-	 *
-	 * @param richtext $richtexts
+	 * Get avatar
+	 * @return image 
 	 */
-	public function removeRichtext(richtext $richtexts) {
-		$this->richtexts->removeElement($richtexts);
-		$richtexts->setUser(null); // relation facultative !!! (nullable = true)
+	public function getAvatar() {
+		return $this->avatar;
 	}
-
-	/**
-	 * Get richtexts
-	 *
-	 * @return ArrayCollection 
-	 */
-	public function getRichtexts() {
-		return $this->richtexts;
-	}
-
-    /**
-     * Set avatar
-     *
-     * @param image $avatar
-     * @return User
-     */
-    public function setAvatar(image $avatar)
-    {
-        $this->avatar = $avatar;
-    
-        return $this;
-    }
-
-    /**
-     * Get avatar
-     *
-     * @return image 
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
 
 
 

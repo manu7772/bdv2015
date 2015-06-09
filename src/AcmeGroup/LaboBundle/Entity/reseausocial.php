@@ -1,0 +1,146 @@
+<?php
+
+namespace AcmeGroup\LaboBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
+// Slug
+use Gedmo\Mapping\Annotation as Gedmo;
+use AcmeGroup\LaboBundle\Entity\baseL2Entity;
+// Entities
+use AcmeGroup\UserBundle\Entity\User;
+use AcmeGroup\LaboBundle\Entity\typeReseau;
+
+use \Exception;
+use \DateTime;
+
+/**
+ * reseausocial
+ * 
+ * @ORM\Entity
+ * @ORM\Table(name="reseausocial")
+ * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\reseausocialRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class reseausocial extends baseL2Entity {
+
+	/**
+	 * @var string
+	 * @ORM\Column(name="texte", type="text", nullable=false, unique=false)
+	 */
+	protected $texte;
+
+	/**
+	 * @var array
+	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeReseau")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $typeReseau;
+
+	/**
+	 * @var array
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="reseausocials")
+	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 */
+	protected $propVersion;
+
+
+	public function __construct() {
+		parent::__construct();
+	}
+
+
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
+	/**
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Ce reseau social n'est pas valide.")
+	 * @return boolean
+	 */
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
+	}
+
+	/**
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
+	 */
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			// if($this->nom === null) $this->nom = '';
+		}
+		return $verif;
+	}
+
+// FIN --------------------- à inclure dans toutes les entités ------------------------
+
+
+	/**
+	 * Définit texte
+	 * @param string $texte
+	 * @return reseausocial
+	 */
+	public function setTexte($texte) {
+		$this->texte = $texte;
+		return $this;
+	}
+
+	/**
+	 * Renvoie texte
+	 * @return string 
+	 */
+	public function getTexte() {
+		return $this->texte;
+	}
+
+	/**
+	 * Définit typeReseau
+	 * @param string $typeReseau
+	 * @return reseausocial
+	 */
+	public function setTypeReseau(typeReseau $typeReseau = null) {
+		$this->typeReseau = $typeReseau;
+		return $this;
+	}
+
+	/**
+	 * Renvoie typeReseau
+	 * @return string 
+	 */
+	public function getTypeReseau() {
+		return $this->typeReseau;
+	}
+
+	/**
+	 * Définit propVersion
+	 * @param version $propVersion
+	 * @return reseausocial
+	 */
+	public function setPropVersion(version $propVersion = null) {
+		$this->propVersion = $propVersion;
+		return $this;
+	}
+
+	/**
+	 * Renvoie propVersion
+	 * @return version 
+	 */
+	public function getPropVersion() {
+		return $this->propVersion;
+	}
+
+
+}

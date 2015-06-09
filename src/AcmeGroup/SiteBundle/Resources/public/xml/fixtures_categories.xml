@@ -17,7 +17,7 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
  -->
 <categories>
 	<!-- MENU GAUCHE -->
-	<categorie nom="menu_01" descriptif="Menu principal du site" page_pageweb__nom="homepage" couleur="#FFFFFF" nommenu="menuOptions">
+	<categorie nom="menu_01" descriptif="Menu principal du site" page_pageweb__nom="homepage" couleur="#FFFFFF" nommenu="menuOptions" version__nom="La Boucherie du Veyron">
 		<item nom="Bœuf" descriptif="Bœuf" page_pageweb__nom="article-cat" couleur="#a10415">
 			<item nom="Pièces du boucher" descriptif="Pièces du boucher" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
 			<item nom="À rôtir" descriptif="À rôtir" page_pageweb__nom="article-sous-cat" couleur="#696763"></item>
@@ -48,11 +48,11 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 		</item>
 	</categorie>
 	<!-- MENU HORIZONTAL HAUT -->
-	<categorie nom="menu_02" descriptif="Menu Haut du site" page_pageweb__nom="homepage" couleur="#696763" nommenu="menuOption2">
-		<item nom="Accueil" descriptif="Page d'accueil du site" page_pageweb__nom="homepage" couleur="#696763">
-		<item nom="Comment commander" descriptif="Comment passer commande sur le site" page_pageweb__nom="homepage" couleur="#696763">
-		<item nom="Notre métier" descriptif="Présentation de la Boucherie et de notre métier" page_pageweb__nom="homepage" couleur="#696763">
-		<item nom="Contact" descriptif="Comment nous joindre, plan d'accès" page_pageweb__nom="homepage" couleur="#696763">
+	<categorie nom="menu_02" descriptif="Menu Haut du site" page_pageweb__nom="homepage" couleur="#696763" nommenu="menuOption2" version__nom="La Boucherie du Veyron">
+		<item nom="Accueil" descriptif="Page d'accueil du site" page_pageweb__nom="homepage" couleur="#696763"></item>
+		<item nom="Comment commander" descriptif="Comment passer commande sur le site" page_pageweb__nom="homepage" couleur="#696763"></item>
+		<item nom="Notre métier" descriptif="Présentation de la Boucherie et de notre métier" page_pageweb__nom="homepage" couleur="#696763"></item>
+		<item nom="Contact" descriptif="Comment nous joindre, plan d'accès" page_pageweb__nom="homepage" couleur="#696763"></item>
 	</categorie>
 
 </categories>

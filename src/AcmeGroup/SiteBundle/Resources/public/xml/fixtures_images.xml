@@ -17,7 +17,7 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
  -->
 <categories>
 	<!-- versions -->
-	<categorie nom="enteteLogoBDV" descriptif="Image d'entête du site" typeImage__nom="version" fichierOrigine="logo.jpg" version__nom="La Boucherie du Veyron" />
+	<categorie nom="enteteLogoBDV" descriptif="Image d'entête du site" typeImage__nom="+logo|version" fichierOrigine="logo.jpg" version__nom="La Boucherie du Veyron" />
 	<categorie nom="iconeBDV" descriptif="Favicon du site" typeImage__nom="favicon" fichierOrigine="favicon.png" version__nom="La Boucherie du Veyron" />
 
 	<categorie nom="1osso_boco" descriptif="" typeImage__nom="+diaporama" fichierOrigine="1osso_boco.jpg" version__nom="La Boucherie du Veyron" />
@@ -29,11 +29,11 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 	<categorie nom="recommend3" descriptif="" typeImage__nom="+article" fichierOrigine="recommend3.jpg" version__nom="La Boucherie du Veyron" />
 	<categorie nom="recommend4" descriptif="" typeImage__nom="+article" fichierOrigine="recommend4.jpg" version__nom="La Boucherie du Veyron" />
 	<!-- système -->
-	<categorie nom="braiser" descriptif="icone triangle à braiser" typeImage__nom="site" fichierOrigine="braiser.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="rôtir" descriptif="icone triangle à rôtir" typeImage__nom="site" fichierOrigine="rotir.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="griller" descriptif="icone triangle à griller" typeImage__nom="site" fichierOrigine="griller.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="bouillir" descriptif="icone triangle à bouillir" typeImage__nom="site" fichierOrigine="bouillir.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="poêler" descriptif="icone triangle à poêler" typeImage__nom="site" fichierOrigine="poeler.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="braiser" descriptif="icone triangle à braiser" typeImage__nom="+site|cuisson" fichierOrigine="braiser.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="rôtir" descriptif="icone triangle à rôtir" typeImage__nom="+site|cuisson" fichierOrigine="rotir.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="griller" descriptif="icone triangle à griller" typeImage__nom="+site|cuisson" fichierOrigine="griller.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="bouillir" descriptif="icone triangle à bouillir" typeImage__nom="+site|cuisson" fichierOrigine="bouillir.png" version__nom="La Boucherie du Veyron" />
+	<categorie nom="poêler" descriptif="icone triangle à poêler" typeImage__nom="+site|cuisson" fichierOrigine="poeler.png" version__nom="La Boucherie du Veyron" />
 
 </categories>
 

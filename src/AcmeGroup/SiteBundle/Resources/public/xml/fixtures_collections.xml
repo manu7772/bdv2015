@@ -16,5 +16,5 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="intro" version__nom="La Boucherie du Veyron" firstmedia_image__nom="1osso_boco" media_image__nom="1presentation" vitesse="3000" />
+	<categorie nom="intro" version__nom="La Boucherie du Veyron" firstmedia_image__nom="1osso_boco" media_image__nom="1osso_boco|1presentation|recommend1|recommend3" vitesse="3000" />
 </categories>

@@ -3,13 +3,15 @@ imports:
     - { resource: security.yml }
 
 parameters:
-    formatDate: "dd-MM-yyyy"
-    menu_slug:  menu_01
-    webm_mail:  Aequation-Webdesign.fr
-    webm_soc:   Aequation Webdesign
-    webm_nom:   Dujardin
-    webm_tel:   09 81 83 95 65
-    webm_gsm:   06 13 14 35 15
+    formatDate:   dd-MM-yyyy
+    menu_slug:    menu_01
+    webmaster:
+        nom:     Dujardin
+        prenom:  Emmanuel
+        societe: Aequation Webdesign
+        mail:    emmanuel@aequation-webdesign.fr
+        tel:     09 81 83 95 65
+        gsm:     06 13 14 35 15
 
 framework:
     #esi:             ~
@@ -36,7 +38,7 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'LaboTestmanuBundle:Form:fields.html.twig'
+            - 'LaboBundle:Form:fields.html.twig'
             # - 'AcmeGroupLaboBundle:Form:fields.html.twig'
 
 # Assetic Configuration
@@ -54,7 +56,7 @@ assetic:
         # LESS
         lessphp:
             file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
-            apply_to: "\.less$"
+            apply_to: "(\.less|\.less\.css)$"
 
 # Doctrine Configuration
 doctrine:
@@ -109,15 +111,42 @@ fos_user:
     db_driver:     orm  # le type de BDD à utiliser : ORM Doctrine
     firewall_name: main # le nom du firewall derrière lequel on utilisera ces utilisateurs
     user_class:    AcmeGroup\UserBundle\Entity\User # la classe de l'entité User que nous utilisons
-
+    registration:
+        form:
+            type: acmegroup_user_registration
+    profile:
+        form:
+            type: acmegroup_user_profile
+    model_manager_name:       ~
+    use_listener:             true
+    use_flash_notifications:  true
+    use_username_form_type:   true
+    from_email:
+        address:              no-reply@boucherieduveyron.com
+        sender_name:          boucherie-du-veyron
 
 # Stof\DoctrineExtensionBundle configuration
 stof_doctrine_extensions:
     orm:
         default:
-            loggable: false
-            sluggable: true
-            timestampable: false
-            translatable: false
-            tree: true
+            loggable:       false
+            sluggable:      true
+            timestampable:  false
+            translatable:   false
+            tree:           true
+
+# labo Configuration
+labo:
+    default_menu_slug:   menu_01
+    user_class:          AcmeGroup\UserBundle\Entity\User
+    entity_listener:     true
+    launch_service:
+        activate:        true
+        resources:
+            services:    
+                service: { name: acmeGroup.aetools }
+                service: { name: acmeGroup.entities }
+                service: { name: acmeGroup.version }
+                service: { name: acmeGroup.categorie }
+
 

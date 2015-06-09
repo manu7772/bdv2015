@@ -16,17 +16,20 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="universel" descriptif="Type d'image universel" editable="0" />
-	<categorie nom="user" descriptif="Images utilisateurs" editable="0" />
-	<categorie nom="avatar" descriptif="portraits utilisateurs" editable="0" />
-	<categorie nom="favicon" descriptif="Favicon website" editable="1" />
-	<categorie nom="ambiance" descriptif="Images d'ambiance" editable="1" />
-	<categorie nom="article" descriptif="Images articles" editable="1" />
-	<categorie nom="diaporama" descriptif="Images pour diaporamas" editable="1" />
-	<categorie nom="logo" descriptif="Logotypes" editable="1" />
-	<categorie nom="site" descriptif="Images du site" editable="1" />
-	<categorie nom="evenement" descriptif="Images pour les évènements" editable="1" />
-	<categorie nom="partenaire" descriptif="Images partenaires" editable="1" />
-	<categorie nom="version" descriptif="Images pour les versions du site" editable="1" />
-	<categorie nom="admin" descriptif="Images réservées aux administrateurs" editable="0" />
+	<categorie nom="universel" descriptif="Type d'image universel" version__nom="La Boucherie du Veyron" />
+	<categorie nom="user" descriptif="Images utilisateurs" version__nom="La Boucherie du Veyron" />
+	<categorie nom="avatar" descriptif="portraits utilisateurs" version__nom="La Boucherie du Veyron" />
+	<categorie nom="favicon" descriptif="Favicon website" version__nom="La Boucherie du Veyron" />
+	<categorie nom="ambiance" descriptif="Images d'ambiance" version__nom="La Boucherie du Veyron" />
+	<categorie nom="article" descriptif="Images articles" version__nom="La Boucherie du Veyron" />
+	<categorie nom="diaporama" descriptif="Images pour diaporamas" version__nom="La Boucherie du Veyron" />
+	<categorie nom="logo" descriptif="Logotypes" version__nom="La Boucherie du Veyron" />
+	<categorie nom="site" descriptif="Images du site" version__nom="La Boucherie du Veyron" />
+	<categorie nom="fiche" descriptif="Images pour fiches" version__nom="La Boucherie du Veyron" />
+	<categorie nom="evenement" descriptif="Images pour les évènements" version__nom="La Boucherie du Veyron" />
+	<categorie nom="partenaire" descriptif="Images partenaires" version__nom="La Boucherie du Veyron" />
+	<categorie nom="magasin" descriptif="Images magasins" version__nom="La Boucherie du Veyron" />
+	<categorie nom="cuisson" descriptif="Images cuisson" version__nom="La Boucherie du Veyron" />
+	<categorie nom="version" descriptif="Images pour les versions du site" version__nom="La Boucherie du Veyron" />
+	<categorie nom="admin" descriptif="Images réservées aux administrateurs" version__nom="La Boucherie du Veyron" />
 </categories>

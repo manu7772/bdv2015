@@ -8,10 +8,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\entityBase;
+use AcmeGroup\LaboBundle\Entity\baseL3EntityAttributs;
 // Entities
-use AcmeGroup\LaboBundle\Entity\statut;
-use AcmeGroup\LaboBundle\Entity\version;
 use AcmeGroup\LaboBundle\Entity\cuisson;
 use AcmeGroup\LaboBundle\Entity\video;
 use AcmeGroup\LaboBundle\Entity\unite;
@@ -20,8 +18,9 @@ use AcmeGroup\LaboBundle\Entity\image;
 use AcmeGroup\LaboBundle\Entity\fiche;
 // User
 use AcmeGroup\UserBundle\Entity\User;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+
+use \Exception;
+use \DateTime;
 
 /**
  * article
@@ -29,26 +28,20 @@ use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
  * @ORM\Entity
  * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\articleRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
-class article extends entityBase {
+class article extends baseL3EntityAttributs {
+
+	const RATIO_TAUX_TVA		= 100;
 
 	/**
 	 * @var string
-	 *
-	 * @ORM\Column(name="descriptif", type="text", nullable=true, unique=false)
-	 */
-	protected $descriptif;
-
-	/**
-	 * @var string
-	 *
 	 * @ORM\Column(name="conseil", type="text", nullable=true, unique=false)
 	 */
 	protected $conseil;
 
 	/**
 	 * @var string
-	 *
 	 * @ORM\Column(name="accroche", type="string", length=60, nullable=true, unique=false)
 	 * @Assert\Length(
 	 *      max = "60",
@@ -59,16 +52,9 @@ class article extends entityBase {
 
 	/**
 	 * @var string
-	 *
 	 * @ORM\Column(name="styleAccroche", type="string", length=60, nullable=true, unique=false)
 	 */
 	protected $styleAccroche;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\statut")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $statut;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\unite")
@@ -78,52 +64,51 @@ class article extends entityBase {
 
 	/**
 	 * @var float
-	 *
 	 * @ORM\Column(name="prix", type="decimal", scale=2, nullable=true, unique=false)
 	 */
 	protected $prix;
 
 	/**
 	 * @var float
-	 *
 	 * @ORM\Column(name="prixHT", type="decimal", scale=2, nullable=true, unique=false)
 	 */
 	protected $prixHT;
 
 	/**
 	 * @var string
-	 *
+	 * 
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\tva")
-	 * @ORM\JoinColumn(nullable=false)
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $tva;
 
 	/**
-	 * @var boolean
-	 *
-	 * @ORM\Column(name="plusVisible", type="boolean", nullable=true, unique=false)
-	 */
-	protected $plusVisible;
-
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", inversedBy="articlesIP")
+	 * @var integer
+	 * 
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $imagePpale;
 
 	/**
 	 * @var array
-	 *
-	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\image", inversedBy="articles")
+	 * 
+	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\image")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $images;
 
 	/**
 	 * @var array
-	 *
+	 * 
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\panier", mappedBy="article")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $paniers;
+
+	/**
+	 * @var array
+	 * 
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\cuisson", inversedBy="articles")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
@@ -131,7 +116,7 @@ class article extends entityBase {
 
 	/**
 	 * @var array
-	 *
+	 * 
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\video", inversedBy="articles")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
@@ -139,7 +124,6 @@ class article extends entityBase {
 
 	/**
 	 * @var array
-	 *
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\fiche", inversedBy="articles")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
@@ -147,7 +131,6 @@ class article extends entityBase {
 
 	/**
 	 * @var array
-	 *
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\categorie")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
@@ -155,14 +138,12 @@ class article extends entityBase {
 
 	/**
 	 * @var array
-	 *
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\article", mappedBy="articlesLies")
 	 */
 	protected $articlesParents;
 
 	/**
 	 * @var array
-	 *
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\article", inversedBy="articlesParents")
 	 * @ORM\JoinTable(name="articlesLinks",
 	 *     joinColumns={@ORM\JoinColumn(name="articlesLies_id", referencedColumnName="id")},
@@ -172,87 +153,102 @@ class article extends entityBase {
 	protected $articlesLies;
 
 	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $version;
-
-	/**
+	 * @var integer
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\UserBundle\Entity\User", inversedBy="articles")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $user;
 
+	protected $listeStyleAccroche;
+	protected $montantTva;
 
 	public function __construct() {
 		parent::__construct();
 
-		$this->styleAccroche = "normal";
-		$this->plusVisible = false;
+		$this->listeStyleAccroche = array(
+			"basse" 		=> "basse",
+			"normale" 		=> "normale",
+			"haute" 		=> "haute",
+			"très haute" 	=> "très haute"
+			);
 
-		$this->images = new ArrayCollection();
-		$this->cuissons = new ArrayCollection();
-		$this->videos = new ArrayCollection();
-		$this->fiches = new ArrayCollection();
-		$this->categories = new ArrayCollection();
-		$this->articlesParents = new ArrayCollection();
-		$this->articlesLies = new ArrayCollection();
+		$this->styleAccroche = $this->listeStyleAccroche['normale'];
+
+		$this->prix = 0.0;
+		$this->prixHT = 0.0;
+		$this->montantTva = 0.0;
+
+		$this->images 			= new ArrayCollection();
+		$this->paniers 			= new ArrayCollection();
+		$this->cuissons 		= new ArrayCollection();
+		$this->videos 			= new ArrayCollection();
+		$this->fiches 			= new ArrayCollection();
+		$this->categories 		= new ArrayCollection();
+		$this->articlesParents 	= new ArrayCollection();
+		$this->articlesLies 	= new ArrayCollection();
+	}
+
+
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
+	/**
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Cet article n'est pas valide.")
+	 * @return boolean
+	 */
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
 
 	/**
-	 * @Assert/True(message = "Cet article n'est pas valide.")
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
 	 */
-	public function isArticleValid() {
-		return true;
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// Contrôle des prix / TVA
+			if($this->tva instanceOf tva) {
+				// recalcul des PrixHT / Prix(TTC) / TVA
+				if($this->prixHT !== 0 && $this->prix == 0) {
+					// si on n'a que le prix HT on calcule le prix TTC
+					$this->prix = $prixHT * (1 + ($this->tva->getTaux() / self::RATIO_TAUX_TVA));
+				} else {
+					// sinon, on calcule le prix HT d'après le prix TTC
+					// ---> !! le prix TTC est toujours vrai en priorité s'il est renseigné !!
+					$this->prixHT = $this->prix / (1 + ($this->tva->getTaux() / self::RATIO_TAUX_TVA));
+				}
+			} else {
+				// pas de TVA
+				// throw new Exception("La TVA n'est pas renseignée !", 1);
+			}
+		}
+		return $verif;
 	}
 
 	/**
-	 * Set nom
-	 *
-	 * @param string $nom
-	 * @return article
+	 * @ORM\PreRemove
 	 */
-	public function setNom($nom) {
-		$this->nom = $nom;
-	
-		return $this;
+	public function RemoveAllLinks() {
+		if($this->getUser() !== NULL) {
+			  $this->getUser()->RemoveElement($this);
+		}
 	}
 
-	/**
-	 * Get nom
-	 *
-	 * @return string 
-	 */
-	public function getNom() {
-		return $this->nom;
-	}
+// FIN --------------------- à inclure dans toutes les entités ------------------------
 
-	/**
-	 * Set descriptif
-	 *
-	 * @param string $descriptif
-	 * @return article
-	 */
-	public function setDescriptif($descriptif) {
-		$this->descriptif = $descriptif;
-	
-		return $this;
-	}
-
-	/**
-	 * Get descriptif
-	 *
-	 * @return string 
-	 */
-	public function getDescriptif() {
-		return $this->descriptif;
-	}
 
 	/**
 	 * Set conseil
-	 *
 	 * @param string $conseil
 	 * @return article
 	 */
@@ -264,7 +260,6 @@ class article extends entityBase {
 
 	/**
 	 * Get conseil
-	 *
 	 * @return string 
 	 */
 	public function getConseil() {
@@ -273,7 +268,6 @@ class article extends entityBase {
 
 	/**
 	 * Set accroche
-	 *
 	 * @param string $accroche
 	 * @return article
 	 */
@@ -285,7 +279,6 @@ class article extends entityBase {
 
 	/**
 	 * Get accroche
-	 *
 	 * @return string 
 	 */
 	public function getAccroche() {
@@ -294,7 +287,6 @@ class article extends entityBase {
 
 	/**
 	 * Set styleAccroche
-	 *
 	 * @param string $styleAccroche
 	 * @return article
 	 */
@@ -306,7 +298,6 @@ class article extends entityBase {
 
 	/**
 	 * Get styleAccroche
-	 *
 	 * @return string 
 	 */
 	public function getStyleAccroche() {
@@ -314,29 +305,7 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Set statut
-	 *
-	 * @param statut $statut
-	 * @return article
-	 */
-	public function setStatut(statut $statut) {
-		$this->statut = $statut;
-	
-		return $this;
-	}
-
-	/**
-	 * Get statut
-	 *
-	 * @return statut 
-	 */
-	public function getStatut() {
-		return $this->statut;
-	}
-
-	/**
 	 * Set unite
-	 *
 	 * @param unite $unite
 	 * @return article
 	 */
@@ -348,7 +317,6 @@ class article extends entityBase {
 
 	/**
 	 * Get unite
-	 *
 	 * @return unite 
 	 */
 	public function getUnite() {
@@ -357,19 +325,18 @@ class article extends entityBase {
 
 	/**
 	 * Set prix
-	 *
 	 * @param float $prix
 	 * @return article
 	 */
-	public function setPrix($prix) {
+	public function setPrix($prix = 0) {
+		$prix = floatval($prix);
+		if(!is_float($prix)) $prix = 0.0;
 		$this->prix = $prix;
-		$this->prixHT = $prix / (1 + ($this->tva->getTaux() / 100));
 		return $this;
 	}
 
 	/**
 	 * Get prix
-	 *
 	 * @return float 
 	 */
 	public function getPrix() {
@@ -378,21 +345,18 @@ class article extends entityBase {
 
 	/**
 	 * Set prixHT
-	 *
 	 * @param float $prixHT
 	 * @return article
 	 */
-	public function setPrixHT($prixHT = null) {
-		if($prixHT !== null) {
-			$this->prixHT = $prixHT;
-			$this->prix = $prixHT * (1 + ($this->tva->getTaux() / 100));
-		}
+	public function setPrixHT($prixHT = 0) {
+		$prixHT = floatval($prixHT);
+		if(!is_float($prixHT)) $prixHT = 0.0;
+		$this->prixHT = $prixHT;
 		return $this;
 	}
 
 	/**
 	 * Get prixHT
-	 *
 	 * @return float 
 	 */
 	public function getPrixHT() {
@@ -401,28 +365,25 @@ class article extends entityBase {
 
 	/**
 	 * Get TVA
-	 *
 	 * @return float 
 	 */
 	public function getMontantTva() {
-		return $this->prixHT * ($this->tva->getTaux() / 100);
+		$this->tva instanceOf tva ? $this->montantTva = $this->prixHT * ($this->tva->getTaux() / self::RATIO_TAUX_TVA) : $this->montantTva = false;
+		return $this->montantTva;
 	}
 
 	/**
 	 * Set tva
-	 *
 	 * @param tva $tva
 	 * @return article
 	 */
-	public function setTva(tva $tva) {
+	public function setTva(tva $tva = null) {
 		$this->tva = $tva;
-	
 		return $this;
 	}
 
 	/**
 	 * Get tva
-	 *
 	 * @return tva 
 	 */
 	public function getTva() {
@@ -430,42 +391,17 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Set plusVisible
-	 *
-	 * @param boolean $plusVisible
-	 * @return article
-	 */
-	public function setPlusVisible($plusVisible = true) {
-		if($plusVisible === true) $this->plusVisible = $plusVisible;
-			else $this->plusVisible = false;
-
-		return $this;
-	}
-
-	/**
-	 * Get plusVisible
-	 *
-	 * @return boolean
-	 */
-	public function getPlusVisible() {
-		return $this->plusVisible;
-	}
-
-	/**
 	 * Set imagePpale
-	 *
 	 * @param image $imagePpale
 	 * @return article
 	 */
 	public function setImagePpale(image $imagePpale = null) {
-		$this->imagePpale = $imagePpale;
-	
+		$this->imagePpale = $imagePpale;	
 		return $this;
 	}
 
 	/**
 	 * Get imagePpale
-	 *
 	 * @return image 
 	 */
 	public function getImagePpale() {
@@ -473,14 +409,13 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Add images
-	 *
-	 * @param image $images
+	 * Add image
+	 * @param image $image
 	 * @return article
 	 */
-	public function addImage(image $images = null) {
-		if($images !== null) {
-			$this->images[] = $images;
+	public function addImage(image $image = null) {
+		if($image !== null) {
+			$this->images->add($image);
 
 		}
 	
@@ -488,19 +423,17 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Remove images
-	 *
-	 * @param image $images
+	 * Remove image
+	 * @param image $image
 	 */
-	public function removeImage(image $images = null) {
-		if($images !== null) {
-			$this->images->removeElement($images);
+	public function removeImage(image $image = null) {
+		if($image !== null) {
+			$this->images->removeElement($image);
 		}
 	}
 
 	/**
 	 * Get images
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getImages() {
@@ -508,29 +441,64 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Add cuissons
-	 *
-	 * @param cuisson $cuissons
+	 * Add paniers
+	 * @param panier $paniers
 	 * @return article
 	 */
-	public function addCuisson(cuisson $cuissons = null) {
-		if($cuissons !== null) $this->cuissons[] = $cuissons;
+	public function addPanier(panier $paniers = null) {
+		if($paniers !== null) {
+			$this->paniers[] = $paniers;
+		}
 	
 		return $this;
 	}
 
 	/**
-	 * Remove cuissons
-	 *
-	 * @param cuisson $cuissons
+	 * Remove paniers
+	 * @param panier $paniers
 	 */
-	public function removeCuisson(cuisson $cuissons = null) {
-		if($cuissons !== null) $this->cuissons->removeElement($cuissons);
+	public function removePanier(panier $paniers = null) {
+		if($paniers !== null) {
+			$this->paniers->removeElement($paniers);
+		}
+	}
+
+	/**
+	 * Get paniers
+	 * @return ArrayCollection 
+	 */
+	public function getPaniers() {
+		return $this->paniers;
+	}
+
+	/**
+	 * Add cuisson
+	 * @param cuisson $cuisson
+	 * @return article
+	 */
+	public function addCuisson(cuisson $cuisson = null) {
+		if($cuisson !== null) {
+			$this->cuissons->add($cuisson);
+			$cuisson->addArticle($this);
+		}
+		return $this;
+	}
+
+	/**
+	 * Remove cuisson
+	 * @param cuisson $cuisson
+	 * @return article
+	 */
+	public function removeCuisson(cuisson $cuisson = null) {
+		if($cuisson !== null) {
+			$this->cuissons->removeElement($cuisson);
+			$cuisson->removecuisson($this);
+		}
+		return $this;
 	}
 
 	/**
 	 * Get cuissons
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getCuissons() {
@@ -539,7 +507,6 @@ class article extends entityBase {
 
 	/**
 	 * Get videos
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getVideos() {
@@ -548,7 +515,6 @@ class article extends entityBase {
 
 	/**
 	 * Add video
-	 *
 	 * @param video $video
 	 * @return article
 	 */
@@ -563,7 +529,6 @@ class article extends entityBase {
 
 	/**
 	 * Remove video
-	 *
 	 * @param video $video
 	 */
 	public function removeVideo(video $video = null) {
@@ -575,7 +540,6 @@ class article extends entityBase {
 
 	/**
 	 * Get fiches
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getFiches() {
@@ -584,7 +548,6 @@ class article extends entityBase {
 
 	/**
 	 * Add fiche
-	 *
 	 * @param fiche $fiche
 	 * @return article
 	 */
@@ -599,7 +562,6 @@ class article extends entityBase {
 
 	/**
 	 * Remove fiche
-	 *
 	 * @param fiche $fiche
 	 */
 	public function removeFiche(fiche $fiche = null) {
@@ -611,7 +573,6 @@ class article extends entityBase {
 
 	/**
 	 * Get categories
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getCategories() {
@@ -620,7 +581,6 @@ class article extends entityBase {
 
 	/**
 	 * Add categories
-	 *
 	 * @param categorie $categories
 	 * @return article
 	 */
@@ -632,7 +592,6 @@ class article extends entityBase {
 
 	/**
 	 * Remove categories
-	 *
 	 * @param categorie $categories
 	 */
 	public function removeCategorie(categorie $categories) {
@@ -641,7 +600,6 @@ class article extends entityBase {
 
 	/**
 	 * Add articlesParents
-	 *
 	 * @param article $articlesParents
 	 * @return article
 	 */
@@ -653,7 +611,6 @@ class article extends entityBase {
 
 	/**
 	 * Remove articlesParents
-	 *
 	 * @param article $articlesParents
 	 */
 	public function removeArticlesParent(article $articlesParents) {
@@ -662,7 +619,6 @@ class article extends entityBase {
 
 	/**
 	 * Get articlesParents
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getArticlesParents() {
@@ -671,7 +627,6 @@ class article extends entityBase {
 
 	/**
 	 * Add articlesLies
-	 *
 	 * @param article $articlesLies
 	 * @return article
 	 */
@@ -683,7 +638,6 @@ class article extends entityBase {
 
 	/**
 	 * Remove articlesLies
-	 *
 	 * @param article $articlesLies
 	 */
 	public function removeArticlesLie(article $articlesLies) {
@@ -693,7 +647,6 @@ class article extends entityBase {
 
 	/**
 	 * Get articlesLies
-	 *
 	 * @return ArrayCollection 
 	 */
 	public function getArticlesLies() {
@@ -701,24 +654,22 @@ class article extends entityBase {
 	}
 
 	/**
-	 * Set version
-	 *
-	 * @param string $version
+	 * Set user
+	 * @param User $user
 	 * @return article
 	 */
-	public function setVersion($version) {
-		$this->version = $version;
+	public function setUser(User $user = null) {
+		$this->user = $user;
 	
 		return $this;
 	}
 
 	/**
-	 * Get version
-	 *
-	 * @return string 
+	 * Get user
+	 * @return User 
 	 */
-	public function getVersion() {
-		return $this->version;
+	public function getUser() {
+		return $this->user;
 	}
 
 }

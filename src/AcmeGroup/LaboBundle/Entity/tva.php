@@ -8,12 +8,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use labo\Bundle\TestmanuBundle\Entity\paramBase;
-// Entities
-use AcmeGroup\LaboBundle\Entity\statut;
-use AcmeGroup\LaboBundle\Entity\version;
-// aeReponse
-use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
+use AcmeGroup\LaboBundle\Entity\baseType;
+
+use \Exception;
+use \DateTime;
 
 /**
  * tva
@@ -21,8 +19,9 @@ use labo\Bundle\TestmanuBundle\services\aetools\aeReponse;
  * @ORM\Entity
  * @ORM\Table(name="tva")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\tvaRepository")
+ * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type tva existe déjà")
  */
-class tva extends paramBase {
+class tva extends baseType {
 
 	protected $nomlong;
 
@@ -41,88 +40,77 @@ class tva extends paramBase {
 	protected $nouveauTaux;
 
 	/**
-	 * @var \DateTime
+	 * @var DateTime
 	 *
 	 * @ORM\Column(name="dateNouveauTaux", type="datetime", nullable=true)
 	 */
 	protected $dateNouveauTaux;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\statut" inversedBy="tvas")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $statut;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version" inversedBy="tvas")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
-	 */
-	protected $version;
 
 
 	public function __construct() {
 		parent::__construct();
 		$this->nouveauTaux = null;
 		$this->dateNouveauTaux = null;
-		// éléments requis pour la gestion de l'entité
-		$this->addRequirements(array('User'));
 	}
 
+// DEBUT --------------------- à inclure dans toutes les entités ------------------------
+
 	/**
-	 * @Assert/True(message = "Cette TVA n'est pas valide.")
+	 * Renvoie true si l'entité est valide
+	 * @Assert\True(message = "Cette TVA n'est pas valide.")
+	 * @return boolean
 	 */
-	public function isTvaValid() {
-		return true;
+	public function isValid() {
+		$valid = true;
+		$valid = parent::isValid();
+		if($valid === true) {
+			// opérations pour cette entité
+			// …
+		}
+		return $valid;
 	}
 
 	/**
-	 * Vérifie l'entité. 
-	 * Nom formalisé : "verif" + Nom_de_l_entité (avec maj.)
+	 * Complète les données avant enregistrement
+	 * @ORM\PreUpdate
+	 * @ORM\PrePersist
+	 * @return boolean
+	 */
+	public function verify() {
+		$verif = true;
+		$verif = parent::verify();
+		if($verif === true) {
+			// opérations pour cette entité
+			$this->verifTva();
+		}
+		return $verif;
+	}
+
+// FIN --------------------- à inclure dans toutes les entités ------------------------
+
+
+	/**
+	 * Applique le nouveau taux si la date est passée
 	 * @return aeReponse
 	 */
 	public function verifTva() {
-		$aeReponse = new aeReponse();
-		if($this->requirementsComplete === true) {
-			// Vérification d'un nouveau taux planifié
-			// application et remise à zéro
-			if($this->getNouveauTaux() !== null && $this->getDateNouveauTaux() !== null) {
-				$now = new \Datetime();
-				if($this->getDateNouveauTaux() <= $now) {
-					$this->setTaux($this->getNouveauTaux());
-					$this->setNouveauTaux(null);
-					$this->setDateNouveauTaux(null);
-				}
+		// Vérification d'un nouveau taux planifié
+		// application et remise à zéro
+		if($this->getNouveauTaux() !== null && $this->getDateNouveauTaux() !== null) {
+			$now = new DateTime();
+			if($this->getDateNouveauTaux() <= $now) {
+				$this->setTaux($this->getNouveauTaux());
+				$this->setNouveauTaux(null);
+				$this->setDateNouveauTaux(null);
 			}
-			// Autres vérifications…
-			// Ci-dessous…
-		} else $aeReponse->setUnvalid();
-		return $aeReponse;
-	}
-
-	/**
-	 * Set nom
-	 *
-	 * @param string $nom
-	 * @return tva
-	 */
-	public function setNom($nom) {
-		$this->nom = trim($nom);
-	
+		}
 		return $this;
-	}
-
-	/**
-	 * Get nom
-	 *
-	 * @return string 
-	 */
-	public function getNom() {
-		return $this->nom;
 	}
 
 	/**
 	 * Set nom long
 	 * Si le nom n'est pas précisé, il est créé automatiquement
+	 * utiliser '###nom###' et '###taux###' qui seront remplacés par les éléments voulus
 	 *
 	 * @param string $nomlong
 	 * @param boolean $sens - 2 versions du texte long
@@ -130,7 +118,10 @@ class tva extends paramBase {
 	 */
 	public function setNomlong($nomlong = null, $sens = true) {
 		if($this->nomlong !== null) {
+			$searchs = array('###nom###', '###taux###');
+			$replacs = array($this->getNom(), $this->getTaux());
 			$this->nomlong = trim($nomlong);
+			$this->nomlong = str_replace($searchs, $replacs, $this->nomlong);
 		} else {
 			if($sens === true) $this->nomlong = $this->getTaux(). "% (".$this->getNom().")";
 				else $this->nomlong = $this->getNom(). " (".$this->getTaux()." %)";
@@ -176,7 +167,7 @@ class tva extends paramBase {
 	 * @param float $nouveauTaux
 	 * @return tva
 	 */
-	public function setNouveauTaux($nouveauTaux) {
+	public function setNouveauTaux($nouveauTaux = null) {
 		$this->nouveauTaux = $nouveauTaux;
 	
 		return $this;
@@ -192,33 +183,12 @@ class tva extends paramBase {
 	}
 
 	/**
-	 * Set dateExpiration
-	 *
-	 * @param \DateTime $dateExpiration
-	 * @return tva
-	 */
-	public function setDateExpiration($dateExpiration) {
-		$this->dateExpiration = $dateExpiration;
-	
-		return $this;
-	}
-
-	/**
-	 * Get dateExpiration
-	 *
-	 * @return \DateTime 
-	 */
-	public function getDateExpiration() {
-		return $this->dateExpiration;
-	}
-
-	/**
 	 * Set dateNouveauTaux
 	 *
-	 * @param \DateTime $dateNouveauTaux
+	 * @param DateTime $dateNouveauTaux
 	 * @return tva
 	 */
-	public function setDateNouveauTaux($dateNouveauTaux = null) {
+	public function setDateNouveauTaux(DateTime $dateNouveauTaux = null) {
 		$this->dateNouveauTaux = $dateNouveauTaux;
 	
 		return $this;
@@ -227,53 +197,10 @@ class tva extends paramBase {
 	/**
 	 * Get dateNouveauTaux
 	 *
-	 * @return \DateTime 
+	 * @return DateTime 
 	 */
 	public function getDateNouveauTaux() {
 		return $this->dateNouveauTaux;
 	}
-
-	/**
-	 * Set statut
-	 *
-	 * @param statut $statut
-	 * @return tva
-	 */
-	public function setStatut(statut $statut) {
-		$this->statut = $statut;
-	
-		return $this;
-	}
-
-	/**
-	 * Get statut
-	 *
-	 * @return statut 
-	 */
-	public function getStatut() {
-		return $this->statut;
-	}
-
-	/**
-	 * Set version
-	 *
-	 * @param version $version
-	 * @return tva
-	 */
-	public function setVersion(version $version) {
-		$this->version = $version;
-	
-		return $this;
-	}
-
-	/**
-	 * Get version
-	 *
-	 * @return version 
-	 */
-	public function getVersion() {
-		return $this->version;
-	}
-
 
 }

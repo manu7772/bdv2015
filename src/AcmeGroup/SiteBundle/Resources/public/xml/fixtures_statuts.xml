@@ -16,20 +16,10 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="boucherie" />
-	<categorie nom="viande" />
-	<categorie nom="abats" />
-	<categorie nom="artisan" />
-	<categorie nom="boeuf" />
-	<categorie nom="mouton" />
-	<categorie nom="volaille" />
-	<categorie nom="porc" />
-	<categorie nom="veau" />
-	<categorie nom="escalope" />
-	<categorie nom="steak" />
-	<categorie nom="côte" />
-	<categorie nom="entrecôte" />
-	<categorie nom="agneau" />
-	<categorie nom="caille" />
-	<categorie nom="tranche" />
+	<categorie nom="Actif" descriptif="Statut actif" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Inactif" descriptif="Statut, inactif" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Attente" descriptif="Statut en attente de validation" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Expiré" descriptif="Statut expiré" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Test" descriptif="Statut de test" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Banni" descriptif="Statut banni" version__nom="La Boucherie du Veyron" />
 </categories>

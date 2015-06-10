@@ -35,13 +35,13 @@ class telephone extends baseL2Entity {
 	protected $numero;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeTelephone", inversedBy="telephone")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeTelephone")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $typeTelephone;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeNatureTelephone", inversedBy="telephone")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeNatureTelephone")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $typeNatureTelephone;

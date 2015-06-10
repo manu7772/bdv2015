@@ -1,9 +1,0 @@
-{% extends "laboBundle::laboPage.html.twig" %}
-{% block title %}{{ parent() }} - Administration site{% endblock %}
-
-{% block main_contain %}
-
-{{ render(controller("AcmeGroupLaboBundle:Labo:jumbotron")) }}
-{{ parent() }}
-
-{% endblock main_contain %}

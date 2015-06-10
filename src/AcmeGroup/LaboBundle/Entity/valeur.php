@@ -6,22 +6,21 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
-// Slug
+// slug/Tree
 use Gedmo\Mapping\Annotation as Gedmo;
-use AcmeGroup\LaboBundle\Entity\baseTag;
+use AcmeGroup\LaboBundle\Entity\baseValeur;
 
 use \Exception;
 use \DateTime;
 
 /**
- * tag
+ * valeur
  *
  * @ORM\Entity
- * @ORM\Table(name="tag")
- * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\tagRepository")
- * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type de fiche existe déjà.")
+ * @ORM\Table(name="valeur")
+ * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\valeurRepository")
  */
-class tag extends baseTag {
+class valeur extends baseValeur {
 
 
 	public function __construct() {
@@ -32,7 +31,7 @@ class tag extends baseTag {
 
 	/**
 	 * Renvoie true si l'entité est valide
-	 * @Assert\True(message = "Ce type de fiche n'est pas valide.")
+	 * @Assert\True(message = "Cette unité n'est pas valide.")
 	 * @return boolean
 	 */
 	public function isValid() {
@@ -62,5 +61,6 @@ class tag extends baseTag {
 	}
 
 // FIN --------------------- à inclure dans toutes les entités ------------------------
+
 
 }

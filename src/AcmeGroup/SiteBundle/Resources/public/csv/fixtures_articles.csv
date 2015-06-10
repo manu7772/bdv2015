@@ -1,3 +1,3 @@
-nom,descriptif,prix,unite__nom,cuisson__nom,categorie__slug,imagePpale_image__nom,image__nom,version__nom
-Plat de côte,Plat de côte,4.90,Gramme,À bouillir,pieces-du-boucher|boeuf,recommend1,recommend2|recommend3|recommend4,La Boucherie du Veyron
-Dessus de tranche,Dessus de tranche,19.90,Gramme,À griller|À bouillir,a-griller|boeuf,recommend4,recommend2,La Boucherie du Veyron
+nom,descriptif,prix,unite__nom,cuisson__nom,categorie__slug,imagePpale_image__nom,image__nom,version__nom,tag__nom
+Plat de côte,Plat de côte,4.90,Gramme,À bouillir,pieces-du-boucher|boeuf,recommend1,recommend2|recommend3|recommend4,La Boucherie du Veyron,viande|boeuf|côte
+Dessus de tranche,Dessus de tranche,19.90,Gramme,À griller|À bouillir,a-griller|boeuf,recommend4,recommend2,La Boucherie du Veyron,viande|boeuf|tranche

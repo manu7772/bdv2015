@@ -30,10 +30,17 @@ class fiche extends baseType {
 
 	/**
 	 * @var array
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
+	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\image")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
-	protected $image;
+	protected $images;
+
+	/**
+	 * @var array
+	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\video", inversedBy="fiches")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $videos;
 
 	/**
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\typeFiche")
@@ -56,6 +63,7 @@ class fiche extends baseType {
 
 	public function __construct() {
 		parent::__construct();
+		$this->images = new ArrayCollection();
 		$this->articles = new ArrayCollection();
 		$this->typeFiches = new ArrayCollection();
 	}
@@ -98,33 +106,74 @@ class fiche extends baseType {
 
 
 	/**
-	 * Set image
-	 *
+	 * Add image
 	 * @param image $image
 	 * @return fiche
 	 */
-	public function setImage(image $image = null) {
-		$this->image = $image;
-	
+	public function addImage(image $image = null) {
+		if($image !== null) $this->images->add($image);
 		return $this;
 	}
 
 	/**
-	 * Get image
-	 *
-	 * @return image 
+	 * Remove image
+	 * @param image $image
+	 * @return fiche
 	 */
-	public function getImage() {
-		return $this->image;
+	public function removeImage(image $image = null) {
+		if($image !== null) $this->images->removeElement($image);
+		return $this;
+	}
+
+	/**
+	 * Get images
+	 * @return arrayCollection 
+	 */
+	public function getImages() {
+		return $this->images;
+	}
+
+	/**
+	 * Add video
+	 * @param video $video
+	 * @return fiche
+	 */
+	public function addVideo(video $video = null) {
+		if($video !== null) {
+			$this->videos->add($video);
+			$video->addFiche($this);
+		}
+		return $this;
+	}
+
+	/**
+	 * Remove video
+	 * @param video $video
+	 * @return fiche
+	 */
+	public function removeVideo(video $video = null) {
+		if($video !== null) {
+			$this->videos->removeElement($video);
+			$video->removeElement($this);
+		}
+		return $this;
+	}
+
+	/**
+	 * Get videos
+	 * @return arrayCollection 
+	 */
+	public function getVideos() {
+		return $this->videos;
 	}
 
 	/**
 	 * Ajoute typeFiche
 	 * @param typeFiche $typeFiche
-	 * @return image
+	 * @return fiche
 	 */
 	public function addTypeFiche(typeFiche $typeFiche = null) {
-		$this->typeFiches->add($typeFiche);
+		if($typeFiche !== null) $this->typeFiches->add($typeFiche);
 		return $this;
 	}
 
@@ -134,7 +183,7 @@ class fiche extends baseType {
 	 * @return image
 	 */
 	public function removeTypeFiche(typeFiche $typeFiche = null) {
-		$this->typeFiches->removeElement($typeFiche);
+		if($typeFiche !== null) $this->typeFiches->removeElement($typeFiche);
 		return $this;
 	}
 
@@ -170,7 +219,10 @@ class fiche extends baseType {
 	 * @return fiche
 	 */
 	public function addArticle(article $article = null) {
-		$this->articles->add($article);
+		if($article !== null) {
+			$this->articles->add($article);
+			$article->addFiche($this);
+		}
 		return $this;
 	}
 
@@ -180,7 +232,10 @@ class fiche extends baseType {
 	 * @return fiche
 	 */
 	public function removeArticle(article $article = null) {
-		$this->articles->removeElement($article);
+		if($article !== null) {
+			$this->articles->removeElement($article);
+			$article->removeElement($this);
+		}
 		return $this;
 	}
 

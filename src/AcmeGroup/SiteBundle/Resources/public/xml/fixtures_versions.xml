@@ -16,5 +16,5 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <versions>
-	<version nom="La Boucherie du Veyron" accroche="" descriptif="" tvaIntra="0000000000" nomDomaine="http://www.boucherieduveyron.com" adresse__nom="La Boucherie du Veyron" telephone__nom="magasin-poncin|portable" couleurFond="#ffffff" templateIndex="Site" defaultVersion='1' imageEntete_image__nom="enteteLogoBDV" favicon_image__nom="iconeBDV" reseausocials_reseausocial__nom="facebook_bdv" />
+	<version nom="La Boucherie du Veyron" accroche="La Boucherie du Veyron" descriptif="" tvaIntra="0000000000" nomDomaine="http://www.boucherieduveyron.com" adresse__nom="La Boucherie du Veyron" telephone__nom="magasin-poncin|portable" couleurFond="#ffffff" templateIndex="Site" defaultVersion='1' imageEntete_image__nom="enteteLogoBDV" favicon_image__nom="iconeBDV" reseausocials_reseausocial__nom="facebook_bdv" />
 </versions>

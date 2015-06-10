@@ -34,7 +34,7 @@ class email extends baseL2Entity {
 	protected $email;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeEmail", inversedBy="email")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeEmail")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $typeEmail;

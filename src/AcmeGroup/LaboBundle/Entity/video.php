@@ -38,7 +38,7 @@ class video extends baseL2Entity {
 	protected $videoUrl;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image", inversedBy="videos")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $image;
@@ -158,7 +158,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function addArticle(article $article = null) {
-		$this->articles->add($article);
+		if($article !== null) $this->articles->add($article);
 		return $this;
 	}
 
@@ -168,7 +168,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function removeArticle(article $article = null) {
-		$this->articles->removeElement($article);
+		if($article !== null) $this->articles->removeElement($article);
 		return $this;
 	}
 
@@ -186,7 +186,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function addFiche(fiche $fiche = null) {
-		$this->fiches->add($fiche);
+		if($fiche !== null) $this->fiches->add($fiche);
 		return $this;
 	}
 
@@ -196,7 +196,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function removeFiche(fiche $fiche = null) {
-		$this->fiches->removeElement($fiche);
+		if($fiche !== null) $this->fiches->removeElement($fiche);
 		return $this;
 	}
 
@@ -214,7 +214,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function addTypeVideo(typeVideo $typeVideo = null) {
-		$this->typeVideos->add($typeVideo);
+		if($typeVideo !== null) $this->typeVideos->add($typeVideo);
 		return $this;
 	}
 
@@ -224,7 +224,7 @@ class video extends baseL2Entity {
 	 * @return video
 	 */
 	public function removeTypeVideo(typeVideo $typeVideo = null) {
-		$this->typeVideos->removeElement($typeVideo);
+		if($typeVideo !== null) $this->typeVideos->removeElement($typeVideo);
 		return $this;
 	}
 

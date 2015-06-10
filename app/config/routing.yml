@@ -10,7 +10,7 @@ acme_site:
 # PAGES LABO
 acme_labo:
     resource: "@AcmeGroupLaboBundle/Resources/config/routing.yml"
-    prefix:   /labo
+    prefix:   /labo3
 
 # USER ROUTING
 fos_user_security:

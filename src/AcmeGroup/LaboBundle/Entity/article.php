@@ -63,6 +63,12 @@ class article extends baseL3EntityAttributs {
 	protected $unite;
 
 	/**
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\valeur", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $valeur;
+
+	/**
 	 * @var float
 	 * @ORM\Column(name="prix", type="decimal", scale=2, nullable=true, unique=false)
 	 */
@@ -254,7 +260,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function setConseil($conseil) {
 		$this->conseil = $conseil;
-	
 		return $this;
 	}
 
@@ -273,7 +278,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function setAccroche($accroche) {
 		$this->accroche = $accroche;
-	
 		return $this;
 	}
 
@@ -292,7 +296,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function setStyleAccroche($styleAccroche) {
 		$this->styleAccroche = $styleAccroche;
-	
 		return $this;
 	}
 
@@ -311,7 +314,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function setUnite(unite $unite) {
 		$this->unite = $unite;
-	
 		return $this;
 	}
 
@@ -321,6 +323,24 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function getUnite() {
 		return $this->unite;
+	}
+
+	/**
+	 * Set valeur
+	 * @param valeur $valeur
+	 * @return article
+	 */
+	public function setValeur(valeur $valeur) {
+		$this->valeur = $valeur;
+		return $this;
+	}
+
+	/**
+	 * Get valeur
+	 * @return valeur 
+	 */
+	public function getValeur() {
+		return $this->valeur;
 	}
 
 	/**
@@ -396,7 +416,7 @@ class article extends baseL3EntityAttributs {
 	 * @return article
 	 */
 	public function setImagePpale(image $imagePpale = null) {
-		$this->imagePpale = $imagePpale;	
+		$this->imagePpale = $imagePpale;
 		return $this;
 	}
 
@@ -416,20 +436,22 @@ class article extends baseL3EntityAttributs {
 	public function addImage(image $image = null) {
 		if($image !== null) {
 			$this->images->add($image);
-
+			// $image->addArticle($this);
 		}
-	
 		return $this;
 	}
 
 	/**
 	 * Remove image
 	 * @param image $image
+	 * @return article
 	 */
 	public function removeImage(image $image = null) {
 		if($image !== null) {
 			$this->images->removeElement($image);
+			// $image->removeElement($this);
 		}
+		return $this;
 	}
 
 	/**
@@ -447,9 +469,8 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function addPanier(panier $paniers = null) {
 		if($paniers !== null) {
-			$this->paniers[] = $paniers;
+			$this->paniers->add($paniers);
 		}
-	
 		return $this;
 	}
 
@@ -520,10 +541,9 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function addVideo(video $video = null) {
 		if($video !== null) {
-			$this->videos[] = $video;
+			$this->videos->add($video);
 			$video->addArticle($this);
 		}
-	
 		return $this;
 	}
 
@@ -553,10 +573,9 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function addFiche(fiche $fiche = null) {
 		if($fiche !== null) {
-			$this->fiches[] = $fiche;
+			$this->fiches->add($fiche);
 			$fiche->addArticle($this);
 		}
-	
 		return $this;
 	}
 
@@ -585,8 +604,7 @@ class article extends baseL3EntityAttributs {
 	 * @return article
 	 */
 	public function addCategorie(categorie $categories) {
-		$this->categories[] = $categories;
-	
+		$this->categories->add($categories);
 		return $this;
 	}
 
@@ -605,7 +623,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function addArticlesParent(article $articlesParents) {
 		$this->articlesParents[] = $articlesParents;
-	
 		return $this;
 	}
 
@@ -660,7 +677,6 @@ class article extends baseL3EntityAttributs {
 	 */
 	public function setUser(User $user = null) {
 		$this->user = $user;
-	
 		return $this;
 	}
 

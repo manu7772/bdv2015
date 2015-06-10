@@ -16,20 +16,6 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="boucherie" />
-	<categorie nom="viande" />
-	<categorie nom="abats" />
-	<categorie nom="artisan" />
-	<categorie nom="boeuf" />
-	<categorie nom="mouton" />
-	<categorie nom="volaille" />
-	<categorie nom="porc" />
-	<categorie nom="veau" />
-	<categorie nom="escalope" />
-	<categorie nom="steak" />
-	<categorie nom="côte" />
-	<categorie nom="entrecôte" />
-	<categorie nom="agneau" />
-	<categorie nom="caille" />
-	<categorie nom="tranche" />
+	<categorie nom="Plat de côte" descriptif="Plat de côte" prix="4.90" unite__nom="Gramme" cuisson__nom="À bouillir" categorie__slug="pieces-du-boucher|boeuf" imagePpale_image__nom="recommend1" image__nom="recommend2|recommend3|recommend4" version__nom="La Boucherie du Veyron" tag__nom="viande|boeuf|côte" />
+	<categorie nom="Dessus de tranche" descriptif="Dessus de tranche" prix="19.90" unite__nom="Gramme" cuisson__nom="À griller|À bouillir" categorie__slug="a-griller|boeuf" imagePpale_image__nom="recommend4" image__nom="recommend2" version__nom="La Boucherie du Veyron" tag__nom="viande|boeuf|tranche" />
 </categories>

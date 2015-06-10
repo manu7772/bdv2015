@@ -8,6 +8,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LaboController extends LaboCtrl {
 
-	const DEFAULT_VIEWS = "pages";
+	// const DEFAULT_VIEWS = "pages";
 
 }

@@ -13,6 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 // baseInterface
 use laboBundle\Entity\baseEntityPdf as baseEpdf;
 use laboBundle\Entity\interfaces\baseL2Interface;
+use AcmeGroup\LaboBundle\Entity\baseTagsInterface;
 // Entities
 use AcmeGroup\LaboBundle\Entity\statut;
 use AcmeGroup\LaboBundle\Entity\version;
@@ -21,7 +22,7 @@ use AcmeGroup\LaboBundle\Entity\version;
  * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks()
  */
-abstract class baseEntityPdf extends baseEpdf implements baseL2Interface {
+abstract class baseEntityPdf extends baseEpdf implements baseL2Interface, baseTagsInterface {
 
 	/**
 	 * @var array
@@ -38,9 +39,17 @@ abstract class baseEntityPdf extends baseEpdf implements baseL2Interface {
 	 */
 	protected $version;
 
+	/**
+	 * @var array
+	 *
+	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\tag")
+	 */
+	protected $tags;
+
 
 	public function __construct() {
 		parent::__construct();
+		$this->tags = new ArrayCollection();
 	}
 
 // DEBUT --------------------- à inclure dans toutes les entités ------------------------
@@ -112,6 +121,35 @@ abstract class baseEntityPdf extends baseEpdf implements baseL2Interface {
 	 */
 	public function getVersion() {
 		return $this->version;
+	}
+
+	/**
+	 * Add tag
+	 *
+	 * @param tag $tag
+	 * @return collection
+	 */
+	public function addTag(tag $tag) {
+		$this->tags->add($tag);
+		return $this;
+	}
+
+	/**
+	 * Remove tag
+	 *
+	 * @param tag $tag
+	 */
+	public function removeTag(tag $tag) {
+		$this->tags->removeElement($tag);
+	}
+
+	/**
+	 * Get tags
+	 *
+	 * @return \Doctrine\Common\Collections\Collection 
+	 */
+	public function getTags() {
+		return $this->tags;
 	}
 
 

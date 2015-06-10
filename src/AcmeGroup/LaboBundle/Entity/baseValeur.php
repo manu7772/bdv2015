@@ -6,25 +6,23 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
-use \DateTime;
-use \Exception;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-// baseInterface
-use laboBundle\Entity\baseAttributsEntity;
+// Base
+use laboBundle\Entity\baseL1Entity;
 use laboBundle\Entity\interfaces\baseL2Interface;
-use AcmeGroup\LaboBundle\Entity\baseTagsInterface;
-// Entities
-use AcmeGroup\LaboBundle\Entity\statut;
-use AcmeGroup\LaboBundle\Entity\version;
 
 /**
- * Entité de base L0 étendue => L1 pour gestion de dates (création / modification / expiration)
- * => ajout de gestion d'attributs
+ * Entité pour gestion des unités (devises, mesures, etc.)
+ * 
  * @ORM\MappedSuperclass
- * @ORM\HasLifecycleCallbacks()
  */
-abstract class baseL3EntityAttributs extends baseAttributsEntity implements baseL2Interface, baseTagsInterface {
+abstract class baseValeur extends baseL1Entity implements baseL2Interface {
+
+	protected $max;
+	protected $min;
+	protected $steps;
+	protected $valeur;
 
 	/**
 	 * @var array
@@ -41,17 +39,11 @@ abstract class baseL3EntityAttributs extends baseAttributsEntity implements base
 	 */
 	protected $version;
 
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\tag")
-	 */
-	protected $tags;
-
 
 	public function __construct() {
 		parent::__construct();
-		$this->tags = new ArrayCollection();
+		$this->lengthNomCourt = 3;
+		$this->nomcourt = null;
 	}
 
 // DEBUT --------------------- à inclure dans toutes les entités ------------------------
@@ -79,13 +71,8 @@ abstract class baseL3EntityAttributs extends baseAttributsEntity implements base
 		$verif = parent::verify();
 		if($verif === true) {
 			// opérations pour cette entité
-			// …
-			if($this->statut instanceOf statut) $statutSlug = $this->statut->getSlug();
-				else $statutSlug = "aucun";
-			if($this->version instanceOf version) $versionSlug = $this->version->getSlug();
-				else $versionSlug = "aucun";
-			if(is_string($statutSlug)) $this->addToUniqueField('statut', $statutSlug);
-			if(is_string($versionSlug)) $this->addToUniqueField('version', $versionSlug);
+			$this->addToUniqueField('statut', $this->statut->getSlug());
+			$this->addToUniqueField('version', $this->version->getSlug());
 		}
 		return $verif;
 	}
@@ -129,36 +116,6 @@ abstract class baseL3EntityAttributs extends baseAttributsEntity implements base
 		return $this->version;
 	}
 
-	/**
-	 * Add tag
-	 *
-	 * @param tag $tag
-	 * @return collection
-	 */
-	public function addTag(tag $tag) {
-		$this->tags->add($tag);
-		return $this;
-	}
-
-	/**
-	 * Remove tag
-	 *
-	 * @param tag $tag
-	 */
-	public function removeTag(tag $tag) {
-		$this->tags->removeElement($tag);
-	}
-
-	/**
-	 * Get tags
-	 *
-	 * @return \Doctrine\Common\Collections\Collection 
-	 */
-	public function getTags() {
-		return $this->tags;
-	}
-
 
 
 }
-

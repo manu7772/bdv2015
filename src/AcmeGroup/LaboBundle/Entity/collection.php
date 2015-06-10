@@ -49,20 +49,12 @@ class collection extends baseType {
 	 */
 	protected $vitesse;
 
-	/**
-	 * @var array
-	 *
-	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\tag")
-	 */
-	protected $tags;
-
 
 	public function __construct() {
 		parent::__construct();
 		$this->firstmedia = null;
 		$this->medias = new ArrayCollection();
 		$this->vitesse = 5000;
-		$this->tags = new ArrayCollection();
 	}
 
 
@@ -169,35 +161,6 @@ class collection extends baseType {
 	 */
 	public function getVitesse() {
 		return $this->vitesse;
-	}
-
-	/**
-	 * Add tag
-	 *
-	 * @param tag $tag
-	 * @return collection
-	 */
-	public function addTag(tag $tag) {
-		$this->tags->add($tag);
-		return $this;
-	}
-
-	/**
-	 * Remove tag
-	 *
-	 * @param tag $tag
-	 */
-	public function removeTag(tag $tag) {
-		$this->tags->removeElement($tag);
-	}
-
-	/**
-	 * Get tags
-	 *
-	 * @return \Doctrine\Common\Collections\Collection 
-	 */
-	public function getTags() {
-		return $this->tags;
 	}
 
 

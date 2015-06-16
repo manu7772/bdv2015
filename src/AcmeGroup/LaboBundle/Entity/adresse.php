@@ -58,14 +58,14 @@ class adresse extends baseL2Entity {
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\UserBundle\Entity\User", inversedBy="adresses")
-	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $user;
 
 	/**
 	 * @var array
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="adresses")
-	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $propVersion;
 

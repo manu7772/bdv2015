@@ -28,13 +28,13 @@ class reseausocial extends baseL2Entity {
 
 	/**
 	 * @var string
-	 * @ORM\Column(name="texte", type="text", nullable=false, unique=false)
+	 * @ORM\Column(name="url", type="text", nullable=false, unique=false)
 	 */
-	protected $texte;
+	protected $url;
 
 	/**
 	 * @var array
-	 * @ORM\OneToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeReseau")
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\typeReseau")
 	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $typeReseau;
@@ -42,7 +42,7 @@ class reseausocial extends baseL2Entity {
 	/**
 	 * @var array
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="reseausocials")
-	 * @ORM\JoinColumn(nullable=true, unique=true)
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $propVersion;
 
@@ -89,21 +89,21 @@ class reseausocial extends baseL2Entity {
 
 
 	/**
-	 * Définit texte
-	 * @param string $texte
+	 * Définit url
+	 * @param string $url
 	 * @return reseausocial
 	 */
-	public function setTexte($texte) {
-		$this->texte = $texte;
+	public function setUrl($url) {
+		$this->url = $url;
 		return $this;
 	}
 
 	/**
-	 * Renvoie texte
+	 * Renvoie url
 	 * @return string 
 	 */
-	public function getTexte() {
-		return $this->texte;
+	public function getUrl() {
+		return $this->url;
 	}
 
 	/**

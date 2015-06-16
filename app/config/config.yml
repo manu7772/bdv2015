@@ -13,6 +13,7 @@ parameters:
         tel:     09 81 83 95 65
         gsm:     06 13 14 35 15
 
+
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
@@ -137,16 +138,31 @@ stof_doctrine_extensions:
 
 # labo Configuration
 labo:
-    default_menu_slug:   menu_01
+    default_menu_cible:
+        v1: { cible: menu_01-v1 }
+        v2: { cible: menu_01-v2 }
     user_class:          AcmeGroup\UserBundle\Entity\User
     entity_listener:     true
     launch_service:
         activate:        true
         resources:
-            services:    
-                service: { name: acmeGroup.aetools }
-                service: { name: acmeGroup.entities }
-                service: { name: acmeGroup.version }
-                service: { name: acmeGroup.categorie }
+            services:
+                - { name: acmeGroup.aetools }
+                - { name: acmeGroup.entities }
+                - { name: acmeGroup.version }
+                - { name: acmeGroup.categorie }
+    version_in_session:
+        favicon:
+        logo:
+        telephones:
+            typeTelephone:
+            typeNatureTelephone:
+        emails:
+            typeEmail:
+        reseausocials:
+            typeReseau:
+        imageEntete:
+        adresses:
+            typeAdresse:
 
 

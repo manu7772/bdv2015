@@ -16,20 +16,37 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="boucherie" />
-	<categorie nom="viande" />
-	<categorie nom="abats" />
-	<categorie nom="artisan" />
-	<categorie nom="boeuf" />
-	<categorie nom="mouton" />
-	<categorie nom="volaille" />
-	<categorie nom="porc" />
-	<categorie nom="veau" />
-	<categorie nom="escalope" />
-	<categorie nom="steak" />
-	<categorie nom="côte" />
-	<categorie nom="entrecôte" />
-	<categorie nom="agneau" />
-	<categorie nom="caille" />
-	<categorie nom="tranche" />
+	<categorie nom="boucherie" cible="boucherie-v1" version__cible="v1" />
+	<categorie nom="viande" cible="viande-v1" version__cible="v1" />
+	<categorie nom="abats" cible="abats-v1" version__cible="v1" />
+	<categorie nom="artisan" cible="artisan-v1" version__cible="v1" />
+	<categorie nom="boeuf" cible="boeuf-v1" version__cible="v1" />
+	<categorie nom="mouton" cible="mouton-v1" version__cible="v1" />
+	<categorie nom="volaille" cible="volaille-v1" version__cible="v1" />
+	<categorie nom="porc" cible="porc-v1" version__cible="v1" />
+	<categorie nom="veau" cible="veau-v1" version__cible="v1" />
+	<categorie nom="escalope" cible="escalope-v1" version__cible="v1" />
+	<categorie nom="steak" cible="steak-v1" version__cible="v1" />
+	<categorie nom="côte" cible="côte-v1" version__cible="v1" />
+	<categorie nom="entrecôte" cible="entrecôte-v1" version__cible="v1" />
+	<categorie nom="agneau" cible="agneau-v1" version__cible="v1" />
+	<categorie nom="caille" cible="caille-v1" version__cible="v1" />
+	<categorie nom="tranche" cible="tranche-v1" version__cible="v1" />
+
+	<categorie nom="boucherie" cible="boucherie-v2" version__cible="v2" />
+	<categorie nom="viande" cible="viande-v2" version__cible="v2" />
+	<categorie nom="abats" cible="abats-v2" version__cible="v2" />
+	<categorie nom="artisan" cible="artisan-v2" version__cible="v2" />
+	<categorie nom="boeuf" cible="boeuf-v2" version__cible="v2" />
+	<categorie nom="mouton" cible="mouton-v2" version__cible="v2" />
+	<categorie nom="volaille" cible="volaille-v2" version__cible="v2" />
+	<categorie nom="porc" cible="porc-v2" version__cible="v2" />
+	<categorie nom="veau" cible="veau-v2" version__cible="v2" />
+	<categorie nom="escalope" cible="escalope-v2" version__cible="v2" />
+	<categorie nom="steak" cible="steak-v2" version__cible="v2" />
+	<categorie nom="côte" cible="côte-v2" version__cible="v2" />
+	<categorie nom="entrecôte" cible="entrecôte-v2" version__cible="v2" />
+	<categorie nom="agneau" cible="agneau-v2" version__cible="v2" />
+	<categorie nom="caille" cible="caille-v2" version__cible="v2" />
+	<categorie nom="tranche" cible="tranche-v2" version__cible="v2" />
 </categories>

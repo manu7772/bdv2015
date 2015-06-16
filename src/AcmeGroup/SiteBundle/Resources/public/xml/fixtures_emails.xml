@@ -16,10 +16,6 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Actif" descriptif="Statut actif" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Inactif" descriptif="Statut, inactif" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Attente" descriptif="Statut en attente de validation" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Expiré" descriptif="Statut expiré" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Test" descriptif="Statut de test" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Banni" descriptif="Statut banni" version__nom="La Boucherie du Veyron" />
+	<categorie nom="contact@laboucheriedeveyron.com" email="contact@laboucheriedeveyron.com" cible="email01-v1" typeEmail__cible="société-v1" version__cible="v1" />
+	<categorie nom="laboucheriedeveyron@orange.fr" email="laboucheriedeveyron@orange.fr" cible="email01-v2" typeEmail__cible="professionnel-v2" version__cible="v2" />
 </categories>

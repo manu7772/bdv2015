@@ -16,8 +16,13 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Pièce" descriptif="Pièce à l'unité" nomcourt="p" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Gramme" descriptif="Gramme" nomcourt="g" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Kilo" descriptif="Kilogramme" nomcourt="Kg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Litre" descriptif="Litre" nomcourt="L" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Pièce" cible="Pièce-v1" descriptif="Pièce à l'unité" nomcourt="p" version__cible="v1" />
+	<categorie nom="Gramme" cible="Gramme-v1" descriptif="Gramme" nomcourt="g" version__cible="v1" />
+	<categorie nom="Kilo" cible="Kilo-v1" descriptif="Kilogramme" nomcourt="Kg" version__cible="v1" />
+	<categorie nom="Litre" cible="Litre-v1" descriptif="Litre" nomcourt="L" version__cible="v1" />
+
+	<categorie nom="Pièce" cible="Pièce-v2" descriptif="Pièce à l'unité" nomcourt="p" version__cible="v2" />
+	<categorie nom="Gramme" cible="Gramme-v2" descriptif="Gramme" nomcourt="g" version__cible="v2" />
+	<categorie nom="Kilo" cible="Kilo-v2" descriptif="Kilogramme" nomcourt="Kg" version__cible="v2" />
+	<categorie nom="Litre" cible="Litre-v2" descriptif="Litre" nomcourt="L" version__cible="v2" />
 </categories>

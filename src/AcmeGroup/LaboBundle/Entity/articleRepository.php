@@ -38,6 +38,22 @@ class articleRepository extends baseLaboRepository {
 		return array();
 	}
 
+	public function findAllArticlesVer($nb = null) {
+		$qb = $this->createQueryBuilder(self::ELEMENT);
+		$leftJoins = array(
+			'imagePpale' 	=> array(),
+			'unite'			=> array(),
+			'cuissons'		=> array('image'	=> array()),
+			'images'		=> array(),
+			'tags'			=> array(),
+		);
+		$qb = $this->addJoins($qb, $leftJoins);
+		$qb = $this->withVersion($qb);
+		// if(is_int($nb)) $qb->setMaxResults($nb);
+		$qb->orderBy(self::ELEMENT.'.prix', 'ASC');
+		return $qb->getQuery()->getArrayResult();
+	}
+
 	/**
 	* findXArticles
 	* Renvoie X ($nb) articles

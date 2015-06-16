@@ -16,6 +16,9 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="magasin-poncin" numero="04 74 37 77 09" typeTelephone__nom="magasin" typeNatureTelephone__nom="fixe" version__nom="La Boucherie du Veyron" />
-	<categorie nom="portable" numero="06 87 86 41 78" typeTelephone__nom="professionnel" typeNatureTelephone__nom="mobile" version__nom="La Boucherie du Veyron" />
+	<categorie nom="magasin-poncin" cible="magasin-poncin-v1" numero="04 74 37 77 09" typeTelephone__cible="magasin-v1" typeNatureTelephone__cible="fixe-v1" version__cible="v1" />
+	<categorie nom="portable" cible="portable-v1" numero="06 87 86 41 78" typeTelephone__cible="professionnel-v1" typeNatureTelephone__cible="mobile-v1" version__cible="v1" />
+
+	<categorie nom="magasin-cerdon" cible="magasin-cerdon-v2" numero="04 74 37 77 09" typeTelephone__cible="magasin-v2" typeNatureTelephone__cible="fixe-v2" version__cible="v2" />
+	<categorie nom="portable" cible="portable-v2" numero="06 87 86 41 78" typeTelephone__cible="professionnel-v2" typeNatureTelephone__cible="mobile-v2" version__cible="v2" />
 </categories>

@@ -45,6 +45,13 @@ class email extends baseL2Entity {
 	 */
 	protected $user;
 
+	/**
+	 * @var array
+	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version", inversedBy="emails")
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 */
+	protected $propVersion;
+
 
 	public function __construct() {
 		parent::__construct();
@@ -141,5 +148,24 @@ class email extends baseL2Entity {
 	public function getUser() {
 		return $this->user;
 	}
+
+	/**
+	 * Définit propVersion
+	 * @param version $propVersion
+	 * @return email
+	 */
+	public function setPropVersion(version $propVersion = null) {
+		$this->propVersion = $propVersion;
+		return $this;
+	}
+
+	/**
+	 * Renvoie propVersion
+	 * @return version 
+	 */
+	public function getPropVersion() {
+		return $this->propVersion;
+	}
+
 
 }

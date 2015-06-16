@@ -16,24 +16,39 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<!-- versions -->
-	<categorie nom="enteteLogoBDV" descriptif="Image d'entête du site" typeImage__nom="+logo|version" fichierOrigine="logo.jpg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="iconeBDV" descriptif="Favicon du site" typeImage__nom="favicon" fichierOrigine="favicon.png" version__nom="La Boucherie du Veyron" />
+	<!-- versions v1 -->
+	<categorie nom="enteteLogoBDV" cible="enteteLogoBDV-v1" descriptif="Image d'entête du site" typeImage__cible="+logo-v1|version-v1" fichierOrigine="logo.jpg" version__cible="v1" />
+	<categorie nom="iconeBDV" cible="iconeBDV-v1" descriptif="Favicon du site" typeImage__cible="favicon-v1" fichierOrigine="favicon.png" version__cible="v1" />
+	<categorie nom="1osso_boco" cible="1osso_boco-v1" descriptif="" typeImage__cible="+diaporama-v1" fichierOrigine="1osso_boco.jpg" version__cible="v1" />
+	<categorie nom="1presentation" cible="1presentation-v1" descriptif="" typeImage__cible="+diaporama-v1" fichierOrigine="1presentation.jpg" version__cible="v1" />
+	<!-- articles v1 -->
+	<categorie nom="recommend1" cible="recommend1-v1" descriptif="" typeImage__cible="+article-v1" fichierOrigine="recommend1.jpg" version__cible="v1" />
+	<categorie nom="recommend2" cible="recommend2-v1" descriptif="" typeImage__cible="+article-v1" fichierOrigine="recommend2.jpg" version__cible="v1" />
+	<categorie nom="recommend3" cible="recommend3-v1" descriptif="" typeImage__cible="+article-v1" fichierOrigine="recommend3.jpg" version__cible="v1" />
+	<categorie nom="recommend4" cible="recommend4-v1" descriptif="" typeImage__cible="+article-v1" fichierOrigine="recommend4.jpg" version__cible="v1" />
+	<!-- système v1 -->
+	<categorie nom="braiser" cible="braiser-v1" descriptif="icone triangle à braiser" typeImage__cible="+site-v1|cuisson-v1" fichierOrigine="braiser.png" version__cible="v1" />
+	<categorie nom="rôtir" cible="rôtir-v1" descriptif="icone triangle à rôtir" typeImage__cible="+site-v1|cuisson-v1" fichierOrigine="rotir.png" version__cible="v1" />
+	<categorie nom="griller" cible="griller-v1" descriptif="icone triangle à griller" typeImage__cible="+site-v1|cuisson-v1" fichierOrigine="griller.png" version__cible="v1" />
+	<categorie nom="bouillir" cible="bouillir-v1" descriptif="icone triangle à bouillir" typeImage__cible="+site-v1|cuisson-v1" fichierOrigine="bouillir.png" version__cible="v1" />
+	<categorie nom="poêler" cible="poêler-v1" descriptif="icone triangle à poêler" typeImage__cible="+site-v1|cuisson-v1" fichierOrigine="poeler.png" version__cible="v1" />
 
-	<categorie nom="1osso_boco" descriptif="" typeImage__nom="+diaporama" fichierOrigine="1osso_boco.jpg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="1presentation" descriptif="" typeImage__nom="+diaporama" fichierOrigine="1presentation.jpg" version__nom="La Boucherie du Veyron" />
-
-	<!-- articles -->
-	<categorie nom="recommend1" descriptif="" typeImage__nom="+article" fichierOrigine="recommend1.jpg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="recommend2" descriptif="" typeImage__nom="+article" fichierOrigine="recommend2.jpg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="recommend3" descriptif="" typeImage__nom="+article" fichierOrigine="recommend3.jpg" version__nom="La Boucherie du Veyron" />
-	<categorie nom="recommend4" descriptif="" typeImage__nom="+article" fichierOrigine="recommend4.jpg" version__nom="La Boucherie du Veyron" />
-	<!-- système -->
-	<categorie nom="braiser" descriptif="icone triangle à braiser" typeImage__nom="+site|cuisson" fichierOrigine="braiser.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="rôtir" descriptif="icone triangle à rôtir" typeImage__nom="+site|cuisson" fichierOrigine="rotir.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="griller" descriptif="icone triangle à griller" typeImage__nom="+site|cuisson" fichierOrigine="griller.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="bouillir" descriptif="icone triangle à bouillir" typeImage__nom="+site|cuisson" fichierOrigine="bouillir.png" version__nom="La Boucherie du Veyron" />
-	<categorie nom="poêler" descriptif="icone triangle à poêler" typeImage__nom="+site|cuisson" fichierOrigine="poeler.png" version__nom="La Boucherie du Veyron" />
+	<!-- versions v2 -->
+	<categorie nom="enteteLogoBDV" cible="enteteLogoBDV-v2" descriptif="Image d'entête du site" typeImage__cible="+logo-v2|version-v2" fichierOrigine="logo.jpg" version__cible="v2" />
+	<categorie nom="iconeBDV" cible="iconeBDV-v2" descriptif="Favicon du site" typeImage__cible="favicon-v2" fichierOrigine="favicon.png" version__cible="v2" />
+	<categorie nom="1osso_boco" cible="1osso_boco-v2" descriptif="" typeImage__cible="+diaporama-v2" fichierOrigine="1osso_boco.jpg" version__cible="v2" />
+	<categorie nom="1presentation" cible="1presentation-v2" descriptif="" typeImage__cible="+diaporama-v2" fichierOrigine="1presentation.jpg" version__cible="v2" />
+	<!-- articles v2 -->
+	<categorie nom="recommend1" cible="recommend1-v2" descriptif="" typeImage__cible="+article-v2" fichierOrigine="recommend1.jpg" version__cible="v2" />
+	<categorie nom="recommend2" cible="recommend2-v2" descriptif="" typeImage__cible="+article-v2" fichierOrigine="recommend2.jpg" version__cible="v2" />
+	<categorie nom="recommend3" cible="recommend3-v2" descriptif="" typeImage__cible="+article-v2" fichierOrigine="recommend3.jpg" version__cible="v2" />
+	<categorie nom="recommend4" cible="recommend4-v2" descriptif="" typeImage__cible="+article-v2" fichierOrigine="recommend4.jpg" version__cible="v2" />
+	<!-- système v2 -->
+	<categorie nom="braiser" cible="braiser-v2" descriptif="icone triangle à braiser" typeImage__cible="+site-v2|cuisson-v2" fichierOrigine="braiser.png" version__cible="v2" />
+	<categorie nom="rôtir" cible="rôtir-v2" descriptif="icone triangle à rôtir" typeImage__cible="+site-v2|cuisson-v2" fichierOrigine="rotir.png" version__cible="v2" />
+	<categorie nom="griller" cible="griller-v2" descriptif="icone triangle à griller" typeImage__cible="+site-v2|cuisson-v2" fichierOrigine="griller.png" version__cible="v2" />
+	<categorie nom="bouillir" cible="bouillir-v2" descriptif="icone triangle à bouillir" typeImage__cible="+site-v2|cuisson-v2" fichierOrigine="bouillir.png" version__cible="v2" />
+	<categorie nom="poêler" cible="poêler-v2" descriptif="icone triangle à poêler" typeImage__cible="+site-v2|cuisson-v2" fichierOrigine="poeler.png" version__cible="v2" />
 
 </categories>
 

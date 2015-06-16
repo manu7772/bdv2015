@@ -12,6 +12,7 @@ use laboBundle\Entity\version as baseVersion;
 // Entities
 use AcmeGroup\LaboBundle\Entity\reseausocial;
 use AcmeGroup\LaboBundle\Entity\telephone;
+use AcmeGroup\LaboBundle\Entity\email;
 use AcmeGroup\LaboBundle\Entity\image;
 use AcmeGroup\LaboBundle\Entity\adresse;
 use AcmeGroup\UserBundle\Entity\User;
@@ -22,7 +23,6 @@ use AcmeGroup\UserBundle\Entity\User;
  * @ORM\Entity
  * @ORM\Table(name="version")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\versionRepository")
- * @UniqueEntity(fields={"siren"}, message="Cette version existe déjà")
  */
 class version extends baseVersion {
 
@@ -41,6 +41,14 @@ class version extends baseVersion {
 	 * @Assert\Valid()
 	 */
 	protected $telephones;
+
+	/**
+	 * @var array
+	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\email", mappedBy="propVersion", cascade={"all"})
+	 * @ORM\JoinColumn(nullable=true, unique=false)
+	 * @Assert\Valid()
+	 */
+	protected $emails;
 
 	/**
 	 * @var integer
@@ -85,6 +93,7 @@ class version extends baseVersion {
 		parent::__construct();
 		$this->reseausocials	= new ArrayCollection;
 		$this->telephones		= new ArrayCollection;
+		$this->emails			= new ArrayCollection;
 		$this->adresses			= new ArrayCollection;
 		$this->users 			= new ArrayCollection;
 	}
@@ -134,6 +143,7 @@ class version extends baseVersion {
 	public function addReseausocial(reseausocial $reseausocial = null) {
 		if($reseausocial !== null) {
 			$this->reseausocials->add($reseausocial);
+			$reseausocial->setPropVersion($this);
 		}
 		return $this;
 	}
@@ -145,6 +155,7 @@ class version extends baseVersion {
 	 */
 	public function removeReseausocial(reseausocial $reseausocial) {
 		$this->reseausocials->removeElement($reseausocial);
+		$reseausocial->setPropVersion(null);
 		return $this;
 	}
 
@@ -164,6 +175,7 @@ class version extends baseVersion {
 	public function addTelephone(telephone $telephone = null) {
 		if($telephone !== null) {
 			$this->telephones->add($telephone);
+			$telephone->setPropVersion($this);
 		}
 		return $this;
 	}
@@ -175,6 +187,7 @@ class version extends baseVersion {
 	 */
 	public function removeTelephone(telephone $telephone) {
 		$this->telephones->removeElement($telephone);
+		$telephone->setPropVersion(null);
 		return $this;
 	}
 
@@ -194,6 +207,7 @@ class version extends baseVersion {
 	public function addEmail(email $email = null) {
 		if($email !== null) {
 			$this->emails->add($email);
+			$email->setPropVersion($this);
 		}
 		return $this;
 	}
@@ -202,8 +216,9 @@ class version extends baseVersion {
 	 * Remove email
 	 * @return version 
 	 */
-	public function removeEmail($email) {
+	public function removeEmail(email $email) {
 		$this->emails->removeElement($email);
+		$email->setPropVersion(null);
 		return $this;
 	}
 
@@ -277,7 +292,7 @@ class version extends baseVersion {
 	public function addAdresse(adresse $adresse = null) {
 		if($adresse !== null) {
 			$this->adresses->add($adresse);
-			$adresse->setVersion($this);
+			$adresse->setPropVersion($this);
 		}
 		return $this;
 	}
@@ -289,7 +304,7 @@ class version extends baseVersion {
 	 */
 	public function removeAdresse(adresse $adresse) {
 		$this->adresses->removeElement($adresse);
-		$adresse->setVersion(null);
+		$adresse->setPropVersion(null);
 		return $this;
 	}
 

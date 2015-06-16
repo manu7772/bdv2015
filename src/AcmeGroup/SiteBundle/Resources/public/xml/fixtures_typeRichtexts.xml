@@ -16,9 +16,15 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="pageweb" descriptif="Textes pour pages du site" version__nom="La Boucherie du Veyron" />
-	<categorie nom="commentaire" descriptif="Commentaires" version__nom="La Boucherie du Veyron" />
-	<categorie nom="annotation" descriptif="annotation" version__nom="La Boucherie du Veyron" />
-	<categorie nom="message" descriptif="message" version__nom="La Boucherie du Veyron" />
-	<categorie nom="legalite" descriptif="textes légaux" version__nom="La Boucherie du Veyron" />
+	<categorie nom="pageweb" cible="pageweb-v1" descriptif="Textes pour pages du site" version__cible="v1" />
+	<categorie nom="commentaire" cible="commentaire-v1" descriptif="Commentaires" version__cible="v1" />
+	<categorie nom="annotation" cible="annotation-v1" descriptif="annotation" version__cible="v1" />
+	<categorie nom="message" cible="message-v1" descriptif="message" version__cible="v1" />
+	<categorie nom="legalite" cible="legalite-v1" descriptif="textes légaux" version__cible="v1" />
+
+	<categorie nom="pageweb" cible="pageweb-v2" descriptif="Textes pour pages du site" version__cible="v2" />
+	<categorie nom="commentaire" cible="commentaire-v2" descriptif="Commentaires" version__cible="v2" />
+	<categorie nom="annotation" cible="annotation-v2" descriptif="annotation" version__cible="v2" />
+	<categorie nom="message" cible="message-v2" descriptif="message" version__cible="v2" />
+	<categorie nom="legalite" cible="legalite-v2" descriptif="textes légaux" version__cible="v2" />
 </categories>

@@ -16,9 +16,15 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="facebook" descriptif="Réseau social facebook" version__nom="La Boucherie du Veyron"/>
-	<categorie nom="twitter" descriptif="Réseau social twitter" version__nom="La Boucherie du Veyron"/>
-	<categorie nom="google" descriptif="Réseau social google" version__nom="La Boucherie du Veyron"/>
-	<categorie nom="pinterest" descriptif="Réseau social pinterest" version__nom="La Boucherie du Veyron"/>
-	<categorie nom="snapshot" descriptif="Réseau social snapshot" version__nom="La Boucherie du Veyron"/>
+	<categorie nom="facebook" cible="facebook-v1" descriptif="Réseau social facebook" version__cible="v1"/>
+	<categorie nom="twitter" cible="twitter-v1" descriptif="Réseau social twitter" version__cible="v1"/>
+	<categorie nom="google-plus" cible="google-v1" descriptif="Réseau social google" version__cible="v1"/>
+	<categorie nom="linkedin" cible="linkedin-v1" descriptif="Réseau social linkedin" version__cible="v1"/>
+	<categorie nom="dribbble" cible="dribbble-v1" descriptif="Réseau social dribbble" version__cible="v1"/>
+
+	<categorie nom="facebook" cible="facebook-v2" descriptif="Réseau social facebook" version__cible="v2"/>
+	<categorie nom="twitter" cible="twitter-v2" descriptif="Réseau social twitter" version__cible="v2"/>
+	<categorie nom="google-plus" cible="google-v2" descriptif="Réseau social google" version__cible="v2"/>
+	<categorie nom="linkedin" cible="linkedin-v2" descriptif="Réseau social linkedin" version__cible="v2"/>
+	<categorie nom="dribbble" cible="dribbble-v2" descriptif="Réseau social dribbble" version__cible="v2"/>
 </categories>

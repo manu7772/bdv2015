@@ -1377,12 +1377,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/manu7772/labo3bundle.git",
-                "reference": "c2063c58272f097969148890e29bbdcae6832889"
+                "reference": "7e653f644b87e13e209da999a7bb8f96c6c8580d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manu7772/labo3bundle/zipball/c2063c58272f097969148890e29bbdcae6832889",
-                "reference": "c2063c58272f097969148890e29bbdcae6832889",
+                "url": "https://api.github.com/repos/manu7772/labo3bundle/zipball/7e653f644b87e13e209da999a7bb8f96c6c8580d",
+                "reference": "7e653f644b87e13e209da999a7bb8f96c6c8580d",
                 "shasum": ""
             },
             "require": {
@@ -1415,7 +1415,7 @@
                 "labo",
                 "symfony"
             ],
-            "time": "2015-06-10 09:51:01"
+            "time": "2015-06-15 22:59:57"
         },
         {
             "name": "leafo/lessphp",

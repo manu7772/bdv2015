@@ -27,7 +27,9 @@ class baseLaboRepository extends EntityRepository {
 	const CHAMP_DATE_DEBUT			= "dateDebut";
 	const CHAMP_DATE_FIN			= "dateFin";
 
-	protected $version 				= null;
+	const VERSION_CLASS_NAME		= "AcmeGroup\\LaboBundle\\Entity\\version";
+
+	protected $version 				= false;
 	protected $fields 				= array();
 	protected $initCMD 				= false;
 	protected $ClassMetadata;
@@ -179,22 +181,28 @@ class baseLaboRepository extends EntityRepository {
 	 * @param version $version
 	 * @return baseLaboRepository
 	 */
-	public function setVersion(version $version = null) {
+	public function setVersion($version = null, $force = false) {
+		$this->version = false;
+		// echo('REPO : Demande de version : '.$version.'<br>');
 		// version par défaut
 		if($version === null) {
-			$version = $this->_em->getRepository("AcmeGroupLaboBundle:version")->defaultVersion();
+			$version = $this->_em->getRepository(self::VERSION_CLASS_NAME)->defaultVersion();
 			if(is_array($version)) {
 				if(count($version) > 0) {
-					$this->version = reset($version);
+					$ver = reset($version);
+					$this->version = $ver->getSlug();
 				}
 			}
 		}
-		if($version instanceOf version) {
+		// version en données de session
+		if(is_string($version) && strlen(trim($version)) > 0) {
 			$this->version = $version;
-		} else {
-			$this->version = null;
-			// throw new Exception("Repository : impossible de définir une version par défaut");
 		}
+		// objet version
+		if($version instanceOf version) {
+			$this->version = $version->getSlug();
+		} 
+		// echo('REPO : Définition de version : '.$this->version.'<br>');
 		return $this;
 	}
 
@@ -382,13 +390,35 @@ class baseLaboRepository extends EntityRepository {
 	 * @return QueryBuilder
 	 */
 	protected function withVersion(QueryBuilder $qb, $version = null) {
-		if($this->field_exist("versions")) {
+		if($this->field_exist("version")) {
 			if($this->version !== false || $version !== null) {
-				if($version !== null) $this->setVersion($version);
+				if($version === null) $version = $this->version;
 				$version = $this->version;
-				$qb->join(self::ELEMENT.'.versions', 'ver')
+				echo('Version : '.$version.'<br>');
+				$qb->join(self::ELEMENT.'.version', 'ver')
 					->andWhere($qb->expr()->in('ver.slug', $version));
 			}
+		}
+		return $qb;
+	}
+
+	/**
+	 * jointures leftJoin d'après un array
+	 * @param QueryBuilder $qb
+	 * @param array $adds
+	 * @param string $champ
+	 * @return QueryBuilder
+	 */
+	protected function addJoins(QueryBuilder $qb, $adds, $joined = null) {
+		if($joined === null || !is_string($joined)) $joined = self::ELEMENT;
+		if(!($qb instanceOf QueryBuilder)) $qb = $this->createQueryBuilder($joined);
+		if(is_array($adds)) foreach ($adds as $field => $childs) {
+			$itemField = $joined.'.'.$field;
+			if(!is_array($childs)) $childs = array();
+			$qb->leftJoin($itemField, $joined.$field)
+				->addSelect($joined.$field)
+				;
+			if(count($childs) > 0) $qb = $this->addJoins($qb, $childs, $joined.$field);
 		}
 		return $qb;
 	}

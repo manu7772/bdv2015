@@ -16,9 +16,15 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="À braiser" descriptif="À braiser" image__nom="braiser" version__nom="La Boucherie du Veyron" />
-	<categorie nom="À rôtir" descriptif="À rôtir" image__nom="rôtir" version__nom="La Boucherie du Veyron" />
-	<categorie nom="À griller" descriptif="À griller" image__nom="griller" version__nom="La Boucherie du Veyron" />
-	<categorie nom="À bouillir" descriptif="À bouillir" image__nom="bouillir" version__nom="La Boucherie du Veyron" />
-	<categorie nom="À poêler" descriptif="À poêler" image__nom="poêler" version__nom="La Boucherie du Veyron" />
+	<categorie nom="À braiser" cible="À braiser-v1" descriptif="À braiser" image__cible="braiser-v1" version__cible="v1" />
+	<categorie nom="À rôtir" cible="À rôtir-v1" descriptif="À rôtir" image__cible="rôtir-v1" version__cible="v1" />
+	<categorie nom="À griller" cible="À griller-v1" descriptif="À griller" image__cible="griller-v1" version__cible="v1" />
+	<categorie nom="À bouillir" cible="À bouillir-v1" descriptif="À bouillir" image__cible="bouillir-v1" version__cible="v1" />
+	<categorie nom="À poêler" cible="À poêler-v1" descriptif="À poêler" image__cible="poêler-v1" version__cible="v1" />
+
+	<categorie nom="À braiser" cible="À braiser-v2" descriptif="À braiser" image__cible="braiser-v2" version__cible="v2" />
+	<categorie nom="À rôtir" cible="À rôtir-v2" descriptif="À rôtir" image__cible="rôtir-v2" version__cible="v2" />
+	<categorie nom="À griller" cible="À griller-v2" descriptif="À griller" image__cible="griller-v2" version__cible="v2" />
+	<categorie nom="À bouillir" cible="À bouillir-v2" descriptif="À bouillir" image__cible="bouillir-v2" version__cible="v2" />
+	<categorie nom="À poêler" cible="À poêler-v2" descriptif="À poêler" image__cible="poêler-v2" version__cible="v2" />
 </categories>

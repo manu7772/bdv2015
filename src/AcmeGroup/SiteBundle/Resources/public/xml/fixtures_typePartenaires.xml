@@ -16,8 +16,13 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="institutionnels" descriptif="Partenaires institutionnels" version__nom="La Boucherie du Veyron" />
-	<categorie nom="commerçants" descriptif="Partenaires artisants et commerçants" version__nom="La Boucherie du Veyron" />
-	<categorie nom="culturels" descriptif="Partenaires du monde culturel" version__nom="La Boucherie du Veyron" />
-	<categorie nom="autre" descriptif="Autre" version__nom="La Boucherie du Veyron" />
+	<categorie nom="institutionnels" cible="institutionnels-v1" descriptif="Partenaires institutionnels" version__cible="v1" />
+	<categorie nom="commerçants" cible="commerçants-v1" descriptif="Partenaires artisants et commerçants" version__cible="v1" />
+	<categorie nom="culturels" cible="culturels-v1" descriptif="Partenaires du monde culturel" version__cible="v1" />
+	<categorie nom="autre" cible="autre-v1" descriptif="Autre" version__cible="v1" />
+
+	<categorie nom="institutionnels" cible="institutionnels-v2" descriptif="Partenaires institutionnels" version__cible="v2" />
+	<categorie nom="commerçants" cible="commerçants-v2" descriptif="Partenaires artisants et commerçants" version__cible="v2" />
+	<categorie nom="culturels" cible="culturels-v2" descriptif="Partenaires du monde culturel" version__cible="v2" />
+	<categorie nom="autre" cible="autre-v2" descriptif="Autre" version__cible="v2" />
 </categories>

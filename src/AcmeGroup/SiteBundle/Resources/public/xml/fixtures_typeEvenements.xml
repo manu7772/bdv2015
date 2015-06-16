@@ -16,9 +16,15 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Edito" descriptif="Editos pour le site" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Actualités" descriptif="Actualités" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Promotions" descriptif="Promotions" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Presse" descriptif="Dossier de presse" version__nom="La Boucherie du Veyron" />
-	<categorie nom="pub" descriptif="Textes d'informations et de publicité" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Edito" cible="Edito-v1" descriptif="Editos pour le site" version__cible="v1" />
+	<categorie nom="Actualités" cible="Actualités-v1" descriptif="Actualités" version__cible="v1" />
+	<categorie nom="Promotions" cible="Promotions-v1" descriptif="Promotions" version__cible="v1" />
+	<categorie nom="Presse" cible="Presse-v1" descriptif="Dossier de presse" version__cible="v1" />
+	<categorie nom="pub" cible="pub-v1" descriptif="Textes d'informations et de publicité" version__cible="v1" />
+
+	<categorie nom="Edito" cible="Edito-v2" descriptif="Editos pour le site" version__cible="v2" />
+	<categorie nom="Actualités" cible="Actualités-v2" descriptif="Actualités" version__cible="v2" />
+	<categorie nom="Promotions" cible="Promotions-v2" descriptif="Promotions" version__cible="v2" />
+	<categorie nom="Presse" cible="Presse-v2" descriptif="Dossier de presse" version__cible="v2" />
+	<categorie nom="pub" cible="pub-v2" descriptif="Textes d'informations et de publicité" version__cible="v2" />
 </categories>

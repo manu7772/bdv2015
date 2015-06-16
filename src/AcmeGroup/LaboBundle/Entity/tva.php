@@ -19,7 +19,7 @@ use \DateTime;
  * @ORM\Entity
  * @ORM\Table(name="tva")
  * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\tvaRepository")
- * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type tva existe déjà")
+ * @UniqueEntity(fields={"taux", "version", "statut"}, message="Ce type tva existe déjà")
  */
 class tva extends baseType {
 
@@ -28,7 +28,7 @@ class tva extends baseType {
 	/**
 	 * @var float
 	 *
-	 * @ORM\Column(name="taux", type="float", nullable=false, unique=true)
+	 * @ORM\Column(name="taux", type="float", nullable=false, unique=false)
 	 */
 	protected $taux;
 

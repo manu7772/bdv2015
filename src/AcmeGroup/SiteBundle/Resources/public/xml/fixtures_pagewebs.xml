@@ -19,8 +19,11 @@ route : mettre le nom de la route, et on peut ajouter les paramètres en les sé
 
  -->
 <categories>
-	<categorie nom="homepage" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__nom="La Boucherie du Veyron" />
-	<categorie nom="article-cat" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__nom="La Boucherie du Veyron" />
-	<categorie nom="article-sous-cat" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__nom="La Boucherie du Veyron" />
-	<!-- home -->
+	<categorie nom="homepage" cible="homepage-v1" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v1" />
+	<categorie nom="article-cat" cible="article-cat-v1" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v1" />
+	<categorie nom="article-sous-cat" cible="article-sous-cat-v1" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v1" />
+
+	<categorie nom="homepage" cible="homepage-v2" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v2" />
+	<categorie nom="article-cat" cible="article-cat-v2" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v2" />
+	<categorie nom="article-sous-cat" cible="article-sous-cat-v2" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" version__cible="v2" />
 </categories>

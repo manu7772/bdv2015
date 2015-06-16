@@ -16,6 +16,10 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Plat de côte" descriptif="Plat de côte" prix="4.90" unite__nom="Gramme" cuisson__nom="À bouillir" categorie__slug="pieces-du-boucher|boeuf" imagePpale_image__nom="recommend1" image__nom="recommend2|recommend3|recommend4" version__nom="La Boucherie du Veyron" tag__nom="viande|boeuf|côte" />
-	<categorie nom="Dessus de tranche" descriptif="Dessus de tranche" prix="19.90" unite__nom="Gramme" cuisson__nom="À griller|À bouillir" categorie__slug="a-griller|boeuf" imagePpale_image__nom="recommend4" image__nom="recommend2" version__nom="La Boucherie du Veyron" tag__nom="viande|boeuf|tranche" />
+	<!-- v1 -->
+	<categorie nom="Plat de côte" cible="Plat de côte-v1" descriptif="Plat de côte" prix="4.90" unite__cible="Kilo-v1" cuisson__cible="À bouillir-v1" categorie__cible="Bœuf-Pièces du boucher-v1|Bœuf-v1" imagePpale_image__cible="recommend2-v1" image__cible="recommend2-v1|recommend3-v1|recommend4-v1" version__cible="v1" tag__cible="viande-v1|boeuf-v1|côte-v1" />
+	<categorie nom="Dessus de tranche" cible="Dessus de tranche-v1" descriptif="Dessus de tranche" prix="19.90" unite__cible="Kilo-v1" cuisson__cible="À griller-v1|À bouillir-v1" categorie__cible="Bœuf-À griller-v1|Bœuf-v1" imagePpale_image__cible="recommend1-v1" image__cible="recommend2-v1" version__cible="v1" tag__cible="viande-v1|boeuf-v1|tranche-v1" />
+	<!-- v2 -->
+	<categorie nom="Plat de côte" cible="Plat de côte-v2" descriptif="Plat de côte" prix="6.90" unite__cible="Kilo-v2" cuisson__cible="À bouillir-v2" categorie__cible="Bœuf-Pièces du boucher-v2|Bœuf-v2" imagePpale_image__cible="recommend3-v2" image__cible="recommend2-v2|recommend3-v2|recommend4-v2" version__cible="v2" tag__cible="viande-v2|boeuf-v2|côte-v2" />
+	<categorie nom="Dessus de tranche" cible="Dessus de tranche-v2" descriptif="Dessus de tranche" prix="16.90" unite__cible="Kilo-v2" cuisson__cible="À griller-v2|À bouillir-v2" categorie__cible="Bœuf-À griller-v2|Bœuf-v2" imagePpale_image__cible="recommend4-v2" image__cible="recommend2-v2" version__cible="v2" tag__cible="viande-v2|boeuf-v2|tranche-v2" />
 </categories>

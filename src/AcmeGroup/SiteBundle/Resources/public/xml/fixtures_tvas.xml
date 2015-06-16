@@ -16,7 +16,11 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="Normal" taux="20.00" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Intermédiaire" taux="10.00" version__nom="La Boucherie du Veyron" />
-	<categorie nom="Réduit" taux="7.00" version__nom="La Boucherie du Veyron" />
+	<categorie nom="Normal" cible="Normal-v1" taux="20.00" version__cible="v1" />
+	<categorie nom="Intermédiaire" cible="Intermédiaire-v1" taux="10.00" version__cible="v1" />
+	<categorie nom="Réduit" cible="Réduit-v1" taux="7.00" version__cible="v1" />
+
+	<categorie nom="Normal" cible="Normal-v2" taux="20.00" version__cible="v2" />
+	<categorie nom="Intermédiaire" cible="Intermédiaire-v2" taux="10.00" version__cible="v2" />
+	<categorie nom="Réduit" cible="Réduit-v2" taux="7.00" version__cible="v2" />
 </categories>

@@ -3,6 +3,8 @@
 
 namespace AcmeGroup\SiteBundle\Classes;
 
+use laboBundle\services\entitiesServices\categorie;
+
 class menuOptions {
 
 	// protected $routesForCategories = array('acme_site_categories');
@@ -14,12 +16,13 @@ class menuOptions {
 
 	public function getOptions($pagesWeb = null) {
 		$router = $this->container->get('router');
-		$categorie = $this->container->get('AcmeGroup.categorie');
+		$categorie = $this->container->get('labobundle.categorie');
+		$repo = $categorie->getRepo('categorie');
 		$levelno = 0;
 		$categorieSlug = $this->container->get("request")->attributes->get('categorieSlug');
 		// if($categorieSlug === "web") $categorieSlug = null;
-		$c = $this->container->get('session')->get('version');
-		$couleur = $c["couleur"];
+		// $c = $this->container->get('session')->get('version');
+		// $couleurFond = $c["couleurFond"];
 		return array(
 			'decorate' => true,
 			'rootOpen' => function($tree) use ($levelno) {
@@ -89,14 +92,16 @@ class menuOptions {
 				}
 				return $r;
 			},
-			'nodeDecorator' => function($node) use ($router, $levelno, $categorie) {
+			'nodeDecorator' => function($node) use ($router, $levelno, $repo) {
 				$r = null;
 
-				$cat = $categorie->getRepo()->findBySlug($node["slug"]);
-				if(count($cat) > 0) {
-					$pagewebSlug = $cat[0]->getPage()->getSlug();
-					$routeParam = $cat[0]->getPage()->getRoute();
-					$Url = $router->generate($routeParam, array(/*"pagewebSlug" => $pagewebSlug,*/ "categorieSlug" => $node['slug']));
+				$cat = $repo->findOneBySlug($node["slug"]);
+				if(is_object($cat)) {
+					// $pagewebSlug = $cat->getPage()->getSlug();
+					$Url = $router->generate(
+						$cat->getPage()->getRoute(),
+						array(/*"pagewebSlug" => $pagewebSlug,*/ "categorieSlug" => $node['slug'])
+					);
 				} else $Url = $router->generate("acme_site_home");
 
 				switch($node['lvl']) {
@@ -104,8 +109,15 @@ class menuOptions {
 						$r = null;
 						break;
 					default:
-						$r = '			<a href="'.$Url.'" >'.$node["nom"].'</a>
-';
+						$r = '<div class="panel-heading">
+	<h4 class="panel-title">
+		<a data-toggle="collapse" data-parent="#accordian" href="'.$Url.'">
+			<span class="badge pull-right"><i class="fa fa-plus"></i></span>
+			'.$node["nom"].'
+		</a>
+	</h4>
+</div>';
+						// $r = '			<a href="'.$Url.'" >'.$node["nom"].'</a>';
 						break;
 				}
 				return $r;

@@ -15,6 +15,8 @@ use \DateTime;
  */
 class typeFicheRepository extends baseLaboRepository {
 
+	const DEFAULT_TYPE_FICHE 	= "recette";
+
 	/**
 	 * Renvoie la(les) valeur(s) par défaut
 	 * $onlyOneObject : si true, renvoie un seul objet en résultat, ou null - false, renvoie un tableau (vide si aucun)
@@ -24,6 +26,7 @@ class typeFicheRepository extends baseLaboRepository {
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
 		// valeurs spécifiques
+		if($defaults === null) $defaults = array(self::DEFAULT_TYPE_FICHE);
 		// $champ = 'slug';
 		return parent::defaultVal($defaults, $onlyOneObject, $champ);
 	}

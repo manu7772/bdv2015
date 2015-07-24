@@ -27,9 +27,9 @@ class statutRepository extends baseLaboRepository {
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
 		// valeurs spécifiques
-		if($defaults === null) $defaults = array(self::STATUT_NOM_ACTIF);
-		// $champ = 'slug';
-		return parent::defaultVal($defaults, $onlyOneObject, $champ);
+		// if($defaults === null) $defaults = array(self::STATUT_NOM_ACTIF);
+		// return parent::defaultVal($defaults, $onlyOneObject, $champ);
+		return $this->getActif();
 	}
 
 
@@ -47,13 +47,13 @@ class statutRepository extends baseLaboRepository {
 
 
 	/**
-	 * Renvoie le statut inactif
+	 * Renvoie le statut actif
 	 */
 	public function getActif() {
 		$qb = $this->createQueryBuilder(self::ELEMENT);
 		$qb->where(self::ELEMENT.'nom = :statnom')
-			->setParameter('statnom', self::STATUT_NOM_ACTIF)
-			->setMaxResults(1);
+			->setParameter('statnom', self::STATUT_NOM_ACTIF);
+			// ->setMaxResults(1);
 		return $qb->getQuery()->getOneOrNullResult();
 	}
 
@@ -63,8 +63,8 @@ class statutRepository extends baseLaboRepository {
 	public function getInactif() {
 		$qb = $this->createQueryBuilder(self::ELEMENT);
 		$qb->where(self::ELEMENT.'.nom = :statnom')
-			->setParameter('statnom', self::STATUT_NOM_INACTIF)
-			->setMaxResults(1);
+			->setParameter('statnom', self::STATUT_NOM_INACTIF);
+			// ->setMaxResults(1);
 		return $qb->getQuery()->getOneOrNullResult();
 	}
 

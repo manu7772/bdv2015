@@ -23,8 +23,20 @@ class cuissonRepository extends baseLaboRepository {
 	 * @return mixed
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
-		// aucune, c'est juste une liste d'images
+		// !!! Ne doit rien renvoyer, c'est juste une liste d'éléments !!!
 		return array();
+	}
+
+	/**
+	 * Renvoie la(les) valeur(s) selon le(s) ROLE(S) --> ATTENTION : retourne un queryBuilder
+	 * @param mixed $roles - ROLES à prendre en compte
+	 * @param string $champ - 'nom' par défaut
+	 * @return queryBuilder
+	 */
+	public function defaultRoleClosure($roles = null, $champ = 'nom') {
+		// valeurs spécifiques
+		// $champ = 'slug';
+		return parent::defaultRoleClosure($roles, $champ);
 	}
 
 

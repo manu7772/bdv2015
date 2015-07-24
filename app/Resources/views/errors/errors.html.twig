@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{% block title %}VEXIM - Erreur{% endblock title %}</title>
+
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+	{% block styles %}
+	{% stylesheets filter='cssrewrite, lessphp, ?yui_css'
+	'bundles/labo/framework/css/bootstrap.min.css'
+	'bundles/labo/framework/font-awesome/css/font-awesome.css'
+	'bundles/labo/framework/css/animate.css'
+	'bundles/labo/framework/css/style.less.css'
+	%}
+	<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+	{% endstylesheets %}
+	{% endblock styles %}
+</head>
+
+<body class="gray-bg">
+	<div class="middle-box text-center animated fadeInDown">
+		<h1>{% block numberError %}Code erreur{% endblock numberError%}</h1>
+
+		<div class="error-desc">
+			<h2>{% block messageError %}Le serveur a rencontré une erreur et n'a pu compléter la requête.{% endblock messageError %}</h2>
+			<p class="m-t">Retournez à la page d'accueil :</p>
+			<div class="m-t-sm">
+				<a href="{{ url('frontend_index') }}" class="btn btn-primary">Accueil</a>
+				{% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+				&nbsp;
+				<a href="{{ url('fos_user_security_login') }}" class="btn btn-warning">Connexion</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+	{% block js %}
+	{% javascripts filter='?yui_js'
+	'bundles/labo/framework/js/jquery-2.1.1.js'
+	'bundles/labo/framework/js/bootstrap.min.js'
+	%}
+	<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	{% endblock js %}
+</body>
+</html>

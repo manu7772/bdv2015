@@ -15,6 +15,8 @@ use \DateTime;
  */
 class typeNatureTelephoneRepository extends baseLaboRepository {
 
+	const DEFAULT_TYPE_NATURE_TELEPHONE 	= "mobile";
+
 	/**
 	 * Renvoie la(les) valeur(s) par défaut
 	 * $onlyOneObject : si true, renvoie un seul objet en résultat, ou null - false, renvoie un tableau (vide si aucun)
@@ -24,6 +26,7 @@ class typeNatureTelephoneRepository extends baseLaboRepository {
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
 		// valeurs spécifiques
+		if($defaults === null) $defaults = array(self::DEFAULT_TYPE_NATURE_TELEPHONE);
 		// $champ = 'slug';
 		return parent::defaultVal($defaults, $onlyOneObject, $champ);
 	}

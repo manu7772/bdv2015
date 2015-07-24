@@ -16,8 +16,8 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="facebook_bdv" cible="facebook_bdv-v1" url="https://www.facebook.com/pages/La-boucherie-du-Veyron/130699467080417" typeReseau__cible="facebook-v1" version__cible="v1" />
-	<categorie nom="facebook_bdv" cible="facebook_bdv-v2" url="https://www.facebook.com/emmanuel.dujardin" typeReseau__cible="facebook-v2" version__cible="v2" />
+	<categorie statut__cible="Actif-v1" nom="facebook_bdv" cible="facebook_bdv-v1" url="https://www.facebook.com/pages/La-boucherie-du-Veyron/130699467080417" typeReseau__cible="facebook-v1" version__cible="v1" />
+	<categorie statut__cible="Actif-v2" nom="page facebook" cible="reseau facebook v2" url="https://www.facebook.com/emmanuel.dujardin" typeReseau__cible="facebook-v2" version__cible="v2" />
 </categories>
 
 <!-- https://www.facebook.com/pages/La-boucherie-du-Veyron/130699467080417 -->

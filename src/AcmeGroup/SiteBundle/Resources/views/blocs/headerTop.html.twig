@@ -4,22 +4,26 @@
 			<div class="col-sm-8">
 				<div class="contactinfo">
 					<ul class="nav nav-pills">
-						{% for tel in app.session.get('version').telephones|default({}) %}
+						{% for tel in version.telephones|default({}) %}
 						<li><a href="#"><i class="fa fa-phone" title=""></i> {{ tel.numero }}</a></li>
 						{% endfor %}
-						{% if app.session.get('version').emails|default({})|length > 0 %}
-						<li><a href="mailto:{{ app.session.get('version').emails.0.nom }}"><i class="fa fa-envelope"></i> {{ app.session.get('version').emails.0.nom }}</a></li>
+						{% if version.emails|default({})|length > 0 %}
+						<li><a href="mailto:{{ version.emails.first.nom }}"><i class="fa fa-envelope"></i> {{ version.emails.first.nom }}</a></li>
 						{% endif %}
 					</ul>
 				</div>
 			</div>
-			{% if app.session.get('version').reseausocials|default({})|length > 0 %}
+			{% if version.reseausocials|default({})|length > 0 %}
 			<div class="col-sm-4">
 				<div class="social-icons pull-right">
 					<ul class="nav navbar-nav">
-						{% for reseau in app.session.get('version').reseausocials %}
-						{% if reseau.typeReseau is defined %}
-						<li><a href="{{ reseau.url }}" class="URLext"><i class="fa fa-{{ reseau.typeReseau.nom }}"></i></a></li>
+						{% for reseau in version.reseausocials %}
+						{% if reseau.typeReseau.nom is defined %}
+						<li>
+							<a href="{{ reseau.url }}" target="_blank">
+								<i class="fa fa-{{ reseau.typeReseau.nom }}"></i>
+							</a>
+						</li>
 						{% endif %}
 						{% endfor %}
 					</ul>

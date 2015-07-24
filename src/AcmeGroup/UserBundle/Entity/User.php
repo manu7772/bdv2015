@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 
 use AcmeGroup\LaboBundle\Entity\adresse;
+use AcmeGroup\LaboBundle\Entity\email;
 use AcmeGroup\LaboBundle\Entity\telephone;
 use AcmeGroup\LaboBundle\Entity\panier;
 use AcmeGroup\LaboBundle\Entity\image;
@@ -331,7 +332,7 @@ class User extends BaseUser {
 	 * @param autremail $autremail
 	 * @return User
 	 */
-	public function addAutremail(autremail $autremail) {
+	public function addAutremail(email $autremail) {
 		$this->autremails->add($autremail);
 		$autremail->setUser($this);
 		return $this;
@@ -342,7 +343,7 @@ class User extends BaseUser {
 	 * @param autremail $autremail
 	 * @return boolean
 	 */
-	public function removeAutremail(autremail $autremail) {
+	public function removeAutremail(email $autremail) {
 		$autremail->setUser(null);
 		return $this->autremails->removeElement($autremail);
 	}

@@ -3,6 +3,7 @@
 namespace AcmeGroup\LaboBundle\Entity;
 
 use AcmeGroup\LaboBundle\Entity\baseLaboRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\ORM\QueryBuilder;
 use \Exception;
 use \DateTime;
@@ -23,7 +24,7 @@ class articleRepository extends baseLaboRepository {
 	 * @return mixed
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
-		// !!! Ne doit rien renvoyer, c'est juste une liste d'articles !!!
+		// !!! Ne doit rien renvoyer, c'est juste une liste d'éléments !!!
 		return array();
 	}
 
@@ -38,7 +39,7 @@ class articleRepository extends baseLaboRepository {
 		return array();
 	}
 
-	public function findAllArticlesVer($nb = null) {
+	public function findAllArticlesVer() {
 		$qb = $this->createQueryBuilder(self::ELEMENT);
 		$leftJoins = array(
 			'imagePpale' 	=> array(),
@@ -49,9 +50,11 @@ class articleRepository extends baseLaboRepository {
 		);
 		$qb = $this->addJoins($qb, $leftJoins);
 		$qb = $this->withVersion($qb);
-		// if(is_int($nb)) $qb->setMaxResults($nb);
 		$qb->orderBy(self::ELEMENT.'.prix', 'ASC');
-		return $qb->getQuery()->getArrayResult();
+		return $this->isPaginationActive() ?
+			$this->getPagination($qb->getQuery()) :
+			$qb->getQuery()->getResult();
+		// return $qb->getQuery()->getArrayResult();
 	}
 
 	/**
@@ -67,7 +70,11 @@ class articleRepository extends baseLaboRepository {
 		$qb->setMaxResults($nb) // limite le nombre de résultats
 			->orderBy(self::ELEMENT.'.plusVisible', 'DESC') // Sélectionne en premier les articles "plus visibles"
 			->addOrderBy(self::ELEMENT.'.notation', 'DESC'); // Puis par notation
-		return $qb->getQuery()->getResult();
+		// return $qb->getQuery()->getResult();
+		$query = $qb->getQuery();
+		$query->setFirstResult(0)->setMaxResults($nb);
+		$result = new Paginator($query);
+		return $result;
 	}
 
 	/**

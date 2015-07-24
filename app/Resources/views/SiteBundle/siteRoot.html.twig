@@ -5,8 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="">
 		<meta name="description" content='{% block metatitles %}{% endblock metatitles %}'>
-		<link rel="icon" type="image/x-icon" href="{{ asset(app.session.get('version').favicon.fichierNom|default('favicon.ico')) }}" />
-		<title>{% block title %}{{ app.session.get('version').nom }}{% endblock title %}</title>
+		<link rel="icon" type="image/x-icon" href="{{ asset(version.favicon.fichierNom|default('favicon.ico')) }}" />
+		<title>{% block title %}{{ version.nom }}{% endblock title %}</title>
 		{% stylesheets filter='cssrewrite, lessphp, ?yui_css'
 		'bundles/acmegroupsite/css/bootstrap.min.css'
 		'bundles/acmegroupsite/css/font-awesome.min.css'

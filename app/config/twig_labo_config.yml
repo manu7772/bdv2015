@@ -1,0 +1,97 @@
+twig:
+    globals:
+        formatDate:      "dd-MM-yyyy"
+        formatDateHeure: "d-m-Y H:i:s"
+        file_formats:
+            pdf:        pdf
+            jpg:        image
+            gif:        image
+            png:        image
+            default:    text
+        default_icon: 'fa-caret-right'
+        menu_Admin_default_role: 'ROLE_ADMIN'
+        menu_Admin:
+            home:
+                nom: 'root.homepage'
+                path: 'labo_home'
+                icon: 'fa-home'
+            commerce:
+                nom: 'menu.commerce'
+                path: 'labo_commerce'
+                icon: 'fa-truck'
+                level2:
+                    articles:
+                        nom: 'menu.articles'
+                        path: 'labo_article_action'
+                        icon: 'fa-shopping-cart'
+                    commandes:
+                        nom: 'menu.commandes'
+                        path: '#'
+                        icon: 'fa-list-alt'
+                    categories:
+                        nom: 'menu.categories'
+                        path: '#'
+                        icon: 'fa-th-list'
+            medias:
+                nom: 'menu.medias'
+                path: '#'
+                icon: 'fa-camera'
+                level2: 
+                    images:
+                        nom: 'menu.images'
+                        path: '#'
+                        icon: 'fa-picture-o'
+                    videos:
+                        nom: 'menu.videos'
+                        path: '#'
+                        icon: 'fa-film'
+                    fichiers:
+                        nom: 'menu.fichiers'
+                        path: '#'
+                        icon: 'fa-files-o'
+            reglages:
+                nom: 'Réglages'
+                path: '#'
+                icon: 'fa-gear'
+                level2: 
+                    item1:
+                        nom: 'Formats de fichiers'
+                        path: '#'
+            item5:
+                role: 'ROLE_SUPER_ADMIN'
+                nom: 'Super Admin'
+                path: '#'
+                icon: 'fa-gear'
+                level2: 
+                    item1:
+                        nom: 'Utilisateurs'
+                        path: '#'
+                    item2:
+                        nom: 'Paramètres'
+                        path: '#'
+                    item3:
+                        nom: 'Réglages'
+                        path: '#'
+            item6:
+                environment: 'dev'
+                role: 'ROLE_SUPER_ADMIN'
+                nom: 'Test / Démo'
+                path: '#'
+                icon: 'fa-flask'
+                level2: 
+                    item1:
+                        nom: 'Home page'
+                        path: '#'
+                    item2:
+                        nom: 'test 1 InspiniaUltra'
+                        path: '#'
+                        params:
+                            skin: 'InspiniaUltra'
+                    item3:
+                        nom: 'test 1 Classic'
+                        path: '#'
+                        params:
+                            skin: 'Classic'
+                    item4:
+                        nom: 'Template test 2'
+                        path: '#'

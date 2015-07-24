@@ -58,7 +58,7 @@ class article extends baseL3EntityAttributs {
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\unite")
-	 * @ORM\JoinColumn(nullable=false, unique=false)
+	 * @ORM\JoinColumn(nullable=true, unique=false)
 	 */
 	protected $unite;
 
@@ -312,7 +312,7 @@ class article extends baseL3EntityAttributs {
 	 * @param unite $unite
 	 * @return article
 	 */
-	public function setUnite(unite $unite) {
+	public function setUnite(unite $unite = null) {
 		$this->unite = $unite;
 		return $this;
 	}
@@ -330,7 +330,7 @@ class article extends baseL3EntityAttributs {
 	 * @param valeur $valeur
 	 * @return article
 	 */
-	public function setValeur(valeur $valeur) {
+	public function setValeur(valeur $valeur = null) {
 		$this->valeur = $valeur;
 		return $this;
 	}

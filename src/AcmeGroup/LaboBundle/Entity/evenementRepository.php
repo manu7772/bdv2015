@@ -23,9 +23,8 @@ class evenementRepository extends baseLaboRepository {
 	 * @return mixed
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
-		// valeurs spécifiques
-		// $champ = 'slug';
-		return parent::defaultVal($defaults, $onlyOneObject, $champ);
+		// !!! Ne doit rien renvoyer, c'est juste une liste d'éléments !!!
+		return array();
 	}
 
 	/**

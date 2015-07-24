@@ -2,3 +2,15 @@
 acme_site_home:
     path: /
     defaults: { _controller: "AcmeGroupSiteBundle:Site:home" }
+
+
+
+
+acme_site_pageweb:
+    path: /page/{option}/{option2}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageweb", option2: null }
+
+# TESTS
+acme_site_test1:
+    path: /test-1/{nb}
+    defaults: { _controller: "AcmeGroupSiteBundle:Test:test1", nb: 4 }

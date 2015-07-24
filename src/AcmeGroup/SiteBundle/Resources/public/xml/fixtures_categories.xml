@@ -17,7 +17,7 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
  -->
 <categories>
 	<!-- MENU GAUCHE -->
-	<categorie nom="menu_01" cible="menu_01-v1" descriptif="Menu principal du site" page_pageweb__cible="homepage-v1" couleur="#FFFFFF" nommenu="menuOptions" version__cible="v1">
+	<categorie nom="menu_01" cible="menu_01-v1" descriptif="Menu principal du site" page_pageweb__cible="homepage-v1" couleur="#FFFFFF" nommenu="AcmeGroup\SiteBundle\Classes\menuOptions" version__cible="v1">
 		<item nom="Bœuf" cible="Bœuf-v1" descriptif="Bœuf" page_pageweb__cible="article-cat-v1" couleur="#a10415" version__cible="v1">
 			<item nom="Pièces du boucher" cible="Bœuf-Pièces du boucher-v1" descriptif="Pièces du boucher" page_pageweb__cible="article-sous-cat-v1" couleur="#696763" version__cible="v1"></item>
 			<item nom="À rôtir" cible="Bœuf-À rôtir-v1" descriptif="À rôtir" page_pageweb__cible="article-sous-cat-v1" couleur="#696763" version__cible="v1"></item>
@@ -56,7 +56,7 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 	</categorie>
 
 	<!-- MENU GAUCHE -->
-	<categorie nom="menu_01" cible="menu_01-v2" descriptif="Menu principal du site" page_pageweb__cible="homepage-v2" couleur="#FFFFFF" nommenu="menuOptions" version__cible="v2">
+	<categorie nom="menu_01" cible="menu_01-v2" descriptif="Menu principal du site" page_pageweb__cible="homepage-v2" couleur="#FFFFFF" nommenu="AcmeGroup\SiteBundle\Classes\menuOptions" version__cible="v2">
 		<item nom="Bœuf" cible="Bœuf-v2" descriptif="Bœuf" page_pageweb__cible="article-cat-v2" couleur="#a10415" version__cible="v2">
 			<item nom="Pièces du boucher" cible="Bœuf-Pièces du boucher-v2" descriptif="Pièces du boucher" page_pageweb__cible="article-sous-cat-v2" couleur="#696763" version__cible="v2"></item>
 			<item nom="À rôtir" cible="Bœuf-À rôtir-v2" descriptif="À rôtir" page_pageweb__cible="article-sous-cat-v2" couleur="#696763" version__cible="v2"></item>

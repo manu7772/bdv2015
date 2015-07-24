@@ -1,0 +1,52 @@
+root:
+    savoirplus: "Learn more"
+
+intro:
+    paragraphe1: "Is a web-application interface for document management sharing with mobile VEX-app."
+    paragraphe2: "Is the mobile application to connect to VEX-bko server and view the documents made available. Document sharing is upon entitlements to different users (by function, group, geographical location ...). The VEX-app application also allows sending documents by email, in connected or disconnected (the sending order is preserved to be sent to the server once a connection is available). Bookmarking documents is possible to allow them to consult even offline"
+
+traduction:
+    traduction: Translation
+    texte: Text
+    helper: Enter your text up to translate it below
+    request: Submit a text for translation…
+    traduire: Translate
+    original: Original text
+    traduit: Translated text
+
+dashTopMenu:
+    langues: Languages
+    bienvenue: Welcome on
+
+français:                       "french"
+anglais:                        "english"
+espagnol:                       "spanish"
+italien:                        "italian"
+russe:                          "russian"
+Américain:                      "US english"
+Site en:                        "View site in"
+Bonjour, comment ça va ?:       "Hello, how are you?"
+Quitter:                        "Exit"
+Site web:                       "Web site"
+Paramètres:                     "Parameters"
+Profil:                         "Profile"
+Connexion:                      "Login"
+Recherche:						"Search"
+
+# site public : homepage
+Consultation documentaire:      "Consult documents"
+Gestion documentaire:      		"Documents manager"
+Site web public:                "Public website"
+
+Acceuil: Home
+Utilisateurs: Users
+Utilisateurs: Users
+Groupes: Groups
+Documents: Documents
+Fichiers: Files
+Dossiers: Folders
+Tous: All
+Versions: Versions
+Tags: Tags
+Réglages: Configuration
+Formats de fichiers: Files types

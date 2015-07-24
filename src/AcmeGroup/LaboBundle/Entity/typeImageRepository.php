@@ -19,6 +19,7 @@ class typeImageRepository extends baseLaboRepository {
 
 	protected $imageTools;
 
+
 	/**
 	 * Renvoie la(les) valeur(s) par défaut
 	 * $onlyOneObject : si true, renvoie un seul objet en résultat, ou null - false, renvoie un tableau (vide si aucun)
@@ -30,8 +31,13 @@ class typeImageRepository extends baseLaboRepository {
 		// valeurs spécifiques
 		// $champ = 'slug';
 		$this->imageTools = new imageAetools();
-		if($defaults === null) $defaults = $this->imageTools->getDefaultFormats();
-		return parent::defaultVal($defaults, $onlyOneObject, $champ);
+		$getDefaultFormats = "getDefaultFormats";
+		if($defaults === null && method_exists($this->imageTools, $getDefaultFormats)) {
+			$defaults = $this->imageTools->$getDefaultFormats();
+			return parent::defaultVal($defaults, $onlyOneObject, $champ);
+		} else {
+			return array();
+		}
 	}
 
 	/**

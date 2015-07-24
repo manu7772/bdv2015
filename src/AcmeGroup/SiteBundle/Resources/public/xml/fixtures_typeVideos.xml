@@ -16,13 +16,13 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
+	<categorie nom="universel" cible="universel-v1" version__cible="v1" />
 	<categorie nom="tutoriel" cible="tutoriel-v1" version__cible="v1" />
 	<categorie nom="recette" cible="recette-v1" version__cible="v1" />
 	<categorie nom="visite" cible="visite-v1" version__cible="v1" />
-	<categorie nom="divers" cible="divers-v1" version__cible="v1" />
 
+	<categorie nom="universel" cible="universel-v2" version__cible="v2" />
 	<categorie nom="tutoriel" cible="tutoriel-v2" version__cible="v2" />
 	<categorie nom="recette" cible="recette-v2" version__cible="v2" />
 	<categorie nom="visite" cible="visite-v2" version__cible="v2" />
-	<categorie nom="divers" cible="divers-v2" version__cible="v2" />
 </categories>

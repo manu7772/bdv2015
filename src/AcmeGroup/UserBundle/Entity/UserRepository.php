@@ -16,17 +16,23 @@ use Doctrine\ORM\Mapping\ClassMetadata;
  */
 class UserRepository extends EntityRepository {
 
+	const ELEMENT = 'element';
+
 	protected $em;
-	protected $version = null;
-	protected $qb;
+	protected $versionSlug = null;
+	// valeurs possibles :
+	// null = version par défaut (defaultVersion = true)
+	// false = pas de test de version
+	// string = slug de la version à recherche
+
 
 	/** Renvoie la(les) valeur(s) par défaut --> ATTENTION : dans un array()
 	* @param $defaults = liste des éléments par défaut
 	*/
 	public function defaultVal($defaults = null) {
 		if($defaults === null) $defaults = array("sadmin");
-		$qb = $this->createQueryBuilder('s');
-		$qb->where($qb->expr()->in('s.username', $defaults));
+		$qb = $this->getQbWithDefaultVersion();
+		$qb->where($qb->expr()->in(self::ELEMENT.'.username', $defaults));
 		return $qb->getQuery()->getResult();
 	}
 
@@ -93,23 +99,23 @@ class UserRepository extends EntityRepository {
 		if($lignes > 100) $lignes = 100;
 		if($lignes < 10) $lignes = 10;
 		// Requête…
-		$qb = $this->createQueryBuilder('element');
+		$qb = $this->getQbWithDefaultVersion();
 		switch ($role) {
 			case 'tous-roles':
 				break;
 			case 'ROLE_USER':
-				$qb->where('element.roles LIKE :role')
+				$qb->where(self::ELEMENT.'.roles LIKE :role')
 					->setParameter('role', "a:0:{}");
 				break;
 			default:
-				$qb->where('element.roles LIKE :role')
+				$qb->where(self::ELEMENT.'.roles LIKE :role')
 					->setParameter('role', "%".serialize($role)."%");
 				break;
 		}
 		$qb = $this->rechercheStr($qb, $searchString, $searchField);
 		if(!in_array($ordre, $this->getFields())) $ordre = "id";
 		if(!in_array($sens, array('ASC', 'DESC'))) $sens = "ASC";
-		$qb->orderBy('element.'.$ordre, $sens);
+		$qb->orderBy(self::ELEMENT.'.'.$ordre, $sens);
 		// Pagination
 		$qb->setFirstResult(($page - 1) * $lignes)
 			->setMaxResults($lignes);
@@ -200,14 +206,42 @@ class UserRepository extends EntityRepository {
 	 * Récupère les utilisateurs habilités à accéder à l'interface d'admin (à partir de EDITOR)
 	 */
 	public function getEditorsAndMore() {
-		$this->qb = $this->createQueryBuilder('element');
-		$this->qb->where('element.roles LIKE :roleE')
+		$qb = $this->getQbWithDefaultVersion();
+		$this->qb->where(self::ELEMENT.'.roles LIKE :roleE')
 			->setParameter('roleE', "%".serialize('ROLE_EDITOR')."%");
-		$this->qb->orWhere('element.roles LIKE :roleA')
+		$this->qb->orWhere(self::ELEMENT.'.roles LIKE :roleA')
 			->setParameter('roleA', "%".serialize('ROLE_ADMIN')."%");
-		$this->qb->orWhere('element.roles LIKE :roleS')
+		$this->qb->orWhere(self::ELEMENT.'.roles LIKE :roleS')
 			->setParameter('roleS', "%".serialize('ROLE_SUPER_ADMIN')."%");
 		return $this->qb;
+	}
+
+	/**
+	 * Définit la version à utiliser pour les requêtes
+	 * @param string $versionSlug
+	 * @return QueryBuilder
+	 */
+	public function setVersion($versionSlug = null) {
+		$this->versionSlug = $versionSlug;
+	}
+
+	/**
+	 * filtre la version à utiliser par défaut dans le qb
+	 * @param QueryBuilder $qb
+	 * @return QueryBuilder
+	 */
+	protected function getQbWithDefaultVersion(QueryBuilder $qb = null) {
+		if(!($qb instanceOf QueryBuilder)) $qb = $this->createQueryBuilder(self::ELEMENT);
+		// if($this->versionSlug === false) return $qb;
+		if($this->versionSlug === null) {
+			$qb->where(self::ELEMENT.'.defaultVersion = :true')
+				->setParameter('true', 1);
+		}
+		if(is_string($this->versionSlug)) {
+			$qb->where(self::ELEMENT.'.slug = :version')
+				->setParameter('version', $this->versionSlug);
+		}
+		return $qb;
 	}
 
 }

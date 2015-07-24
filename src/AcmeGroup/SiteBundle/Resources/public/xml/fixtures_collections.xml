@@ -16,7 +16,13 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
 
  -->
 <categories>
-	<categorie nom="intro" cible="intro-v1" version__cible="v1" firstmedia_image__cible="1osso_boco-v1" media_image__cible="1osso_boco-v1|1presentation-v1|recommend1-v1|recommend3-v1" vitesse="3000" />
+	<categorie statut__cible="Actif-v1" nom="intro" cible="intro-v1" version__cible="v1" typeCollection__cible="image-v1" firstimage_image__cible="1osso_boco-v1" images_image__cible="1osso_boco-v1|1presentation-v1|recommend1-v1|recommend3-v1" vitesse="3000" />
+	<categorie statut__cible="Inactif-v1" nom="promotions"  cible="promotions-v1" version__cible="v1" typeCollection__cible="article-v1" articles_article__cible="Plat de côte-v1|Dessus de tranche-v1" vitesse="3000" />
+	<categorie statut__cible="Actif-v1" nom="pour vos fêtes" cible="pour vos fêtes-v1" version__cible="v1" typeCollection__cible="article-v1" articles_article__cible="Plat de côte-v1|test3-v1" vitesse="3000" />
+	<categorie statut__cible="Actif-v1" nom="idées recettes" cible="idées recettes-v1" version__cible="v1" typeCollection__cible="article-v1" articles_article__cible="Dessus de tranche-v1|test3-v1|barbaque-v1" vitesse="3000" />
 
-	<categorie nom="intro" cible="intro-v2" version__cible="v2" firstmedia_image__cible="1osso_boco-v2" media_image__cible="1osso_boco-v2|1presentation-v2|recommend1-v2|recommend3-v2" vitesse="5000" />
+	<categorie statut__cible="Actif-v2" nom="intro" cible="intro-v2" version__cible="v2" typeCollection__cible="image-v2" firstimage_image__cible="1osso_boco-v2" images_image__cible="1osso_boco-v2|1presentation-v2|recommend1-v2|recommend3-v2" vitesse="5000" />
+	<categorie statut__cible="Actif-v2" nom="promotions" cible="promotions-v2" version__cible="v2" typeCollection__cible="article-v2" articles_article__cible="Plat de côte-v2|Dessus de tranche-v2" vitesse="3000" />
+	<categorie statut__cible="Actif-v2" nom="pour vos fêtes" cible="pour vos fêtes-v2" version__cible="v2" typeCollection__cible="article-v2" articles_article__cible="Plat de côte-v2|barbaque-v2|test4-v2|test5-v2" vitesse="3000" />
+	<categorie statut__cible="Attente-v2" nom="idées recettes" cible="idées recettes-v2" version__cible="v2" typeCollection__cible="article-v2" articles_article__cible="Dessus de tranche-v2|test5-v2" vitesse="3000" />
 </categories>

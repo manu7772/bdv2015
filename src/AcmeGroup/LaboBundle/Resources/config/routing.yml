@@ -1,5 +1,11 @@
 labo_home:
     pattern:  /
-    defaults: { _controller: AcmeGroupLaboBundle:Labo:home }
+    defaults: { _controller: AcmeGroupLaboBundle:Labo:index }
 
+labo_commerce:
+    pattern:  /commerce
+    defaults: { _controller: AcmeGroupLaboBundle:Labo:commerce }
 
+labo_article_action:
+    pattern:  /commerce/article/{id}/{action}
+    defaults: { _controller: AcmeGroupLaboBundle:Labo:article, id: null, action: 'view' }

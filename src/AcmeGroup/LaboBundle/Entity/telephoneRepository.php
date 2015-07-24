@@ -23,19 +23,20 @@ class telephoneRepository extends baseLaboRepository {
 	 * @return mixed
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
-		// !!! Ne doit rien renvoyer, c'est juste une liste de numéros de téléphone !!!
+		// !!! Ne doit rien renvoyer, c'est juste une liste d'éléments !!!
 		return array();
 	}
 
 	/**
 	 * Renvoie la(les) valeur(s) selon le(s) ROLE(S) --> ATTENTION : retourne un queryBuilder
-	 * @param mixed $roles
+	 * @param mixed $roles - ROLES à prendre en compte
 	 * @param string $champ - 'nom' par défaut
 	 * @return queryBuilder
 	 */
 	public function defaultRoleClosure($roles = null, $champ = 'nom') {
-		// !!! Ne doit rien renvoyer, c'est juste une liste de numéros de téléphone !!!
-		return array();
+		// valeurs spécifiques
+		// $champ = 'slug';
+		return parent::defaultRoleClosure($roles, $champ);
 	}
 
 

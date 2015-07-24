@@ -1,5 +1,5 @@
 parameters:
-# acme_group_site.example.class: AcmeGroup\SiteBundle\Example
+    AcmeGroup_bundle.route:    AcmeGroup\services
 
 services:
 
@@ -7,5 +7,13 @@ services:
     ### OUTILS GÉNÉRIQUES
     ###################################
 
+    # Fonctionnalités pour articles
+    labobundle.article:
+        class: %AcmeGroup_bundle.route%\article
+        arguments: [@service_container]
 
+    # Fonctionnalités pour articles
+    labobundle.entities:
+        class: %AcmeGroup_bundle.route%\entities
+        arguments: [@service_container]
 

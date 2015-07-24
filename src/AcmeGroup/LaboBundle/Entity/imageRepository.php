@@ -23,7 +23,7 @@ class imageRepository extends baseLaboRepository {
 	 * @return mixed
 	 */
 	public function defaultVal($defaults = null, $onlyOneObject = false, $champ = 'nom') {
-		// aucune, c'est juste une liste d'images
+		// !!! Ne doit rien renvoyer, c'est juste une liste d'éléments !!!
 		return array();
 	}
 

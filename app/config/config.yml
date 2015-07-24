@@ -1,10 +1,15 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: twig_labo_config.yml}
 
 parameters:
-    formatDate:   dd-MM-yyyy
-    menu_slug:    menu_01
+    # dates/heures
+    formatDate:             "dd-MM-yyyy"
+    formatDateHeure:        "d-m-Y H:i:s"
+    formatDateTwig:         "d/m/Y"
+    timezone:               "Europe/Paris"
+    # webmaster
     webmaster:
         nom:     Dujardin
         prenom:  Emmanuel
@@ -12,11 +17,30 @@ parameters:
         mail:    emmanuel@aequation-webdesign.fr
         tel:     09 81 83 95 65
         gsm:     06 13 14 35 15
+    # maintenance
+    maintenance:            true #turn it to true to enable maintenance
+    maintenanceText:        "pendant quelques heures"
+    maintenanceUntil:       "2015-06-10T14:00:00Z"
+    # langues
+    multilingue:            false
+    default_locales:        "fr|en"
+    labo_locales:           "fr|en"
+    list_locales:
+        default:            %default_locales%
+        labo:               %labo_locales%
+    languename:
+        fr: "français"
+        en: "anglais"
+        en_US: "Américain"
+        es: "espagnol"
+        it: "italien"
+        ru: "russe"
 
 
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
+    default_locale:  "%locale%"
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -27,7 +51,6 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
     trusted_proxies: ~
     session:         ~
     fragments:       ~
@@ -35,12 +58,26 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:              %kernel.debug%
+    strict_variables:   %kernel.debug%
+    globals:
+        multilingue:        %multilingue%
+        languename:         %languename%
+        default_locales:    %default_locales%
+        labo_locales:       %labo_locales%
+        list_locales:       %list_locales%
+        formatDate:         %formatDate%
+        formatDateHeure:    %formatDateHeure%
+        formatDateTwig:     %formatDateTwig%
+        timezone:           %timezone%
     form:
         resources:
-            - 'LaboBundle:Form:fields.html.twig'
-            # - 'AcmeGroupLaboBundle:Form:fields.html.twig'
+            # - ':Form:form_div_layout.html.twig'
+            # - ':Form:form_table_layout.html.twig'
+            # - ':Form:bootstrap_3_horizontal_layout.html.twig'
+            # - ':Form:bootstrap_3_layout.html.twig'
+            - ':Form:performed_bootstrap_3_horizontal_layout.html.twig'
+            # - ':Form:performed_bootstrap_3_layout.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -137,20 +174,23 @@ stof_doctrine_extensions:
             tree:           true
 
 # labo Configuration
+# pour récupérer les paramètres de labo :
+# isset($this->labo_parameters['version_in_session']) ? $adds = $this->labo_parameters['version_in_session'] : $adds = array();
 labo:
-    default_menu_cible:
-        v1: { cible: menu_01-v1 }
-        v2: { cible: menu_01-v2 }
+    # default_menu_cible:
+    #     v1: { cible: menu_01-v1 }
+    #     v2: { cible: menu_01-v2 }
+    main_site_home:      acme_site_home # route pour racine du site public
     user_class:          AcmeGroup\UserBundle\Entity\User
+    labo_bundle:         AcmeGroupLaboBundle
     entity_listener:     true
     launch_service:
         activate:        true
         resources:
             services:
-                - { name: acmeGroup.aetools }
-                - { name: acmeGroup.entities }
-                - { name: acmeGroup.version }
-                - { name: acmeGroup.categorie }
+                - { name: labobundle.aetools }
+                - { name: labobundle.entities }
+                # - { name: labobundle.categorie }
     version_in_session:
         favicon:
         logo:

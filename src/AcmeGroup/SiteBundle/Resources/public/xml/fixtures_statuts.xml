@@ -17,14 +17,14 @@ noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|
  -->
 <categories>
 	<categorie nom="Actif" cible="Actif-v1" descriptif="Statut actif" version__cible="v1" />
-	<categorie nom="Inactif" cible="Inactif-v1" descriptif="Statut, inactif" version__cible="v1" />
+	<categorie nom="Inactif" cible="Inactif-v1" descriptif="Statut inactif" version__cible="v1" />
 	<categorie nom="Attente" cible="Attente-v1" descriptif="Statut en attente de validation" version__cible="v1" />
 	<categorie nom="Expiré" cible="Expiré-v1" descriptif="Statut expiré" version__cible="v1" />
 	<categorie nom="Test" cible="Test-v1" descriptif="Statut de test" version__cible="v1" />
 	<categorie nom="Banni" cible="Banni-v1" descriptif="Statut banni" version__cible="v1" />
 
 	<categorie nom="Actif" cible="Actif-v2" descriptif="Statut actif" version__cible="v2" />
-	<categorie nom="Inactif" cible="Inactif-v2" descriptif="Statut, inactif" version__cible="v2" />
+	<categorie nom="Inactif" cible="Inactif-v2" descriptif="Statut inactif" version__cible="v2" />
 	<categorie nom="Attente" cible="Attente-v2" descriptif="Statut en attente de validation" version__cible="v2" />
 	<categorie nom="Expiré" cible="Expiré-v2" descriptif="Statut expiré" version__cible="v2" />
 	<categorie nom="Test" cible="Test-v2" descriptif="Statut de test" version__cible="v2" />

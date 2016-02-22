@@ -1,6 +1,6 @@
 <?php
 
-namespace AcmeGroup\LaboBundle\Entity;
+namespace Acmegroup\LaboBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -8,39 +8,37 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 // Slug
 use Gedmo\Mapping\Annotation as Gedmo;
-use AcmeGroup\LaboBundle\Entity\baseType;
-
-use \Exception;
-use \DateTime;
+// Entities
+use laboBundle\Entity\entityright as baseentityright;
+use Acmegroup\LaboBundle\Entity\version;
 
 /**
- * typeVideo
+ * entityright
  *
  * @ORM\Entity
- * @ORM\Table(name="typeVideo")
- * @ORM\Entity(repositoryClass="AcmeGroup\LaboBundle\Entity\typeVideoRepository")
- * @UniqueEntity(fields={"nom", "version", "statut"}, message="Ce type de vidéo existe déjà")
+ * @ORM\Table(name="entityright")
+ * @ORM\Entity(repositoryClass="Acmegroup\LaboBundle\Entity\entityrightRepository")
+ * @UniqueEntity(fields={"nom", "version"}, message="Cette entityright existe déjà")
  */
-class typeVideo extends baseType {
+class entityright extends baseentityright {
 
-	const DEFAULT_READ_RIGHT = 'ALL';
-	const DEFAULT_WRITE_RIGHT = 'ROLE_ADMIN';
-	const DEFAULT_DELETE_RIGHT = 'ROLE_ADMIN';
+	/**
+	 * @var integer
+	 *
+	 * @ORM\ManyToOne(targetEntity="Acmegroup\LaboBundle\Entity\version")
+	 * @ORM\JoinColumn(nullable=false, unique=false)
+	 */
+	protected $version;
 
 	public function __construct() {
 		parent::__construct();
-		// attribution des droits
-		$this->thisread = self::DEFAULT_READ_RIGHT;
-		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
-		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
-
 	}
 
 // DEBUT --------------------- à inclure dans toutes les entités ------------------------
 
 	/**
 	 * Renvoie true si l'entité est valide
-	 * @Assert\True(message = "Ce type de vidéo n'est pas valide.")
+	 * @Assert\True(message = "Ce statut n'est pas valide.")
 	 * @return boolean
 	 */
 	public function isValid() {
@@ -70,6 +68,27 @@ class typeVideo extends baseType {
 	}
 
 // FIN --------------------- à inclure dans toutes les entités ------------------------
+
+	/**
+	 * Set version
+	 *
+	 * @param version $version
+	 * @return entityright
+	 */
+	public function setVersion(version $version) {
+		$this->version = $version;
+	
+		return $this;
+	}
+
+	/**
+	 * Get version
+	 *
+	 * @return version 
+	 */
+	public function getVersion() {
+		return $this->version;
+	}
 
 
 }

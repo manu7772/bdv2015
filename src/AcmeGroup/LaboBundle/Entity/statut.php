@@ -25,6 +25,10 @@ use \DateTime;
  */
 class statut extends baseL1Entity {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_SUPER_ADMIN';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_SUPER_ADMIN';
+
 	/**
 	 * @var array
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\version")
@@ -35,6 +39,11 @@ class statut extends baseL1Entity {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 	}
 
 // DEBUT --------------------- à inclure dans toutes les entités ------------------------

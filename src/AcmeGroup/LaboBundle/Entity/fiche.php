@@ -28,6 +28,10 @@ use \DateTime;
  */
 class fiche extends baseType {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_EDITOR';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_EDITOR';
+
 	/**
 	 * @var array
 	 * @ORM\ManyToMany(targetEntity="AcmeGroup\LaboBundle\Entity\image")
@@ -63,6 +67,11 @@ class fiche extends baseType {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 		$this->images = new ArrayCollection();
 		$this->articles = new ArrayCollection();
 		$this->typeFiches = new ArrayCollection();

@@ -1,9 +1,10 @@
+{% import 'laboBundle:macros:admin_links.html.twig' as labolinks %}
 <div class="header-middle"><!--header-middle-->
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4 col-sm-3 col-md-3 content-logo">
 				<div class="logo pull-left">
-					<a href="{{ path('acme_site_home') }}"><img src="{{ asset('images/original/' ~ version.logo.fichierNom) }}" alt="logo" /></a>
+					<a href="{{ path('acme_site_home') }}"><img src="{{ asset('images/original/' ~ version.imageEntete.fichierNom) }}" alt="logo" /></a>
 				</div>
 			</div>
 			<div class="col-xs-8 col-sm-9 col-md-9 padding-right">
@@ -19,9 +20,7 @@
 							<div class="shop-menu pull-right">
 								<ul class="nav navbar-nav">
 									{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-									{% if is_granted("ROLE_ADMIN") %}
-									<li><a href="{{ path('labo_home') }}" title="{{ 'root.admin'|trans({}, 'Site')|capitalize }}"><i class="fa fa-gear"></i></a></li>
-									{% endif %}
+									{{ labolinks.adminLink('labo_home', {}, '', 'li') }}
 									<li><a href="#"><i class="fa fa-shopping-cart fa-flip-horizontal"></i> {{ 'root.panier'|trans({}, 'Site')|capitalize }}</a></li>
 									<li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-user"></i> {{ app.user.username }}</a></li>
 									{% else %}

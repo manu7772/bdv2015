@@ -1,3 +1,4 @@
+{% import 'laboBundle:macros:admin_links.html.twig' as labolinks %}
 <section id="section-color">
 	<div id="category-nav-tab">
 		<div class="container">
@@ -13,6 +14,7 @@
 					<li data-target="#recommended-item-carousel" data-slide-to="2">
 						<a href="#">Idées recettes</a>
 					</li>
+					{{ labolinks.adminLink('labo_entity_action', {entityName: 'article'}, '', 'li') }}
 				</ul>
 			</div>
 			<!--/category-tab-->
@@ -46,7 +48,7 @@
 												</div>
 											</div>
 										</div>
-										<p class="tab-name-product">{{ article.nom }}</p>
+										<p class="tab-name-product">{{ article.nom }}{{ labolinks.adminLink('labo_entity_action', {entityName: 'article', id: article.id, action: 'show'}, '') }}</p>
 										<p class="tab-info-category">veau</p>
 										{% if article.cuissons|length > 0 %}
 										<img src="{{ asset('images/original/' ~ article.cuissons.0.image.fichierNom ) }}" class="info-triangle" alt="">

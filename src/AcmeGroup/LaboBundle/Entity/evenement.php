@@ -27,6 +27,10 @@ use \DateTime;
  */
 class evenement extends baseL2Entity {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_EDITOR';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_EDITOR';
+
 	/**
 	 * @var array
 	 * @ORM\ManyToOne(targetEntity="AcmeGroup\LaboBundle\Entity\image")
@@ -43,6 +47,11 @@ class evenement extends baseL2Entity {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 	}
 
 

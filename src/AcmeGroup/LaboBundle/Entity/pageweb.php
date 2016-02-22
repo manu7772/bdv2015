@@ -28,6 +28,10 @@ use \DateTime;
  */
 class pageweb extends baseL3EntityAttributs {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_ADMIN';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_ADMIN';
+
 	/**
 	 * @var string
 	 * @ORM\Column(name="code", type="text", nullable=true, unique=false)
@@ -103,6 +107,11 @@ class pageweb extends baseL3EntityAttributs {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 		$this->medias = new ArrayCollection();
 		$this->tags = new ArrayCollection();
 	}

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			{% set addr = version.adresses.first %}
-			<p class="pull-left">{{ 'root.copyright'|trans({}, 'Site')|capitalize }} © {{ annee() }} - {{ version.nom }}{% if addr is not null %} - {{ addr.adresse }} - {{ addr.cp }} {{ addr.ville }}{% endif %}</p>
+			<p class="pull-left">{{ 'root.copyright'|trans({}, 'Site')|capitalize }} © {{ annee() }} - {{ version.nom }}{% if addr is iterable %} - {{ addr.adresse }} - {{ addr.cp }} {{ addr.ville }}{% endif %}</p>
 			<p class="pull-right">{{ 'root.creation'|trans({}, 'Site')|capitalize }} Aequation-Webdesign.fr </p>
 		</div>
 	</div>

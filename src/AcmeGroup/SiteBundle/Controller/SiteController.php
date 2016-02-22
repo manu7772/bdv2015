@@ -30,7 +30,7 @@ class SiteController extends Controller {
 		$em = $this->getDoctrine()->getManager();
 		$repo = $em->getRepository("AcmeGroup\\LaboBundle\\Entity\\article");
 		$data['articles'] = $repo->findAll();
-		$data['articles'] = array();
+		// $data['articles'] = array();
 		$data['version'] = $this->get('labobundle.entities')->getCurrentVersion();
 		return $this->render('AcmeGroupSiteBundle:Site:homepage.html.twig', $data);
 	}

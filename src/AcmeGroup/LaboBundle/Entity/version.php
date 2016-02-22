@@ -26,6 +26,10 @@ use AcmeGroup\UserBundle\Entity\User;
  */
 class version extends baseVersion {
 
+	const DEFAULT_READ_RIGHT = 'ROLE_ADMIN';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_ADMIN';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_SUPER_ADMIN';
+
 	/**
 	 * @var array
 	 * @ORM\OneToMany(targetEntity="AcmeGroup\LaboBundle\Entity\reseausocial", mappedBy="propVersion", cascade={"all"})
@@ -91,6 +95,11 @@ class version extends baseVersion {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 		$this->reseausocials	= new ArrayCollection;
 		$this->telephones		= new ArrayCollection;
 		$this->emails			= new ArrayCollection;

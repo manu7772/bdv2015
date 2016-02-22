@@ -6,6 +6,8 @@ labo_commerce:
     pattern:  /commerce
     defaults: { _controller: AcmeGroupLaboBundle:Labo:commerce }
 
-labo_article_action:
-    pattern:  /commerce/article/{id}/{action}
-    defaults: { _controller: AcmeGroupLaboBundle:Labo:article, id: null, action: 'view' }
+labo_entity_action:
+    pattern:  /commerce/{entityName}/{id}/{action}
+    defaults: { _controller: AcmeGroupLaboBundle:Labo:entity, id: null, action: 'view' }
+
+

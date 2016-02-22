@@ -9,20 +9,22 @@ twig:
             png:        image
             default:    text
         default_icon: 'fa-caret-right'
-        menu_Admin_default_role: 'ROLE_ADMIN'
+        menu_Admin_default_role: 'ROLE_EDITOR'
         menu_Admin:
             home:
                 nom: 'root.homepage'
                 path: 'labo_home'
                 icon: 'fa-home'
             commerce:
+                role: 'ROLE_ADMIN'
                 nom: 'menu.commerce'
                 path: 'labo_commerce'
                 icon: 'fa-truck'
                 level2:
                     articles:
                         nom: 'menu.articles'
-                        path: 'labo_article_action'
+                        path: 'labo_entity_action'
+                        params: {entityName: 'article'}
                         icon: 'fa-shopping-cart'
                     commandes:
                         nom: 'menu.commandes'
@@ -32,6 +34,23 @@ twig:
                         nom: 'menu.categories'
                         path: '#'
                         icon: 'fa-th-list'
+            textes:
+                nom: 'menu.textes'
+                path: '#'
+                icon: 'fa-font'
+                level2: 
+                    pageweb:
+                        nom: 'menu.pageweb'
+                        path: '#'
+                        icon: 'fa-font'
+                    generaux:
+                        nom: 'menu.generaux'
+                        path: '#'
+                        icon: 'fa-font'
+                    legaux:
+                        nom: 'menu.legaux'
+                        path: '#'
+                        icon: 'fa-font'
             medias:
                 nom: 'menu.medias'
                 path: '#'

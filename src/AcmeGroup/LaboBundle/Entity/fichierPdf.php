@@ -30,6 +30,10 @@ use \DateTime;
  */
 class fichierPdf extends baseEntityPdf {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_EDITOR';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_EDITOR';
+
 	/**
 	 * @var url
 	 * @ORM\Column(name="url", type="text", nullable=true, unique=false)
@@ -46,6 +50,11 @@ class fichierPdf extends baseEntityPdf {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 		$this->articles = new ArrayCollection();
 		$this->typefichierPdfs = new ArrayCollection();
 	}

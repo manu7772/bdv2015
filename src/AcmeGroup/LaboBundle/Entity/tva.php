@@ -23,6 +23,10 @@ use \DateTime;
  */
 class tva extends baseType {
 
+	const DEFAULT_READ_RIGHT = 'ALL';
+	const DEFAULT_WRITE_RIGHT = 'ROLE_ADMIN';
+	const DEFAULT_DELETE_RIGHT = 'ROLE_ADMIN';
+
 	protected $nomlong;
 
 	/**
@@ -49,6 +53,11 @@ class tva extends baseType {
 
 	public function __construct() {
 		parent::__construct();
+		// attribution des droits
+		$this->thisread = self::DEFAULT_READ_RIGHT;
+		$this->thiswrite = self::DEFAULT_WRITE_RIGHT;
+		$this->thisdelete = self::DEFAULT_DELETE_RIGHT;
+
 		$this->nouveauTaux = null;
 		$this->dateNouveauTaux = null;
 	}
